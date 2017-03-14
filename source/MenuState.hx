@@ -15,6 +15,7 @@ class MenuState extends FlxState
 	{
 		_btnPlay = new FlxButton(0, 0, "Play", clickPlay);
 		add(_btnPlay);
+		_btnPlay.screenCenter();
 		
 		super.create();
 	}
@@ -26,6 +27,6 @@ class MenuState extends FlxState
 	
 	private function clickPlay():Void
 	{
-		FlxG.switchState(new Playstate());
-	{
+		FlxG.switchState(new PlayState());
+	}
 }
