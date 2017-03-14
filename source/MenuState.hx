@@ -9,8 +9,13 @@ import flixel.math.FlxMath;
 
 class MenuState extends FlxState
 {
+	private var _btnPlay:FlxButton;
+	
 	override public function create():Void
 	{
+		_btnPlay = new FlxButton(0, 0, "Play", clickPlay);
+		add(_btnPlay);
+		
 		super.create();
 	}
 
@@ -18,4 +23,9 @@ class MenuState extends FlxState
 	{
 		super.update(elapsed);
 	}
+	
+	private function clickPlay():Void
+	{
+		FlxG.switchState(new Playstate());
+	{
 }
