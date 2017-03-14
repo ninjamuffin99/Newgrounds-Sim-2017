@@ -18,6 +18,10 @@ class Stats
 	public var h:Int;
 	public var m:Int;
 	
+	public var _name:String;
+	public var _username:String;
+	public var _forumPosts:Int;
+	
 	public function new() 
 	{
 		
