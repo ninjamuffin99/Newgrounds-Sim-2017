@@ -6,12 +6,16 @@ package;
 
 import flixel.system.FlxBasePreloader;
 import flash.display.*;
-import flash.text.*
+import flash.text.*;
 import flash.Lib;
+import lime.audio.FlashAudioContext;
 import openfl.display.Sprite;
 import flash.text.Font;
 import flash.text.TextField;
 import flash.text.TextFormat;
+
+import com.newgrounds.*;
+import com.newgrounds.components.*;
 
 /**
  * ...
@@ -32,7 +36,7 @@ class Preloader extends FlxBasePreloader
 	var text:TextField;
 	
 	override function create():Void 
-	{
+	{	
 		this._width = Lib.current.stage.stageWidth;
 		this._height = Lib.current.stage.stageHeight;
 		
@@ -45,6 +49,7 @@ class Preloader extends FlxBasePreloader
 		logo.y = (this._height / 2) - ((logo.height) / 2);
 		addChild(logo);
 		
+		/*
 		Font.registerFont(CustomFont);
 		text = new TextField();
 		text.defaultTextFormat = new TextFormat("Open Sans Condensed Light", Std.int(24 * ratio), 0xffffff);
@@ -57,13 +62,27 @@ class Preloader extends FlxBasePreloader
 		text.height = Std.int(32 * ratio);
 		text.text = "Loading";
 		addChild(text);
+		*/
+		
+		API.connect(root, "API ID goes here", "encryptionKeyGoesHere");
+		
+		if (API.isNewgrounds)
+		{
+			var ad:FlashAd = new FlashAd();
+			ad.x = (_width / 2) - (ad.width/2);
+			ad.y = (_width / 2.5) - (ad.height/2);
+			addChild(ad);
+			minDisplayTime = 8;
+		}
 		
 		super.create();
 	}
 	
+	/*
 	override function update(Percent:Float):Void
 	{
 		text.text = "Loading " + Std.int(Percent * 100) + "%";
 		super.update(Percent);
 	}
+	*/
 }
