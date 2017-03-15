@@ -1,3 +1,7 @@
+//SHOUTOUTS TO GAMEPOPPER FOR THE BALLIN TUTORIAL
+//https://gamepopper.co.uk/2014/08/26/haxeflixel-making-a-custom-preloader/
+
+
 package;
 
 import flixel.system.FlxBasePreloader;
