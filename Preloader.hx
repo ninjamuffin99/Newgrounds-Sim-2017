@@ -6,6 +6,7 @@ package;
 
 import flixel.system.FlxBasePreloader;
 import flash.display.*;
+import flash.text.*
 import flash.Lib;
 import openfl.display.Sprite;
 import flash.text.Font;
@@ -60,4 +61,9 @@ class Preloader extends FlxBasePreloader
 		super.create();
 	}
 	
+	override function update(Percent:Float):Void
+	{
+		text.text = "Loading " + Std.int(Percent * 100) + "%";
+		super.update(Percent);
+	}
 }
