@@ -18,7 +18,7 @@ class ApplicationMain {
 		var app = new openfl.display.Application ();
 		app.create (config);
 		
-		var display = new flixel.system.FlxPreloader ();
+		var display = new Preloader ();
 		
 		preloader = new openfl.display.Preloader (display);
 		app.setPreloader (preloader);
@@ -34,8 +34,16 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("Open Sans Cond Light");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/images/lenny.png");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
@@ -135,7 +143,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "21",
+			build: "49",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,

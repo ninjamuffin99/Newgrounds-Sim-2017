@@ -43,6 +43,5 @@ class PCState extends FlxState
 	private function updateText():Void
 	{
 		_animationSkillText.text = "Animation Skill:" + Std.string(Stats._animationSkill);
-		
 	}
 }
