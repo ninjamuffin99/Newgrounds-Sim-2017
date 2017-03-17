@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import source.Stats;
@@ -13,7 +14,11 @@ import source.Stats;
 class PCState extends FlxState 
 {
 	private var _btnAnimate:FlxButton;
+	private var _btnForum:FlxButton;
+	
 	private var Stats:Stats;
+	
+	private var forumSubState:ForumSubState;
 	
 	private var _animationSkillText:FlxText;
 	
@@ -21,6 +26,12 @@ class PCState extends FlxState
 	{
 		_btnAnimate = new FlxButton(20, 22, "Animate", clickAnimate);
 		add(_btnAnimate);
+		
+		_btnForum = new FlxButton(30, 40, "Shitpost", clickForum);
+		add(_btnForum);
+		
+		forumSubState = new ForumSubState(0x99808080);
+		
 		
 		_animationSkillText = new FlxText(10, 20, 0, "Animation Skill:" + Stats._animationSkill, 20);
 		add(_animationSkillText);
@@ -43,5 +54,10 @@ class PCState extends FlxState
 	private function updateText():Void
 	{
 		_animationSkillText.text = "Animation Skill:" + Std.string(Stats._animationSkill);
+	}
+	
+	private function clickForum():Void
+	{
+		openSubState(ForumSubState);
 	}
 }
