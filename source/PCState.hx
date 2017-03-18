@@ -18,8 +18,6 @@ class PCState extends FlxState
 	
 	private var Stats:Stats;
 	
-	private var forumSubState:ForumSubState;
-	
 	private var _animationSkillText:FlxText;
 	
 	override public function create():Void 
@@ -29,9 +27,6 @@ class PCState extends FlxState
 		
 		_btnForum = new FlxButton(30, 40, "Shitpost", clickForum);
 		add(_btnForum);
-		
-		forumSubState = new ForumSubState(0x99808080);
-		
 		
 		_animationSkillText = new FlxText(10, 20, 0, "Animation Skill:" + Stats._animationSkill, 20);
 		add(_animationSkillText);
@@ -58,6 +53,9 @@ class PCState extends FlxState
 	
 	private function clickForum():Void
 	{
-		openSubState(ForumSubState);
+		var forumSubState:SubState = new SubState();
+		forumSubState.persistentDraw = false;
+		forumSubState.persistentUpdate = false;
+		openSubState(forumSubState);
 	}
 }

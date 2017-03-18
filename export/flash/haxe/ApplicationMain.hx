@@ -30,12 +30,20 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("Arial Bold");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("assets/data/data-goes-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
 		urls.push ("Open Sans Cond Light");
 		types.push (lime.Assets.AssetType.FONT);
+		
+		
+		urls.push ("assets/images/BBS.PNG");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/images-go-here.txt");
@@ -143,7 +151,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "56",
+			build: "82",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
@@ -161,13 +169,13 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 480,
+					height: 720,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
 					title: "NGSimtest",
 					vsync: true,
-					width: 640,
+					width: 1280,
 					x: null,
 					y: null
 				},
@@ -185,7 +193,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 480, "000000");
+		openfl.Lib.embed (null, 1280, 720, "000000");
 		#end
 		#else
 		create ();
