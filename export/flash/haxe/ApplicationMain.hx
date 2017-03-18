@@ -46,6 +46,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/BBSblurred.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -151,7 +155,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "82",
+			build: "109",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
