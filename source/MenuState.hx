@@ -6,10 +6,13 @@ import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
+import com.newgrounds.*;
 
 class MenuState extends FlxState
 {
 	private var _btnPlay:FlxButton;
+	
+	private var savegroup:SaveGroup;
 	
 	override public function create():Void
 	{
@@ -27,6 +30,9 @@ class MenuState extends FlxState
 	
 	private function clickPlay():Void
 	{
+		API.createSaveFile("CloudSave");
+		Logger.logMessage("TEST MESSAGE");
+		FlxG.log.add("thing");
 		FlxG.switchState(new PlayState());
 	}
 }
