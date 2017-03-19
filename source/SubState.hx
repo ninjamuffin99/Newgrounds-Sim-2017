@@ -6,6 +6,7 @@ import flixel.FlxSubState;
 import flixel.addons.text.FlxTypeText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
+import source.Stats;
 
 /**
  * ...
@@ -100,6 +101,8 @@ class SubState extends FlxSubState
 		_title.showCursor = false;
 		_post.showCursor = true;
 		_post.start(0.025, false, false, ["SPACE"]);
+		Stats._forumPosts += FlxG.random.int(1, 3);
+		FlxG.log.add("Forum Posts = " + Stats._forumPosts);
 	}
 	
 	private function clickClose():Void

@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -13,7 +14,7 @@ class PlayState extends FlxState
 {
 	private var _btnPC:FlxButton;
 	private var _btnSleep:FlxButton;
-	private var Stats:Stats;
+	private var _btnWork:FlxButton;
 	
 	override public function create():Void
 	{
@@ -22,6 +23,9 @@ class PlayState extends FlxState
 		
 		_btnSleep = new FlxButton(20, 20, "Go to sleep", clickSleep);
 		add(_btnSleep);
+		
+		_btnWork = new FlxButton(20, 40, "Work", clickWork);
+		add(_btnWork);
 		
 		super.create();
 	}
@@ -39,5 +43,11 @@ class PlayState extends FlxState
 	private function clickSleep():Void
 	{
 		
+	}
+	
+	private function clickWork():Void
+	{
+		Stats._cash += 8;
+		FlxG.log.add("Cash = " + Stats._cash);
 	}
 }

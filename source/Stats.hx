@@ -19,11 +19,11 @@ class Stats
 	public var h:Int;
 	public var m:Int;
 	
-	public var _name:String;
-	public var _username:String;
-	public var _forumPosts:Int;
+	public static var _name:String = "Cameron";
+	public static var _username:String = "ninjamuffin99";
+	public static var _forumPosts:Int = 0;
 	
-	public var _cash:Int;
+	public static var _cash:Int = 0;
 	
 	public var _flashSkill:Float;
 	public var _photoshopSkill:Float;
