@@ -18,11 +18,14 @@ class PCState extends FlxState
 	
 	private var _animationSkillText:FlxText;
 	
-	private var _statsSubState:SubState = new StatsSubState();
+	private var _statsSubState:StatsSubState;
+	
 	
 	override public function create():Void 
 	{
 		createButtons();
+
+		_statsSubState = new StatsSubState();
 		
 		_animationSkillText = new FlxText(40, 60, 0, "Animation Skill:" + Stats._animationSkill, 20);
 		add(_animationSkillText);
