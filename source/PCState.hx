@@ -16,7 +16,6 @@ class PCState extends FlxState
 	private var _btnAnimate:FlxButton;
 	private var _btnForum:FlxButton;
 	
-	private var Stats:Stats;
 	
 	private var _animationSkillText:FlxText;
 	
@@ -28,8 +27,8 @@ class PCState extends FlxState
 		_btnForum = new FlxButton(30, 40, "Shitpost", clickForum);
 		add(_btnForum);
 		
-		_animationSkillText = new FlxText(10, 20, 0, "Animation Skill:" + Stats._animationSkill, 20);
-		add(_animationSkillText);
+		//_animationSkillText = new FlxText(10, 20, 0, "Animation Skill:" + Stats._animationSkill, 20);
+		//add(_animationSkillText);
 		
 		super.create();
 	}
@@ -48,7 +47,7 @@ class PCState extends FlxState
 	
 	private function updateText():Void
 	{
-		_animationSkillText.text = "Animation Skill:" + Std.string(Stats._animationSkill);
+		//_animationSkillText.text = "Animation Skill:" + Std.string(Stats._animationSkill);
 	}
 	
 	private function clickForum():Void

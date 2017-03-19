@@ -56,7 +56,7 @@ class SubState extends FlxSubState
 	{
 		var btnX:Int = 600;
 		
-		_btnShitpost = new FlxButton(btnX, 250, "Shitpost on the forums", clickShitpost);
+		_btnShitpost = new FlxButton(btnX, 250, "Shitpost on the BBS", clickShitpost);
 		_btnShitpost.scale.y = _btnShitpost.scale.x = 2.5;
 		_btnShitpost.label.scale.x = _btnShitpost.label.scale.y = 1.5;
 		add(_btnShitpost);

@@ -6,12 +6,12 @@ package source;
  */
 class Stats 
 {
-	public var _animationSkill:Float = 3;
-	public var _artSkill:Float;
-	public var _musicSkill:Float;
-	public var _programSkill:Float;
-	public var _voiceSkill:Float;
-	public var _sleep:Float;
+	public static var _animationSkill:Float = 3;
+	public static var _artSkill:Float;
+	public static var _musicSkill:Float;
+	public static var _programSkill:Float;
+	public static var _voiceSkill:Float;
+	public static var _sleep:Float;
 	
 	public var yyyy:Int;
 	public var mm:Int;
