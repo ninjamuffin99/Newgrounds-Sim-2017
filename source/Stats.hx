@@ -16,7 +16,9 @@ class Stats
 	public static var yyyy:Int;
 	public static var mm:Int;
 	public static var dd:Int;
-	public static var h:Int;
+	public static var PM:Bool;
+	public static var AMPM:String = "AM";
+	public static var h:Int = 8;
 	public static var m:Int;
 	
 	public static var _name:String = "Cameron";
@@ -30,6 +32,8 @@ class Stats
 	
 	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill;
 	//add in more programs later such as unity or other art programs liek krita
+	
+	public static var _artProgress:Float = 0;
 	
 	public function new() 
 	{

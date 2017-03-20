@@ -15,6 +15,7 @@ class PlayState extends FlxState
 	private var _btnPC:FlxButton;
 	private var _btnSleep:FlxButton;
 	private var _btnWork:FlxButton;
+	private var _btnDraw:FlxButton;
 	
 	override public function create():Void
 	{
@@ -26,6 +27,9 @@ class PlayState extends FlxState
 		
 		_btnWork = new FlxButton(20, 40, "Work", clickWork);
 		add(_btnWork);
+		
+		_btnDraw = new FlxButton(20, 60, "Draw", clickDraw);
+		add(_btnDraw);
 		
 		super.create();
 	}
@@ -49,5 +53,11 @@ class PlayState extends FlxState
 	{
 		Stats._cash += 8;
 		FlxG.log.add("Cash = " + Stats._cash);
+	}
+	
+	private function clickDraw():Void
+	{
+		Stats._artSkill += 1;
+		FlxG.log.add("Art Skill = " + Stats._artSkill);
 	}
 }

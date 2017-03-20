@@ -16,17 +16,22 @@ class PCState extends FlxState
 	private var _btnAnimate:FlxButton;
 	private var _btnDraw:FlxButton;
 	private var _btnForum:FlxButton;
+	private var _btnBack:FlxButton;
 	
 	private var _animationSkillText:FlxText;
 	private var _artSkillText:FlxText;
 	private var _flashSkillText:FlxText;
 	private var _animationQualityText:FlxText;
+	private var _artProgressText:FlxText;
 	
 	private var _statsSubState:StatsSubState;
-	
+	private var _hud:HUD;
 	
 	override public function create():Void 
 	{
+		_hud = new HUD();
+		add(_hud);
+		
 		createButtons();
 		createText();
 		
@@ -43,6 +48,13 @@ class PCState extends FlxState
 			openSubState(_statsSubState);
 		}
 		
+		if (Stats._artProgress >= 100)
+		{
+			Stats._artProgress = 0;
+			Stats._artSkill += 10;
+			updateText();
+		}
+		
 		super.update(elapsed);
 	}
 	
@@ -56,6 +68,9 @@ class PCState extends FlxState
 		
 		_btnDraw = new FlxButton(30, 60, "Draw", clickDraw);
 		add(_btnDraw);
+		
+		_btnBack = new FlxButton(30, 500, "Back", clickBack);
+		add(_btnBack);
 	}
 	
 	private function createText():Void
@@ -74,13 +89,16 @@ class PCState extends FlxState
 		
 		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, 15);
 		add(_flashSkillText);
+		
+		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", 15);
+		add(_artProgressText);
 	}
 	
 	private function clickAnimate():Void
 	{
 		Stats._animationSkill += 1;
 		Stats._artSkill += 0.5;
-		Stats._flashSkill += 1;
+		Stats._flashSkill += 0.5;
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
 		updateText();
 	}
@@ -91,6 +109,7 @@ class PCState extends FlxState
 		_artSkillText.text = "Art Skill: " + Stats._artSkill;
 		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
 		_flashSkillText.text = "Flash Skill: " + Stats._flashSkill;
+		_artProgressText.text = "Artwork Progress: " + Stats._artProgress + "%";
 	}
 	
 	private function clickForum():Void
@@ -104,7 +123,15 @@ class PCState extends FlxState
 	private function clickDraw():Void
 	{
 		Stats._artSkill += 1;
+		Stats._artProgress += 20;
+		Stats.h += 1;
 		FlxG.log.add("Art skill = " + Stats._artSkill);
+		_hud.updateHUD();
 		updateText();
+	}
+	
+	private function clickBack():Void
+	{
+		FlxG.switchState(new PlayState());
 	}
 }
