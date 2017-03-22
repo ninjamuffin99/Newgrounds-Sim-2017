@@ -11,6 +11,7 @@ class Stats
 	public static var _musicSkill:Float;
 	public static var _programSkill:Float;
 	public static var _voiceSkill:Float;
+	public static var _writingSkill:Float; //will use for quality of jokes in animations as well as forum stuff maybe
 	public static var _sleep:Float;
 	
 	public static var yyyy:Int;
@@ -27,8 +28,24 @@ class Stats
 	
 	public static var _cash:Int = 0;
 	
+	public static var _artVectorSkill:Float;
+	public static var _artPixelSkill:Float;
+	
+	
 	public static var _flashSkill:Float = 1;
+	public static var _toonBoomSkill:Float;
+	public static var _openToonzSkill:Float;
 	public static var _photoshopSkill:Float;
+	public static var _mspaintSkill:Float;
+	public static var _flSkill:Float;
+	public static var _blenderSkill:Float;
+	public static var _mayaSkill:Float;
+	public static var _unitySkill:Float;
+	public static var _stencylSkill:Float;
+	public static var _gamemakerSkill:Float;
+	public static var _constructSkill:Float;
+	public static var _kritaSkill:Float;
+	public static var _gimpSkill:Float;
 	
 	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill;
 	//add in more programs later such as unity or other art programs liek krita
