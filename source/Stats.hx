@@ -47,10 +47,17 @@ class Stats
 	public static var _kritaSkill:Float;
 	public static var _gimpSkill:Float;
 	
-	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill;
+	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill; // change this to program of choice possibly have it change dependign on which program you're using
+	public static var _artQuality:Float;
+	public static var _gameQuality:Float;
+	public static var _songQuality:Float;
+	
 	//add in more programs later such as unity or other art programs liek krita
 	
 	public static var _artProgress:Float = 0;
+	public static var _animationProgress:Float = 0;
+	public static var _gameProgress:Float = 0;
+	public static var _songProgress:Float = 0;
 	
 	public function new() 
 	{
