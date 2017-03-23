@@ -31,6 +31,9 @@ class Stats
 	public static var _artVectorSkill:Float;
 	public static var _artPixelSkill:Float;
 	
+	public static var _animationVectorSkill:Float;
+	public static var _animationPixelSkill:Float;
+	
 	
 	public static var _flashSkill:Float = 1;
 	public static var _toonBoomSkill:Float;
