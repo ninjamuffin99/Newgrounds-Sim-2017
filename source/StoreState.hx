@@ -34,12 +34,7 @@ class StoreState extends FlxState
 	private function buyFlash():Void
 	{
 		Stats._hasFlash = true;
-		FlxG.log.add(_hasFlash);
-	}
-	
-	public function new() 
-	{
-		
+		FlxG.log.add(Stats._hasFlash);
 	}
 	
 }

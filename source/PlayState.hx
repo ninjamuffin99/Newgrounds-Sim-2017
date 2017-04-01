@@ -16,6 +16,7 @@ class PlayState extends FlxState
 	private var _btnSleep:FlxButton;
 	private var _btnWork:FlxButton;
 	private var _btnDraw:FlxButton;
+	private var _btnStore:FlxButton;
 	
 	private var _hud:HUD;
 	
@@ -35,6 +36,9 @@ class PlayState extends FlxState
 		
 		_btnDraw = new FlxButton(20, 60, "Draw", clickDraw);
 		add(_btnDraw);
+		
+		_btnStore = new FlxButton(20, 85, "Store", clickStore);
+		add(_btnStore);
 		
 		super.create();
 	}
@@ -65,5 +69,10 @@ class PlayState extends FlxState
 	{
 		Stats._artSkill += 1;
 		FlxG.log.add("Art Skill = " + Stats._artSkill);
+	}
+	
+	private function clickStore():Void
+	{
+		FlxG.switchState(new StoreState());
 	}
 }
