@@ -25,6 +25,9 @@ class PCState extends FlxState
 	private var _animationQualityText:FlxText;
 	private var _artProgressText:FlxText;
 	
+	private var _animationUsingText:FlxText;
+	private var _artUsingText:FlxText;
+	
 	private var _statsSubState:StatsSubState;
 	private var _hud:HUD;
 	
@@ -62,15 +65,25 @@ class PCState extends FlxState
 	
 	private function createDropDowns():Void
 	{
+		var dropdownX:Int = 155;
+		
 		var _animationPrograms:Array<String> = 
 				["Flash CS6", "Animate CC", "OpenToonz", "ToonBoom Harmony"];
 				
-		var _animationDropDown = new FlxUIDropDownMenu(110, 22, FlxUIDropDownMenu.makeStrIdLabelArray(_animationPrograms, true));
+		var _animationDropDown = new FlxUIDropDownMenu(dropdownX, 22, FlxUIDropDownMenu.makeStrIdLabelArray(_animationPrograms, true));
 		
 		var _artPrograms:Array<String> =
 				["MS Paint", "Flash MX 2004", "Krita", "Photoshop CC", "Aseprite", "Gimp"];
 		
-		var _artDropDown = new FlxUIDropDownMenu(110, 60, FlxUIDropDownMenu.makeStrIdLabelArray(_artPrograms, true));
+		var _artDropDown = new FlxUIDropDownMenu(dropdownX, 60, FlxUIDropDownMenu.makeStrIdLabelArray(_artPrograms, true));
+		
+		_animationUsingText = new FlxText(dropdownX - 40, 22, 0, "Using:", 10);
+		_artUsingText = new FlxText(dropdownX - 40, 64, 0, "Using:", 10);
+		
+		
+		add(_animationUsingText);
+		add(_artUsingText);
+		
 		
 		add(_artDropDown);
 		add(_animationDropDown);
@@ -100,18 +113,15 @@ class PCState extends FlxState
 		var textSize:Int = 15;
 		
 		_animationSkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill, textSize);
-		add(_animationSkillText);
-		
 		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
-		add(_artSkillText);
-		
 		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
-		add(_animationQualityText);
-		
 		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
-		add(_flashSkillText);
-		
 		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", textSize);
+		
+		add(_animationSkillText);
+		add(_artSkillText);
+		add(_animationQualityText);
+		add(_flashSkillText);
 		add(_artProgressText);
 	}
 	

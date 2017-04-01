@@ -19,6 +19,8 @@ class PlayState extends FlxState
 	private var _btnStore:FlxButton;
 	
 	private var _hud:HUD;
+	private var _statsHUD:StatsHUD;
+	
 	
 	override public function create():Void
 	{
@@ -26,6 +28,9 @@ class PlayState extends FlxState
 		
 		_hud = new HUD();
 		add(_hud);
+		
+		_statsHUD = new StatsHUD();
+		add(_statsHUD);
 		
 		super.create();
 	}
@@ -52,6 +57,8 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+		
+		
 	}
 	
 	private function clickPC():Void
