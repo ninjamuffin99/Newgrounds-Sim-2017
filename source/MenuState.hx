@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.ui.FlxButtonPlus;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
@@ -10,14 +11,16 @@ import com.newgrounds.*;
 
 class MenuState extends FlxState
 {
-	private var _btnPlay:FlxButton;
+	private var _btnPlay:FlxButtonPlus;
 	
 	private var savegroup:SaveGroup;
 	
 	override public function create():Void
 	{
-		_btnPlay = new FlxButton(0, 0, "Play", clickPlay);
+		_btnPlay = new FlxButtonPlus(0, 0,  clickPlay, "Play", 150, 40);
 		add(_btnPlay);
+		
+		
 		_btnPlay.screenCenter();
 		
 		super.create();

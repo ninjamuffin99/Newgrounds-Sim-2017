@@ -32,19 +32,20 @@ class PlayState extends FlxState
 	
 	private function createButtons():Void
 	{
-		_btnPC = new FlxButton(0, 0, "Log on", clickPC);
+		var btnY:Int = 16;
+		_btnPC = new FlxButton(0, btnY, "Log on", clickPC);
 		add(_btnPC);
 		
-		_btnSleep = new FlxButton(20, 20, "Go to sleep", clickSleep);
+		_btnSleep = new FlxButton(20, btnY + 20, "Go to sleep", clickSleep);
 		add(_btnSleep);
 		
-		_btnWork = new FlxButton(20, 40, "Work", clickWork);
+		_btnWork = new FlxButton(20, btnY + 40, "Work", clickWork);
 		add(_btnWork);
 		
-		_btnDraw = new FlxButton(20, 60, "Draw", clickDraw);
+		_btnDraw = new FlxButton(20, btnY + 60, "Draw", clickDraw);
 		add(_btnDraw);
 		
-		_btnStore = new FlxButton(20, 85, "Store", clickStore);
+		_btnStore = new FlxButton(20, btnY + 85, "Store", clickStore);
 		add(_btnStore);
 	}
 	

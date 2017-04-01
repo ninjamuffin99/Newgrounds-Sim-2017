@@ -28,6 +28,21 @@ package;
     {
         super();
 		
+		var barcolor:FlxColor;
+		
+		barcolor = new FlxColor();
+		barcolor.setRGB(235, 117, 34);
+		
+		var _orangebar:FlxSprite;
+		_orangebar = new FlxSprite();
+		_orangebar.makeGraphic(FlxG.width, 15, barcolor);
+		add(_orangebar);
+		
+		var _whiteLine:FlxSprite;
+		_whiteLine = new FlxSprite(0, 15);
+		_whiteLine.makeGraphic(FlxG.width, 1, FlxColor.WHITE);
+		add(_whiteLine);
+		
 		createText();
 		
 		/*
