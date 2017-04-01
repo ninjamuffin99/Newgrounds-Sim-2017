@@ -22,9 +22,16 @@ class PlayState extends FlxState
 	
 	override public function create():Void
 	{
+		createButtons();
+		
 		_hud = new HUD();
 		add(_hud);
 		
+		super.create();
+	}
+	
+	private function createButtons():Void
+	{
 		_btnPC = new FlxButton(0, 0, "Log on", clickPC);
 		add(_btnPC);
 		
@@ -39,10 +46,8 @@ class PlayState extends FlxState
 		
 		_btnStore = new FlxButton(20, 85, "Store", clickStore);
 		add(_btnStore);
-		
-		super.create();
 	}
-
+	
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
@@ -55,7 +60,9 @@ class PlayState extends FlxState
 	
 	private function clickSleep():Void
 	{
-		
+		Stats.h += 8;
+		Stats._stamina += 100;
+		_hud.updateHUD();
 	}
 	
 	private function clickWork():Void
