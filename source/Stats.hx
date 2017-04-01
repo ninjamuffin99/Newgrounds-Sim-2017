@@ -52,6 +52,7 @@ class Stats
 	public static var _constructSkill:Float;
 	public static var _kritaSkill:Float;
 	public static var _gimpSkill:Float;
+	public static var _asepriteSkill:Float;
 	
 	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill; // change this to program of choice possibly have it change dependign on which program you're using
 	public static var _artQuality:Float;

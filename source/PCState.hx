@@ -5,6 +5,7 @@ import flixel.FlxState;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
+import flixel.addons.ui.FlxUIDropDownMenu;
 import source.Stats;
 
 /**
@@ -34,6 +35,7 @@ class PCState extends FlxState
 		
 		createButtons();
 		createText();
+		createDropDowns();
 		
 		_statsSubState = new StatsSubState();
 		
@@ -56,6 +58,22 @@ class PCState extends FlxState
 		}
 		
 		super.update(elapsed);
+	}
+	
+	private function createDropDowns():Void
+	{
+		var _animationPrograms:Array<String> = 
+				["Flash CS6", "Animate CC", "OpenToonz", "ToonBoom Harmony"];
+				
+		var _animationDropDown = new FlxUIDropDownMenu(110, 22, FlxUIDropDownMenu.makeStrIdLabelArray(_animationPrograms, true));
+		
+		var _artPrograms:Array<String> =
+				["MS Paint", "Flash MX 2004", "Krita", "Photoshop CC", "Aseprite", "Gimp"];
+		
+		var _artDropDown = new FlxUIDropDownMenu(110, 60, FlxUIDropDownMenu.makeStrIdLabelArray(_artPrograms, true));
+		
+		add(_artDropDown);
+		add(_animationDropDown);
 	}
 	
 	private function createButtons():Void
@@ -137,4 +155,11 @@ class PCState extends FlxState
 	{
 		FlxG.switchState(new PlayState());
 	}
+	
+	private function onAnimationChange():Void
+	{
+		
+	}
+	
+	
 }
