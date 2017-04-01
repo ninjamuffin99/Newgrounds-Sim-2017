@@ -14,7 +14,12 @@ package;
  {
 	private var bg:FlxSprite;
 	private var bgOutline:FlxSprite;
+	private var movieBG:FlxSprite;
+	private var movieOutline:FlxSprite;
+	
 	private var _statsVisible:Bool = false;
+	
+	private var _hudTitle:FlxText;
 	
 	private var _animationSkillText:FlxText;
 	private var _artSkillText:FlxText;
@@ -27,11 +32,11 @@ package;
 		
 		var outlineColor:FlxColor;
 		outlineColor = new FlxColor();
-		outlineColor.setRGB(79, 40, 14);
+		outlineColor.setRGB(90, 84, 84);
 		
 		var bgColor:FlxColor;
 		bgColor = new FlxColor();
-		bgColor.setRGB(157, 79, 24);
+		bgColor.setRGB(54, 50, 50);
 		
 		bgOutline = new FlxSprite();
 		bgOutline.makeGraphic(FlxG.width - 100, FlxG.height - 100, outlineColor);
@@ -43,8 +48,20 @@ package;
 		bg.screenCenter();
 		bg.visible = false;
 		
+		movieOutline = new FlxSprite(FlxG.width - 1201, FlxG.height - 651);
+		movieOutline.makeGraphic(277, 252);
+		movieOutline.visible = false;
+		
+		movieBG = new FlxSprite(FlxG.width - 1200, FlxG.height - 650);
+		movieBG.makeGraphic(275, 250, FlxColor.RED);
+		movieBG.visible = false;
+		
+		
+		
 		add(bgOutline);
 		add(bg);
+		add(movieOutline);
+		add(movieBG);
 		
 		createText();
 		
@@ -52,19 +69,24 @@ package;
 	
 	private function createText():Void
 	{
-		var textX:Int = FlxG.width - 250;
-		var textY:Int = 60;
+		var textX:Int = FlxG.width - 1195;
+		var textY:Int = 75;
 		var textSize:Int = 15;
 		
+		_hudTitle = new FlxText(FlxG.width / 2, FlxG.height / 2, 0, "Stats", 20);
+		_hudTitle.screenCenter();
 		_animationSkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill, textSize);
 		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
 		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
 		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
-		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", textSize);
 		
+		_hudTitle.visible = false;
 		_animationSkillText.visible = false;
 		_artSkillText.visible = false;
+		_animationQualityText.visible = false;
+		_flashSkillText.visible = false;
 		
+		add(_hudTitle);
 		add(_animationSkillText);
 		add(_artSkillText);
 		add(_animationQualityText);
@@ -80,15 +102,29 @@ package;
 	{
 		super.update(elapsed);
 		
-		
-		
-		if (FlxG.keys.justPressed.S)
+		if (FlxG.keys.justReleased.S)
 		{
 			bg.visible = !bg.visible;
 			bgOutline.visible = !bgOutline.visible;
+			movieBG.visible = !movieBG.visible;
+			movieOutline.visible = !movieOutline.visible;
+			
+			_hudTitle.visible = !_hudTitle.visible;
+			_animationQualityText.visible = !_animationQualityText.visible;
+			_artSkillText.visible = !_artSkillText.visible;
+			_animationSkillText.visible = !_animationSkillText.visible;
+			_flashSkillText.visible = !_flashSkillText.visible;
 			
 			_statsVisible = !_statsVisible;
 			FlxG.log.add(_statsVisible);
 		}
+	}
+	
+	public function updateText():Void
+	{
+		_animationSkillText.text = "Animation Skill: " + Stats._animationSkill;
+		_artSkillText.text = "Art Skill: " + Stats._artSkill;
+		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
+		_flashSkillText.text = "Flash Skill: " + Stats._flashSkill;
 	}
 }

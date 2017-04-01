@@ -30,6 +30,8 @@ class PCState extends FlxState
 	
 	private var _statsSubState:StatsSubState;
 	private var _hud:HUD;
+	private var _statsHUD:StatsHUD;
+	
 	
 	override public function create():Void 
 	{
@@ -39,6 +41,9 @@ class PCState extends FlxState
 		createButtons();
 		createText();
 		createDropDowns();
+		
+		_statsHUD = new StatsHUD();
+		add(_statsHUD);
 		
 		_statsSubState = new StatsSubState();
 		
@@ -118,11 +123,13 @@ class PCState extends FlxState
 		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
 		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", textSize);
 		
+		/*
 		add(_animationSkillText);
 		add(_artSkillText);
 		add(_animationQualityText);
 		add(_flashSkillText);
 		add(_artProgressText);
+		*/
 	}
 	
 	private function clickAnimate():Void
@@ -132,6 +139,7 @@ class PCState extends FlxState
 		Stats._flashSkill += 0.5;
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
 		updateText();
+		_statsHUD.updateText();
 	}
 	
 	private function updateText():Void
@@ -159,6 +167,7 @@ class PCState extends FlxState
 		FlxG.log.add("Art skill = " + Stats._artSkill);
 		_hud.updateHUD();
 		updateText();
+		_statsHUD.updateText();
 	}
 	
 	private function clickBack():Void
