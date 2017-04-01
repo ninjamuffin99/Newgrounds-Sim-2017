@@ -5,13 +5,17 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.text.FlxTypeText;
+import flixel.addons.ui.FlxInputText;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
+import flixel.util.FlxSave;
 import source.Stats;
 
 class PlayState extends FlxState
 {
+	private var _gameSave:FlxSave;
+	
 	private var _btnPC:FlxButton;
 	private var _btnSleep:FlxButton;
 	private var _btnWork:FlxButton;
@@ -21,9 +25,17 @@ class PlayState extends FlxState
 	private var _hud:HUD;
 	private var _statsHUD:StatsHUD;
 	
+	private var _textInput:FlxInputText;
+	
 	
 	override public function create():Void
 	{
+		_gameSave = new FlxSave();
+		_gameSave.bind("SaveGame");
+		
+		_textInput = new FlxInputText(100, 100, 150, "Text here");
+		add(_textInput);
+		
 		createButtons();
 		
 		_hud = new HUD();
@@ -68,6 +80,8 @@ class PlayState extends FlxState
 	
 	private function clickSleep():Void
 	{
+		
+		
 		Stats.h += 8;
 		Stats._stamina += 100;
 		_hud.updateHUD();
