@@ -21,15 +21,14 @@ package;
 	*/
 	private var _sprTime:FlxText;
 	private var _textAMPM:FlxText;
+	private var _usernameText:FlxText;
+	private var _cashText:FlxText;
 	
     public function new()
     {
         super();
-		_sprTime = new FlxText(0, 0, 0, Std.string(Stats.h), 10);
-		add(_sprTime);
 		
-		_textAMPM = new FlxText(10, 0, 0, Stats.AMPM, 10);
-		add(_textAMPM);
+		createText();
 		
 		/*
         _sprBack = new FlxSprite().makeGraphic(FlxG.width, 20, FlxColor.BLACK);
@@ -56,6 +55,21 @@ package;
 		*/
     }
 	
+	private function createText():Void
+	{
+		_sprTime = new FlxText(0, 0, 0, Std.string(Stats.h), 10);
+		add(_sprTime);
+		
+		_textAMPM = new FlxText(10, 0, 0, Stats.AMPM, 10);
+		add(_textAMPM);
+		
+		_usernameText = new FlxText(FlxG.width - 100, 0, 0, Stats._username, 10);
+		add(_usernameText);
+		
+		_cashText = new FlxText(FlxG.width - 200, 0, 0, "Cash: " + Stats._cash, 10);
+		add(_cashText);
+		
+	}
 	
 	public function updateHUD():Void
     {
@@ -82,6 +96,7 @@ package;
 			Stats.h = 0;
 		}
 		
+		_cashText.text = "Cash: " + Stats._cash;
 		/*
         _txtHealth.text = Std.string(Health) + " / 3";
         _txtMoney.text = Std.string(Money);

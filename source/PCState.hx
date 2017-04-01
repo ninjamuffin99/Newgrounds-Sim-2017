@@ -60,37 +60,40 @@ class PCState extends FlxState
 	
 	private function createButtons():Void
 	{
-		_btnAnimate = new FlxButton(20, 22, "Animate", clickAnimate);
+		var buttonX:Int = 30;
+		
+		_btnAnimate = new FlxButton(buttonX, 22, "Animate", clickAnimate);
 		add(_btnAnimate);
 		
-		_btnForum = new FlxButton(30, 40, "Shitpost", clickForum);
+		_btnForum = new FlxButton(buttonX, 40, "Shitpost", clickForum);
 		add(_btnForum);
 		
-		_btnDraw = new FlxButton(30, 60, "Draw", clickDraw);
+		_btnDraw = new FlxButton(buttonX, 60, "Draw", clickDraw);
 		add(_btnDraw);
 		
-		_btnBack = new FlxButton(30, 500, "Back", clickBack);
+		_btnBack = new FlxButton(buttonX, 500, "Back", clickBack);
 		add(_btnBack);
 	}
 	
 	private function createText():Void
 	{
-		var textX:Int = 80;
+		var textX:Int = FlxG.width - 250;
 		var textY:Int = 60;
+		var textSize:Int = 15;
 		
-		_animationSkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill, 20);
+		_animationSkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill, textSize);
 		add(_animationSkillText);
 		
-		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, 20);
+		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
 		add(_artSkillText);
 		
-		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, 15);
+		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
 		add(_animationQualityText);
 		
-		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, 15);
+		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
 		add(_flashSkillText);
 		
-		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", 15);
+		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", textSize);
 		add(_artProgressText);
 	}
 	

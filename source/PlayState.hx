@@ -17,8 +17,13 @@ class PlayState extends FlxState
 	private var _btnWork:FlxButton;
 	private var _btnDraw:FlxButton;
 	
+	private var _hud:HUD;
+	
 	override public function create():Void
 	{
+		_hud = new HUD();
+		add(_hud);
+		
 		_btnPC = new FlxButton(0, 0, "Log on", clickPC);
 		add(_btnPC);
 		
@@ -53,6 +58,7 @@ class PlayState extends FlxState
 	{
 		Stats._cash += 8;
 		FlxG.log.add("Cash = " + Stats._cash);
+		_hud.updateHUD();
 	}
 	
 	private function clickDraw():Void
