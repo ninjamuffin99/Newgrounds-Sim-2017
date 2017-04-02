@@ -14,9 +14,9 @@ class Stats
 	public static var _writingSkill:Float; //will use for quality of jokes in animations as well as forum stuff maybe
 	public static var _sleep:Float;
 	
-	public static var yyyy:Int;
-	public static var mm:Int;
-	public static var dd:Int;
+	public static var yyyy:Int = 2017;
+	public static var mm:Int = 1;
+	public static var dd:Int = 1;
 	public static var PM:Bool;
 	public static var AMPM:String = "AM";
 	public static var h:Int = 8;

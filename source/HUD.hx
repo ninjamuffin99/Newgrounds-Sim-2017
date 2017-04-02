@@ -24,6 +24,9 @@ package;
 	private var _usernameText:FlxText;
 	private var _cashText:FlxText;
 	
+	private var _textDay:FlxText;
+	private var _textMonth:FlxText;
+	
     public function new()
     {
         super();
@@ -75,7 +78,13 @@ package;
 		_sprTime = new FlxText(0, 0, 0, Std.string(Stats.h), 10);
 		add(_sprTime);
 		
-		_textAMPM = new FlxText(10, 0, 0, Stats.AMPM, 10);
+		_textDay = new FlxText(40, 0, 0, Stats.dd + "/", 10);
+		add(_textDay);
+		
+		_textMonth = new FlxText(60, 0, 0, Stats.mm + "/", 10);
+		add(_textMonth);
+		
+		_textAMPM = new FlxText(12, 0, 0, Stats.AMPM, 10);
 		add(_textAMPM);
 		
 		_usernameText = new FlxText(FlxG.width - 100, 0, 0, Stats._username, 10);
@@ -88,18 +97,18 @@ package;
 	
 	public function updateHUD():Void
     {
-		
-		if (Stats.h >= 13)
-		{
-			Stats.h -= 12;
-		}
-		
 		if (Stats.h >= 12)
 		{
+			if (Stats.h >= 13)
+			{
+				Stats.h -= 12;
+			}
+			
 			if (Stats.PM)
 			{
 				Stats.AMPM = "AM";
 				FlxG.log.add("StatsAMPM = AM");
+				Stats.dd += 1;
 				Stats.PM = false;
 			}
 			else
@@ -110,10 +119,17 @@ package;
 			}
 		}
 		
+		if (Stats.dd >= 29)
+		{
+			Stats.dd = 1;
+			Stats.mm += 1;
+		}
 		
 		
 		_sprTime.text = Std.string(Stats.h);
 		_textAMPM.text = Stats.AMPM;
+		_textDay.text = Stats.dd + "/";
+		_textMonth.text = Stats.mm + "/";
 		
 		_cashText.text = "Cash: " + Stats._cash;
 		/*
