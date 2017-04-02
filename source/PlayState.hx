@@ -25,16 +25,10 @@ class PlayState extends FlxState
 	private var _hud:HUD;
 	private var _statsHUD:StatsHUD;
 	
-	private var _textInput:FlxInputText;
-	
-	
 	override public function create():Void
 	{
 		_gameSave = new FlxSave();
 		_gameSave.bind("SaveGame");
-		
-		_textInput = new FlxInputText(100, 100, 150, "Text here");
-		add(_textInput);
 		
 		createButtons();
 		
