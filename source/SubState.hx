@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.text.FlxTypeText;
+import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 import source.Stats;
@@ -19,10 +20,13 @@ class SubState extends FlxSubState
 	private var _title:FlxTypeText;
 	private var _post:FlxTypeText;
 	
+	private var _foundFlash:FlxText;
+	
 	private var _btnShitpost:FlxButton;
 	private var _btnAdvice:FlxButton;
+	private var _btnBrowse:FlxButton;
 	private var _btnClose:FlxButton;
-
+	
 	public function new(BGColor:FlxColor=FlxColor.TRANSPARENT) 
 	{
 		super(BGColor);
@@ -37,6 +41,10 @@ class SubState extends FlxSubState
 		createButtons();
 		
 		var wordsX:Int = 220;
+		
+		_foundFlash = new FlxText(200, 400, 0, "Someone found a way to get Flash MX for free! Thanks JessieJJones!", 12);
+		_foundFlash.visible = false;
+		add(_foundFlash);
 		
 		_title = new FlxTypeText(wordsX, 88, FlxG.width, "Who is the cutest NG user?", 12);
 		_title.font = "assets/data/ARIALBD.TTF";
@@ -67,6 +75,26 @@ class SubState extends FlxSubState
 		
 		_btnClose = new FlxButton(100, 600, "Close", clickClose);
 		add(_btnClose);
+		
+		_btnBrowse = new FlxButton(btnX, 75, "Lurk and browse", clickBrowse);
+		add(_btnBrowse);
+	}
+	
+	private function clickBrowse():Void
+	{
+		
+		if (!Stats._hasFlashMX)
+		{
+			Stats._hasFlashMX = FlxG.random.bool(5);
+			if (Stats._hasFlashMX)
+			{
+				_foundFlash.visible = true;
+			}
+			FlxG.log.add("DO NOT HAVE FLASH");
+		}
+		
+		
+		FlxG.log.add(Stats._hasFlashMX);
 	}
 	
 	private function clickShitpost():Void

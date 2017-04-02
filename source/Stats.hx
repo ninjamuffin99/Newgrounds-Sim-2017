@@ -37,6 +37,7 @@ class Stats
 	
 	public static var _hasFlash:Bool = false;
 	public static var _hasClipStudio:Bool = false;
+	public static var _hasFlashMX:Bool = false;
 	
 	public static var _flashSkill:Float = 1;
 	public static var _toonBoomSkill:Float;

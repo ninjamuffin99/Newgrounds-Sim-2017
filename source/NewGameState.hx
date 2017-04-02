@@ -36,6 +36,8 @@ class NewGameState extends FlxState
 	private var _displayHeight:Float;
 	private var _scaleText:FlxText;
 	
+	private var _nameText:FlxText;
+	private var _nameInput:FlxInputText;
 	
 	private var _usernameInput:FlxInputText;
 	private var _usernameText:FlxText;
@@ -48,7 +50,7 @@ class NewGameState extends FlxState
 		_usernameText = new FlxText(60, 100, 0, "Username:", 10);
 		add(_usernameText);
 		
-		_usernameInput = new FlxInputText(100, 100, 100, "", 10);
+		_usernameInput = new FlxInputText(130, 100, 100, "", 10);
 		add(_usernameInput);
 		
 		
