@@ -48,7 +48,7 @@ class NewGameState extends FlxState
 		_usernameText = new FlxText(60, 100, 0, "Username:", 10);
 		add(_usernameText);
 		
-		_usernameInput = new FlxInputText(100, 100, 150, "");
+		_usernameInput = new FlxInputText(100, 100, 100, "", 10);
 		add(_usernameInput);
 		
 		
