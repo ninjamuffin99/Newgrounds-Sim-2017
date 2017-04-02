@@ -134,4 +134,6 @@ class NewGameState extends FlxState
 		FlxG.log.add("_showImage");
 	}
 	*/
+	
+	
 }

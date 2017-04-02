@@ -88,15 +88,19 @@ package;
 	
 	public function updateHUD():Void
     {
-		_sprTime.text = Std.string(Stats.h);
-		_textAMPM.text = Stats.AMPM;
 		
-		if (Stats.h == 11)
+		if (Stats.h >= 13)
+		{
+			Stats.h -= 12;
+		}
+		
+		if (Stats.h >= 12)
 		{
 			if (Stats.PM)
 			{
 				Stats.AMPM = "AM";
 				FlxG.log.add("StatsAMPM = AM");
+				Stats.PM = false;
 			}
 			else
 			{
@@ -106,10 +110,10 @@ package;
 			}
 		}
 		
-		if (Stats.h >= 12)
-		{
-			Stats.h = 0;
-		}
+		
+		
+		_sprTime.text = Std.string(Stats.h);
+		_textAMPM.text = Stats.AMPM;
 		
 		_cashText.text = "Cash: " + Stats._cash;
 		/*

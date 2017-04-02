@@ -19,14 +19,15 @@ class PCState extends FlxState
 	private var _btnForum:FlxButton;
 	private var _btnBack:FlxButton;
 	
+	private var _btnPostArt:FlxButton;
+	
 	private var _animationSkillText:FlxText;
 	private var _artSkillText:FlxText;
 	private var _flashSkillText:FlxText;
 	private var _animationQualityText:FlxText;
 	private var _artProgressText:FlxText;
 	
-	private var _animationUsingText:FlxText;
-	private var _artUsingText:FlxText;
+	private var _usingText:FlxText;
 	
 	private var _statsSubState:StatsSubState;
 	private var _hud:HUD;
@@ -62,7 +63,17 @@ class PCState extends FlxState
 		{
 			Stats._artProgress = 0;
 			Stats._artSkill += 10;
+			Stats._artUnpubbed += 1;
 			updateText();
+		}
+		
+		if (Stats._artUnpubbed >= 1)
+		{
+			_btnPostArt.visible = true;
+		}
+		else
+		{
+			_btnPostArt.visible = false;
 		}
 		
 		super.update(elapsed);
@@ -70,7 +81,7 @@ class PCState extends FlxState
 	
 	private function createDropDowns():Void
 	{
-		var dropdownX:Int = 155;
+		var dropdownX:Int = 105;
 		
 		var _animationPrograms:Array<String> = 
 				["Flash CS6", "Animate CC", "OpenToonz", "ToonBoom Harmony"];
@@ -82,13 +93,10 @@ class PCState extends FlxState
 		
 		var _artDropDown = new FlxUIDropDownMenu(dropdownX, 60, FlxUIDropDownMenu.makeStrIdLabelArray(_artPrograms, true));
 		
-		_animationUsingText = new FlxText(dropdownX - 40, 22, 0, "Using:", 10);
-		_artUsingText = new FlxText(dropdownX - 40, 64, 0, "Using:", 10);
+		_usingText = new FlxText(dropdownX, 10, 0, "Using", 10);
 		
 		
-		add(_animationUsingText);
-		add(_artUsingText);
-		
+		add(_usingText);
 		
 		add(_artDropDown);
 		add(_animationDropDown);
@@ -106,6 +114,10 @@ class PCState extends FlxState
 		
 		_btnDraw = new FlxButton(buttonX, 60, "Draw", clickDraw);
 		add(_btnDraw);
+		
+		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post Art", clickPost);
+		_btnPostArt.visible = false;
+		add(_btnPostArt);
 		
 		_btnBack = new FlxButton(buttonX, 500, "Back", clickBack);
 		add(_btnBack);
@@ -128,8 +140,9 @@ class PCState extends FlxState
 		add(_artSkillText);
 		add(_animationQualityText);
 		add(_flashSkillText);
-		add(_artProgressText);
 		*/
+		add(_artProgressText);
+		
 	}
 	
 	private function clickAnimate():Void
@@ -137,8 +150,10 @@ class PCState extends FlxState
 		Stats._animationSkill += 1;
 		Stats._artSkill += 0.5;
 		Stats._flashSkill += 0.5;
+		Stats.h += 1;
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
 		updateText();
+		_hud.updateHUD();
 		_statsHUD.updateText();
 	}
 	
@@ -161,13 +176,36 @@ class PCState extends FlxState
 	
 	private function clickDraw():Void
 	{
-		Stats._artSkill += 1;
-		Stats._artProgress += 20;
-		Stats.h += 1;
-		FlxG.log.add("Art skill = " + Stats._artSkill);
+		if (Stats._stamina >= 8)
+		{
+			Stats._artSkill += 1;
+			Stats._artProgress += 20;
+			Stats.h += 1;
+			Stats._stamina -= 1;
+			
+			FlxG.log.add("Art skill = " + Stats._artSkill);
+		}
+		if (Stats._stamina <= 7 && Stats._stamina >= 1)
+		{
+			Stats._artSkill += 0.25;
+			Stats._artProgress += 5;
+			Stats.h += 1;
+			Stats._stamina -= 1;
+		}
+		if (Stats._stamina <= 0)
+		{
+			FlxG.log.add("You're too tired!");
+		}
+		
 		_hud.updateHUD();
 		updateText();
 		_statsHUD.updateText();
+	}
+	
+	private function clickPost():Void
+	{
+		Stats._artPubbed += Stats._artUnpubbed;
+		Stats._artUnpubbed = 0;
 	}
 	
 	private function clickBack():Void

@@ -26,6 +26,9 @@ package;
 	private var _flashSkillText:FlxText;
 	private var _animationQualityText:FlxText;
 	
+	private var _artPubbedText:FlxText;
+	private var _artUnpubbedText:FlxText;
+	
     public function new()
     {
         super();
@@ -79,18 +82,24 @@ package;
 		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
 		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
 		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
+		_artPubbedText = new FlxText(FlxG.width / 2, FlxG.height - 700, 0, "Published art: " + Stats._artPubbed, textSize);
+		_artUnpubbedText = new FlxText(FlxG.width / 2, FlxG.height - 680, 0, "Unpublished art: " + Stats._artUnpubbed, textSize);
 		
 		_hudTitle.visible = false;
 		_animationSkillText.visible = false;
 		_artSkillText.visible = false;
 		_animationQualityText.visible = false;
 		_flashSkillText.visible = false;
+		_artPubbedText.visible = false;
+		_artUnpubbedText.visible = false;
 		
 		add(_hudTitle);
 		add(_animationSkillText);
 		add(_artSkillText);
 		add(_animationQualityText);
 		add(_flashSkillText);
+		add(_artPubbedText);
+		add(_artUnpubbedText);
 	}
 	
 	public function updateHUD():Void
@@ -114,6 +123,8 @@ package;
 			_artSkillText.visible = !_artSkillText.visible;
 			_animationSkillText.visible = !_animationSkillText.visible;
 			_flashSkillText.visible = !_flashSkillText.visible;
+			_artPubbedText.visible = !_artPubbedText.visible;
+			_artUnpubbedText.visible = !_artUnpubbedText.visible;
 			
 			_statsVisible = !_statsVisible;
 			FlxG.log.add(_statsVisible);
@@ -126,5 +137,7 @@ package;
 		_artSkillText.text = "Art Skill: " + Stats._artSkill;
 		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
 		_flashSkillText.text = "Flash Skill: " + Stats._flashSkill;
+		_artPubbedText.text = "Published art: " + Stats._artPubbed;
+		_artUnpubbedText.text = "Unpublished: " + Stats._artUnpubbed;
 	}
 }

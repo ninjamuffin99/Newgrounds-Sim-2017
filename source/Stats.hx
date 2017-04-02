@@ -21,7 +21,7 @@ class Stats
 	public static var AMPM:String = "AM";
 	public static var h:Int = 8;
 	public static var m:Int;
-	public static var _stamina:Int = 100;
+	public static var _stamina:Float = 24;
 	
 	public static var _name:String = "Cameron";
 	public static var _username:String = "ninjamuffin99";
@@ -67,9 +67,11 @@ class Stats
 	public static var _gameProgress:Float = 0;
 	public static var _songProgress:Float = 0;
 	
+	public static var _artUnpubbed:Int = 0;
+	public static var _artPubbed:Int = 0;
+	
 	public function new() 
 	{
 		
 	}
-	
 }

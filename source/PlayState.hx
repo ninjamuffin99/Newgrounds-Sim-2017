@@ -75,7 +75,7 @@ class PlayState extends FlxState
 		
 		
 		Stats.h += 8;
-		Stats._stamina += 100;
+		Stats._stamina = 24;
 		_hud.updateHUD();
 	}
 	
