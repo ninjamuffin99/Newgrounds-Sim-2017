@@ -29,6 +29,13 @@ class NewGameState extends FlxState
 	private var _btnNext:FlxButton;
 	
 	private var _btnPicUpload:FlxButton;
+	
+	private var _skillPoints:Int = 15;
+	
+	private var _flashSkillText:FlxText;
+	private var _btnFlashAdd:FlxButtonPlus;
+	private var _btnFlashSub:FlxButtonPlus;
+	
 	private var _text:FlxText;
 	private var _button:FlxButton;
 	private var _img:FlxSprite;
@@ -53,7 +60,14 @@ class NewGameState extends FlxState
 		_usernameInput = new FlxInputText(130, 100, 100, "", 10);
 		add(_usernameInput);
 		
+		_flashSkillText = new FlxText(60, 120, 0, "Flash Skill: " + Stats._flashSkill, 10);
+		add(_flashSkillText);
 		
+		_btnFlashAdd = new FlxButtonPlus(150, 120, clickAddFlash, "+", 20, 20);
+		add(_btnFlashAdd);
+		
+		_btnFlashSub = new FlxButtonPlus(35, 120, clickSubFlash, "-", 20, 20);
+		add(_btnFlashSub);
 		
 		/*
 		_btnPicUpload = new FlxButton(200, 200, "Upload profile pic", clickUpload);
@@ -66,6 +80,32 @@ class NewGameState extends FlxState
 		_showImage(new GraphicLogo(0, 0));
 		*/
 		super.create();
+	}
+	
+	private function clickAddFlash():Void
+	{
+		if(_skillPoints >= 1)
+		{
+			_skillPoints -= 1;
+			Stats._flashSkill += 1;
+		}
+		
+		updateText();
+	}
+	
+	private function clickSubFlash():Void
+	{
+		if (_skillPoints >= 1)
+		{
+			_skillPoints += 1;
+			Stats._flashSkill -= 1;
+		}
+		updateText();
+	}
+	
+	private function updateText():Void
+	{
+		_flashSkillText.text = "Flash Skill: " + Stats._flashSkill;
 	}
 	
 	private function clickNext():Void

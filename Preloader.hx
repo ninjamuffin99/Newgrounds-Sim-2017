@@ -47,7 +47,7 @@ class Preloader extends FlxBasePreloader
 		logo.scaleX = logo.scaleY = ratio;
 		logo.x = ((this._width) / 2) - ((logo.width) / 2);
 		logo.y = (this._height / 2) - ((logo.height) / 2);
-		addChild(logo);
+		//addChild(logo);
 		
 		/*
 		Font.registerFont(CustomFont);
