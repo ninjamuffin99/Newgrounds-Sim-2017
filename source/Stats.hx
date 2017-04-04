@@ -6,13 +6,12 @@ package source;
  */
 class Stats 
 {
-	public static var _animationSkill:Float = 3;
-	public static var _artSkill:Float = 0;
-	public static var _musicSkill:Float;
-	public static var _programSkill:Float;
-	public static var _voiceSkill:Float;
-	public static var _writingSkill:Float; //will use for quality of jokes in animations as well as forum stuff maybe
-	public static var _sleep:Float;
+	public static var _animationSkill:Float = 5;
+	public static var _artSkill:Float = 5;
+	public static var _musicSkill:Float = 5;
+	public static var _programSkill:Float = 5;
+	public static var _voiceSkill:Float = 5;
+	public static var _writingSkill:Float = 5; //will use for quality of jokes in animations as well as forum stuff maybe
 	
 	public static var yyyy:Int = 2017;
 	public static var mm:Int = 1;

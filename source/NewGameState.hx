@@ -41,6 +41,21 @@ class NewGameState extends FlxState
 	private var _btnArtAdd:FlxButtonPlus;
 	private var _btnArtSub:FlxButtonPlus;
 	
+	private var _musicSkillText:FlxText;
+	private var _btnMusicAdd:FlxButtonPlus;
+	private var _btnMusicSub:FlxButtonPlus;
+	
+	private var _programSkillText:FlxText;
+	private var _btnProgramAdd:FlxButtonPlus;
+	private var _btnProgramSub:FlxButtonPlus;
+	
+	private var _voiceSkillText:FlxText;
+	private var _btnVoiceAdd:FlxButtonPlus;
+	private var _btnVoiceSub:FlxButtonPlus;
+	
+	private var _writingSkillText:FlxText;
+	private var _btnWritingAdd:FlxButtonPlus;
+	private var _btnWritingSub:FlxButtonPlus;	
 	
 	private var _text:FlxText;
 	private var _button:FlxButton;
@@ -79,12 +94,12 @@ class NewGameState extends FlxState
 	private function createUserStats():Void
 	{
 		var subBtnX:Int = 35;
-		var addBtnX:Int =  175;
+		var addBtnX:Int =  195;
 		var textX:Int = 60;
 		var plus:String = "+";
 		var sub:String = "-";
 		
-		_skillPointsText = new FlxText(textX, 170, 0, "Points Left: " + _skillPoints, 10);
+		_skillPointsText = new FlxText(textX, 270, 0, "Points Left: " + _skillPoints, 10);
 		
 		_usernameText = new FlxText(60, 100, 0, "Username:", 10);
 		
@@ -92,22 +107,50 @@ class NewGameState extends FlxState
 		
 		_animationSkillText = new FlxText(textX, 120, 0, "Animation Skill: " + Stats._animationSkill, 10);
 		_artSkillText = new FlxText(textX, 145, 0, "Art Skill: " + Stats._artSkill, 10);
+		_musicSkillText = new FlxText(textX, 170, 0, "Music Skill: " + Stats._musicSkill, 10);
+		_programSkillText = new FlxText(textX, 195, 0, "Programming Skill: " + Stats._programSkill, 10);
+		_voiceSkillText = new FlxText(textX, 220, 0, "Voice Acting Skill: " + Stats._voiceSkill, 10);
+		_writingSkillText = new FlxText(textX, 245, 0, "Writing Skill: " + Stats._writingSkill, 10);
 		
 		_btnAnimationAdd = new FlxButtonPlus(addBtnX, 120, clickAddAnimation, plus, 20, 20);
 		_btnArtAdd = new FlxButtonPlus(addBtnX, 145, clickAddArt, plus, 20, 20);
+		_btnMusicAdd = new FlxButtonPlus(addBtnX, 170, clickAddMusic, plus, 20, 20);
+		_btnProgramAdd = new FlxButtonPlus(addBtnX, 195, clickAddProgram, plus, 20, 20);
+		_btnVoiceAdd = new FlxButtonPlus(addBtnX, 220, clickAddVoice, plus, 20, 20);
+		_btnWritingAdd = new FlxButtonPlus(addBtnX, 245, clickAddWriting, plus, 20, 20);
+		
 		
 		_btnAnimationSub = new FlxButtonPlus(subBtnX, 120, clickSubAnimation, "-", 20, 20);
 		_btnArtSub =  new FlxButtonPlus(subBtnX, 145, clickSubArt, sub, 20, 20);
+		_btnMusicSub = new FlxButtonPlus(subBtnX, 170, clickSubMusic, sub, 20, 20);
+		_btnProgramSub = new FlxButtonPlus(subBtnX, 195, clickSubProgram, sub, 20, 20);
+		_btnVoiceSub = new FlxButtonPlus(subBtnX, 220, clickSubVoice, sub, 20, 20);
+		_btnWritingSub = new FlxButtonPlus(subBtnX, 245, clickSubWriting, sub, 20, 20);
 		
 		add(_skillPointsText);
 		add(_usernameText);
 		add(_usernameInput);
+		
 		add(_animationSkillText);
 		add(_artSkillText);
+		add(_musicSkillText);
+		add(_programSkillText);
+		add(_voiceSkillText);
+		add(_writingSkillText);
+		
 		add(_btnAnimationAdd);
 		add(_btnArtAdd);
+		add(_btnMusicAdd);
+		add(_btnProgramAdd);
+		add(_btnVoiceAdd);
+		add(_btnWritingAdd);
+		
 		add(_btnAnimationSub);
 		add(_btnArtSub);
+		add(_btnMusicSub);
+		add(_btnProgramSub);
+		add(_btnVoiceSub);
+		add(_btnWritingSub);
 	}
 	
 	private function clickAddAnimation():Void
@@ -131,6 +174,54 @@ class NewGameState extends FlxState
 		updateText();
 	}
 	
+	private function clickAddMusic():Void
+	{
+		if(_skillPoints >= 1)
+		{
+			_skillPoints -= 1;
+			Stats._musicSkill += 1;
+		}
+		
+		updateText();
+	}
+	
+	private function clickAddProgram():Void
+	{
+		if(_skillPoints >= 1)
+		{
+			_skillPoints -= 1;
+			Stats._programSkill += 1;
+		}
+		
+		updateText();
+	}
+	
+	private function clickAddVoice():Void
+	{
+		if(_skillPoints >= 1)
+		{
+			_skillPoints -= 1;
+			Stats._voiceSkill += 1;
+		}
+		
+		updateText();
+	}
+	
+	private function clickAddWriting():Void
+	{
+		if(_skillPoints >= 1)
+		{
+			_skillPoints -= 1;
+			Stats._writingSkill += 1;
+		}
+		
+		updateText();
+	}
+	
+	
+	
+	
+	
 	private function clickSubAnimation():Void
 	{
 		if (Stats._animationSkill >= 1)
@@ -151,10 +242,56 @@ class NewGameState extends FlxState
 		updateText();
 	}
 	
+	private function clickSubMusic():Void
+	{
+		if (Stats._musicSkill >= 1)
+		{
+			_skillPoints += 1;
+			Stats._musicSkill -= 1;
+		}
+		updateText();
+	}
+	
+	private function clickSubProgram():Void
+	{
+		if (Stats._programSkill >= 1)
+		{
+			_skillPoints += 1;
+			Stats._programSkill -= 1;
+		}
+		updateText();
+	}
+	
+	private function clickSubVoice():Void
+	{
+		if (Stats._voiceSkill >= 1)
+		{
+			_skillPoints += 1;
+			Stats._voiceSkill -= 1;
+		}
+		updateText();
+	}
+	
+	private function clickSubWriting():Void
+	{
+		if (Stats._writingSkill >= 1)
+		{
+			_skillPoints += 1;
+			Stats._writingSkill -= 1;
+		}
+		updateText();
+	}
+	
+	
+	
 	private function updateText():Void
 	{
 		_animationSkillText.text = "Animation Skill: " + Stats._animationSkill;
 		_artSkillText.text = "Art Skill: " + Stats._artSkill;
+		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
+		_programSkillText.text = "Programming Skill: " + Stats._programSkill;
+		_voiceSkillText.text = "Voice Acting Skill: " + Stats._voiceSkill;
+		_writingSkillText.text = "Writing Skill: " + Stats._writingSkill;
 		
 		_skillPointsText.text = "Points Left: " + _skillPoints;
 	}
