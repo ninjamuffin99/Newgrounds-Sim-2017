@@ -117,6 +117,9 @@ class PCState extends FlxState
 		_btnDraw = new FlxButton(buttonX, 60, "Draw", clickDraw);
 		add(_btnDraw);
 		
+		_btnProgram = new FlxButton(buttonX, 90, "Program", clickProgram);
+		add(_btnProgram);
+		
 		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post Art", clickPost);
 		_btnPostArt.visible = false;
 		add(_btnPostArt);
@@ -191,6 +194,34 @@ class PCState extends FlxState
 		{
 			Stats._artSkill += 0.25;
 			Stats._artProgress += 5;
+			Stats.h += 1;
+			Stats._stamina -= 1;
+		}
+		if (Stats._stamina <= 0)
+		{
+			FlxG.log.add("You're too tired!");
+		}
+		
+		_hud.updateHUD();
+		updateText();
+		_statsHUD.updateText();
+	}
+	
+	private function clickProgram():Void
+	{
+		if (Stats._stamina >= 8)
+		{
+			Stats._programSkill += 1;
+			//Stats._artProgress += 20;
+			Stats.h += 1;
+			Stats._stamina -= 1;
+			
+			FlxG.log.add("program skill = " + Stats._programSkill);
+		}
+		if (Stats._stamina <= 7 && Stats._stamina >= 1)
+		{
+			Stats._programSkill += 0.25;
+			//Stats._programProgress += 5;
 			Stats.h += 1;
 			Stats._stamina -= 1;
 		}
