@@ -5,6 +5,7 @@ package;
  import flixel.FlxSprite;
  import flixel.group.FlxGroup.FlxTypedGroup;
  import flixel.text.FlxText;
+ import flixel.ui.FlxBar;
  import flixel.util.FlxColor;
  import source.Stats;
  using flixel.util.FlxSpriteUtil;
@@ -27,6 +28,8 @@ package;
 	private var _textDay:FlxText;
 	private var _textMonth:FlxText;
 	
+	private var _healthBar:FlxBar;
+	
     public function new()
     {
         super();
@@ -38,12 +41,20 @@ package;
 		
 		var _orangebar:FlxSprite;
 		_orangebar = new FlxSprite();
-		_orangebar.makeGraphic(FlxG.width, 15, barcolor);
+		_orangebar.makeGraphic(FlxG.width, 20, barcolor);
 		add(_orangebar);
 		
+		
+		_healthBar = new FlxBar(FlxG.width / 2, 3, LEFT_TO_RIGHT, 100, 10, Stats, "_stamina", 0, 24);
+		add(_healthBar);
+		
+		var _healthBarText:FlxText;
+		_healthBarText = new FlxText(FlxG.width / 2, 13, 0, "Stamina" + _healthBar.percent);
+		add(_healthBarText);
+		
 		var _whiteLine:FlxSprite;
-		_whiteLine = new FlxSprite(0, 15);
-		_whiteLine.makeGraphic(FlxG.width, 1, FlxColor.WHITE);
+		_whiteLine = new FlxSprite(0, 20);
+		_whiteLine.makeGraphic(FlxG.width, 2, FlxColor.WHITE);
 		add(_whiteLine);
 		
 		createText();
@@ -132,6 +143,8 @@ package;
 		_textMonth.text = Stats.mm + "/";
 		
 		_cashText.text = "Cash: " + Stats._cash;
+		
+		_healthBar.value = Stats._stamina;
 		/*
         _txtHealth.text = Std.string(Health) + " / 3";
         _txtMoney.text = Std.string(Money);
