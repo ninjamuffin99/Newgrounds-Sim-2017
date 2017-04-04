@@ -29,6 +29,7 @@ package;
 	private var _textMonth:FlxText;
 	
 	private var _healthBar:FlxBar;
+	private var _healthBarText:FlxText;
 	
     public function new()
     {
@@ -48,8 +49,9 @@ package;
 		_healthBar = new FlxBar(FlxG.width / 2, 3, LEFT_TO_RIGHT, 100, 10, Stats, "_stamina", 0, 24);
 		add(_healthBar);
 		
-		var _healthBarText:FlxText;
-		_healthBarText = new FlxText(FlxG.width / 2, 13, 0, "Stamina" + _healthBar.percent);
+		
+		_healthBarText = new FlxText(FlxG.width / 2, 20, 0);
+		_healthBarText.text = _healthBar.percent + " Stamina";
 		add(_healthBarText);
 		
 		var _whiteLine:FlxSprite;
@@ -142,9 +144,12 @@ package;
 		_textDay.text = Stats.dd + "/";
 		_textMonth.text = Stats.mm + "/";
 		
+		
 		_cashText.text = "Cash: " + Stats._cash;
 		
 		_healthBar.value = Stats._stamina;
+		_healthBarText.text = _healthBar.percent + " Stamina" ;
+		
 		/*
         _txtHealth.text = Std.string(Health) + " / 3";
         _txtMoney.text = Std.string(Money);
