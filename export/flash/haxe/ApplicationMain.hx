@@ -58,6 +58,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/NewGameStats.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
@@ -275,7 +279,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "371",
+			build: "381",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,

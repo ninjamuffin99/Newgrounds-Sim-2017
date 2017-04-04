@@ -5,6 +5,8 @@ package;
  import flixel.FlxSprite;
  import flixel.group.FlxGroup.FlxTypedGroup;
  import flixel.text.FlxText;
+ import flixel.tweens.FlxEase;
+ import flixel.tweens.FlxTween;
  import flixel.util.FlxColor;
  import source.Stats;
  using flixel.util.FlxSpriteUtil;
@@ -24,7 +26,12 @@ package;
 	private var _animationSkillText:FlxText;
 	private var _artSkillText:FlxText;
 	private var _flashSkillText:FlxText;
+	private var _musicSkillText:FlxText;
+	private var _programSkillText:FlxText;
+	
 	private var _animationQualityText:FlxText;
+	
+	
 	
 	private var _artPubbedText:FlxText;
 	private var _artUnpubbedText:FlxText;
@@ -68,6 +75,8 @@ package;
 		
 		createText();
 		
+		//FlxTween.tween(this, { alpha: 1, y: 500 }, 0.33, { ease: FlxEase.circOut });
+		
     }
 	
 	private function createText():Void
@@ -82,8 +91,10 @@ package;
 		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
 		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
 		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
-		_artPubbedText = new FlxText(FlxG.width / 2, FlxG.height - 700, 0, "Published art: " + Stats._artPubbed, textSize);
-		_artUnpubbedText = new FlxText(FlxG.width / 2, FlxG.height - 680, 0, "Unpublished art: " + Stats._artUnpubbed, textSize);
+		_artPubbedText = new FlxText(FlxG.width / 2, FlxG.height - 670, 0, "Published art: " + Stats._artPubbed, textSize);
+		_artUnpubbedText = new FlxText(FlxG.width / 2, FlxG.height - 655, 0, "Unpublished art: " + Stats._artUnpubbed, textSize);
+		_musicSkillText = new FlxText(textX, textY + 80, 0, "Music Skill: " + Stats._musicSkill, textSize);
+		_programSkillText = new FlxText(textX, textY + 100, 0, "Programming Skill: " + Stats._programSkill, textSize);
 		
 		_hudTitle.visible = false;
 		_animationSkillText.visible = false;
@@ -92,6 +103,9 @@ package;
 		_flashSkillText.visible = false;
 		_artPubbedText.visible = false;
 		_artUnpubbedText.visible = false;
+		_musicSkillText.visible = false;
+		_programSkillText.visible = false;
+		
 		
 		add(_hudTitle);
 		add(_animationSkillText);
@@ -100,6 +114,8 @@ package;
 		add(_flashSkillText);
 		add(_artPubbedText);
 		add(_artUnpubbedText);
+		add(_musicSkillText);
+		add(_programSkillText);
 	}
 	
 	public function updateHUD():Void
@@ -125,6 +141,8 @@ package;
 			_flashSkillText.visible = !_flashSkillText.visible;
 			_artPubbedText.visible = !_artPubbedText.visible;
 			_artUnpubbedText.visible = !_artUnpubbedText.visible;
+			_musicSkillText.visible = !_musicSkillText.visible;
+			_programSkillText.visible = !_programSkillText.visible;
 			
 			_statsVisible = !_statsVisible;
 			FlxG.log.add(_statsVisible);
@@ -139,5 +157,6 @@ package;
 		_flashSkillText.text = "Flash Skill: " + Stats._flashSkill;
 		_artPubbedText.text = "Published art: " + Stats._artPubbed;
 		_artUnpubbedText.text = "Unpublished: " + Stats._artUnpubbed;
+		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
 	}
 }

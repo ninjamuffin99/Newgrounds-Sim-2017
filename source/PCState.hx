@@ -17,6 +17,7 @@ class PCState extends FlxState
 	private var _btnAnimate:FlxButton;
 	private var _btnDraw:FlxButton;
 	private var _btnForum:FlxButton;
+	private var _btnProgram:FlxButton;
 	private var _btnBack:FlxButton;
 	
 	private var _btnPostArt:FlxButton;
@@ -26,6 +27,7 @@ class PCState extends FlxState
 	private var _flashSkillText:FlxText;
 	private var _animationQualityText:FlxText;
 	private var _artProgressText:FlxText;
+
 	
 	private var _usingText:FlxText;
 	

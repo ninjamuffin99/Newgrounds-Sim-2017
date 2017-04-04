@@ -72,6 +72,11 @@ class NewGameState extends FlxState
 	
 	override public function create():Void 
 	{
+		var bg:FlxSprite;
+		bg = new FlxSprite(0, 0);
+		bg.loadGraphic("assets/images/NewGameStats.jpg", false, 1280, 720);
+		add(bg);
+		
 		_btnNext = new FlxButton(230, 203, "Next", clickNext);
 		add(_btnNext);
 		
