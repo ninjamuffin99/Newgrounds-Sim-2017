@@ -1,4 +1,5 @@
 package source;
+import flixel.FlxG;
 
 /**
  * ...
@@ -6,6 +7,8 @@ package source;
  */
 class Stats 
 {
+	
+	//BASE STATS
 	public static var _animationSkill:Float = 5;
 	public static var _artSkill:Float = 5;
 	public static var _musicSkill:Float = 5;
@@ -13,31 +16,38 @@ class Stats
 	public static var _voiceSkill:Float = 5;
 	public static var _writingSkill:Float = 5; //will use for quality of jokes in animations as well as forum stuff maybe
 	
+	
+	//DATE AND TIME STATS
 	public static var yyyy:Int = 2017;
 	public static var mm:Int = 1;
-	public static var dd:Int = 1;
+	public static var dd:Int = 26;
 	public static var PM:Bool;
 	public static var AMPM:String = "AM";
 	public static var h:Int = 8;
 	public static var m:Int;
 	public static var _stamina:Float = 24;
 	
+	//PERSONAL STATS
 	public static var _name:String = "Cameron";
 	public static var _username:String = "ninjamuffin99";
 	public static var _forumPosts:Int = 0;
+	public static var _cash:Int = 2000;
 	
-	public static var _cash:Int = 0;
 	
+	//STYLE STATS
 	public static var _artVectorSkill:Float;
 	public static var _artPixelSkill:Float;
 	
 	public static var _animationVectorSkill:Float;
 	public static var _animationPixelSkill:Float;
 	
+	//WHICH PROGRAMS USER OWNS
 	public static var _hasFlash:Bool = false;
 	public static var _hasClipStudio:Bool = false;
 	public static var _hasFlashMX:Bool = false;
 	
+	
+	//SPECIFIC PROGRAM STATS
 	public static var _flashSkill:Float = 5;
 	public static var _toonBoomSkill:Float;
 	public static var _openToonzSkill:Float;
@@ -54,6 +64,7 @@ class Stats
 	public static var _gimpSkill:Float;
 	public static var _asepriteSkill:Float;
 	
+	//QUALITY STATS
 	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill; // change this to program of choice possibly have it change dependign on which program you're using
 	public static var _artQuality:Float;
 	public static var _gameQuality:Float;
@@ -61,6 +72,7 @@ class Stats
 	
 	//add in more programs later such as unity or other art programs liek krita
 	
+	//PROGRESS OF PROJECTS
 	public static var _artProgress:Float = 0;
 	public static var _animationProgress:Float = 0;
 	public static var _gameProgress:Float = 0;
@@ -69,8 +81,41 @@ class Stats
 	public static var _artUnpubbed:Int = 0;
 	public static var _artPubbed:Int = 0;
 	
+	//MISC STATS SUCH AS TOTALS
+	public static var _TotalCashEarned:Int = 0;
+	public static var _TotalHoursWorked:Int = 0;
+	public static var _TotalDaysPassed:Int = 0;
+	
 	public function new() 
 	{
 		
+	}
+	
+	public static function save():Void
+	{
+		FlxG.save.data._animationSkill = _animationSkill;
+		
+		//FlxG.save.data._animationSkill;
+		
+		FlxG.log.add("Saved animation Skill" + FlxG.save.data._animationSkill);
+		FlxG.save.flush();
+	}
+	
+	public static function addCash(C:Int):Void
+	{
+		_cash += C;
+		_TotalCashEarned += C;
+	}
+	
+	public static function addWorkHours(H:Int):Void
+	{
+		h += H;
+		_TotalHoursWorked += H;
+	}
+	
+	public static function addDay(D:Int):Void
+	{
+		dd += D;
+		_TotalDaysPassed += D;
 	}
 }

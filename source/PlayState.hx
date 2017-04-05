@@ -72,17 +72,37 @@ class PlayState extends FlxState
 	
 	private function clickSleep():Void
 	{
-		
-		
 		Stats.h += 8;
 		Stats._stamina = 24;
 		_hud.updateHUD();
+		
+		Stats.save();
 	}
 	
 	private function clickWork():Void
 	{
-		Stats._cash += 8;
-		FlxG.log.add("Cash = " + Stats._cash);
+		var _workable:Bool = false;
+		if (Stats.h >= 8 && !Stats.PM)
+		{
+			_workable = true;
+		}
+		if (Stats.h >= 1 && Stats.h <= 5 && Stats.PM)
+		{
+			_workable = true;
+		}
+		
+		if (Stats._stamina >= 10 && _workable)
+		{
+			Stats.addCash(65);
+			Stats.addWorkHours(6);
+			Stats._stamina -= 7;
+			FlxG.log.add("Cash = " + Stats._cash);
+		}
+		if (Stats._stamina <= 9)
+		{
+			FlxG.log.add("You're too tired to work!");
+		}
+		
 		_hud.updateHUD();
 	}
 	

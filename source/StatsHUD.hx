@@ -23,18 +23,24 @@ package;
 	
 	private var _hudTitle:FlxText;
 	
+	//BASE SKILLS TEXT
 	private var _animationSkillText:FlxText;
 	private var _artSkillText:FlxText;
 	private var _flashSkillText:FlxText;
 	private var _musicSkillText:FlxText;
 	private var _programSkillText:FlxText;
 	
+	//QUALITY TEXT
 	private var _animationQualityText:FlxText;
-	
-	
 	
 	private var _artPubbedText:FlxText;
 	private var _artUnpubbedText:FlxText;
+	
+	
+	//MISC STATS
+	private var _moneyEarnedText:FlxText;
+	private var _hoursWorkedText:FlxText;
+	private var _daysPassedText:FlxText;
 	
     public function new()
     {
@@ -67,7 +73,6 @@ package;
 		movieBG.visible = false;
 		
 		
-		
 		add(bgOutline);
 		add(bg);
 		add(movieOutline);
@@ -96,6 +101,10 @@ package;
 		_musicSkillText = new FlxText(textX, textY + 80, 0, "Music Skill: " + Stats._musicSkill, textSize);
 		_programSkillText = new FlxText(textX, textY + 100, 0, "Programming Skill: " + Stats._programSkill, textSize);
 		
+		_moneyEarnedText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned, textSize);
+		_hoursWorkedText = new FlxText(textX, textY + 140, 0, "Total Hours Worked(At Job): " + Stats._TotalHoursWorked, textSize);
+		_daysPassedText = new FlxText(textX, textY + 160, 0, "Total Days Passed: " + Stats._TotalDaysPassed, textSize);
+		
 		_hudTitle.visible = false;
 		_animationSkillText.visible = false;
 		_artSkillText.visible = false;
@@ -105,6 +114,12 @@ package;
 		_artUnpubbedText.visible = false;
 		_musicSkillText.visible = false;
 		_programSkillText.visible = false;
+		
+		_moneyEarnedText.visible = false;
+		_hoursWorkedText.visible = false;
+		_daysPassedText.visible = false;
+		
+		
 		
 		
 		add(_hudTitle);
@@ -116,6 +131,9 @@ package;
 		add(_artUnpubbedText);
 		add(_musicSkillText);
 		add(_programSkillText);
+		add(_moneyEarnedText);
+		add(_hoursWorkedText);
+		add(_daysPassedText);
 	}
 	
 	public function updateHUD():Void
@@ -144,9 +162,15 @@ package;
 			_musicSkillText.visible = !_musicSkillText.visible;
 			_programSkillText.visible = !_programSkillText.visible;
 			
+			_moneyEarnedText.visible = !_moneyEarnedText.visible;
+			_hoursWorkedText.visible = !_hoursWorkedText.visible;
+			_daysPassedText.visible = !_daysPassedText.visible;
+			
 			_statsVisible = !_statsVisible;
 			FlxG.log.add(_statsVisible);
 		}
+		if (_statsVisible)
+			updateText();
 	}
 	
 	public function updateText():Void
@@ -158,5 +182,10 @@ package;
 		_artPubbedText.text = "Published art: " + Stats._artPubbed;
 		_artUnpubbedText.text = "Unpublished: " + Stats._artUnpubbed;
 		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
+		_programSkillText.text = "Programming Skill: " + Stats._programSkill;
+		
+		_moneyEarnedText.text = "Total Cash Earned: " + Stats._TotalCashEarned;
+		_hoursWorkedText.text = "Total Hours Worked(At Job): " + Stats._TotalHoursWorked;
+		_daysPassedText.text = "Total Days Passed: " + Stats._TotalDaysPassed;
 	}
 }
