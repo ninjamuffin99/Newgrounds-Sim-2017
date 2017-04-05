@@ -152,7 +152,7 @@ class PCState extends FlxState
 	
 	private function clickAnimate():Void
 	{
-		Stats._animationSkill += 1;
+		Stats.animationEXP(1);
 		Stats._artSkill += 0.5;
 		Stats._flashSkill += 0.5;
 		Stats.h += 1;

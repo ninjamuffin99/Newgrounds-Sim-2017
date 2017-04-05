@@ -110,12 +110,12 @@ class NewGameState extends FlxState
 		
 		_usernameInput = new FlxInputText(130, 100, 100, "", 10);
 		
-		_animationSkillText = new FlxText(textX, 120, 0, "Animation Skill: " + Stats._animationSkill, 10);
-		_artSkillText = new FlxText(textX, 145, 0, "Art Skill: " + Stats._artSkill, 10);
-		_musicSkillText = new FlxText(textX, 170, 0, "Music Skill: " + Stats._musicSkill, 10);
-		_programSkillText = new FlxText(textX, 195, 0, "Programming Skill: " + Stats._programSkill, 10);
-		_voiceSkillText = new FlxText(textX, 220, 0, "Voice Acting Skill: " + Stats._voiceSkill, 10);
-		_writingSkillText = new FlxText(textX, 245, 0, "Writing Skill: " + Stats._writingSkill, 10);
+		_animationSkillText = new FlxText(textX, 120, 0, "Animation Skill: " + Stats._animationLevel, 10);
+		_artSkillText = new FlxText(textX, 145, 0, "Art Skill: " + Stats._artLevel, 10);
+		_musicSkillText = new FlxText(textX, 170, 0, "Music Skill: " + Stats._musicLevel, 10);
+		_programSkillText = new FlxText(textX, 195, 0, "Programming Skill: " + Stats._programLevel, 10);
+		_voiceSkillText = new FlxText(textX, 220, 0, "Voice Acting Skill: " + Stats._voiceLevel, 10);
+		_writingSkillText = new FlxText(textX, 245, 0, "Writing Skill: " + Stats._writingLevel, 10);
 		
 		_btnAnimationAdd = new FlxButtonPlus(addBtnX, 120, clickAddAnimation, plus, 20, 20);
 		_btnArtAdd = new FlxButtonPlus(addBtnX, 145, clickAddArt, plus, 20, 20);
@@ -163,7 +163,7 @@ class NewGameState extends FlxState
 		if(_skillPoints >= 1)
 		{
 			_skillPoints -= 1;
-			Stats._animationSkill += 1;
+			Stats._animationLevel += 1;
 		}
 		
 		updateText();
@@ -173,7 +173,7 @@ class NewGameState extends FlxState
 		if(_skillPoints >= 1)
 		{
 			_skillPoints -= 1;
-			Stats._artSkill += 1;
+			Stats._artLevel += 1;
 		}
 		
 		updateText();
@@ -184,7 +184,7 @@ class NewGameState extends FlxState
 		if(_skillPoints >= 1)
 		{
 			_skillPoints -= 1;
-			Stats._musicSkill += 1;
+			Stats._musicLevel += 1;
 		}
 		
 		updateText();
@@ -195,7 +195,7 @@ class NewGameState extends FlxState
 		if(_skillPoints >= 1)
 		{
 			_skillPoints -= 1;
-			Stats._programSkill += 1;
+			Stats._programLevel += 1;
 		}
 		
 		updateText();
@@ -206,7 +206,7 @@ class NewGameState extends FlxState
 		if(_skillPoints >= 1)
 		{
 			_skillPoints -= 1;
-			Stats._voiceSkill += 1;
+			Stats._voiceLevel += 1;
 		}
 		
 		updateText();
@@ -217,7 +217,7 @@ class NewGameState extends FlxState
 		if(_skillPoints >= 1)
 		{
 			_skillPoints -= 1;
-			Stats._writingSkill += 1;
+			Stats._writingLevel += 1;
 		}
 		
 		updateText();
@@ -229,60 +229,60 @@ class NewGameState extends FlxState
 	
 	private function clickSubAnimation():Void
 	{
-		if (Stats._animationSkill >= 1)
+		if (Stats._animationLevel >= 1)
 		{
 			_skillPoints += 1;
-			Stats._animationSkill -= 1;
+			Stats._animationLevel -= 1;
 		}
 		updateText();
 	}
 	
 	private function clickSubArt():Void
 	{
-		if (Stats._artSkill >= 1)
+		if (Stats._artLevel >= 1)
 		{
 			_skillPoints += 1;
-			Stats._artSkill -= 1;
+			Stats._artLevel -= 1;
 		}
 		updateText();
 	}
 	
 	private function clickSubMusic():Void
 	{
-		if (Stats._musicSkill >= 1)
+		if (Stats._musicLevel >= 1)
 		{
 			_skillPoints += 1;
-			Stats._musicSkill -= 1;
+			Stats._musicLevel -= 1;
 		}
 		updateText();
 	}
 	
 	private function clickSubProgram():Void
 	{
-		if (Stats._programSkill >= 1)
+		if (Stats._programLevel >= 1)
 		{
 			_skillPoints += 1;
-			Stats._programSkill -= 1;
+			Stats._programLevel -= 1;
 		}
 		updateText();
 	}
 	
 	private function clickSubVoice():Void
 	{
-		if (Stats._voiceSkill >= 1)
+		if (Stats._voiceLevel >= 1)
 		{
 			_skillPoints += 1;
-			Stats._voiceSkill -= 1;
+			Stats._voiceLevel -= 1;
 		}
 		updateText();
 	}
 	
 	private function clickSubWriting():Void
 	{
-		if (Stats._writingSkill >= 1)
+		if (Stats._writingLevel >= 1)
 		{
 			_skillPoints += 1;
-			Stats._writingSkill -= 1;
+			Stats._writingLevel -= 1;
 		}
 		updateText();
 	}
@@ -291,12 +291,12 @@ class NewGameState extends FlxState
 	
 	private function updateText():Void
 	{
-		_animationSkillText.text = "Animation Skill: " + Stats._animationSkill;
-		_artSkillText.text = "Art Skill: " + Stats._artSkill;
-		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
-		_programSkillText.text = "Programming Skill: " + Stats._programSkill;
-		_voiceSkillText.text = "Voice Acting Skill: " + Stats._voiceSkill;
-		_writingSkillText.text = "Writing Skill: " + Stats._writingSkill;
+		_animationSkillText.text = "Animation Skill: " + Stats._animationLevel;
+		_artSkillText.text = "Art Skill: " + Stats._artLevel;
+		_musicSkillText.text = "Music Skill: " + Stats._musicLevel;
+		_programSkillText.text = "Programming Skill: " + Stats._programLevel;
+		_voiceSkillText.text = "Voice Acting Skill: " + Stats._voiceLevel;
+		_writingSkillText.text = "Writing Skill: " + Stats._writingLevel;
 		
 		_skillPointsText.text = "Points Left: " + _skillPoints;
 	}

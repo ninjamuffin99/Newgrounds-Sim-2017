@@ -9,12 +9,20 @@ class Stats
 {
 	
 	//BASE STATS
-	public static var _animationSkill:Float = 5;
-	public static var _artSkill:Float = 5;
-	public static var _musicSkill:Float = 5;
-	public static var _programSkill:Float = 5;
-	public static var _voiceSkill:Float = 5;
-	public static var _writingSkill:Float = 5; //will use for quality of jokes in animations as well as forum stuff maybe
+	public static var _animationSkill:Float = 0;
+	public static var _artSkill:Float = 0;
+	public static var _musicSkill:Float = 0;
+	public static var _programSkill:Float = 0;
+	public static var _voiceSkill:Float = 0;
+	public static var _writingSkill:Float = 0; //will use for quality of jokes in animations as well as forum stuff maybe
+	
+	//Leveling System
+	public static var _animationLevel:Float = 1;
+	public static var _artLevel:Float = 1;
+	public static var _musicLevel:Float = 1;
+	public static var _programLevel:Float = 1;
+	public static var _voiceLevel:Float = 1;
+	public static var _writingLevel:Float = 1;
 	
 	
 	//DATE AND TIME STATS
@@ -117,5 +125,16 @@ class Stats
 	{
 		dd += D;
 		_TotalDaysPassed += D;
+	}
+	
+	public static function animationEXP(E:Float):Void
+	{
+		_animationSkill += E;
+		
+		if (_animationSkill >= 100)
+		{
+			_animationLevel += 1;
+			_animationSkill -= 100;
+		}
 	}
 }

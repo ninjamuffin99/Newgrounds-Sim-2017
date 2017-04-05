@@ -30,6 +30,10 @@ package;
 	private var _musicSkillText:FlxText;
 	private var _programSkillText:FlxText;
 	
+	//LEVEL TEXT
+	private var _animationLevelText:FlxText;
+	private var _animationEXPText:FlxText;
+	
 	//QUALITY TEXT
 	private var _animationQualityText:FlxText;
 	
@@ -89,6 +93,7 @@ package;
 		var textX:Int = FlxG.width - 1195;
 		var textY:Int = 75;
 		var textSize:Int = 15;
+		var _animationEXP:Float = 100 - Stats._animationSkill;
 		
 		_hudTitle = new FlxText(FlxG.width / 2, FlxG.height / 2, 0, "Stats", 20);
 		_hudTitle.screenCenter();
@@ -100,6 +105,9 @@ package;
 		_artUnpubbedText = new FlxText(FlxG.width / 2, FlxG.height - 655, 0, "Unpublished art: " + Stats._artUnpubbed, textSize);
 		_musicSkillText = new FlxText(textX, textY + 80, 0, "Music Skill: " + Stats._musicSkill, textSize);
 		_programSkillText = new FlxText(textX, textY + 100, 0, "Programming Skill: " + Stats._programSkill, textSize);
+		
+		_animationLevelText = new FlxText(textX, textY + 180, 0, "Animation Level: " + Stats._animationLevel, textSize);
+		_animationEXPText = new FlxText(textX, textY + 200, 0, "EXP until next level: " + _animationEXP);
 		
 		_moneyEarnedText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned, textSize);
 		_hoursWorkedText = new FlxText(textX, textY + 140, 0, "Total Hours Worked(At Job): " + Stats._TotalHoursWorked, textSize);
@@ -114,6 +122,9 @@ package;
 		_artUnpubbedText.visible = false;
 		_musicSkillText.visible = false;
 		_programSkillText.visible = false;
+		
+		_animationLevelText.visible = false;
+		_animationEXPText.visible = false;
 		
 		_moneyEarnedText.visible = false;
 		_hoursWorkedText.visible = false;
@@ -131,6 +142,10 @@ package;
 		add(_artUnpubbedText);
 		add(_musicSkillText);
 		add(_programSkillText);
+		
+		add(_animationLevelText);
+		add(_animationEXPText);
+		
 		add(_moneyEarnedText);
 		add(_hoursWorkedText);
 		add(_daysPassedText);
@@ -162,6 +177,9 @@ package;
 			_musicSkillText.visible = !_musicSkillText.visible;
 			_programSkillText.visible = !_programSkillText.visible;
 			
+			_animationLevelText.visible = !_animationLevelText.visible;
+			_animationEXPText.visible = !_animationEXPText.visible;
+			
 			_moneyEarnedText.visible = !_moneyEarnedText.visible;
 			_hoursWorkedText.visible = !_hoursWorkedText.visible;
 			_daysPassedText.visible = !_daysPassedText.visible;
@@ -175,6 +193,8 @@ package;
 	
 	public function updateText():Void
 	{
+		var _animationEXP:Float = 100 - Stats._animationSkill;
+		
 		_animationSkillText.text = "Animation Skill: " + Stats._animationSkill;
 		_artSkillText.text = "Art Skill: " + Stats._artSkill;
 		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
@@ -183,6 +203,9 @@ package;
 		_artUnpubbedText.text = "Unpublished: " + Stats._artUnpubbed;
 		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
 		_programSkillText.text = "Programming Skill: " + Stats._programSkill;
+		
+		_animationLevelText.text = "Animation Level: " + Stats._animationLevel;
+		_animationEXPText.text = "EXP until next level: " + _animationEXP;
 		
 		_moneyEarnedText.text = "Total Cash Earned: " + Stats._TotalCashEarned;
 		_hoursWorkedText.text = "Total Hours Worked(At Job): " + Stats._TotalHoursWorked;
