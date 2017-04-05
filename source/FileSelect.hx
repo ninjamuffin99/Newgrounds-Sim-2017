@@ -34,14 +34,14 @@ class FileSelect extends FlxState
 	
 	private function load1():Void
 	{
-		//Stats._gameSave.bind("File1");
+		Stats._gameSave.bind("File1");
 		FlxG.log.add("clickLoad1");
 		loadGame();
 	}
 	
 	private function load2():Void
 	{
-		//Stats._gameSave.bind("File2");
+		Stats._gameSave.bind("File2");
 		loadGame();
 	}
 	
