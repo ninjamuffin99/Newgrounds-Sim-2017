@@ -98,6 +98,10 @@ class Stats
 	//SAVING LOADING
 	public static var _gameSave:FlxSave;
 	
+	public static var _file1name:String;
+	public static var _file2name:String;
+	public static var _file3name:String;
+	
 	public static var _skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
 	public static var _levelArray = [_animationLevel, _artLevel, _musicLevel, _programLevel, _writingLevel];
 	
@@ -112,15 +116,22 @@ class Stats
 		FlxG.log.add("levels" + _levelArray);
 		FlxG.log.add("Skills/EXP: " + _skillArray);
 		
-		_gameSave.data._levelArray;
-		_gameSave.data._skillArray;
+		_gameSave.data._levelArray = _levelArray;
+		_gameSave.data._skillArray = _skillArray;
 		
-		FlxG.save.flush();
+		_gameSave.flush();
 	}
 	public static function load():Void
 	{
+		if (_gameSave.data._skillArray == null)
+		{
+			_gameSave.data._skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
+			
+		}
 		_skillArray = _gameSave.data._levelArray;
 		_levelArray = _gameSave.data._skillArray;
+		
+		_gameSave.flush();
 	}
 	
 	public static function addCash(C:Int):Void
