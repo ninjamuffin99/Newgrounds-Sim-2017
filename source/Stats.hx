@@ -1,5 +1,6 @@
 package source;
 import flixel.FlxG;
+import flixel.util.FlxSave;
 
 /**
  * ...
@@ -94,6 +95,12 @@ class Stats
 	public static var _TotalHoursWorked:Int = 0;
 	public static var _TotalDaysPassed:Int = 0;
 	
+	//SAVING LOADING
+	public static var _gameSave:FlxSave;
+	
+	public static var _skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
+	public static var _levelArray = [_animationLevel, _artLevel, _musicLevel, _programLevel, _writingLevel];
+	
 	public function new() 
 	{
 		
@@ -101,12 +108,19 @@ class Stats
 	
 	public static function save():Void
 	{
-		FlxG.save.data._animationSkill = _animationSkill;
 		
-		//FlxG.save.data._animationSkill;
+		FlxG.log.add("levels" + _levelArray);
+		FlxG.log.add("Skills/EXP: " + _skillArray);
 		
-		FlxG.log.add("Saved animation Skill" + FlxG.save.data._animationSkill);
+		_gameSave.data._levelArray;
+		_gameSave.data._skillArray;
+		
 		FlxG.save.flush();
+	}
+	public static function load():Void
+	{
+		_skillArray = _gameSave.data._levelArray;
+		_levelArray = _gameSave.data._skillArray;
 	}
 	
 	public static function addCash(C:Int):Void

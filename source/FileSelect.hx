@@ -3,6 +3,8 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.ui.FlxButtonPlus;
+import flixel.util.FlxSave;
+import source.Stats;
 
 /**
  * ...
@@ -21,6 +23,7 @@ class FileSelect extends FlxState
 		_file1 = new FlxButtonPlus(centerX, 100, load1, "File 1");
 		_file2 = new FlxButtonPlus(centerX, 200, load2, "File 2");
 		_file3 = new FlxButtonPlus(centerX, 300, load3, "File3");
+		Stats._gameSave = new FlxSave();
 		
 		add(_file1);
 		add(_file2);
@@ -29,33 +32,30 @@ class FileSelect extends FlxState
 		super.create();
 	}
 	
-	public function new() 
-	{
-		
-		
-	}
-	
 	private function load1():Void
 	{
-		FlxG.save.bind("File1");
+		//Stats._gameSave.bind("File1");
+		FlxG.log.add("clickLoad1");
 		loadGame();
 	}
 	
 	private function load2():Void
 	{
-		FlxG.save.bind("File2");
+		//Stats._gameSave.bind("File2");
 		loadGame();
 	}
 	
 	private function load3():Void
 	{
-		FlxG.save.bind("File3");
+		Stats._gameSave.bind("File3");
 		loadGame();
 	}
 	
 	private function loadGame():Void
 	{
+		FlxG.log.add("FileSelectLOadgame");
+		//Stats.load();
 		//TODO check if file exists then either load the file or create a new one
-		FlxG.switchState(new NewGameState);
+		FlxG.switchState(new NewGameState());
 	}
 }

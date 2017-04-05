@@ -36,6 +36,6 @@ class MenuState extends FlxState
 		API.createSaveFile("CloudSave");
 		Logger.logMessage("TEST MESSAGE");
 		FlxG.log.add("thing");
-		FlxG.switchState(new NewGameState());
+		FlxG.switchState(new FileSelect());
 	}
 }
