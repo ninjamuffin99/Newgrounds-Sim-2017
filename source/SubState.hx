@@ -100,7 +100,7 @@ class SubState extends FlxSubState
 	private function clickShitpost():Void
 	{
 		//TODO: instead of doing this, it'll change the title and post text to suit, and then call typingStart
-		
+		Stats.forumPost(10);
 		typingStart();
 	}
 	
@@ -108,7 +108,7 @@ class SubState extends FlxSubState
 	{
 		_title.resetText("HEEELPP!!!!");
 		_post.resetText("I THINK NEWGROUNDS IS COMPLETLY BROKEN, I CANNOT BUY THE MERCH ANYMORE!!!! TOM PLEASE TAKE MY MONEYYYYYYYYYYY :(:(:( SAD FAAACE");
-		
+		Stats.forumPost(5);
 		typingStart();
 	}
 	
@@ -129,7 +129,7 @@ class SubState extends FlxSubState
 		_title.showCursor = false;
 		_post.showCursor = true;
 		_post.start(0.025, false, false, ["SPACE"]);
-		Stats._forumPosts += FlxG.random.int(1, 3);
+		Stats.forumPost(FlxG.random.int(1, 3));
 		FlxG.log.add("Forum Posts = " + Stats._forumPosts);
 	}
 	

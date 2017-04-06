@@ -39,6 +39,7 @@ class Stats
 	//PERSONAL STATS
 	public static var _name:String = "Cameron";
 	public static var _username:String = "ninjamuffin99";
+	public static var _fans:Int = 0;
 	public static var _forumPosts:Int = 0;
 	public static var _cash:Int = 2000;
 	
@@ -74,7 +75,7 @@ class Stats
 	public static var _asepriteSkill:Float;
 	
 	//QUALITY STATS
-	public static var _animationQuality:Float = _animationSkill + _artSkill / _flashSkill; // change this to program of choice possibly have it change dependign on which program you're using
+	public static var _animationQuality:Float;//= _animationSkill + _artSkill / _flashSkill; // change this to program of choice possibly have it change dependign on which program you're using
 	public static var _artQuality:Float;
 	public static var _gameQuality:Float;
 	public static var _songQuality:Float;
@@ -150,6 +151,36 @@ class Stats
 	{
 		dd += D;
 		_TotalDaysPassed += D;
+	}
+	
+	public static function forumPost(P:Int):Void
+	{
+		_forumPosts += P;
+	}
+	
+	public static function animationPost(P:Int):Void
+	{
+		var quality:Int = _animationLevel += _artLevel;
+		_animationQuality == quality;
+		
+		_fans += FlxG.random.int(0, quality);
+		//_animationPosts = P;
+	}
+	
+	public static function artPost(P:Int):Void
+	{
+		var quality:Int = _artLevel; // += _whatever program skill and which tablet you have
+		_artQuality == quality;
+		
+		_fans += FlxG.random.int(0, quality);
+	}
+	
+	public static function musicPost(P:Int):Void
+	{
+		var quality:Int = _musicLevel;
+		_songQuality == quality;
+		
+		_fans += FlxG.random.int(0, quality);
 	}
 	
 	public static function animationEXP(E:Float):Void
