@@ -36,12 +36,14 @@ package;
 	
 	//QUALITY TEXT
 	private var _animationQualityText:FlxText;
+	private var _artQualityText:FlxText;
 	
 	private var _artPubbedText:FlxText;
 	private var _artUnpubbedText:FlxText;
 	
 	
 	//MISC STATS
+	private var _fansText:FlxText;
 	private var _moneyEarnedText:FlxText;
 	private var _hoursWorkedText:FlxText;
 	private var _daysPassedText:FlxText;
@@ -106,12 +108,15 @@ package;
 		_musicSkillText = new FlxText(textX, textY + 80, 0, "Music Skill: " + Stats._musicSkill, textSize);
 		_programSkillText = new FlxText(textX, textY + 100, 0, "Programming Skill: " + Stats._programSkill, textSize);
 		
+		_artQualityText = new FlxText(textX, textY + 220, 0, "Art Quality: " + Stats._artQuality, textSize);
+		
 		_animationLevelText = new FlxText(textX, textY + 180, 0, "Animation Level: " + Stats._animationLevel, textSize);
 		_animationEXPText = new FlxText(textX, textY + 200, 0, "EXP until next level: " + _animationEXP);
 		
 		_moneyEarnedText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned, textSize);
 		_hoursWorkedText = new FlxText(textX, textY + 140, 0, "Total Hours Worked(At Job): " + Stats._TotalHoursWorked, textSize);
 		_daysPassedText = new FlxText(textX, textY + 160, 0, "Total Days Passed: " + Stats._TotalDaysPassed, textSize);
+		_fansText = new FlxText(textX, textY + 240, 0, "Fans: " + Stats._fans, textSize);
 		
 		_hudTitle.visible = false;
 		_animationSkillText.visible = false;
@@ -123,12 +128,15 @@ package;
 		_musicSkillText.visible = false;
 		_programSkillText.visible = false;
 		
+		_artQualityText.visible = false;
+		
 		_animationLevelText.visible = false;
 		_animationEXPText.visible = false;
 		
 		_moneyEarnedText.visible = false;
 		_hoursWorkedText.visible = false;
 		_daysPassedText.visible = false;
+		_fansText.visible = false;
 		
 		
 		
@@ -143,12 +151,15 @@ package;
 		add(_musicSkillText);
 		add(_programSkillText);
 		
+		add(_artQualityText);
+		
 		add(_animationLevelText);
 		add(_animationEXPText);
 		
 		add(_moneyEarnedText);
 		add(_hoursWorkedText);
 		add(_daysPassedText);
+		add(_fansText);
 	}
 	
 	public function updateHUD():Void
@@ -177,12 +188,15 @@ package;
 			_musicSkillText.visible = !_musicSkillText.visible;
 			_programSkillText.visible = !_programSkillText.visible;
 			
+			_artQualityText.visible = !_artQualityText.visible;
+			
 			_animationLevelText.visible = !_animationLevelText.visible;
 			_animationEXPText.visible = !_animationEXPText.visible;
 			
 			_moneyEarnedText.visible = !_moneyEarnedText.visible;
 			_hoursWorkedText.visible = !_hoursWorkedText.visible;
 			_daysPassedText.visible = !_daysPassedText.visible;
+			_fansText.visible = !_fansText.visible;
 			
 			_statsVisible = !_statsVisible;
 			FlxG.log.add(_statsVisible);
@@ -204,11 +218,14 @@ package;
 		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
 		_programSkillText.text = "Programming Skill: " + Stats._programSkill;
 		
+		_artQualityText.text = "Art Quality: " + Stats._artQuality;
+		
 		_animationLevelText.text = "Animation Level: " + Stats._animationLevel;
 		_animationEXPText.text = "EXP until next level: " + _animationEXP;
 		
 		_moneyEarnedText.text = "Total Cash Earned: " + Stats._TotalCashEarned;
 		_hoursWorkedText.text = "Total Hours Worked(At Job): " + Stats._TotalHoursWorked;
 		_daysPassedText.text = "Total Days Passed: " + Stats._TotalDaysPassed;
+		_fansText.text = "Fans: " + Stats._fans;
 	}
 }

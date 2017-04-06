@@ -160,27 +160,27 @@ class Stats
 	
 	public static function animationPost(P:Int):Void
 	{
-		var quality:Int = _animationLevel += _artLevel;
+		var quality:Float = _animationLevel += _artLevel;
 		_animationQuality == quality;
 		
-		_fans += FlxG.random.int(0, quality);
+		_fans += Std.int(FlxG.random.float(0, quality));
 		//_animationPosts = P;
 	}
 	
 	public static function artPost(P:Int):Void
 	{
-		var quality:Int = _artLevel; // += _whatever program skill and which tablet you have
+		var quality:Float = _artLevel; // += _whatever program skill and which tablet you have
 		_artQuality == quality;
 		
-		_fans += FlxG.random.int(0, quality);
+		_fans += Std.int(FlxG.random.float(0, quality));
 	}
 	
 	public static function musicPost(P:Int):Void
 	{
-		var quality:Int = _musicLevel;
+		var quality:Float = _musicLevel;
 		_songQuality == quality;
 		
-		_fans += FlxG.random.int(0, quality);
+		_fans += Std.int(FlxG.random.float(0, quality));
 	}
 	
 	public static function animationEXP(E:Float):Void

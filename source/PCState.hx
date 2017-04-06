@@ -235,6 +235,7 @@ class PCState extends FlxState
 	
 	private function clickPost():Void
 	{
+		Stats.artPost(0);
 		Stats._artPubbed += Stats._artUnpubbed;
 		Stats._artUnpubbed = 0;
 	}
