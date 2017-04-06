@@ -154,6 +154,15 @@ class Stats
 	
 	public static function animationEXP(E:Float):Void
 	{
+		if (_stamina <= 7)
+		{
+			E = E * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			E = 0;
+		}
+		
 		_animationSkill += E;
 		
 		if (_animationSkill >= 100)
@@ -165,6 +174,15 @@ class Stats
 	
 	public static function artEXP(E:Float):Void
 	{
+		if (_stamina <= 7)
+		{
+			E = E * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			E = 0;
+		}
+		
 		_artSkill += E;
 		
 		if (_artSkill >= 100)
@@ -176,6 +194,15 @@ class Stats
 	
 	public static function musicEXP(E:Float):Void
 	{
+		if (_stamina <= 7)
+		{
+			E = E * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			E = 0;
+		}
+		
 		_musicSkill += E;
 		
 		if (_musicSkill >= 100)
@@ -187,6 +214,15 @@ class Stats
 	
 	public static function programEXP(E:Float):Void
 	{
+		if (_stamina <= 7)
+		{
+			E = E * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			E = 0;
+		}
+		
 		_programSkill += E;
 		if (_programSkill >= 100)
 		{
@@ -195,9 +231,39 @@ class Stats
 		}
 	}
 	
+	public static function voiceEXP(E:Float):Void
+	{
+		if (_stamina <= 7)
+		{
+			E = E * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			E = 0;
+		}
+		
+		_voiceSkill += E;
+		
+		if (_voiceSkill >= 100)
+		{
+			_voiceSkill -= 100;
+			_voiceLevel += 1;
+		}
+	}
+	
 	public static function writingEXP(E:Float):Void
 	{
+		if (_stamina <= 7)
+		{
+			E = E * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			E = 0;
+		}
+		
 		_writingSkill += E;
+		
 		if (_writingSkill >= 100)
 		{
 			_writingSkill -= 100;

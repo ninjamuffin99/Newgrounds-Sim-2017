@@ -108,7 +108,7 @@ class NewGameState extends FlxState
 		
 		_usernameText = new FlxText(60, 100, 0, "Username:", 10);
 		
-		_usernameInput = new FlxInputText(130, 100, 100, "", 10);
+		_usernameInput = new FlxInputText(130, 100, 100, "ninjamuffin99", 10);
 		
 		_animationSkillText = new FlxText(textX, 120, 0, "Animation Skill: " + Stats._animationLevel, 10);
 		_artSkillText = new FlxText(textX, 145, 0, "Art Skill: " + Stats._artLevel, 10);

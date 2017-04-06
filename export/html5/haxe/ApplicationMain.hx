@@ -74,12 +74,12 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("flixel/sounds/beep.mp3");
-		types.push (lime.Assets.AssetType.MUSIC);
+		urls.push ("flixel/sounds/beep.ogg");
+		types.push (lime.Assets.AssetType.SOUND);
 		
 		
-		urls.push ("flixel/sounds/flixel.mp3");
-		types.push (lime.Assets.AssetType.MUSIC);
+		urls.push ("flixel/sounds/flixel.ogg");
+		types.push (lime.Assets.AssetType.SOUND);
 		
 		
 		urls.push ("Nokia Cellphone FC Small");
@@ -279,7 +279,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "450",
+			build: "448",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
@@ -296,10 +296,10 @@ class ApplicationMain {
 					depthBuffer: false,
 					display: 0,
 					fullscreen: false,
-					hardware: true,
+					hardware: false,
 					height: 720,
 					parameters: "{}",
-					resizable: true,
+					resizable: false,
 					stencilBuffer: true,
 					title: "NGSimtest",
 					vsync: true,

@@ -18,14 +18,12 @@ class PCState extends FlxState
 	private var _btnDraw:FlxButton;
 	private var _btnForum:FlxButton;
 	private var _btnProgram:FlxButton;
+	private var _btnVoice:FlxButton;
+	private var _btnWrite:FlxButton;
 	private var _btnBack:FlxButton;
 	
 	private var _btnPostArt:FlxButton;
 	
-	private var _animationSkillText:FlxText;
-	private var _artSkillText:FlxText;
-	private var _flashSkillText:FlxText;
-	private var _animationQualityText:FlxText;
 	private var _artProgressText:FlxText;
 
 	
@@ -120,6 +118,12 @@ class PCState extends FlxState
 		_btnProgram = new FlxButton(buttonX, 90, "Program", clickProgram);
 		add(_btnProgram);
 		
+		_btnVoice = new FlxButton(buttonX, 120, "Voice Act", clickVoice);
+		add(_btnVoice);
+		
+		_btnWrite = new FlxButton(buttonX, 150, "Write", clickWrite);
+		add(_btnWrite);
+		
 		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post Art", clickPost);
 		_btnPostArt.visible = false;
 		add(_btnPostArt);
@@ -134,18 +138,9 @@ class PCState extends FlxState
 		var textY:Int = 60;
 		var textSize:Int = 15;
 		
-		_animationSkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill, textSize);
-		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
-		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
-		_flashSkillText = new FlxText(textX, textY + 60, 0, "Flash Skill: " + Stats._flashSkill, textSize);
 		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", textSize);
 		
-		/*
-		add(_animationSkillText);
-		add(_artSkillText);
-		add(_animationQualityText);
-		add(_flashSkillText);
-		*/
+		
 		add(_artProgressText);
 		
 	}
@@ -154,9 +149,10 @@ class PCState extends FlxState
 	{
 		Stats.animationEXP(1);
 		Stats.artEXP(0.5);
-		
+		Stats._stamina -= 1;
 		Stats._flashSkill += 0.5;
 		Stats.h += 1;
+		
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
 		updateText();
 		_hud.updateHUD();
@@ -165,10 +161,6 @@ class PCState extends FlxState
 	
 	private function updateText():Void
 	{
-		_animationSkillText.text = "Animation Skill: " + Stats._animationSkill;
-		_artSkillText.text = "Art Skill: " + Stats._artSkill;
-		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
-		_flashSkillText.text = "Flash Skill: " + Stats._flashSkill;
 		_artProgressText.text = "Artwork Progress: " + Stats._artProgress + "%";
 	}
 	
@@ -182,22 +174,13 @@ class PCState extends FlxState
 	
 	private function clickDraw():Void
 	{
-		if (Stats._stamina >= 8)
-		{
-			Stats.artEXP(1);
-			Stats._artProgress += 20;
-			Stats.h += 1;
-			Stats._stamina -= 1;
-			
-			FlxG.log.add("Art skill = " + Stats._artSkill);
-		}
-		if (Stats._stamina <= 7 && Stats._stamina >= 1)
-		{
-			Stats.artEXP(0.25);
-			Stats._artProgress += 5;
-			Stats.h += 1;
-			Stats._stamina -= 1;
-		}
+		Stats.artEXP(1);
+		Stats._artProgress += 20;
+		Stats.h += 1;
+		Stats._stamina -= 1;
+		
+		FlxG.log.add("Art skill = " + Stats._artSkill);
+		
 		if (Stats._stamina <= 0)
 		{
 			FlxG.log.add("You're too tired!");
@@ -210,26 +193,40 @@ class PCState extends FlxState
 	
 	private function clickProgram():Void
 	{
-		if (Stats._stamina >= 8)
-		{
-			Stats.programEXP(1);
-			//Stats._artProgress += 20;
-			Stats.h += 1;
-			Stats._stamina -= 1;
-			
-			FlxG.log.add("program skill = " + Stats._programSkill);
-		}
-		if (Stats._stamina <= 7 && Stats._stamina >= 1)
-		{
-			Stats.programEXP(0.25);
-			//Stats._programProgress += 5;
-			Stats.h += 1;
-			Stats._stamina -= 1;
-		}
+		
+		Stats.programEXP(1);
+		//Stats._artProgress += 20;
+		Stats.h += 1;
+		Stats._stamina -= 1;
+		
+		FlxG.log.add("program skill = " + Stats._programSkill);
+		
 		if (Stats._stamina <= 0)
 		{
 			FlxG.log.add("You're too tired!");
 		}
+		
+		_hud.updateHUD();
+		updateText();
+		_statsHUD.updateText();
+	}
+	
+	private function clickVoice():Void
+	{
+		Stats.voiceEXP(1);
+		Stats.h += 1;
+		Stats._stamina -= 1;
+		
+		_hud.updateHUD();
+		updateText();
+		_statsHUD.updateText();
+	}
+	
+	private function clickWrite():Void
+	{
+		Stats.writingEXP(1);
+		Stats.h += 1;
+		Stats._stamina -= 1;
 		
 		_hud.updateHUD();
 		updateText();
