@@ -43,12 +43,12 @@ class Stats
 	public static var _cash:Int = 2000;
 	
 	
-	//STYLE STATS
-	public static var _artVectorSkill:Float;
+	//STYLE STATS will maybe use these but for now these will get cut
+	/*public static var _artVectorSkill:Float;
 	public static var _artPixelSkill:Float;
 	
 	public static var _animationVectorSkill:Float;
-	public static var _animationPixelSkill:Float;
+	public static var _animationPixelSkill:Float;*/
 	
 	//WHICH PROGRAMS USER OWNS
 	public static var _hasFlash:Bool = false;
@@ -160,6 +160,48 @@ class Stats
 		{
 			_animationLevel += 1;
 			_animationSkill -= 100;
+		}
+	}
+	
+	public static function artEXP(E:Float):Void
+	{
+		_artSkill += E;
+		
+		if (_artSkill >= 100)
+		{
+			_artLevel += 1;
+			_artSkill -= 100;
+		}
+	}
+	
+	public static function musicEXP(E:Float):Void
+	{
+		_musicSkill += E;
+		
+		if (_musicSkill >= 100)
+		{
+			_musicLevel += 1;
+			_musicSkill -= 100;
+		}
+	}
+	
+	public static function programEXP(E:Float):Void
+	{
+		_programSkill += E;
+		if (_programSkill >= 100)
+		{
+			_programSkill -= 100;
+			_programLevel += 1;
+		}
+	}
+	
+	public static function writingEXP(E:Float):Void
+	{
+		_writingSkill += E;
+		if (_writingSkill >= 100)
+		{
+			_writingSkill -= 100;
+			_writingLevel += 1;
 		}
 	}
 }

@@ -64,7 +64,7 @@ class PCState extends FlxState
 		if (Stats._artProgress >= 100)
 		{
 			Stats._artProgress = 0;
-			Stats._artSkill += 10;
+			Stats.artEXP(10);
 			Stats._artUnpubbed += 1;
 			updateText();
 		}
@@ -153,7 +153,8 @@ class PCState extends FlxState
 	private function clickAnimate():Void
 	{
 		Stats.animationEXP(1);
-		Stats._artSkill += 0.5;
+		Stats.artEXP(0.5);
+		
 		Stats._flashSkill += 0.5;
 		Stats.h += 1;
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
@@ -183,7 +184,7 @@ class PCState extends FlxState
 	{
 		if (Stats._stamina >= 8)
 		{
-			Stats._artSkill += 1;
+			Stats.artEXP(1);
 			Stats._artProgress += 20;
 			Stats.h += 1;
 			Stats._stamina -= 1;
@@ -192,7 +193,7 @@ class PCState extends FlxState
 		}
 		if (Stats._stamina <= 7 && Stats._stamina >= 1)
 		{
-			Stats._artSkill += 0.25;
+			Stats.artEXP(0.25);
 			Stats._artProgress += 5;
 			Stats.h += 1;
 			Stats._stamina -= 1;
@@ -211,7 +212,7 @@ class PCState extends FlxState
 	{
 		if (Stats._stamina >= 8)
 		{
-			Stats._programSkill += 1;
+			Stats.programEXP(1);
 			//Stats._artProgress += 20;
 			Stats.h += 1;
 			Stats._stamina -= 1;
@@ -220,7 +221,7 @@ class PCState extends FlxState
 		}
 		if (Stats._stamina <= 7 && Stats._stamina >= 1)
 		{
-			Stats._programSkill += 0.25;
+			Stats.programEXP(0.25);
 			//Stats._programProgress += 5;
 			Stats.h += 1;
 			Stats._stamina -= 1;
