@@ -24,6 +24,8 @@ class PCState extends FlxState
 	
 	private var _btnPostArt:FlxButton;
 	
+	private var _btnBaP:FlxButton;
+	
 	private var _artProgressText:FlxText;
 
 	
@@ -124,9 +126,12 @@ class PCState extends FlxState
 		_btnWrite = new FlxButton(buttonX, 150, "Write", clickWrite);
 		add(_btnWrite);
 		
-		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post", clickPost(art));
+		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post", clickPost);
 		_btnPostArt.visible = false;
 		add(_btnPostArt);
+		
+		_btnBaP = new FlxButton(buttonX, 300, "Blam and Protect", clickBap);
+		add(_btnBaP);
 		
 		_btnBack = new FlxButton(buttonX, 500, "Back", clickBack);
 		add(_btnBack);
@@ -233,12 +238,11 @@ class PCState extends FlxState
 		_statsHUD.updateText();
 	}
 	
-	private function clickPost(P:Dynamic):Void
+	private function clickPost():Void
 	{
-		if (P == art)
-			Stats.artPost(0);
-		if (P == animation)
-			Stats.animationPost(0);
+		
+		Stats.artPost(0);
+		
 		Stats._artPubbed += Stats._artUnpubbed;
 		Stats._artUnpubbed = 0;
 	}
@@ -246,6 +250,17 @@ class PCState extends FlxState
 	private function clickBack():Void
 	{
 		FlxG.switchState(new PlayState());
+	}
+	
+	private function clickBap():Void
+	{
+		Stats.BAP();
+		Stats._stamina -= 1;
+		Stats.h += 1;
+		
+		_hud.updateHUD();
+		updateText();
+		_statsHUD.updateText;
 	}
 	
 	private function onAnimationChange():Void

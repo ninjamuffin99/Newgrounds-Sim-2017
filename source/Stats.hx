@@ -36,11 +36,13 @@ class Stats
 	public static var m:Int;
 	public static var _stamina:Float = 24;
 	
-	//PERSONAL STATS
+	//PERSONAL STATS and NEWGROUNDS
 	public static var _name:String = "Cameron";
 	public static var _username:String = "ninjamuffin99";
 	public static var _fans:Int = 0;
 	public static var _forumPosts:Int = 0;
+	public static var _blams:Int = 0;
+	public static var _protects:Int = 0;
 	public static var _cash:Int = 2000;
 	
 	
@@ -300,5 +302,17 @@ class Stats
 			_writingSkill -= 100;
 			_writingLevel += 1;
 		}
+	}
+	
+	public static function BAP(B:Int = 7, P:Int = 5):Void
+	{
+		if (_stamina <= 0)
+		{
+			B = 0;
+			P = 0;
+		}
+		
+		_blams += FlxG.random.int(0, B);
+		_protects += FlxG.random.int(0, P);
 	}
 }

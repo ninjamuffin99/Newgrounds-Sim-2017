@@ -44,6 +44,9 @@ package;
 	
 	//MISC STATS
 	private var _fansText:FlxText;
+	private var _blamText:FlxText;
+	private var _protectText:FlxText;
+	
 	private var _moneyEarnedText:FlxText;
 	private var _hoursWorkedText:FlxText;
 	private var _daysPassedText:FlxText;
@@ -117,6 +120,8 @@ package;
 		_hoursWorkedText = new FlxText(textX, textY + 140, 0, "Total Hours Worked(At Job): " + Stats._TotalHoursWorked, textSize);
 		_daysPassedText = new FlxText(textX, textY + 160, 0, "Total Days Passed: " + Stats._TotalDaysPassed, textSize);
 		_fansText = new FlxText(textX, textY + 240, 0, "Fans: " + Stats._fans, textSize);
+		_blamText = new FlxText(textX, textY + 260, 0, "Blams: " + Stats._blams, textSize);
+		_protectText = new FlxText(textX, textY + 280, 0, "Protects: " + Stats._protects, textSize);
 		
 		_hudTitle.visible = false;
 		_animationSkillText.visible = false;
@@ -136,8 +141,9 @@ package;
 		_moneyEarnedText.visible = false;
 		_hoursWorkedText.visible = false;
 		_daysPassedText.visible = false;
-		_fansText.visible = false;
 		
+		_fansText.visible = false;
+		_blamText.visible = false;
 		
 		
 		
@@ -159,7 +165,12 @@ package;
 		add(_moneyEarnedText);
 		add(_hoursWorkedText);
 		add(_daysPassedText);
+		
+		
 		add(_fansText);
+		add(_blamText);
+		add(_protectText);
+		
 	}
 	
 	public function updateHUD():Void
@@ -197,6 +208,8 @@ package;
 			_hoursWorkedText.visible = !_hoursWorkedText.visible;
 			_daysPassedText.visible = !_daysPassedText.visible;
 			_fansText.visible = !_fansText.visible;
+			_blamText.visible = !_blamText.visible;
+			_protectText.visible = !_protectText.visible;
 			
 			_statsVisible = !_statsVisible;
 			FlxG.log.add(_statsVisible);
@@ -227,5 +240,7 @@ package;
 		_hoursWorkedText.text = "Total Hours Worked(At Job): " + Stats._TotalHoursWorked;
 		_daysPassedText.text = "Total Days Passed: " + Stats._TotalDaysPassed;
 		_fansText.text = "Fans: " + Stats._fans;
+		_blamText.text = "Blams: " + Stats._blams;
+		_protectText.text = "Protects: " + Stats._protects;
 	}
 }
