@@ -144,6 +144,7 @@ package;
 		
 		_fansText.visible = false;
 		_blamText.visible = false;
+		_protectText.visible = false;
 		
 		
 		
@@ -212,7 +213,6 @@ package;
 			_protectText.visible = !_protectText.visible;
 			
 			_statsVisible = !_statsVisible;
-			FlxG.log.add(_statsVisible);
 		}
 		if (_statsVisible)
 			updateText();

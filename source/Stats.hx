@@ -306,6 +306,11 @@ class Stats
 	
 	public static function BAP(B:Int = 7, P:Int = 5):Void
 	{
+		if (_stamina <= 7)
+		{
+			B = B - 4;
+			P = P - 3;
+		}
 		if (_stamina <= 0)
 		{
 			B = 0;
