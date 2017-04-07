@@ -124,7 +124,7 @@ class PCState extends FlxState
 		_btnWrite = new FlxButton(buttonX, 150, "Write", clickWrite);
 		add(_btnWrite);
 		
-		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post Art", clickPost);
+		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post", clickPost(art));
 		_btnPostArt.visible = false;
 		add(_btnPostArt);
 		
@@ -233,9 +233,12 @@ class PCState extends FlxState
 		_statsHUD.updateText();
 	}
 	
-	private function clickPost():Void
+	private function clickPost(P:Dynamic):Void
 	{
-		Stats.artPost(0);
+		if (P == art)
+			Stats.artPost(0);
+		if (P == animation)
+			Stats.animationPost(0);
 		Stats._artPubbed += Stats._artUnpubbed;
 		Stats._artUnpubbed = 0;
 	}
