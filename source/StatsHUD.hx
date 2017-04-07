@@ -57,11 +57,11 @@ package;
 		
 		var outlineColor:FlxColor;
 		outlineColor = new FlxColor();
-		outlineColor.setRGB(90, 84, 84);
+		outlineColor.setRGB(0, 0, 0);
 		
 		var bgColor:FlxColor;
 		bgColor = new FlxColor();
-		bgColor.setRGB(54, 50, 50);
+		bgColor.setRGB(76, 72, 72);
 		
 		bgOutline = new FlxSprite();
 		bgOutline.makeGraphic(FlxG.width - 100, FlxG.height - 100, outlineColor);
