@@ -185,6 +185,8 @@ class Stats
 		_fans += Std.int(FlxG.random.float(0, quality));
 	}
 	
+	//EXPERIENCE STUFF
+	
 	public static function animationEXP(E:Float):Void
 	{
 		if (_stamina <= 7)
@@ -302,6 +304,21 @@ class Stats
 			_writingSkill -= 100;
 			_writingLevel += 1;
 		}
+	}
+	
+	//PROGRESS
+	
+	public static function animationProgress(P:Float):Void
+	{
+		if (_stamina <= 7)
+		{
+			P * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			P = 0;
+		}
+		_animationProgress += P;
 	}
 	
 	public static function BAP(B:Int = 7, P:Int = 5):Void

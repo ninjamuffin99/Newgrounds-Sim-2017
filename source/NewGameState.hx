@@ -17,6 +17,8 @@ import flixel.system.FlxAssets.GraphicLogo;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
+import com.newgrounds.*;
+import com.newgrounds.components.*;
 
 import source.Stats;
 
@@ -108,7 +110,10 @@ class NewGameState extends FlxState
 		
 		_usernameText = new FlxText(60, 100, 0, "Username:", 10);
 		
-		_usernameInput = new FlxInputText(130, 100, 100, "ninjamuffin99", 10);
+		var _NGUserName:String;
+		_NGUserName = API.username;
+		
+		_usernameInput = new FlxInputText(130, 100, 100, _NGUserName, 10);
 		
 		_animationSkillText = new FlxText(textX, 120, 0, "Animation Skill: " + Stats._animationLevel, 10);
 		_artSkillText = new FlxText(textX, 145, 0, "Art Skill: " + Stats._artLevel, 10);
