@@ -308,7 +308,14 @@ class NewGameState extends FlxState
 	
 	private function clickNext():Void
 	{
+		var noName = ["NoNameMagee", "NamelessAndShameless", "Blanca", "InsertNameHere"];
+		
 		Stats._username = _usernameInput.text;
+		if (Stats._username == "")
+		{
+			Stats._username = FlxG.random.getObject(noName);
+			//API.unlockMedal("I need to PAY to change that now?!");
+		}
 		FlxG.log.add("Username is" + Stats._username);
 		FlxG.switchState(new PlayState());
 	}

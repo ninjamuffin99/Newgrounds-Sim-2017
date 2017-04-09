@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
+import flixel.ui.FlxBar;
 import flixel.ui.FlxButton;
 import flixel.addons.ui.FlxUIDropDownMenu;
 import source.Stats;
@@ -79,6 +80,13 @@ class PCState extends FlxState
 		else
 		{
 			_btnPostArt.visible = false;
+		}
+		
+		if (Stats._animationProgress >= 100)
+		{
+			Stats.animationEXP(20);
+			Stats.artEXP(10);
+			Stats._animationProgress = 0;
 		}
 		
 		super.update(elapsed);
