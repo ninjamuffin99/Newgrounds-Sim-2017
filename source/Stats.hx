@@ -321,6 +321,45 @@ class Stats
 		_animationProgress += P;
 	}
 	
+	public static function artProgress(P:Float):Void
+	{
+		if (_stamina <= 7)
+		{
+			P * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			P = 0;
+		}
+		_artProgress += P;
+	}
+	
+	public static function gameProgress(P:Float):Void
+	{
+		if (_stamina <= 7)
+		{
+			P * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			P = 0;
+		}
+		_gameProgress += P;
+	}
+	
+	public static function songProgress(P:Float):Void
+	{
+		if (_stamina <= 7)
+		{
+			P * 0.25;
+		}
+		if (_stamina <= 0)
+		{
+			P = 0;
+		}
+		_songProgress += P;
+	}
+	
 	public static function BAP(B:Int = 7, P:Int = 5):Void
 	{
 		if (_stamina <= 7)

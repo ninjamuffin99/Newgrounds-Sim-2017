@@ -17,6 +17,7 @@ class PCState extends FlxState
 {
 	private var _btnAnimate:FlxButton;
 	private var _btnDraw:FlxButton;
+	private var _btnMusic:FlxButton;
 	private var _btnForum:FlxButton;
 	private var _btnProgram:FlxButton;
 	private var _btnVoice:FlxButton;
@@ -30,6 +31,9 @@ class PCState extends FlxState
 	private var _artProgressText:FlxText;
 	private var _animationProgressBar:FlxBar;
 	private var _artProgressBar:FlxBar;
+	private var _programProgressBar:FlxBar;
+	private var _songProgressBar:FlxBar;
+	
 	
 	private var _usingText:FlxText;
 	
@@ -75,6 +79,12 @@ class PCState extends FlxState
 			updateText();
 		}
 		
+		if (Stats._songProgress >= 100)
+		{
+			Stats.musicEXP(15);
+			Stats._songProgress = 0;
+		}
+		
 		if (Stats._artUnpubbed >= 1)
 		{
 			_btnPostArt.visible = true;
@@ -89,6 +99,11 @@ class PCState extends FlxState
 			Stats.animationEXP(20);
 			Stats.artEXP(10);
 			Stats._animationProgress = 0;
+		}
+		if (Stats._gameProgress >= 100)
+		{
+			Stats.programEXP(50);
+			Stats._gameProgress = 0;
 		}
 		
 		super.update(elapsed);
@@ -130,6 +145,9 @@ class PCState extends FlxState
 		_btnDraw = new FlxButton(buttonX, 60, "Draw", clickDraw);
 		add(_btnDraw);
 		
+		_btnMusic = new FlxButton(buttonX, 600, "Make Music", clickMusic);
+		add(_btnMusic);
+		
 		_btnProgram = new FlxButton(buttonX, 90, "Program", clickProgram);
 		add(_btnProgram);
 		
@@ -170,6 +188,12 @@ class PCState extends FlxState
 		
 		_artProgressBar = new FlxBar(300, 80, LEFT_TO_RIGHT, 100, 10, Stats, "_artProgress");
 		add(_artProgressBar);
+		
+		_programProgressBar = new FlxBar(300, 100, LEFT_TO_RIGHT, 100, 10, Stats, "_gameProgress");
+		add(_programProgressBar);
+		
+		_songProgressBar = new FlxBar(300, 150, LEFT_TO_RIGHT, 100, 10, Stats, "_songProgress");
+		add(_songProgressBar);
 	}
 	
 	private function updateText():Void
@@ -190,6 +214,21 @@ class PCState extends FlxState
 		}
 		
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
+		updateText();
+		_hud.updateHUD();
+		_statsHUD.updateText();
+	}
+	
+	private function clickMusic():Void
+	{
+		if (Stats._stamina >= 1)
+		{
+			Stats.musicEXP(5);
+			Stats._stamina -= 1;
+			Stats.h += 1;
+			Stats.songProgress(10);
+		}
+		
 		updateText();
 		_hud.updateHUD();
 		_statsHUD.updateText();
@@ -230,6 +269,7 @@ class PCState extends FlxState
 		if (Stats._stamina >= 1)
 		{
 			Stats.programEXP(1);
+			Stats.gameProgress(5);
 			//Stats._artProgress += 20;
 			Stats.h += 1;
 			Stats._stamina -= 1;
