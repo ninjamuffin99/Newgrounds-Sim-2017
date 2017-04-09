@@ -27,7 +27,7 @@ class PCState extends FlxState
 	private var _btnBaP:FlxButton;
 	
 	private var _artProgressText:FlxText;
-
+	private var _animationProgressBar:FlxBar;
 	
 	private var _usingText:FlxText;
 	
@@ -44,6 +44,9 @@ class PCState extends FlxState
 		createButtons();
 		createText();
 		createDropDowns();
+		
+		_animationProgressBar = new FlxBar(300, 50, LEFT_TO_RIGHT, 100, 10, Stats, "_animationProgress");
+		add(_animationProgressBar);
 		
 		_statsHUD = new StatsHUD();
 		add(_statsHUD);
@@ -157,6 +160,7 @@ class PCState extends FlxState
 		Stats._stamina -= 1;
 		Stats._flashSkill += 0.5;
 		Stats.h += 1;
+		Stats.animationProgress(20);
 		
 		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
 		updateText();
