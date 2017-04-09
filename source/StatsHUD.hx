@@ -66,20 +66,16 @@ package;
 		bgOutline = new FlxSprite();
 		bgOutline.makeGraphic(FlxG.width - 100, FlxG.height - 100, outlineColor);
 		bgOutline.screenCenter();
-		bgOutline.visible = false;
 		
 		bg = new FlxSprite();
 		bg.makeGraphic(FlxG.width - 105, FlxG.height - 105, bgColor);
 		bg.screenCenter();
-		bg.visible = false;
 		
 		movieOutline = new FlxSprite(FlxG.width - 1201, FlxG.height - 651);
 		movieOutline.makeGraphic(277, 252);
-		movieOutline.visible = false;
 		
 		movieBG = new FlxSprite(FlxG.width - 1200, FlxG.height - 650);
 		movieBG.makeGraphic(275, 250, FlxColor.RED);
-		movieBG.visible = false;
 		
 		
 		add(bgOutline);
@@ -123,30 +119,6 @@ package;
 		_blamText = new FlxText(textX, textY + 260, 0, "Blams: " + Stats._blams, textSize);
 		_protectText = new FlxText(textX, textY + 280, 0, "Protects: " + Stats._protects, textSize);
 		
-		_hudTitle.visible = false;
-		_animationSkillText.visible = false;
-		_artSkillText.visible = false;
-		_animationQualityText.visible = false;
-		_flashSkillText.visible = false;
-		_artPubbedText.visible = false;
-		_artUnpubbedText.visible = false;
-		_musicSkillText.visible = false;
-		_programSkillText.visible = false;
-		
-		_artQualityText.visible = false;
-		
-		_animationLevelText.visible = false;
-		_animationEXPText.visible = false;
-		
-		_moneyEarnedText.visible = false;
-		_hoursWorkedText.visible = false;
-		_daysPassedText.visible = false;
-		
-		_fansText.visible = false;
-		_blamText.visible = false;
-		_protectText.visible = false;
-		
-		
 		
 		add(_hudTitle);
 		add(_animationSkillText);
@@ -183,37 +155,6 @@ package;
 	{
 		super.update(elapsed);
 		
-		if (FlxG.keys.justReleased.S)
-		{
-			bg.visible = !bg.visible;
-			bgOutline.visible = !bgOutline.visible;
-			movieBG.visible = !movieBG.visible;
-			movieOutline.visible = !movieOutline.visible;
-			
-			_hudTitle.visible = !_hudTitle.visible;
-			_animationQualityText.visible = !_animationQualityText.visible;
-			_artSkillText.visible = !_artSkillText.visible;
-			_animationSkillText.visible = !_animationSkillText.visible;
-			_flashSkillText.visible = !_flashSkillText.visible;
-			_artPubbedText.visible = !_artPubbedText.visible;
-			_artUnpubbedText.visible = !_artUnpubbedText.visible;
-			_musicSkillText.visible = !_musicSkillText.visible;
-			_programSkillText.visible = !_programSkillText.visible;
-			
-			_artQualityText.visible = !_artQualityText.visible;
-			
-			_animationLevelText.visible = !_animationLevelText.visible;
-			_animationEXPText.visible = !_animationEXPText.visible;
-			
-			_moneyEarnedText.visible = !_moneyEarnedText.visible;
-			_hoursWorkedText.visible = !_hoursWorkedText.visible;
-			_daysPassedText.visible = !_daysPassedText.visible;
-			_fansText.visible = !_fansText.visible;
-			_blamText.visible = !_blamText.visible;
-			_protectText.visible = !_protectText.visible;
-			
-			_statsVisible = !_statsVisible;
-		}
 		if (_statsVisible)
 			updateText();
 	}

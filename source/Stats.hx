@@ -36,15 +36,17 @@ class Stats
 	public static var m:Int;
 	public static var _stamina:Float = 24;
 	
-	//PERSONAL STATS and NEWGROUNDS
+	//PERSONAL STATS
 	public static var _name:String = "Cameron";
+
+	public static var _cash:Int = 2000;
+	
+	//Newgrounds Stuff
 	public static var _username:String = "ninjamuffin99";
 	public static var _fans:Int = 0;
 	public static var _forumPosts:Int = 0;
 	public static var _blams:Int = 0;
 	public static var _protects:Int = 0;
-	public static var _cash:Int = 2000;
-	
 	
 	//STYLE STATS will maybe use these but for now these will get cut
 	/*public static var _artVectorSkill:Float;
@@ -89,6 +91,9 @@ class Stats
 	public static var _animationProgress:Float = 0;
 	public static var _gameProgress:Float = 0;
 	public static var _songProgress:Float = 0;
+	
+	public static var _animationUnpubbed:Int = 0;
+	public static var _animationPubbed:Int = 0;
 	
 	public static var _artUnpubbed:Int = 0;
 	public static var _artPubbed:Int = 0;
@@ -181,6 +186,14 @@ class Stats
 	{
 		var quality:Float = _musicLevel;
 		_songQuality == quality;
+		
+		_fans += Std.int(FlxG.random.float(0, quality));
+	}
+	
+	public static function gamePost(P:Int = 0):Void
+	{
+		var quality:Float = _programLevel;
+		_gameQuality == quality;
 		
 		_fans += Std.int(FlxG.random.float(0, quality));
 	}

@@ -7,6 +7,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxBar;
 import flixel.ui.FlxButton;
 import flixel.addons.ui.FlxUIDropDownMenu;
+import openfl.filters.ConvolutionFilter;
 import source.Stats;
 
 /**
@@ -24,6 +25,7 @@ class PCState extends FlxState
 	private var _btnWrite:FlxButton;
 	private var _btnBack:FlxButton;
 	
+	private var _btnPostAnimation:FlxButton;
 	private var _btnPostArt:FlxButton;
 	
 	private var _btnBaP:FlxButton;
@@ -56,6 +58,7 @@ class PCState extends FlxState
 		
 		
 		_statsHUD = new StatsHUD();
+		_statsHUD.visible = false;
 		add(_statsHUD);
 		
 		_statsSubState = new StatsSubState();
@@ -68,8 +71,14 @@ class PCState extends FlxState
 	{
 		if (FlxG.keys.justPressed.S)
 		{
-			openSubState(_statsSubState);
+			_statsHUD.visible = !_statsHUD.visible;
 		}
+		
+		if (FlxG.keys.justPressed.ESCAPE)
+		{
+			FlxG.switchState(new PlayState());
+		}
+		
 		
 		if (Stats._artProgress >= 100)
 		{
@@ -77,12 +86,39 @@ class PCState extends FlxState
 			Stats.artEXP(10);
 			Stats._artUnpubbed += 1;
 			updateText();
+			Stats.artPost(0);
 		}
 		
 		if (Stats._songProgress >= 100)
 		{
 			Stats.musicEXP(15);
 			Stats._songProgress = 0;
+			Stats.musicPost(0);
+		}
+		
+		if (Stats._animationProgress >= 100)
+		{
+			Stats.animationEXP(20);
+			Stats.artEXP(10);
+			Stats._animationProgress = 0;
+			Stats.animationPost(0);
+		}
+		
+		if (Stats._gameProgress >= 100)
+		{
+			Stats.programEXP(50);
+			Stats._gameProgress = 0;
+			Stats.gamePost(0);
+		}
+		
+		//PUBLISHED CHECKS
+		if (Stats._animationUnpubbed >= 1)
+		{
+			_btnPostAnimation.visible = true;
+		}
+		else
+		{
+			_btnPostAnimation.visible = false;
 		}
 		
 		if (Stats._artUnpubbed >= 1)
@@ -94,17 +130,7 @@ class PCState extends FlxState
 			_btnPostArt.visible = false;
 		}
 		
-		if (Stats._animationProgress >= 100)
-		{
-			Stats.animationEXP(20);
-			Stats.artEXP(10);
-			Stats._animationProgress = 0;
-		}
-		if (Stats._gameProgress >= 100)
-		{
-			Stats.programEXP(50);
-			Stats._gameProgress = 0;
-		}
+		
 		
 		super.update(elapsed);
 	}
@@ -156,6 +182,10 @@ class PCState extends FlxState
 		
 		_btnWrite = new FlxButton(buttonX, 150, "Write", clickWrite);
 		add(_btnWrite);
+		
+		_btnPostAnimation = new FlxButton(buttonX + 190, 50, "Post Animation", clickPostAnimation);
+		_btnPostAnimation.visible = false;
+		add(_btnPostAnimation);
 		
 		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post", clickPost);
 		_btnPostArt.visible = false;
@@ -316,6 +346,15 @@ class PCState extends FlxState
 		_statsHUD.updateText();
 	}
 	
+	private function clickPostAnimation():Void
+	{
+		Stats.animationPost(0);
+		
+		Stats._animationPubbed += Stats._animationUnpubbed;
+		Stats._animationUnpubbed = 0;
+	}
+	
+	//posts art
 	private function clickPost():Void
 	{
 		

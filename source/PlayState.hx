@@ -36,6 +36,7 @@ class PlayState extends FlxState
 		add(_hud);
 		
 		_statsHUD = new StatsHUD();
+		_statsHUD.visible = false;
 		add(_statsHUD);
 		
 		super.create();
@@ -62,6 +63,11 @@ class PlayState extends FlxState
 	
 	override public function update(elapsed:Float):Void
 	{
+		if (FlxG.keys.justPressed.S)
+		{
+			_statsHUD.visible = !_statsHUD.visible;
+		}
+		
 		super.update(elapsed);
 	}
 	
