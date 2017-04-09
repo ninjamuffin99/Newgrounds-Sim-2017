@@ -243,7 +243,6 @@ class PCState extends FlxState
 			Stats.animationProgress(2.5);
 		}
 		
-		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
 		updateText();
 		_hud.updateHUD();
 		_statsHUD.updateText();
@@ -282,7 +281,6 @@ class PCState extends FlxState
 			Stats._stamina -= 1;
 		}
 		
-		FlxG.log.add("Art skill = " + Stats._artSkill);
 		
 		if (Stats._stamina <= 0)
 		{

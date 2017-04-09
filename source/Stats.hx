@@ -167,8 +167,24 @@ class Stats
 	
 	public static function animationPost(P:Int):Void
 	{
+		
 		var quality:Float = _animationLevel += _artLevel;
 		_animationQuality == quality;
+		
+		if (quality >= 10)
+		{
+			var FP:Float = FlxG.random.float(0, quality * 10);
+			FlxG.log.add(FP);
+			if (FP >= 120)
+			{
+				FlxG.log.add("Your animation was front paged!");
+				_fans += Std.int(FlxG.random.float(0, quality));
+			}
+			else
+			{
+				FlxG.log.add("Your animation was not front paged");
+			}
+		}
 		
 		_fans += Std.int(FlxG.random.float(0, quality));
 		//_animationPosts = P;
@@ -179,6 +195,15 @@ class Stats
 		var quality:Float = _artLevel; // += _whatever program skill and which tablet you have
 		_artQuality == quality;
 		
+		if (quality >= 4)
+		{
+			var FP:Float = FlxG.random.float(0, quality * 10);
+			if (FP >= 250)
+			{
+				_fans += Std.int(FlxG.random.float(0, quality));
+			}
+		}
+		
 		_fans += Std.int(FlxG.random.float(0, quality));
 	}
 	
@@ -187,6 +212,15 @@ class Stats
 		var quality:Float = _musicLevel;
 		_songQuality == quality;
 		
+		if (quality >= 4)
+		{
+			var FP:Float = FlxG.random.float(0, quality * 10);
+			if (FP >= 250)
+			{
+				_fans += Std.int(FlxG.random.float(0, quality));
+			}
+		}
+		
 		_fans += Std.int(FlxG.random.float(0, quality));
 	}
 	
@@ -194,6 +228,15 @@ class Stats
 	{
 		var quality:Float = _programLevel;
 		_gameQuality == quality;
+		
+		if (quality >= 4)
+		{
+			var FP:Float = FlxG.random.float(0, quality * 10);
+			if (FP >= 250)
+			{
+				_fans += Std.int(FlxG.random.float(0, quality));
+			}
+		}
 		
 		_fans += Std.int(FlxG.random.float(0, quality));
 	}
