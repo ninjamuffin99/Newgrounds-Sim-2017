@@ -29,6 +29,7 @@ class PCState extends FlxState
 	
 	private var _artProgressText:FlxText;
 	private var _animationProgressBar:FlxBar;
+	private var _artProgressBar:FlxBar;
 	
 	private var _usingText:FlxText;
 	
@@ -46,8 +47,9 @@ class PCState extends FlxState
 		createText();
 		createDropDowns();
 		
-		_animationProgressBar = new FlxBar(300, 50, LEFT_TO_RIGHT, 100, 10, Stats, "_animationProgress");
-		add(_animationProgressBar);
+		
+		createBars();
+		
 		
 		_statsHUD = new StatsHUD();
 		add(_statsHUD);
@@ -161,24 +163,36 @@ class PCState extends FlxState
 		
 	}
 	
-	private function clickAnimate():Void
+	private function createBars():Void
 	{
-		Stats.animationEXP(1);
-		Stats.artEXP(0.5);
-		Stats._stamina -= 1;
-		Stats._flashSkill += 0.5;
-		Stats.h += 1;
-		Stats.animationProgress(20);
+		_animationProgressBar = new FlxBar(300, 50, LEFT_TO_RIGHT, 100, 10, Stats, "_animationProgress");
+		add(_animationProgressBar);
 		
-		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
-		updateText();
-		_hud.updateHUD();
-		_statsHUD.updateText();
+		_artProgressBar = new FlxBar(300, 80, LEFT_TO_RIGHT, 100, 10, Stats, "_artProgress");
+		add(_artProgressBar);
 	}
 	
 	private function updateText():Void
 	{
 		_artProgressText.text = "Artwork Progress: " + Stats._artProgress + "%";
+	}
+	
+	private function clickAnimate():Void
+	{
+		if (Stats._stamina >= 1)
+		{
+			Stats.animationEXP(1);
+			Stats.artEXP(0.5);
+			Stats._stamina -= 1;
+			Stats._flashSkill += 0.5;
+			Stats.h += 1;
+			Stats.animationProgress(2.5);
+		}
+		
+		FlxG.log.add("Animation SKill = " + Stats._animationSkill);
+		updateText();
+		_hud.updateHUD();
+		_statsHUD.updateText();
 	}
 	
 	private function clickForum():Void
@@ -191,10 +205,13 @@ class PCState extends FlxState
 	
 	private function clickDraw():Void
 	{
-		Stats.artEXP(1);
-		Stats._artProgress += 20;
-		Stats.h += 1;
-		Stats._stamina -= 1;
+		if (Stats._stamina >= 1)
+		{
+			Stats.artEXP(1);
+			Stats._artProgress += 20;
+			Stats.h += 1;
+			Stats._stamina -= 1;
+		}
 		
 		FlxG.log.add("Art skill = " + Stats._artSkill);
 		
@@ -210,11 +227,14 @@ class PCState extends FlxState
 	
 	private function clickProgram():Void
 	{
+		if (Stats._stamina >= 1)
+		{
+			Stats.programEXP(1);
+			//Stats._artProgress += 20;
+			Stats.h += 1;
+			Stats._stamina -= 1;
+		}
 		
-		Stats.programEXP(1);
-		//Stats._artProgress += 20;
-		Stats.h += 1;
-		Stats._stamina -= 1;
 		
 		FlxG.log.add("program skill = " + Stats._programSkill);
 		
@@ -230,9 +250,13 @@ class PCState extends FlxState
 	
 	private function clickVoice():Void
 	{
-		Stats.voiceEXP(1);
-		Stats.h += 1;
-		Stats._stamina -= 1;
+		if (Stats._stamina >= 1)
+		{
+			Stats.voiceEXP(1);
+			Stats.h += 1;
+			Stats._stamina -= 1;
+		}
+		
 		
 		_hud.updateHUD();
 		updateText();
@@ -241,10 +265,12 @@ class PCState extends FlxState
 	
 	private function clickWrite():Void
 	{
-		Stats.writingEXP(1);
-		Stats.h += 1;
-		Stats._stamina -= 1;
-		
+		if (Stats._stamina >= 1)
+		{
+			Stats.writingEXP(1);
+			Stats.h += 1;
+			Stats._stamina -= 1;
+		}
 		_hud.updateHUD();
 		updateText();
 		_statsHUD.updateText();
@@ -279,6 +305,4 @@ class PCState extends FlxState
 	{
 		
 	}
-	
-	
 }

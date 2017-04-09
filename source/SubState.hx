@@ -46,6 +46,7 @@ class SubState extends FlxSubState
 		_foundFlash.visible = false;
 		add(_foundFlash);
 		
+		
 		_title = new FlxTypeText(wordsX, 88, FlxG.width, "Who is the cutest NG user?", 12);
 		_title.font = "assets/data/ARIALBD.TTF";
 		_title.cursorCharacter = "|";
@@ -106,6 +107,7 @@ class SubState extends FlxSubState
 	
 	private function clickAdvice():Void
 	{
+		
 		_title.resetText("HEEELPP!!!!");
 		_post.resetText("I THINK NEWGROUNDS IS COMPLETLY BROKEN, I CANNOT BUY THE MERCH ANYMORE!!!! TOM PLEASE TAKE MY MONEYYYYYYYYYYY :(:(:( SAD FAAACE");
 		Stats.forumPost(5);
