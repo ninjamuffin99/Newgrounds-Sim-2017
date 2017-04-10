@@ -153,10 +153,10 @@ package;
 	
 	override public function update(elapsed:Float):Void 
 	{
-		super.update(elapsed);
-		
-		if (_statsVisible)
+		if (FlxG.keys.justPressed.S)
 			updateText();
+		
+		super.update(elapsed);
 	}
 	
 	public function updateText():Void
@@ -172,6 +172,7 @@ package;
 		_musicSkillText.text = "Music Skill: " + Stats._musicSkill;
 		_programSkillText.text = "Programming Skill: " + Stats._programSkill;
 		
+		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
 		_artQualityText.text = "Art Quality: " + Stats._artQuality;
 		
 		_animationLevelText.text = "Animation Level: " + Stats._animationLevel;

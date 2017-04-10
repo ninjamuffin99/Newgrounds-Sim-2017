@@ -26,6 +26,7 @@ class Stats
 	public static var _writingLevel:Float = 1;
 	
 	
+	
 	//DATE AND TIME STATS
 	public static var yyyy:Int = 2017;
 	public static var mm:Int = 1;
