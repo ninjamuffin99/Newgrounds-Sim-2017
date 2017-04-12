@@ -58,9 +58,9 @@ class Stats
 	
 	//WHICH PROGRAMS USER OWNS
 	public static var _hasFlash:Bool = false;
-	public static var _hasClipStudio:Bool = false;
 	public static var _hasFlashMX:Bool = false;
 	
+	public static var _hasClipStudio:Bool = false;
 	
 	//SPECIFIC PROGRAM STATS
 	public static var _flashSkill:Float = 5;
