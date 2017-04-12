@@ -122,8 +122,8 @@ package;
 		_animationLevelText = new FlxText(textX, textY + 180, 0, "Animation Level: " + Stats._animationLevel, textSize);
 		_animationEXPText = new FlxText(textX, textY + 200, 0, "EXP until next level: " + _animationEXP);
 		
-		_artLevelText = new FlxText(textX, textY + 300, 0, "Art Level: " + Stats._artLevel, textSize);
-		_artEXPText = new FlxText(textX, textY + 320, 0, "EXP unitl next level: " + _artEXP);
+		_artLevelText = new FlxText(textX + 200, textY + 300, 0, "Art Level: " + Stats._artLevel, textSize);
+		_artEXPText = new FlxText(textX + 200, textY + 320, 0, "EXP unitl next level: " + _artEXP);
 		
 		
 		

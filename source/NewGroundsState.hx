@@ -25,11 +25,17 @@ class NewGroundsState extends FlxState
 	private function clickMonthly():Void
 	{
 		if (_supporterMonthly.checked)
+		{
+			
 			FlxG.log.add("you are a supporter");
 			Stats._supporters += 1;
+		}
 		else
+		{
+			
 			FlxG.log.add("you are not a supporter");
 			Stats._supporters -= 1;
+		}
 	}
 	
 }
