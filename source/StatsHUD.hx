@@ -49,9 +49,13 @@ package;
 	
 	
 	//MISC STATS
+	private var _ngStats:FlxText;
+	
 	private var _fansText:FlxText;
 	private var _blamText:FlxText;
 	private var _protectText:FlxText;
+	
+	private var _miscStatsText:FlxText;
 	
 	private var _moneyEarnedText:FlxText;
 	private var _hoursWorkedText:FlxText;
@@ -110,6 +114,8 @@ package;
 		
 		_hudTitle = new FlxText(FlxG.width / 2, FlxG.height / 2, 0, "Stats", 20);
 		_hudTitle.screenCenter();
+		
+		
 		_animationSkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill, textSize);
 		_artSkillText = new FlxText(textX, textY + 20, 0, "Art Skill:" + Stats._artSkill, textSize);
 		_animationQualityText = new FlxText(textX, textY + 40, 0, "Animation Quality: " + Stats._animationQuality, textSize);
@@ -128,13 +134,14 @@ package;
 		_artEXPText = new FlxText(textX, textY + 320, 0, "EXP unitl next level: " + _artEXP);
 		
 		
-		_moneyEarnedText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned, textSize);
-		_hoursWorkedText = new FlxText(textX, textY + 140, 0, "Total Hours Worked(At Job): " + Stats._TotalHoursWorked, textSize);
-		_daysPassedText = new FlxText(textX, textY + 160, 0, "Total Days Passed: " + Stats._TotalDaysPassed, textSize);
-		_fansText = new FlxText(textX, textY + 240, 0, "Fans: " + Stats._fans, textSize);
-		_blamText = new FlxText(textX, textY + 260, 0, "Blams: " + Stats._blams, textSize);
-		_protectText = new FlxText(textX, textY + 280, 0, "Protects: " + Stats._protects, textSize);
 		
+		/*_fansText = new FlxText(textX, textY + 240, 0, , textSize);
+		_blamText = new FlxText(textX, textY + 260, 0, "Blams: " + Stats._blams, textSize);
+		_protectText = new FlxText(textX, textY + 280, 0, "Protects: " + Stats._protects, textSize);*/
+		
+		_ngStats = new FlxText(textX, textY + 240, 0, "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects, textSize);
+		
+		_miscStatsText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned + "\n" + "Total Hours Worked(At Job): " + Stats._TotalHoursWorked + "\n" + "Total Days Passed: " + Stats._TotalDaysPassed, textSize);
 		
 		add(_hudTitle);
 		add(_animationSkillText);
@@ -153,22 +160,10 @@ package;
 		add(_artLevelText);
 		add(_artEXPText);
 		
-		
-		add(_moneyEarnedText);
-		add(_hoursWorkedText);
-		add(_daysPassedText);
-		
-		
-		add(_fansText);
-		add(_blamText);
-		add(_protectText);
+		add(_miscStatsText);
+		add(_ngStats);
 		
 	}
-	
-	public function updateHUD():Void
-    {
-		
-    }
 	
 	override public function update(elapsed:Float):Void 
 	{
@@ -201,11 +196,13 @@ package;
 		_artLevelText.text = "Art Level: " + Stats._artLevel;
 		_artEXPText.text = "EXP until next level: " + _artEXP;
 		
-		_moneyEarnedText.text = "Total Cash Earned: " + Stats._TotalCashEarned;
-		_hoursWorkedText.text = "Total Hours Worked(At Job): " + Stats._TotalHoursWorked;
-		_daysPassedText.text = "Total Days Passed: " + Stats._TotalDaysPassed;
+		_miscStatsText.text = "Total Cash Earned: " + Stats._TotalCashEarned + "\n" + "Total Hours Worked(At Job): " + Stats._TotalHoursWorked + "\n" + "Total Days Passed: " + Stats._TotalDaysPassed;
+		_ngStats.text = "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects;
+		
+		/*
 		_fansText.text = "Fans: " + Stats._fans;
 		_blamText.text = "Blams: " + Stats._blams;
 		_protectText.text = "Protects: " + Stats._protects;
+		*/
 	}
 }
