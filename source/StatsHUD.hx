@@ -19,6 +19,8 @@ package;
 	private var movieBG:FlxSprite;
 	private var movieOutline:FlxSprite;
 	
+	private var miscBG:FlxSprite;
+	
 	private var _statsVisible:Bool = false;
 	
 	private var _hudTitle:FlxText;
@@ -33,6 +35,10 @@ package;
 	//LEVEL TEXT
 	private var _animationLevelText:FlxText;
 	private var _animationEXPText:FlxText;
+	
+	private var _artLevelText:FlxText;
+	private var _artEXPText:FlxText;
+	
 	
 	//QUALITY TEXT
 	private var _animationQualityText:FlxText;
@@ -77,11 +83,16 @@ package;
 		movieBG = new FlxSprite(FlxG.width - 1200, FlxG.height - 650);
 		movieBG.makeGraphic(275, 250, FlxColor.RED);
 		
+		miscBG = new FlxSprite(FlxG.width - 500, FlxG.height * 0.4);
+		miscBG.makeGraphic(Std.int(FlxG.width * 0.3), Std.int(FlxG.width * 0.3), FlxColor.BLACK);
+		
+		
 		
 		add(bgOutline);
 		add(bg);
 		add(movieOutline);
 		add(movieBG);
+		add(miscBG);
 		
 		createText();
 		
@@ -95,6 +106,7 @@ package;
 		var textY:Int = 75;
 		var textSize:Int = 15;
 		var _animationEXP:Float = 100 - Stats._animationSkill;
+		var _artEXP:Float = 100 - Stats._artSkill;
 		
 		_hudTitle = new FlxText(FlxG.width / 2, FlxG.height / 2, 0, "Stats", 20);
 		_hudTitle.screenCenter();
@@ -111,6 +123,10 @@ package;
 		
 		_animationLevelText = new FlxText(textX, textY + 180, 0, "Animation Level: " + Stats._animationLevel, textSize);
 		_animationEXPText = new FlxText(textX, textY + 200, 0, "EXP until next level: " + _animationEXP);
+		
+		_artLevelText = new FlxText(textX, textY + 300, 0, "Art Level: " + Stats._artLevel, textSize);
+		_artEXPText = new FlxText(textX, textY + 320, 0, "EXP unitl next level: " + _artEXP);
+		
 		
 		_moneyEarnedText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned, textSize);
 		_hoursWorkedText = new FlxText(textX, textY + 140, 0, "Total Hours Worked(At Job): " + Stats._TotalHoursWorked, textSize);
@@ -134,6 +150,9 @@ package;
 		
 		add(_animationLevelText);
 		add(_animationEXPText);
+		add(_artLevelText);
+		add(_artEXPText);
+		
 		
 		add(_moneyEarnedText);
 		add(_hoursWorkedText);
@@ -162,6 +181,7 @@ package;
 	public function updateText():Void
 	{
 		var _animationEXP:Float = 100 - Stats._animationSkill;
+		var _artEXP:Float = 100 - Stats._artSkill;
 		
 		_animationSkillText.text = "Animation Skill: " + Stats._animationSkill;
 		_artSkillText.text = "Art Skill: " + Stats._artSkill;
@@ -177,6 +197,9 @@ package;
 		
 		_animationLevelText.text = "Animation Level: " + Stats._animationLevel;
 		_animationEXPText.text = "EXP until next level: " + _animationEXP;
+		
+		_artLevelText.text = "Art Level: " + Stats._artLevel;
+		_artEXPText.text = "EXP until next level: " + _artEXP;
 		
 		_moneyEarnedText.text = "Total Cash Earned: " + Stats._TotalCashEarned;
 		_hoursWorkedText.text = "Total Hours Worked(At Job): " + Stats._TotalHoursWorked;
