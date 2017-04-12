@@ -50,16 +50,8 @@ package;
 	
 	//MISC STATS
 	private var _ngStats:FlxText;
-	
-	private var _fansText:FlxText;
-	private var _blamText:FlxText;
-	private var _protectText:FlxText;
-	
+	private var _ngStatsString:String = "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects + "\n" + "Newgrounds Supporters: " + Stats._supporters + "\n" + "Newgrounds Supporter Earnings: " + Stats._ngCash;
 	private var _miscStatsText:FlxText;
-	
-	private var _moneyEarnedText:FlxText;
-	private var _hoursWorkedText:FlxText;
-	private var _daysPassedText:FlxText;
 	
     public function new()
     {
@@ -135,11 +127,9 @@ package;
 		
 		
 		
-		/*_fansText = new FlxText(textX, textY + 240, 0, , textSize);
-		_blamText = new FlxText(textX, textY + 260, 0, "Blams: " + Stats._blams, textSize);
-		_protectText = new FlxText(textX, textY + 280, 0, "Protects: " + Stats._protects, textSize);*/
 		
-		_ngStats = new FlxText(textX, textY + 240, 0, "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects, textSize);
+		
+		_ngStats = new FlxText(textX, textY + 240, 0, _ngStatsString, textSize);
 		
 		_miscStatsText = new FlxText(textX, textY + 120, 0, "Total Cash Earned: " + Stats._TotalCashEarned + "\n" + "Total Hours Worked(At Job): " + Stats._TotalHoursWorked + "\n" + "Total Days Passed: " + Stats._TotalDaysPassed, textSize);
 		
@@ -197,7 +187,7 @@ package;
 		_artEXPText.text = "EXP until next level: " + _artEXP;
 		
 		_miscStatsText.text = "Total Cash Earned: " + Stats._TotalCashEarned + "\n" + "Total Hours Worked(At Job): " + Stats._TotalHoursWorked + "\n" + "Total Days Passed: " + Stats._TotalDaysPassed;
-		_ngStats.text = "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects;
+		_ngStats.text = _ngStatsString;
 		
 		/*
 		_fansText.text = "Fans: " + Stats._fans;

@@ -48,6 +48,8 @@ class Stats
 	public static var _forumPosts:Int = 0;
 	public static var _blams:Int = 0;
 	public static var _protects:Int = 0;
+	public static var _supporters:Int = 1700;
+	public static var _ngCash:Int = 3900;
 	
 	//STYLE STATS will maybe use these but for now these will get cut
 	/*public static var _artVectorSkill:Float;

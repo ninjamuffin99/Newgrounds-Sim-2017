@@ -24,6 +24,8 @@ class PCState extends FlxState
 	private var _btnVoice:FlxButton;
 	private var _btnWrite:FlxButton;
 	private var _btnBack:FlxButton;
+	private var _btnNG:FlxButton;
+	
 	
 	private var _btnPostAnimation:FlxButton;
 	private var _btnPostArt:FlxButton;
@@ -35,6 +37,7 @@ class PCState extends FlxState
 	private var _artProgressBar:FlxBar;
 	private var _programProgressBar:FlxBar;
 	private var _songProgressBar:FlxBar;
+	
 	
 	
 	private var _usingText:FlxText;
@@ -53,9 +56,7 @@ class PCState extends FlxState
 		createText();
 		createDropDowns();
 		
-		
 		createBars();
-		
 		
 		_statsHUD = new StatsHUD();
 		_statsHUD.visible = false;
@@ -196,6 +197,9 @@ class PCState extends FlxState
 		
 		_btnBack = new FlxButton(buttonX, 500, "Back", clickBack);
 		add(_btnBack);
+		
+		_btnNG = new FlxButton(buttonX, 450, "Newgrounds", clickNG);
+		add(_btnNG);
 	}
 	
 	private function createText():Void
@@ -376,6 +380,11 @@ class PCState extends FlxState
 		_hud.updateHUD();
 		updateText();
 		_statsHUD.updateText;
+	}
+	
+	private function clickNG():Void
+	{
+		FlxG.switchState(new NewGroundsState());
 	}
 	
 	private function onAnimationChange():Void
