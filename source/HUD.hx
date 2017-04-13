@@ -31,7 +31,8 @@ package;
 		var barcolor:FlxColor;
 		
 		barcolor = new FlxColor();
-		barcolor.setRGB(235, 117, 34);
+		//235, 117, 34 is orange
+		barcolor.setRGB(25, 21, 21);
 		
 		var _orangebar:FlxSprite;
 		_orangebar = new FlxSprite();
@@ -49,7 +50,7 @@ package;
 		
 		var _whiteLine:FlxSprite;
 		_whiteLine = new FlxSprite(0, 20);
-		_whiteLine.makeGraphic(FlxG.width, 2, FlxColor.WHITE);
+		_whiteLine.makeGraphic(FlxG.width, 2, FlxColor.BLACK);
 		add(_whiteLine);
 		
 		createText();
@@ -58,6 +59,10 @@ package;
 	
 	private function createText():Void
 	{
+		var textColor:FlxColor;
+		textColor = new FlxColor();
+		textColor.setRGB(235, 117, 34);
+		
 		_sprTime = new FlxText(0, 0, 0, Std.string(Stats.h), 10);
 		add(_sprTime);
 		
@@ -70,7 +75,9 @@ package;
 		_textAMPM = new FlxText(12, 0, 0, Stats.AMPM, 10);
 		add(_textAMPM);
 		
-		_usernameText = new FlxText(FlxG.width - 100, 0, 0, Stats._username, 10);
+		_usernameText = new FlxText(FlxG.width * 0.3, 0, 0, Stats._username, 13);
+		_usernameText.font = "assets/data/ARIALBD.TTF";
+		_usernameText.color = textColor;
 		add(_usernameText);
 		
 		_cashText = new FlxText(FlxG.width - 200, 0, 0, "Cash: " + Stats._cash, 10);

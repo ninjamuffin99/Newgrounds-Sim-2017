@@ -51,6 +51,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if (openfl && !flash)
 		
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_arial_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_arialbd_ttf);
 		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_opensans_condlight_ttf);
@@ -103,6 +104,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("assets/data/ARIAL.TTF", __ASSET__assets_data_arial_ttf);
+		type.set ("assets/data/ARIAL.TTF", AssetType.FONT);
 		className.set ("assets/data/ARIALBD.TTF", __ASSET__assets_data_arialbd_ttf);
 		type.set ("assets/data/ARIALBD.TTF", AssetType.FONT);
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
@@ -202,6 +205,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
+		id = "assets/data/ARIAL.TTF";
+		className.set (id, __ASSET__assets_data_arial_ttf);
+		
+		type.set (id, AssetType.FONT);
 		id = "assets/data/ARIALBD.TTF";
 		className.set (id, __ASSET__assets_data_arialbd_ttf);
 		
@@ -407,6 +414,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("assets/data/ARIAL.TTF", __ASSET__assets_data_arial_ttf);
+		type.set ("assets/data/ARIAL.TTF", AssetType.FONT);
 		
 		className.set ("assets/data/ARIALBD.TTF", __ASSET__assets_data_arialbd_ttf);
 		type.set ("assets/data/ARIALBD.TTF", AssetType.FONT);
@@ -1193,6 +1203,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__assets_data_arial_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_arialbd_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends flash.text.Font { }
@@ -1244,6 +1255,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 #elseif html5
 
+@:keep #if display private #end class __ASSET__assets_data_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 @:keep #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font { public function new () { super (); name = "Arial Bold"; } } 
 
 @:keep #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font { public function new () { super (); name = "Open Sans Cond Light"; } } 
@@ -1300,6 +1312,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux || cpp)
 
 
+@:font("assets/data/ARIAL.TTF") #if display private #end class __ASSET__assets_data_arial_ttf extends lime.text.Font {}
 @:font("assets/data/ARIALBD.TTF") #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font {}
 @:file("assets/data/data-goes-here.txt") #if display private #end class __ASSET__assets_data_data_goes_here_txt extends lime.utils.Bytes {}
 @:font("assets/data/OpenSans-CondLight.ttf") #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font {}
@@ -1354,6 +1367,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #end
 
 #if (openfl && !flash)
+@:keep #if display private #end class __ASSET__OPENFL__assets_data_arial_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_arial_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__assets_data_arialbd_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_arialbd_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__assets_data_opensans_condlight_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_opensans_condlight_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}

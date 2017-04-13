@@ -30,6 +30,10 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("Arial");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("Arial Bold");
 		types.push (lime.Assets.AssetType.FONT);
 		
@@ -279,7 +283,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "533",
+			build: "541",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
