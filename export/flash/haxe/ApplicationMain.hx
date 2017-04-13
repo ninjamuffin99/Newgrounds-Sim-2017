@@ -38,10 +38,6 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
-		urls.push ("assets/data/data-goes-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
-		
-		
 		urls.push ("Open Sans Cond Light");
 		types.push (lime.Assets.AssetType.FONT);
 		
@@ -54,8 +50,8 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/images-go-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
+		urls.push ("assets/images/defaultProfilePic.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/lenny.png");
@@ -68,10 +64,6 @@ class ApplicationMain {
 		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
-		
-		
-		urls.push ("assets/music/music-goes-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
 		
 		
 		urls.push ("assets/sounds/sounds-go-here.txt");
@@ -283,7 +275,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "541",
+			build: "547",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,

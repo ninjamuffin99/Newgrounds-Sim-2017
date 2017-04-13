@@ -53,12 +53,22 @@ package;
 		_whiteLine.makeGraphic(FlxG.width, 2, FlxColor.BLACK);
 		add(_whiteLine);
 		
+		var profile:FlxSprite;
+		profile = new FlxSprite(FlxG.width * 0.28, 0);
+		profile.loadGraphic("assets/images/defaultProfilePic.jpg", false, 356, 356);
+		profile.setGraphicSize(20, 20);
+		profile.updateHitbox();
+		add(profile);
+		
 		createText();
 		
     }
 	
 	private function createText():Void
 	{
+		
+		var textFont:String = "assets/data/ARIALBD.TTF";
+		
 		var textColor:FlxColor;
 		textColor = new FlxColor();
 		textColor.setRGB(235, 117, 34);
@@ -80,7 +90,9 @@ package;
 		_usernameText.color = textColor;
 		add(_usernameText);
 		
-		_cashText = new FlxText(FlxG.width - 200, 0, 0, "Cash: " + Stats._cash, 10);
+		_cashText = new FlxText(FlxG.width - 200, 0, 0, "Cash: " + Stats._cash, 13);
+		_cashText.font = textFont;
+		_cashText.color = textColor;
 		add(_cashText);
 		
 	}

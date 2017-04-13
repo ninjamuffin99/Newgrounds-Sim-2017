@@ -53,9 +53,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_arial_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_arialbd_ttf);
-		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_opensans_condlight_ttf);
-		
 		
 		
 		
@@ -108,24 +106,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/ARIAL.TTF", AssetType.FONT);
 		className.set ("assets/data/ARIALBD.TTF", __ASSET__assets_data_arialbd_ttf);
 		type.set ("assets/data/ARIALBD.TTF", AssetType.FONT);
-		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
-		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		className.set ("assets/data/OpenSans-CondLight.ttf", __ASSET__assets_data_opensans_condlight_ttf);
 		type.set ("assets/data/OpenSans-CondLight.ttf", AssetType.FONT);
 		className.set ("assets/images/BBS.PNG", __ASSET__assets_images_bbs_png);
 		type.set ("assets/images/BBS.PNG", AssetType.IMAGE);
 		className.set ("assets/images/BBSblurred.png", __ASSET__assets_images_bbsblurred_png);
 		type.set ("assets/images/BBSblurred.png", AssetType.IMAGE);
-		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
-		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		className.set ("assets/images/defaultProfilePic.jpg", __ASSET__assets_images_defaultprofilepic_jpg);
+		type.set ("assets/images/defaultProfilePic.jpg", AssetType.IMAGE);
 		className.set ("assets/images/lenny.png", __ASSET__assets_images_lenny_png);
 		type.set ("assets/images/lenny.png", AssetType.IMAGE);
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
-		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
-		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
 		className.set ("flixel/sounds/beep.mp3", __ASSET__flixel_sounds_beep_mp3);
@@ -213,10 +207,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set (id, __ASSET__assets_data_arialbd_ttf);
 		
 		type.set (id, AssetType.FONT);
-		id = "assets/data/data-goes-here.txt";
-		path.set (id, id);
-		
-		type.set (id, AssetType.TEXT);
 		id = "assets/data/OpenSans-CondLight.ttf";
 		className.set (id, __ASSET__assets_data_opensans_condlight_ttf);
 		
@@ -229,10 +219,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/images-go-here.txt";
+		id = "assets/images/defaultProfilePic.jpg";
 		path.set (id, id);
 		
-		type.set (id, AssetType.TEXT);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/lenny.png";
 		path.set (id, id);
 		
@@ -245,10 +235,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.MUSIC);
-		id = "assets/music/music-goes-here.txt";
-		path.set (id, id);
-		
-		type.set (id, AssetType.TEXT);
 		id = "assets/sounds/sounds-go-here.txt";
 		path.set (id, id);
 		
@@ -421,9 +407,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/data/ARIALBD.TTF", __ASSET__assets_data_arialbd_ttf);
 		type.set ("assets/data/ARIALBD.TTF", AssetType.FONT);
 		
-		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
-		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
-		
 		className.set ("assets/data/OpenSans-CondLight.ttf", __ASSET__assets_data_opensans_condlight_ttf);
 		type.set ("assets/data/OpenSans-CondLight.ttf", AssetType.FONT);
 		
@@ -433,8 +416,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/BBSblurred.png", __ASSET__assets_images_bbsblurred_png);
 		type.set ("assets/images/BBSblurred.png", AssetType.IMAGE);
 		
-		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
-		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		className.set ("assets/images/defaultProfilePic.jpg", __ASSET__assets_images_defaultprofilepic_jpg);
+		type.set ("assets/images/defaultProfilePic.jpg", AssetType.IMAGE);
 		
 		className.set ("assets/images/lenny.png", __ASSET__assets_images_lenny_png);
 		type.set ("assets/images/lenny.png", AssetType.IMAGE);
@@ -444,9 +427,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
-		
-		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
-		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
@@ -1205,15 +1185,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_arial_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_arialbd_ttf extends flash.text.Font { }
-@:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bbs_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bbsblurred_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_defaultprofilepic_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_lenny_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_newgamestats_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends flash.media.Sound { }
-@:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_mp3 extends flash.media.Sound { }
@@ -1257,9 +1235,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep #if display private #end class __ASSET__assets_data_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 @:keep #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font { public function new () { super (); name = "Arial Bold"; } } 
-
 @:keep #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font { public function new () { super (); name = "Open Sans Cond Light"; } } 
-
 
 
 
@@ -1314,15 +1290,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:font("assets/data/ARIAL.TTF") #if display private #end class __ASSET__assets_data_arial_ttf extends lime.text.Font {}
 @:font("assets/data/ARIALBD.TTF") #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font {}
-@:file("assets/data/data-goes-here.txt") #if display private #end class __ASSET__assets_data_data_goes_here_txt extends lime.utils.Bytes {}
 @:font("assets/data/OpenSans-CondLight.ttf") #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font {}
 @:image("assets/images/BBS.PNG") #if display private #end class __ASSET__assets_images_bbs_png extends lime.graphics.Image {}
 @:image("assets/images/BBSblurred.png") #if display private #end class __ASSET__assets_images_bbsblurred_png extends lime.graphics.Image {}
-@:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.Bytes {}
+@:image("assets/images/defaultProfilePic.jpg") #if display private #end class __ASSET__assets_images_defaultprofilepic_jpg extends lime.graphics.Image {}
 @:image("assets/images/lenny.png") #if display private #end class __ASSET__assets_images_lenny_png extends lime.graphics.Image {}
 @:image("assets/images/NewGameStats.jpg") #if display private #end class __ASSET__assets_images_newgamestats_jpg extends lime.graphics.Image {}
 @:file("assets/music/1683_newgrounds_lhm__e.mp3") #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends lime.utils.Bytes {}
-@:file("assets/music/music-goes-here.txt") #if display private #end class __ASSET__assets_music_music_goes_here_txt extends lime.utils.Bytes {}
 @:file("assets/sounds/sounds-go-here.txt") #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends lime.utils.Bytes {}
 @:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/sounds/beep.mp3") #if display private #end class __ASSET__flixel_sounds_beep_mp3 extends lime.utils.Bytes {}
 @:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/sounds/flixel.mp3") #if display private #end class __ASSET__flixel_sounds_flixel_mp3 extends lime.utils.Bytes {}

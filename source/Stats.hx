@@ -1,4 +1,5 @@
 package source;
+import flash.display.Bitmap;
 import flixel.FlxG;
 import flixel.util.FlxSave;
 
@@ -24,7 +25,6 @@ class Stats
 	public static var _programLevel:Float = 1;
 	public static var _voiceLevel:Float = 1;
 	public static var _writingLevel:Float = 1;
-	
 	
 	
 	//DATE AND TIME STATS
