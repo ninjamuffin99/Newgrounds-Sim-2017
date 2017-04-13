@@ -11,8 +11,10 @@ import flash.net.FileReference;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.ui.Anchor;
 import flixel.addons.ui.FlxButtonPlus;
 import flixel.addons.ui.FlxInputText;
+import flixel.addons.ui.FlxUITooltip;
 import flixel.system.FlxAssets.GraphicLogo;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
@@ -72,6 +74,8 @@ class NewGameState extends FlxState
 	private var _usernameInput:FlxInputText;
 	private var _usernameText:FlxText;
 	
+	private var animationToolTip:FlxUITooltip;
+	
 	override public function create():Void 
 	{
 		var bg:FlxSprite;
@@ -84,6 +88,7 @@ class NewGameState extends FlxState
 		
 		createUserStats();
 		
+		createToolTips();
 		
 		/*
 		_btnPicUpload = new FlxButton(200, 200, "Upload profile pic", clickUpload);
@@ -161,6 +166,18 @@ class NewGameState extends FlxState
 		add(_btnProgramSub);
 		add(_btnVoiceSub);
 		add(_btnWritingSub);
+	}
+	
+	private function createToolTips():Void
+	{
+		animationToolTip = new FlxUITooltip(100, 50);
+		animationToolTip.body = "This is a tooltip";
+		add(animationToolTip);
+	}
+	
+	override public function update(elapsed:Float):Void 
+	{
+		super.update(elapsed);
 	}
 	
 	private function clickAddAnimation():Void
