@@ -172,6 +172,7 @@ class NewGameState extends FlxState
 	{
 		animationToolTip = new FlxUITooltip(100, 50);
 		animationToolTip.body = "This is a tooltip";
+		animationToolTip.show(_animationSkillText, "", "This is a tooltip");
 		add(animationToolTip);
 	}
 	
