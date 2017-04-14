@@ -81,15 +81,15 @@ class PlayState extends FlxState
 		
 		Stats.updateArray();
 		
-		FlxG.save.data.levelArray = Stats._levelArray;
+		FlxG.save.data._animationSkill = Stats._animationSkill;
 		FlxG.save.data.skillArray = Stats._skillArray;
 		
 		FlxG.save.flush();
 		
 		FlxG.log.add(FlxG.save.data.skillArray);
-		FlxG.log.add(FlxG.save.data.levelArray);
-		FlxG.watch.add(Stats, "_levelArray");
-		FlxG.watch.add(Stats, "_skillArray");
+		FlxG.log.add("Animation save data" + FlxG.save.data._animationSkill);
+		//FlxG.watch.add(Stats, "_levelArray");
+		//FlxG.watch.add(Stats, "_skillArray");
 	}
 	
 	

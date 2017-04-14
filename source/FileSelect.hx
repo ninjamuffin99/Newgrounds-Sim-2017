@@ -65,6 +65,7 @@ class FileSelect extends FlxState
 		Stats._skillArray = FlxG.save.data.skillArray;
 		Stats._levelArray = FlxG.save.data.levelArray;
 		
+		Stats._animationSkill = FlxG.save.data._animationSkill;
 		
 		//TODO check if file exists then either load the file or create a new one
 		if (FlxG.save.data == null)
@@ -82,14 +83,15 @@ class FileSelect extends FlxState
 	}
 	private function delete():Void
 	{
-		if (FlxG.save.data != null)
+		/*if (FlxG.save.data != null)
 		{
+			FlxG.log.add("erased");
 			FlxG.save.erase();
 		}
 		
 		if (FlxG.save.data == null)
 		{
 			FlxG.log.add("Data is null");
-		}
+		}*/
 	}
 }

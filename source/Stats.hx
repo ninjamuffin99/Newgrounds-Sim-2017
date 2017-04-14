@@ -140,8 +140,7 @@ class Stats
 	}
 	public static function load():Void
 	{
-		_animationLevel = _levelArray[0];
-		_animationSkill = _skillArray[0];
+		
 	}
 	
 	public static function addCash(C:Int):Void

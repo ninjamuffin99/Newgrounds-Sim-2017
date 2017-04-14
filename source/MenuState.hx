@@ -22,7 +22,6 @@ class MenuState extends FlxState
 		_btnPlay = new FlxButtonPlus(0, 0, clickPlay, "Play", 150, 40);
 		add(_btnPlay);
 		
-		Stats._gameSave = new FlxSave();
 		
 		_btnPlay.screenCenter();
 		
