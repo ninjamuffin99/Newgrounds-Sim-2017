@@ -28,7 +28,7 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		_gameSave = new FlxSave();
-		_gameSave.bind("SaveGame");
+		_gameSave.bind("File1");
 		
 		createButtons();
 		
@@ -82,7 +82,23 @@ class PlayState extends FlxState
 		Stats._stamina = 24;
 		_hud.updateHUD();
 		
-		Stats.save();
+		Stats.updateArray();
+		
+		_gameSave.data.levelArray = Stats._levelArray;
+		_gameSave.data.skillArray = Stats._skillArray;
+		
+		if (_gameSave.data.levelArray == null)
+		{
+			
+		}
+		
+		_gameSave.flush();
+		
+		FlxG.watch.add(_gameSave, "data._levelArray");
+		
+		FlxG.log.add(_gameSave.data._levelArray);
+		FlxG.watch.add(Stats, "_levelArray");
+		FlxG.watch.add(Stats, "_skillArray");
 	}
 	
 	private function clickWork():Void

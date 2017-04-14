@@ -121,20 +121,26 @@ class Stats
 		
 	}
 	
+	public static function updateArray():Void
+	{
+		_skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
+		_levelArray = [_animationLevel, _artLevel, _musicLevel, _programLevel, _writingLevel];
+	}
+	
 	public static function save():Void
 	{
 		
-		FlxG.log.add("levels" + _levelArray);
+		/*FlxG.log.add("levels" + _levelArray);
 		FlxG.log.add("Skills/EXP: " + _skillArray);
 		
 		_gameSave.data._levelArray = _levelArray;
 		_gameSave.data._skillArray = _skillArray;
 		
-		_gameSave.flush();
+		_gameSave.flush();*/
 	}
 	public static function load():Void
 	{
-		if (_gameSave.data._skillArray == null)
+		/*if (_gameSave.data._skillArray == null)
 		{
 			_gameSave.data._skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
 			
@@ -142,7 +148,7 @@ class Stats
 		_skillArray = _gameSave.data._levelArray;
 		_levelArray = _gameSave.data._skillArray;
 		
-		_gameSave.flush();
+		_gameSave.flush();*/
 	}
 	
 	public static function addCash(C:Int):Void

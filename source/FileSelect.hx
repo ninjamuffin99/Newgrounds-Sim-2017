@@ -12,6 +12,8 @@ import source.Stats;
  */
 class FileSelect extends FlxState 
 {
+	private var _gameSave:FlxSave;
+	
 	private var _file1:FlxButtonPlus;
 	private var _file2:FlxButtonPlus;
 	private var _file3:FlxButtonPlus;
@@ -20,6 +22,8 @@ class FileSelect extends FlxState
 	
 	override public function create():Void 
 	{
+		_gameSave = new FlxSave();
+		
 		var centerX:Float = FlxG.width / 2;
 		
 		_file1 = new FlxButtonPlus(centerX, 100, load1, "File 1");
@@ -38,43 +42,51 @@ class FileSelect extends FlxState
 	
 	private function load1():Void
 	{
-		Stats._gameSave.bind("File1");
+		_gameSave.bind("File1");
 		FlxG.log.add("clickLoad1");
 		loadGame();
 	}
 	
 	private function load2():Void
 	{
-		Stats._gameSave.bind("File2");
+		_gameSave.bind("File2");
 		loadGame();
 	}
 	
 	private function load3():Void
 	{
-		Stats._gameSave.bind("File3");
+		_gameSave.bind("File3");
 		loadGame();
 	}
 	
 	private function loadGame():Void
 	{
 		FlxG.log.add("FileSelectLOadgame");
-		Stats.load();
+		
+		Stats._skillArray = _gameSave.data.skillArray;
+		Stats._levelArray = _gameSave.data.levelArray;
+		
+		if (Stats._skillArray == null)
+		{
+			Stats._skillArray = [Stats._animationSkill, Stats._artSkill, Stats._musicSkill, Stats._programSkill, Stats._writingSkill];
+			Stats._levelArray = [Stats._animationLevel, Stats._artLevel, Stats._musicLevel, Stats._programLevel, Stats._writingLevel];
+		}
 		
 		//TODO check if file exists then either load the file or create a new one
 		FlxG.switchState(new NewGameState());
 	}
 	private function delete():Void
 	{
-		if (Stats._gameSave.data != null)
+		if (_gameSave.data != null)
 		{
 			FlxG.log.add("are you sure hold p and try to delet");
 			if (FlxG.keys.pressed.P)
 			{
-				Stats._gameSave.erase();
+				_gameSave.erase();
 			}
 		}
 		
-		if (Stats._gameSave.data == null)
+		if (_gameSave.data == null)
 		{
 			FlxG.log.add("Data is null");
 		}
