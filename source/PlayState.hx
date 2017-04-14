@@ -84,19 +84,19 @@ class PlayState extends FlxState
 		
 		Stats.updateArray();
 		
-		_gameSave.data.levelArray = Stats._levelArray;
-		_gameSave.data.skillArray = Stats._skillArray;
+		FlxG.save.data.levelArray = Stats._levelArray;
+		FlxG.save.data.skillArray = Stats._skillArray;
 		
-		if (_gameSave.data.levelArray == null)
+		if (FlxG.save.data.levelArray == null)
 		{
 			
 		}
 		
 		_gameSave.flush();
 		
-		FlxG.watch.add(_gameSave, "data._levelArray");
+		FlxG.watch.add(FlxG.save, "data._levelArray");
 		
-		FlxG.log.add(_gameSave.data._levelArray);
+		FlxG.log.add(FlxG.save.data._levelArray);
 		FlxG.watch.add(Stats, "_levelArray");
 		FlxG.watch.add(Stats, "_skillArray");
 	}
