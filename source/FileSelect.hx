@@ -6,13 +6,13 @@ import flixel.addons.ui.FlxButtonPlus;
 import flixel.util.FlxSave;
 import source.Stats;
 
+
 /**
  * ...
  * @author ninjaMuffin
  */
 class FileSelect extends FlxState 
 {
-	private var _gameSave:FlxSave;
 	
 	private var _file1:FlxButtonPlus;
 	private var _file2:FlxButtonPlus;
@@ -48,13 +48,11 @@ class FileSelect extends FlxState
 	
 	private function load2():Void
 	{
-		_gameSave.bind("File2");
 		loadGame();
 	}
 	
 	private function load3():Void
 	{
-		_gameSave.bind("File3");
 		loadGame();
 	}
 	
@@ -62,36 +60,26 @@ class FileSelect extends FlxState
 	{
 		FlxG.log.add("FileSelectLOadgame");
 		
-		Stats._skillArray = FlxG.save.data.skillArray;
-		Stats._levelArray = FlxG.save.data.levelArray;
-		
-		Stats._animationSkill = FlxG.save.data._animationSkill;
-		
 		//TODO check if file exists then either load the file or create a new one
+		
+		
 		if (FlxG.save.data == null)
 		{
-			Stats.load();
-			FlxG.log.add("data was null");
 			FlxG.switchState(new NewGameState());
 		}
-		if (FlxG.save.data != null)
+		else
 		{
-			FlxG.log.add("savegamefound");
 			FlxG.switchState(new PlayState());
 		}
-		
 	}
 	private function delete():Void
 	{
-		/*if (FlxG.save.data != null)
-		{
-			FlxG.log.add("erased");
-			FlxG.save.erase();
-		}
+		
+		FlxG.save.erase();
 		
 		if (FlxG.save.data == null)
 		{
 			FlxG.log.add("Data is null");
-		}*/
+		}
 	}
 }

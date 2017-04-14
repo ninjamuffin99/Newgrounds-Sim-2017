@@ -113,32 +113,7 @@ class Stats
 	public static var _file2name:String;
 	public static var _file3name:String;
 	
-	public static var _skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
-	public static var _levelArray = [_animationLevel, _artLevel, _musicLevel, _programLevel, _writingLevel];
-	
 	public function new() 
-	{
-		
-	}
-	
-	public static function updateArray():Void
-	{
-		_skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
-		_levelArray = [_animationLevel, _artLevel, _musicLevel, _programLevel, _writingLevel];
-	}
-	
-	public static function save():Void
-	{
-		
-		/*FlxG.log.add("levels" + _levelArray);
-		FlxG.log.add("Skills/EXP: " + _skillArray);
-		
-		_gameSave.data._levelArray = _levelArray;
-		_gameSave.data._skillArray = _skillArray;
-		
-		_gameSave.flush();*/
-	}
-	public static function load():Void
 	{
 		
 	}

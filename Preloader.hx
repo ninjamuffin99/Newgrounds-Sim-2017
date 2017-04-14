@@ -64,7 +64,7 @@ class Preloader extends FlxBasePreloader
 		addChild(text);
 		*/
 		
-		API.connect(root, "API ID", "encryptionkey");
+		API.connect(root, "API ID", "ENCRYPTIOON KEY");
 		
 		if (API.isNewgrounds)
 		{
