@@ -140,15 +140,8 @@ class Stats
 	}
 	public static function load():Void
 	{
-		/*if (_gameSave.data._skillArray == null)
-		{
-			_gameSave.data._skillArray = [_animationSkill, _artSkill, _musicSkill, _programSkill, _writingSkill];
-			
-		}
-		_skillArray = _gameSave.data._levelArray;
-		_levelArray = _gameSave.data._skillArray;
-		
-		_gameSave.flush();*/
+		_animationLevel = _levelArray[0];
+		_animationSkill = _skillArray[0];
 	}
 	
 	public static function addCash(C:Int):Void
