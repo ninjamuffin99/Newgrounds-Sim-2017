@@ -41,8 +41,6 @@ class FileSelect extends FlxState
 	
 	private function load1():Void
 	{
-		//FlxG.save.bind("File1");
-		//FlxG.log.add("clickLoad1");
 		loadGame();
 	}
 	
@@ -63,21 +61,23 @@ class FileSelect extends FlxState
 		//TODO check if file exists then either load the file or create a new one
 		
 		
-		if (FlxG.save.data == null)
+		if (FlxG.save.data._animationSkill == null)
 		{
 			FlxG.switchState(new NewGameState());
 		}
 		else
 		{
+			Stats._animationSkill = FlxG.save.data._animationSkill;
+			FlxG.log.add("Animation SKill" + Stats._animationSkill);
+			FlxG.log.add("Saved Data " + FlxG.save.data._animationSkill);
 			FlxG.switchState(new PlayState());
 		}
 	}
 	private function delete():Void
 	{
-		
 		FlxG.save.erase();
 		
-		if (FlxG.save.data == null)
+		if (FlxG.save.data._animationSkill == null)
 		{
 			FlxG.log.add("Data is null");
 		}
