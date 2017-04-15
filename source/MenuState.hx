@@ -18,8 +18,6 @@ class MenuState extends FlxState
 	private var bg:FlxSprite;
 	private var _btnPlay:FlxButtonPlus;
 	
-	private var _btnSprite:FlxSpriteButton;
-	
 	private var savegroup:SaveGroup;
 	
 	override public function create():Void
@@ -28,19 +26,8 @@ class MenuState extends FlxState
 		bg.loadGraphic("assets/images/TitleScreen.png", false, 1280, 720);
 		add(bg);
 		
-		var playText:FlxText;
-		playText = new FlxText(0, 0, 0, "PLAY GAME", 40);
-		
-		_btnSprite = new FlxSpriteButton(600, 500, playText, clickPlay);
-		_btnSprite.createTextLabel("PLAY GAME", "assets/data/FeaturedItem.ttf", 50);
-		add(_btnSprite);
-		
-		_btnPlay = new FlxButtonPlus(0, 0, clickPlay, "", 150, 40);
-		_btnPlay.loadButtonGraphic(playText, playText);
+		_btnPlay = new FlxButtonPlus(500, 570, clickPlay, "PLAY GAME", 300, 50);
 		add(_btnPlay);
-		
-		
-		_btnPlay.screenCenter();
 		
 		super.create();
 	}
