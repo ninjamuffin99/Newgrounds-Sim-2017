@@ -39,14 +39,14 @@ class SubState extends FlxSubState
 	
 	override public function create():Void 
 	{
-		bg = new FlxSprite(0, 0);
+		bg = new FlxSprite(312 / 2, 152 / 2);
 		bg.loadGraphic("assets/images/BBSblurred.png");
-		bg.setGraphicSize(FlxG.width, FlxG.height);
+		bg.setGraphicSize(1280, 720);
 		add(bg);
 		
 		createButtons();
 		
-		var wordsX:Int = Std.int(FlxG.width * 0.1719);
+		var wordsX:Int = 290;
 		
 		_foundFlash = new FlxText(200, 400, 0, "Someone found a way to get Flash MX for free! Thanks JessieJJones!", 12);
 		_foundFlash.visible = false;
@@ -54,19 +54,26 @@ class SubState extends FlxSubState
 		
 		
 		
-		_title = new FlxTypeText(wordsX, Std.int(FlxG.height * 0.122), FlxG.width * 0.9, "", 12);
+		_title = new FlxTypeText(wordsX, 110, Std.int(FlxG.width * 0.95) - 290, "", 16);
 		_title.font = "assets/data/ARIALBD.TTF";
 		_title.cursorCharacter = "|";
 		_title.color = FlxColor.BLACK;
 		add(_title);
 		
-		_post = new FlxTypeText(wordsX, Std.int(FlxG.height * 0.33), FlxG.width * 0.9, "", 12);
+		_post = new FlxTypeText(wordsX, 300, Std.int(FlxG.width * 0.95) - 290, "", 16);
 		_post.cursorCharacter = "|";
 		_post.color = FlxColor.BLACK;
 		_post.font = "assets/data/ARIALBD.TTF";
 		add(_post);
 		
 		super.create();
+	}
+	
+	override public function update(elapsed:Float):Void 
+	{
+		FlxG.watch.addMouse();
+		
+		super.update(elapsed);
 	}
 	
 	private function createButtons():Void
