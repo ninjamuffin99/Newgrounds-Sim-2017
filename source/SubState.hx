@@ -27,6 +27,11 @@ class SubState extends FlxSubState
 	private var _btnBrowse:FlxButton;
 	private var _btnClose:FlxButton;
 	
+	private var _titleArray = ["Who is the cutest NG user?", "HELP ME"];
+	private var	_postArray = ["I think Tom is a cutie pie #BringBackBeardFulp", "Haha you thought i needed help didnt you? XDD"];
+	
+	private var _randomPost:Int;
+	
 	public function new(BGColor:FlxColor=FlxColor.TRANSPARENT) 
 	{
 		super(BGColor);
@@ -47,13 +52,14 @@ class SubState extends FlxSubState
 		add(_foundFlash);
 		
 		
-		_title = new FlxTypeText(wordsX, 88, FlxG.width, "Who is the cutest NG user?", 12);
+		
+		_title = new FlxTypeText(wordsX, 88, FlxG.width, "", 12);
 		_title.font = "assets/data/ARIALBD.TTF";
 		_title.cursorCharacter = "|";
 		_title.color = FlxColor.BLACK;
 		add(_title);
 		
-		_post = new FlxTypeText(wordsX, 240, FlxG.width - 50, "I think Tom is a cutie pie #BringBackBeardFulp", 12);
+		_post = new FlxTypeText(wordsX, 240, FlxG.width - 50, "", 12);
 		_post.cursorCharacter = "|";
 		_post.color = FlxColor.BLACK;
 		_post.font = "assets/data/ARIALBD.TTF";
@@ -101,15 +107,19 @@ class SubState extends FlxSubState
 	private function clickShitpost():Void
 	{
 		//TODO: instead of doing this, it'll change the title and post text to suit, and then call typingStart
+		_randomPost = FlxG.random.int(0, 1);
+		_title.resetText(_titleArray[_randomPost]);
+		_post.resetText(_postArray[_randomPost]);
+		
 		Stats.forumPost(10);
 		typingStart();
 	}
 	
 	private function clickAdvice():Void
 	{
-		
-		_title.resetText("HEEELPP!!!!");
-		_post.resetText("I THINK NEWGROUNDS IS COMPLETLY BROKEN, I CANNOT BUY THE MERCH ANYMORE!!!! TOM PLEASE TAKE MY MONEYYYYYYYYYYY :(:(:( SAD FAAACE");
+		_randomPost = FlxG.random.int(0, 1);
+		_title.resetText(_titleArray[_randomPost]);
+		_post.resetText(_postArray[_randomPost]);
 		Stats.forumPost(5);
 		typingStart();
 	}
