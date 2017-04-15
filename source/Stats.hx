@@ -181,7 +181,7 @@ class Stats
 		FlxG.save.data.m = m;
 		FlxG.save.data._stamina = _stamina;
 		
-		FlxG.save.data_name = _name;
+		FlxG.save.data._name = _name;
 		
 		FlxG.save.data._cash = _cash;
 		
