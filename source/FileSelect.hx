@@ -67,7 +67,7 @@ class FileSelect extends FlxState
 		}
 		else
 		{
-			Stats._animationSkill = FlxG.save.data._animationSkill;
+			Stats.load();
 			FlxG.log.add("Animation SKill" + Stats._animationSkill);
 			FlxG.log.add("Saved Data " + FlxG.save.data._animationSkill);
 			FlxG.switchState(new PlayState());

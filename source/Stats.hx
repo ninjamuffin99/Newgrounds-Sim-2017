@@ -120,7 +120,21 @@ class Stats
 	
 	public static function load():Void
 	{
+		_animationSkill = FlxG.save.data._animationSkill;
+		_artSkill = FlxG.save.data._artSkill;
+		_musicSkill = FlxG.save.data._musicSkill;
+		_programSkill = FlxG.save.data._programSkill;
+		_voiceSkill = FlxG.save.data._voiceSkill;
+		_writingSkill = FlxG.save.data._writingSkill;
 		
+		_animationLevel = FlxG.save.data._animationLevel;
+		_artLevel = FlxG.save.data._artLevel;
+		_musicLevel = FlxG.save.data._musicLevel;
+		_programLevel = FlxG.save.data._programLevel;
+		_voiceLevel = FlxG.save.data._voiceLevel;
+		_writingLevel = FlxG.save.data._writingLevel;
+		
+		FlxG.log.add("Stats Loaded");
 	}
 	
 	public static function save():Void
@@ -139,7 +153,7 @@ class Stats
 		FlxG.save.data._voiceLevel = _voiceLevel;
 		FlxG.save.data._writingLevel = _writingLevel;
 		
-		
+		FlxG.log.add("Stats Saved");
 		
 		FlxG.save.flush();
 	}
