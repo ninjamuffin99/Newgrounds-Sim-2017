@@ -118,6 +118,32 @@ class Stats
 		
 	}
 	
+	public static function load():Void
+	{
+		
+	}
+	
+	public static function save():Void
+	{
+		FlxG.save.data._animationSkill = _animationSkill;
+		FlxG.save.data._artSkill = _artSkill;
+		FlxG.save.data._musicSkill = _musicSkill;
+		FlxG.save.data._programSkill = _programSkill;
+		FlxG.save.data._voiceSkill = _voiceSkill;
+		FlxG.save.data._writingSkill = _writingSkill;
+		
+		FlxG.save.data._animationLevel = _animationLevel;
+		FlxG.save.data._artLevel = _artLevel;
+		FlxG.save.data._musicLevel = _musicLevel;
+		FlxG.save.data._programLevel = _programLevel;
+		FlxG.save.data._voiceLevel = _voiceLevel;
+		FlxG.save.data._writingLevel = _writingLevel;
+		
+		
+		
+		FlxG.save.flush();
+	}
+	
 	public static function addCash(C:Int):Void
 	{
 		_cash += C;

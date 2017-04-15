@@ -78,8 +78,7 @@ class PlayState extends FlxState
 		Stats._stamina = 24;
 		_hud.updateHUD();
 		
-		FlxG.save.data._animationSkill = Stats._animationSkill;
-		FlxG.save.flush();
+		Stats.save();
 	}
 	
 	
