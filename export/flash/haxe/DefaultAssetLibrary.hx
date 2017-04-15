@@ -53,7 +53,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_arial_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_arialbd_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_featureditem_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_opensans_condlight_ttf);
+		
 		
 		
 		
@@ -106,6 +108,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/ARIAL.TTF", AssetType.FONT);
 		className.set ("assets/data/ARIALBD.TTF", __ASSET__assets_data_arialbd_ttf);
 		type.set ("assets/data/ARIALBD.TTF", AssetType.FONT);
+		className.set ("assets/data/FeaturedItem.ttf", __ASSET__assets_data_featureditem_ttf);
+		type.set ("assets/data/FeaturedItem.ttf", AssetType.FONT);
 		className.set ("assets/data/OpenSans-CondLight.ttf", __ASSET__assets_data_opensans_condlight_ttf);
 		type.set ("assets/data/OpenSans-CondLight.ttf", AssetType.FONT);
 		className.set ("assets/images/BBS.PNG", __ASSET__assets_images_bbs_png);
@@ -118,6 +122,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/lenny.png", AssetType.IMAGE);
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
+		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
+		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
@@ -207,6 +213,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set (id, __ASSET__assets_data_arialbd_ttf);
 		
 		type.set (id, AssetType.FONT);
+		id = "assets/data/FeaturedItem.ttf";
+		className.set (id, __ASSET__assets_data_featureditem_ttf);
+		
+		type.set (id, AssetType.FONT);
 		id = "assets/data/OpenSans-CondLight.ttf";
 		className.set (id, __ASSET__assets_data_opensans_condlight_ttf);
 		
@@ -228,6 +238,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/NewGameStats.jpg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/TitleScreen.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -407,6 +421,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/data/ARIALBD.TTF", __ASSET__assets_data_arialbd_ttf);
 		type.set ("assets/data/ARIALBD.TTF", AssetType.FONT);
 		
+		className.set ("assets/data/FeaturedItem.ttf", __ASSET__assets_data_featureditem_ttf);
+		type.set ("assets/data/FeaturedItem.ttf", AssetType.FONT);
+		
 		className.set ("assets/data/OpenSans-CondLight.ttf", __ASSET__assets_data_opensans_condlight_ttf);
 		type.set ("assets/data/OpenSans-CondLight.ttf", AssetType.FONT);
 		
@@ -424,6 +441,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
+		
+		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
+		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
 		
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
@@ -1185,12 +1205,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_arial_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_arialbd_ttf extends flash.text.Font { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_featureditem_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bbs_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bbsblurred_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_defaultprofilepic_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_lenny_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_newgamestats_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_titlescreen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_mp3 extends flash.media.Sound { }
@@ -1235,7 +1257,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep #if display private #end class __ASSET__assets_data_arial_ttf extends lime.text.Font { public function new () { super (); name = "Arial"; } } 
 @:keep #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font { public function new () { super (); name = "Arial Bold"; } } 
+@:keep #if display private #end class __ASSET__assets_data_featureditem_ttf extends lime.text.Font { public function new () { super (); name = "Featured Item"; } } 
 @:keep #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font { public function new () { super (); name = "Open Sans Cond Light"; } } 
+
 
 
 
@@ -1290,12 +1314,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:font("assets/data/ARIAL.TTF") #if display private #end class __ASSET__assets_data_arial_ttf extends lime.text.Font {}
 @:font("assets/data/ARIALBD.TTF") #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font {}
+@:font("assets/data/FeaturedItem.ttf") #if display private #end class __ASSET__assets_data_featureditem_ttf extends lime.text.Font {}
 @:font("assets/data/OpenSans-CondLight.ttf") #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font {}
 @:image("assets/images/BBS.PNG") #if display private #end class __ASSET__assets_images_bbs_png extends lime.graphics.Image {}
 @:image("assets/images/BBSblurred.png") #if display private #end class __ASSET__assets_images_bbsblurred_png extends lime.graphics.Image {}
 @:image("assets/images/defaultProfilePic.jpg") #if display private #end class __ASSET__assets_images_defaultprofilepic_jpg extends lime.graphics.Image {}
 @:image("assets/images/lenny.png") #if display private #end class __ASSET__assets_images_lenny_png extends lime.graphics.Image {}
 @:image("assets/images/NewGameStats.jpg") #if display private #end class __ASSET__assets_images_newgamestats_jpg extends lime.graphics.Image {}
+@:image("assets/images/TitleScreen.png") #if display private #end class __ASSET__assets_images_titlescreen_png extends lime.graphics.Image {}
 @:file("assets/music/1683_newgrounds_lhm__e.mp3") #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends lime.utils.Bytes {}
 @:file("assets/sounds/sounds-go-here.txt") #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends lime.utils.Bytes {}
 @:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/beep.mp3") #if display private #end class __ASSET__flixel_sounds_beep_mp3 extends lime.utils.Bytes {}
@@ -1343,6 +1369,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (openfl && !flash)
 @:keep #if display private #end class __ASSET__OPENFL__assets_data_arial_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_arial_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__assets_data_arialbd_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_arialbd_ttf (); src = font.src; name = font.name; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__assets_data_featureditem_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_featureditem_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__assets_data_opensans_condlight_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_opensans_condlight_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_monsterrat_ttf (); src = font.src; name = font.name; super (); }}

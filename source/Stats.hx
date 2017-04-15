@@ -242,6 +242,7 @@ class Stats
 	{
 		
 		var quality:Float = _animationLevel += _artLevel;
+		quality += _writingLevel;
 		_animationQuality == quality;
 		
 		if (quality >= 10)
@@ -300,6 +301,7 @@ class Stats
 	public static function gamePost(P:Int = 0):Void
 	{
 		var quality:Float = _programLevel;
+		quality += _writingLevel;
 		_gameQuality == quality;
 		
 		if (quality >= 4)

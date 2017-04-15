@@ -38,6 +38,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
+		urls.push ("Featured Item");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("Open Sans Cond Light");
 		types.push (lime.Assets.AssetType.FONT);
 		
@@ -59,6 +63,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/NewGameStats.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/TitleScreen.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -275,7 +283,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "638",
+			build: "644",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
