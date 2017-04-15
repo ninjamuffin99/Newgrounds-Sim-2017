@@ -134,6 +134,15 @@ class Stats
 		_voiceLevel = FlxG.save.data._voiceLevel;
 		_writingLevel = FlxG.save.data._writingLevel;
 		
+		yyyy = FlxG.save.data.yyyy;
+		mm = FlxG.save.data.mm;
+		dd = FlxG.save.data.dd;
+		PM = FlxG.save.data.PM;
+		AMPM = FlxG.save.data.AMPM;
+		h = FlxG.save.data.h;
+		m = FlxG.save.data.m;
+		_stamina = FlxG.save.data._stamina;
+		
 		FlxG.log.add("Stats Loaded");
 	}
 	
@@ -152,6 +161,15 @@ class Stats
 		FlxG.save.data._programLevel = _programLevel;
 		FlxG.save.data._voiceLevel = _voiceLevel;
 		FlxG.save.data._writingLevel = _writingLevel;
+		
+		FlxG.save.data.yyyy = yyyy;
+		FlxG.save.data.mm = mm;
+		FlxG.save.data.dd = dd;
+		FlxG.save.data.PM = PM;
+		FlxG.save.data.AMPM = AMPM;
+		FlxG.save.data.h = h;
+		FlxG.save.data.m = m;
+		FlxG.save.data._stamina = _stamina;
 		
 		FlxG.log.add("Stats Saved");
 		

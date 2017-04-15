@@ -111,6 +111,7 @@ package;
 				Stats.AMPM = "AM";
 				Stats.addDay(1);
 				Stats.PM = false;
+				Stats._supporters += FlxG.random.int(2, 10);
 			}
 			else
 			{
