@@ -143,6 +143,16 @@ class Stats
 		m = FlxG.save.data.m;
 		_stamina = FlxG.save.data._stamina;
 		
+		_name = FlxG.save.data._name;
+		_cash = FlxG.save.data._cash;
+		_username = FlxG.save.data._username;
+		_fans = FlxG.save.data._fans;
+		_forumPosts = FlxG.save.data._forumPosts;
+		_blams = FlxG.save.data._blams;
+		_protects = FlxG.save.data._protects;
+		_supporters = FlxG.save.data._supporters;
+		_ngCash = FlxG.save.data._ngCash;
+		
 		FlxG.log.add("Stats Loaded");
 	}
 	
@@ -170,6 +180,18 @@ class Stats
 		FlxG.save.data.h = h;
 		FlxG.save.data.m = m;
 		FlxG.save.data._stamina = _stamina;
+		
+		FlxG.save.data_name = _name;
+		
+		FlxG.save.data._cash = _cash;
+		
+		FlxG.save.data._username = _username;
+		FlxG.save.data._fans = _fans;
+		FlxG.save.data._forumPosts = _forumPosts;
+		FlxG.save.data._blams = _blams;
+		FlxG.save.data._protects = _protects;
+		FlxG.save.data._supporters = _supporters;
+		FlxG.save.data._ngCash = _ngCash;
 		
 		FlxG.log.add("Stats Saved");
 		
