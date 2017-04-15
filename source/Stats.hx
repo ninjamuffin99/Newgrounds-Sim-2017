@@ -153,6 +153,11 @@ class Stats
 		_supporters = FlxG.save.data._supporters;
 		_ngCash = FlxG.save.data._ngCash;
 		
+		_animationQuality = FlxG.save.data._animationQuality;
+		_artQuality = FlxG.save.data._artQuality;
+		_gameQuality = FlxG.save.data._gameQuality;
+		_songQuality = FlxG.save.data._songQuality;
+		
 		FlxG.log.add("Stats Loaded");
 	}
 	
@@ -192,6 +197,18 @@ class Stats
 		FlxG.save.data._protects = _protects;
 		FlxG.save.data._supporters = _supporters;
 		FlxG.save.data._ngCash = _ngCash;
+		
+		FlxG.save.data._animationQuality = _animationQuality;
+		FlxG.save.data._artQuality = _artQuality;
+		FlxG.save.data._gameQuality = _gameQuality;
+		FlxG.save.data._songQuality = _songQuality;
+		
+		FlxG.save.data._artProgress = _artProgress;
+		FlxG.save.data._animationProgress = _animationProgress;
+		FlxG.save.data._gameProgress = _gameProgress;
+		FlxG.save.data._songProgress = _songProgress;
+		
+		
 		
 		FlxG.log.add("Stats Saved");
 		
