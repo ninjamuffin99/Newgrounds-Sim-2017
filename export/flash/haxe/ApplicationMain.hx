@@ -54,6 +54,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/ButtonNoText.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/defaultProfilePic.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -70,7 +74,15 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/TitleScreenPSD.psd");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
+		urls.push ("assets/music/SHITLOOP.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
@@ -283,7 +295,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "654",
+			build: "669",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
