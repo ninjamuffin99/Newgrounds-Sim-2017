@@ -23,7 +23,7 @@ class MenuState extends FlxState
 	
 	private var _sprPlay:FlxSprite;
 	
-	private var savegroup:SaveGroup;
+	//private var savegroup:SaveGroup;
 	
 	override public function create():Void
 	{
@@ -65,8 +65,8 @@ class MenuState extends FlxState
 	}
 	private function finishFade():Void
 	{
-		API.createSaveFile("CloudSave");
-		Logger.logMessage("TEST MESSAGE");
+		//API.createSaveFile("CloudSave");
+		//Logger.logMessage("TEST MESSAGE");
 		FlxG.log.add("thing");
 		FlxG.switchState(new FileSelect());
 	}

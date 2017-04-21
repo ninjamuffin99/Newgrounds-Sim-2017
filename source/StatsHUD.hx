@@ -7,6 +7,7 @@ package;
  import flixel.text.FlxText;
  import flixel.tweens.FlxEase;
  import flixel.tweens.FlxTween;
+ import flixel.ui.FlxButton;
  import flixel.util.FlxColor;
  import source.Stats;
  using flixel.util.FlxSpriteUtil;
@@ -53,6 +54,11 @@ package;
 	private var _ngStatsString:String = "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects + "\n" + "Newgrounds Supporters: " + Stats._supporters + "\n" + "Newgrounds Supporter Earnings: " + Stats._ngCash;
 	private var _miscStatsText:FlxText;
 	
+	//BUTTONS
+	private var _reset:FlxButton;
+	private var _myNG:FlxButton;
+	private var _btnSource:FlxButton;
+	
     public function new()
     {
         super();
@@ -82,13 +88,19 @@ package;
 		miscBG = new FlxSprite(FlxG.width - 500, FlxG.height * 0.4);
 		miscBG.makeGraphic(Std.int(FlxG.width * 0.3), Std.int(FlxG.width * 0.3), FlxColor.BLACK);
 		
-		
+		//BUTTONS
+		_reset = new FlxButton(FlxG.width - 300, FlxG.height - 680, "Return To Title", clickReset);
+		_myNG = new FlxButton(FlxG.width - 450, FlxG.height - 680, "Follow Me On NG!", clickMyNG);
+		_btnSource = new FlxButton(FlxG.width - 570, FlxG.height - 680, "View the Source!", clickSource);
 		
 		add(bgOutline);
 		add(bg);
 		add(movieOutline);
 		add(movieBG);
 		add(miscBG);
+		add(_reset);
+		add(_myNG);
+		add(_btnSource);
 		
 		createText();
 		
@@ -194,5 +206,21 @@ package;
 		_blamText.text = "Blams: " + Stats._blams;
 		_protectText.text = "Protects: " + Stats._protects;
 		*/
+	}
+	
+	//BUTTON STUFF
+	private function clickReset():Void
+	{
+		FlxG.resetGame();
+	}
+	
+	private function clickMyNG():Void
+	{
+		FlxG.openURL("http://ninjamuffin99.newgrounds.com/");
+	}
+	
+	private function clickSource():Void
+	{
+		FlxG.openURL("https://github.com/ninjamuffin99/Newgrounds-Sim-2017");
 	}
 }

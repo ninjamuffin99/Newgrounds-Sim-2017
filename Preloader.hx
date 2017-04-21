@@ -63,17 +63,18 @@ class Preloader extends FlxBasePreloader
 		text.text = "Loading";
 		addChild(text);
 		*/
-		
-		API.connect(root, "API ID", "ENCRYPTIOON KEY");
-		
-		if (API.isNewgrounds)
-		{
-			var ad:FlashAd = new FlashAd();
-			ad.x = (_width / 2) - (ad.width/2);
-			ad.y = (_width / 2.5) - (ad.height/2);
-			addChild(ad);
-			minDisplayTime = 8;
-		}
+		#if (flash)
+			API.connect(root, "API ID", "ENCRYPTIOON KEY");
+			
+			if (API.isNewgrounds)
+			{
+				var ad:FlashAd = new FlashAd();
+				ad.x = (_width / 2) - (ad.width/2);
+				ad.y = (_width / 2.5) - (ad.height/2);
+				addChild(ad);
+				minDisplayTime = 8;
+			}
+		#end
 		
 		super.create();
 	}

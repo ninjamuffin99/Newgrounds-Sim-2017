@@ -115,8 +115,8 @@ class NewGameState extends FlxState
 		
 		_usernameText = new FlxText(60, 100, 0, "Username:", 10);
 		
-		var _NGUserName:String;
-		_NGUserName = API.username;
+		var _NGUserName:String = "";
+		//_NGUserName = API.username;
 		
 		_usernameInput = new FlxInputText(130, 100, 100, _NGUserName, 10);
 		

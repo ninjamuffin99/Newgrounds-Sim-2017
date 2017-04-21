@@ -23,6 +23,7 @@ class PlayState extends FlxState
 	
 	private var _hud:HUD;
 	private var _statsHUD:StatsHUD;
+	private var _notifacations:Notifacations;
 	
 	override public function create():Void
 	{
@@ -34,6 +35,9 @@ class PlayState extends FlxState
 		_statsHUD = new StatsHUD();
 		_statsHUD.visible = false;
 		add(_statsHUD);
+		
+		_notifacations = new Notifacations();
+		add(_notifacations);
 		
 		super.create();
 	}
@@ -79,6 +83,7 @@ class PlayState extends FlxState
 		_hud.updateHUD();
 		
 		Stats.save();
+		_notifacations._saveText();
 	}
 	
 	

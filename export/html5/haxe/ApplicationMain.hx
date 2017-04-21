@@ -30,12 +30,16 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("Arial");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("Arial Bold");
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
-		urls.push ("assets/data/data-goes-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
+		urls.push ("Featured Item");
+		types.push (lime.Assets.AssetType.FONT);
 		
 		
 		urls.push ("Open Sans Cond Light");
@@ -50,8 +54,12 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/images-go-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
+		urls.push ("assets/images/ButtonNoText.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/defaultProfilePic.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/lenny.png");
@@ -62,12 +70,20 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/TitleScreen.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/TitleScreenPSD.psd");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
-		urls.push ("assets/music/music-goes-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
+		urls.push ("assets/music/SHITLOOP.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
 		urls.push ("assets/sounds/sounds-go-here.txt");
@@ -279,7 +295,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "448",
+			build: "697",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
