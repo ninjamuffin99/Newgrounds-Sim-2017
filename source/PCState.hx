@@ -38,13 +38,13 @@ class PCState extends FlxState
 	private var _programProgressBar:FlxBar;
 	private var _songProgressBar:FlxBar;
 	
-	
-	
 	private var _usingText:FlxText;
 	
 	private var _statsSubState:StatsSubState;
 	private var _hud:HUD;
 	private var _statsHUD:StatsHUD;
+	
+	private var _notifacations:Notifacations;
 	
 	
 	override public function create():Void 
@@ -64,12 +64,19 @@ class PCState extends FlxState
 		
 		_statsSubState = new StatsSubState();
 		
+		_notifacations = new Notifacations();
+		add(_notifacations);
 		
 		super.create();
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
+		if (FlxG.keys.justPressed.O)
+		{
+			_notifacations._animationSKillUp();
+		}
+		
 		if (FlxG.keys.justPressed.S)
 		{
 			_statsHUD.visible = !_statsHUD.visible;
