@@ -64,10 +64,6 @@ class PCState extends FlxState
 		
 		createBars();
 		
-		nameInputs();
-		
-		
-		
 		_statsHUD = new StatsHUD();
 		_statsHUD.visible = false;
 		add(_statsHUD);
@@ -153,24 +149,6 @@ class PCState extends FlxState
 		super.update(elapsed);
 	}
 	
-	private function nameInputs():Void
-	{
-		_nameBox = new FlxSprite(0, 0);
-		_nameBox.visible = false;
-		_nameBox.screenCenter();
-		add(_nameBox);
-		
-		_animationName = new FlxInputText(0, 0, 150, "", 10);
-		_animationName.visible = false;
-		_animationName.screenCenter();
-		_animationName.callback = "beginAnimation()";
-		add(_animationName);
-		
-		_btnAnimationBegin = new FlxButton(0, 0, "Begin", beginAnimation);
-		_btnAnimationBegin.visible = false;
-		add(_btnAnimationBegin);
-	}
-	
 	private function createButtons():Void
 	{
 		var buttonX:Int = 30;
@@ -252,6 +230,8 @@ class PCState extends FlxState
 		if (Stats._animationProgress == 0)
 		{
 			_nameBox.visible = true;
+			_animationName.visible = true;
+			_btnAnimationBegin.visible = true;
 		}
 		
 		if (Stats._stamina >= 1)
@@ -407,5 +387,9 @@ class PCState extends FlxState
 	private function beginAnimation():Void
 	{
 		Stats._animationNames.push(_animationName.text);
+		_nameBox.visible = false;
+		_animationName.visible = false;
+		_btnAnimationBegin.visible = false;
+		FlxG.log.add("press begin");
 	}
 }
