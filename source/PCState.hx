@@ -1,8 +1,10 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxSubState;
+import flixel.addons.ui.FlxInputText;
 import flixel.text.FlxText;
 import flixel.ui.FlxBar;
 import flixel.ui.FlxButton;
@@ -32,11 +34,16 @@ class PCState extends FlxState
 	
 	private var _btnBaP:FlxButton;
 	
+	//Progress things
 	private var _artProgressText:FlxText;
 	private var _animationProgressBar:FlxBar;
 	private var _artProgressBar:FlxBar;
 	private var _programProgressBar:FlxBar;
 	private var _songProgressBar:FlxBar;
+	
+	private var _nameBox:FlxSprite;
+	private var _animationName:FlxInputText;
+	private var _btnAnimationBegin:FlxButton;
 	
 	private var _usingText:FlxText;
 	
@@ -54,9 +61,12 @@ class PCState extends FlxState
 		
 		createButtons();
 		createText();
-		createDropDowns();
 		
 		createBars();
+		
+		nameInputs();
+		
+		
 		
 		_statsHUD = new StatsHUD();
 		_statsHUD.visible = false;
@@ -138,32 +148,27 @@ class PCState extends FlxState
 			_btnPostArt.visible = false;
 		}
 		
-		
+		FlxG.watch.add(Stats, "_animationNames");
 		
 		super.update(elapsed);
 	}
 	
-	private function createDropDowns():Void
+	private function nameInputs():Void
 	{
-		var dropdownX:Int = 105;
+		_nameBox = new FlxSprite(0, 0);
+		_nameBox.visible = false;
+		_nameBox.screenCenter();
+		add(_nameBox);
 		
-		var _animationPrograms:Array<String> = 
-				["Flash CS6", "Animate CC", "OpenToonz", "ToonBoom Harmony"];
-				
-		var _animationDropDown = new FlxUIDropDownMenu(dropdownX, 22, FlxUIDropDownMenu.makeStrIdLabelArray(_animationPrograms, true));
+		_animationName = new FlxInputText(0, 0, 150, "", 10);
+		_animationName.visible = false;
+		_animationName.screenCenter();
+		_animationName.callback = "beginAnimation()";
+		add(_animationName);
 		
-		var _artPrograms:Array<String> =
-				["MS Paint", "Flash MX 2004", "Krita", "Photoshop CC", "Aseprite", "Gimp"];
-		
-		var _artDropDown = new FlxUIDropDownMenu(dropdownX, 60, FlxUIDropDownMenu.makeStrIdLabelArray(_artPrograms, true));
-		
-		_usingText = new FlxText(dropdownX, 10, 0, "Using", 10);
-		
-		
-		add(_usingText);
-		
-		add(_artDropDown);
-		add(_animationDropDown);
+		_btnAnimationBegin = new FlxButton(0, 0, "Begin", beginAnimation);
+		_btnAnimationBegin.visible = false;
+		add(_btnAnimationBegin);
 	}
 	
 	private function createButtons():Void
@@ -244,6 +249,11 @@ class PCState extends FlxState
 	
 	private function clickAnimate():Void
 	{
+		if (Stats._animationProgress == 0)
+		{
+			_nameBox.visible = true;
+		}
+		
 		if (Stats._stamina >= 1)
 		{
 			Stats.animationEXP(1);
@@ -394,8 +404,8 @@ class PCState extends FlxState
 		FlxG.switchState(new NewGroundsState());
 	}
 	
-	private function onAnimationChange():Void
+	private function beginAnimation():Void
 	{
-		
+		Stats._animationNames.push(_animationName.text);
 	}
 }

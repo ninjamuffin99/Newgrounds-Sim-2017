@@ -113,6 +113,9 @@ class Stats
 	public static var _file2name:String;
 	public static var _file3name:String;
 	
+	//NAMES ARRAYS
+	public static var _animationNames:Array<String>;
+	
 	public function new() 
 	{
 		

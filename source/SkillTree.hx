@@ -6,6 +6,6 @@ package;
  */
 class SkillTree 
 {
-	public static var _
+	public static var _shitposter:Bool = false;
 	
 }
