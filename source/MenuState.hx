@@ -36,7 +36,8 @@ class MenuState extends FlxState
 		
 		_btnTHing = new FlxUIButton(500, 570, "PLAY GAME", clickPlay, false);
 		//_btnTHing.addIcon(_sprPlay);
-		_btnTHing.setLabelFormat("assets/data/FeaturedItem.ttf", 40);
+		_btnTHing.loadGraphicFromSprite(_sprPlay);
+		_btnTHing.setLabelFormat("assets/data/FeaturedItem.ttf", 30);
 		add(_btnTHing);
 		
 		

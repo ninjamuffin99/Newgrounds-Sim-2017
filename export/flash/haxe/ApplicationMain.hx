@@ -54,11 +54,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/BG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/ButtonNoText.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/defaultProfilePic.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Desk.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -295,7 +303,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "710",
+			build: "717",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,

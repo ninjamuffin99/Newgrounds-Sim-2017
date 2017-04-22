@@ -14,6 +14,7 @@ import source.Stats;
 
 class PlayState extends FlxState
 {
+	private var bg:FlxSprite;
 	
 	private var _btnPC:FlxButton;
 	private var _btnSleep:FlxButton;
@@ -27,6 +28,10 @@ class PlayState extends FlxState
 	
 	override public function create():Void
 	{
+		bg = new FlxSprite(0, 0);
+		bg.loadGraphic("assets/images/BG.png", false, 1280, 720);
+		add(bg);
+		
 		createButtons();
 		
 		_hud = new HUD();
@@ -45,7 +50,9 @@ class PlayState extends FlxState
 	private function createButtons():Void
 	{
 		var btnY:Int = 16;
-		_btnPC = new FlxButton(0, btnY, "Log on", clickPC);
+		_btnPC = new FlxButton(340, 256, "Log on", clickPC);
+		_btnPC.loadGraphic("assets/images/Desk.png", true, 512, 271);
+		_btnPC.updateHitbox();
 		add(_btnPC);
 		
 		_btnSleep = new FlxButton(20, btnY + 20, "Go to sleep", clickSleep);
@@ -68,6 +75,7 @@ class PlayState extends FlxState
 			_statsHUD.visible = !_statsHUD.visible;
 		}
 		
+		FlxG.watch.addMouse();
 		super.update(elapsed);
 	}
 	
