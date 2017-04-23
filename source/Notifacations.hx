@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
@@ -15,31 +16,20 @@ import flixel.util.FlxColor;
 class Notifacations extends FlxTypedGroup<FlxSprite>
 {
 	private var _animationSkillUp:FlxText;
-	private var _savedGame:FlxText;
 	
 	public function new() 
 	{
 		super();
-		
-		//SKiills
-		_animationSkillUp = new FlxText(0, 0, 0, "Animation Skill Increased", 10);
-		
-		//GameSaves
-		_savedGame = new FlxText(0, 200, 0, "Game Saved", 15);
-		_savedGame.alpha = 0;
-		_savedGame.color = FlxColor.BLACK;
-		add(_savedGame);
 	}
 	
-	public function _animationSKillUp():Void
+	public function _newText(X:Int = 40, Y:Int = 40, Text:String = "Placeholder", Size:Int = 10, color:FlxColor = FlxColor.BLACK, delay:Float = 0.5, sound:String = ""):Void
 	{
-		add(_animationSkillUp);
-		FlxTween.tween(_animationSkillUp, { alpha: 0}, .66, { ease: FlxEase.circOut, startDelay: 1});
-	}
-	
-	public function _saveText():Void
-	{
-		_savedGame.alpha = 1;
-		FlxTween.tween(_savedGame, { alpha: 0, y: _savedGame.y - 16}, 0.66, { ease:FlxEase.circOut, startDelay: 0.3});
+		var _notif:FlxText;
+		_notif = new FlxText(X, Y, 0, Text, Size);
+		_notif.color = color;
+		add(_notif);
+		
+		FlxG.sound.play(sound);
+		FlxTween.tween(_notif, { alpha: 0, y: _notif.y - 16}, 0.66, { ease:FlxEase.circOut, startDelay: delay});
 	}
 }

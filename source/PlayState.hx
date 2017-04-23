@@ -9,6 +9,7 @@ import flixel.addons.ui.FlxInputText;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
+import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import source.Stats;
 
@@ -93,7 +94,7 @@ class PlayState extends FlxState
 		_hud.updateHUD();
 		
 		Stats.save();
-		_notifacations._saveText();
+		_notifacations._newText(40, 40, "Game Saved", 10, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 	}
 	
 	

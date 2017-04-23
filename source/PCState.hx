@@ -9,6 +9,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxBar;
 import flixel.ui.FlxButton;
 import flixel.addons.ui.FlxUIDropDownMenu;
+import flixel.util.FlxColor;
 import openfl.filters.ConvolutionFilter;
 import source.Stats;
 
@@ -78,10 +79,6 @@ class PCState extends FlxState
 	
 	override public function update(elapsed:Float):Void 
 	{
-		if (FlxG.keys.justPressed.O)
-		{
-			_notifacations._animationSKillUp();
-		}
 		
 		if (FlxG.keys.justPressed.S)
 		{
@@ -101,6 +98,8 @@ class PCState extends FlxState
 			Stats._artUnpubbed += 1;
 			updateText();
 			Stats.artPost(0);
+			
+			_notifacations._newText(100, 100, "Your artwork has been posted to Newgrounds!", 10, FlxColor.ORANGE, 0.7);
 		}
 		
 		if (Stats._songProgress >= 100)
@@ -108,6 +107,8 @@ class PCState extends FlxState
 			Stats.musicEXP(15);
 			Stats._songProgress = 0;
 			Stats.musicPost(0);
+			
+			_notifacations._newText(100, 100, "Your song has been posted to Newgrounds!");
 		}
 		
 		if (Stats._animationProgress >= 100)
@@ -116,6 +117,8 @@ class PCState extends FlxState
 			Stats.artEXP(10);
 			Stats._animationProgress = 0;
 			Stats.animationPost(0);
+			
+			_notifacations._newText(100, 100, "Your animation has been posted to Newgrounds!");
 		}
 		
 		if (Stats._gameProgress >= 100)
@@ -123,6 +126,8 @@ class PCState extends FlxState
 			Stats.programEXP(50);
 			Stats._gameProgress = 0;
 			Stats.gamePost(0);
+			
+			_notifacations._newText(100, 100, "Your game has been posted to Newgrounds!");
 		}
 		
 		//PUBLISHED CHECKS

@@ -116,6 +116,7 @@ class Stats
 	//NAMES ARRAYS
 	public static var _animationNames:Array<String>;
 	
+	
 	public function new() 
 	{
 		

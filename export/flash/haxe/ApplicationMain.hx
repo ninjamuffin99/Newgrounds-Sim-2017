@@ -114,6 +114,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
+		urls.push ("assets/sounds/save.wav");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
 		urls.push ("assets/sounds/sounds-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -323,7 +327,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "725",
+			build: "734",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
