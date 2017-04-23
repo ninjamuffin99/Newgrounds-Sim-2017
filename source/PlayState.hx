@@ -55,7 +55,9 @@ class PlayState extends FlxState
 		_btnPC.updateHitbox();
 		add(_btnPC);
 		
-		_btnSleep = new FlxButton(20, btnY + 20, "Go to sleep", clickSleep);
+		_btnSleep = new FlxButton(118, 160, "", clickSleep);
+		_btnSleep.loadGraphic("assets/images/BedDoor.png", false, 202, 524);
+		_btnSleep.updateHitbox();
 		add(_btnSleep);
 		
 		_btnWork = new FlxButton(20, btnY + 40, "Work", clickWork);

@@ -6,6 +6,7 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
 
 /**
  * ...
@@ -26,6 +27,7 @@ class Notifacations extends FlxTypedGroup<FlxSprite>
 		//GameSaves
 		_savedGame = new FlxText(0, 200, 0, "Game Saved", 15);
 		_savedGame.alpha = 0;
+		_savedGame.color = FlxColor.BLACK;
 		add(_savedGame);
 	}
 	

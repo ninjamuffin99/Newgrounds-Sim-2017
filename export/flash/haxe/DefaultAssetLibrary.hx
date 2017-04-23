@@ -70,6 +70,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -121,6 +126,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/BBS.PNG", AssetType.IMAGE);
 		className.set ("assets/images/BBSblurred.png", __ASSET__assets_images_bbsblurred_png);
 		type.set ("assets/images/BBSblurred.png", AssetType.IMAGE);
+		className.set ("assets/images/BedDoor.png", __ASSET__assets_images_beddoor_png);
+		type.set ("assets/images/BedDoor.png", AssetType.IMAGE);
 		className.set ("assets/images/BG.png", __ASSET__assets_images_bg_png);
 		type.set ("assets/images/BG.png", AssetType.IMAGE);
 		className.set ("assets/images/ButtonNoText.png", __ASSET__assets_images_buttonnotext_png);
@@ -129,10 +136,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/defaultProfilePic.jpg", AssetType.IMAGE);
 		className.set ("assets/images/Desk.png", __ASSET__assets_images_desk_png);
 		type.set ("assets/images/Desk.png", AssetType.IMAGE);
+		className.set ("assets/images/GitHub-Mark-32px.png", __ASSET__assets_images_github_mark_32px_png);
+		type.set ("assets/images/GitHub-Mark-32px.png", AssetType.IMAGE);
+		className.set ("assets/images/GitHub-Mark-Light-32px.png", __ASSET__assets_images_github_mark_light_32px_png);
+		type.set ("assets/images/GitHub-Mark-Light-32px.png", AssetType.IMAGE);
+		className.set ("assets/images/GitHub-Mark-Light-64px.png", __ASSET__assets_images_github_mark_light_64px_png);
+		type.set ("assets/images/GitHub-Mark-Light-64px.png", AssetType.IMAGE);
 		className.set ("assets/images/lenny.png", __ASSET__assets_images_lenny_png);
 		type.set ("assets/images/lenny.png", AssetType.IMAGE);
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
+		className.set ("assets/images/NG_LOGO.png", __ASSET__assets_images_ng_logo_png);
+		type.set ("assets/images/NG_LOGO.png", AssetType.IMAGE);
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
 		className.set ("assets/images/TitleScreenPSD.psd", __ASSET__assets_images_titlescreenpsd_psd);
@@ -244,6 +259,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/BedDoor.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/BG.png";
 		path.set (id, id);
 		
@@ -260,11 +279,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/GitHub-Mark-32px.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/GitHub-Mark-Light-32px.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/GitHub-Mark-Light-64px.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/lenny.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/NewGameStats.jpg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/NG_LOGO.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -468,6 +503,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/BBSblurred.png", __ASSET__assets_images_bbsblurred_png);
 		type.set ("assets/images/BBSblurred.png", AssetType.IMAGE);
 		
+		className.set ("assets/images/BedDoor.png", __ASSET__assets_images_beddoor_png);
+		type.set ("assets/images/BedDoor.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/BG.png", __ASSET__assets_images_bg_png);
 		type.set ("assets/images/BG.png", AssetType.IMAGE);
 		
@@ -480,11 +518,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/Desk.png", __ASSET__assets_images_desk_png);
 		type.set ("assets/images/Desk.png", AssetType.IMAGE);
 		
+		className.set ("assets/images/GitHub-Mark-32px.png", __ASSET__assets_images_github_mark_32px_png);
+		type.set ("assets/images/GitHub-Mark-32px.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/GitHub-Mark-Light-32px.png", __ASSET__assets_images_github_mark_light_32px_png);
+		type.set ("assets/images/GitHub-Mark-Light-32px.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/GitHub-Mark-Light-64px.png", __ASSET__assets_images_github_mark_light_64px_png);
+		type.set ("assets/images/GitHub-Mark-Light-64px.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/lenny.png", __ASSET__assets_images_lenny_png);
 		type.set ("assets/images/lenny.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
+		
+		className.set ("assets/images/NG_LOGO.png", __ASSET__assets_images_ng_logo_png);
+		type.set ("assets/images/NG_LOGO.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
@@ -1259,12 +1309,17 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bbs_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bbsblurred_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_beddoor_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_bg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_buttonnotext_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_defaultprofilepic_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_desk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_github_mark_32px_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_github_mark_light_32px_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_github_mark_light_64px_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_lenny_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_newgamestats_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_ng_logo_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_titlescreen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_titlescreenpsd_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends flash.media.Sound { }
@@ -1329,6 +1384,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
 @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
 
@@ -1378,12 +1438,17 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:font("assets/data/OpenSans-CondLight.ttf") #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font {}
 @:image("assets/images/BBS.PNG") #if display private #end class __ASSET__assets_images_bbs_png extends lime.graphics.Image {}
 @:image("assets/images/BBSblurred.png") #if display private #end class __ASSET__assets_images_bbsblurred_png extends lime.graphics.Image {}
+@:image("assets/images/BedDoor.png") #if display private #end class __ASSET__assets_images_beddoor_png extends lime.graphics.Image {}
 @:image("assets/images/BG.png") #if display private #end class __ASSET__assets_images_bg_png extends lime.graphics.Image {}
 @:image("assets/images/ButtonNoText.png") #if display private #end class __ASSET__assets_images_buttonnotext_png extends lime.graphics.Image {}
 @:image("assets/images/defaultProfilePic.jpg") #if display private #end class __ASSET__assets_images_defaultprofilepic_jpg extends lime.graphics.Image {}
 @:image("assets/images/Desk.png") #if display private #end class __ASSET__assets_images_desk_png extends lime.graphics.Image {}
+@:image("assets/images/GitHub-Mark-32px.png") #if display private #end class __ASSET__assets_images_github_mark_32px_png extends lime.graphics.Image {}
+@:image("assets/images/GitHub-Mark-Light-32px.png") #if display private #end class __ASSET__assets_images_github_mark_light_32px_png extends lime.graphics.Image {}
+@:image("assets/images/GitHub-Mark-Light-64px.png") #if display private #end class __ASSET__assets_images_github_mark_light_64px_png extends lime.graphics.Image {}
 @:image("assets/images/lenny.png") #if display private #end class __ASSET__assets_images_lenny_png extends lime.graphics.Image {}
 @:image("assets/images/NewGameStats.jpg") #if display private #end class __ASSET__assets_images_newgamestats_jpg extends lime.graphics.Image {}
+@:image("assets/images/NG_LOGO.png") #if display private #end class __ASSET__assets_images_ng_logo_png extends lime.graphics.Image {}
 @:image("assets/images/TitleScreen.png") #if display private #end class __ASSET__assets_images_titlescreen_png extends lime.graphics.Image {}
 @:file("assets/images/TitleScreenPSD.psd") #if display private #end class __ASSET__assets_images_titlescreenpsd_psd extends lime.utils.Bytes {}
 @:file("assets/music/1683_newgrounds_lhm__e.mp3") #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends lime.utils.Bytes {}

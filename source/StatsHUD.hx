@@ -90,8 +90,12 @@ package;
 		
 		//BUTTONS
 		_reset = new FlxButton(FlxG.width - 300, FlxG.height - 680, "Return To Title", clickReset);
-		_myNG = new FlxButton(FlxG.width - 450, FlxG.height - 680, "Follow Me On NG!", clickMyNG);
-		_btnSource = new FlxButton(FlxG.width - 570, FlxG.height - 680, "View the Source!", clickSource);
+		
+		_myNG = new FlxButton(FlxG.width - 450, FlxG.height - 680, "", clickMyNG);
+		_myNG.loadGraphic("assets/images/NG_LOGO.png", false, 64, 64);
+		
+		_btnSource = new FlxButton(FlxG.width - 570, FlxG.height - 680, "", clickSource);
+		_btnSource.loadGraphic("assets/images/GitHub-Mark-Light-64px.png", false, 64, 64);
 		
 		add(bgOutline);
 		add(bg);

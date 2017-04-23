@@ -54,6 +54,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/BedDoor.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/BG.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -70,11 +74,27 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/GitHub-Mark-32px.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/GitHub-Mark-Light-32px.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/GitHub-Mark-Light-64px.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/lenny.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/NewGameStats.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/NG_LOGO.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -303,7 +323,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "717",
+			build: "725",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
