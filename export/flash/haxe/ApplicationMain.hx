@@ -130,6 +130,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
+		urls.push ("assets/sounds/flixel.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
 		urls.push ("assets/sounds/save.wav");
 		types.push (lime.Assets.AssetType.SOUND);
 		
@@ -343,7 +347,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "750",
+			build: "758",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
