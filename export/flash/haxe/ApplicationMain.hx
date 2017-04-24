@@ -66,6 +66,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/CreditsAnim.swf");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
 		urls.push ("assets/images/defaultProfilePic.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -327,7 +331,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "734",
+			build: "736",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,

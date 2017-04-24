@@ -94,7 +94,7 @@ class PlayState extends FlxState
 		_hud.updateHUD();
 		
 		Stats.save();
-		_notifacations._newText(40, 40, "Game Saved", 10, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
+		_notifacations._newText(40, 40, "Game Saved and slept for 8 hours", 10, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 	}
 	
 	
