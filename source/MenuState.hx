@@ -48,7 +48,7 @@ class MenuState extends FlxState
 		
 		if (FlxG.sound.music == null)
 		{
-			FlxG.sound.playMusic("assets/music/SHITLOOP.mp3");
+			FlxG.sound.playMusic("assets/music/1683_newgrounds_lhm__e.mp3");
 		}
 		
 		super.create();

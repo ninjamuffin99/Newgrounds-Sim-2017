@@ -174,7 +174,10 @@ package;
 	override public function update(elapsed:Float):Void 
 	{
 		if (FlxG.keys.justPressed.S)
+		{
+			this.visible = !this.visible;
 			updateText();
+		}
 		
 		super.update(elapsed);
 	}

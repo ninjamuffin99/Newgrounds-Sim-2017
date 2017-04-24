@@ -79,12 +79,6 @@ class PCState extends FlxState
 	
 	override public function update(elapsed:Float):Void 
 	{
-		
-		if (FlxG.keys.justPressed.S)
-		{
-			_statsHUD.visible = !_statsHUD.visible;
-		}
-		
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.switchState(new PlayState());
@@ -161,9 +155,6 @@ class PCState extends FlxState
 		_btnAnimate = new FlxButton(buttonX, 22, "Animate", clickAnimate);
 		add(_btnAnimate);
 		
-		_btnForum = new FlxButton(buttonX, 40, "Shitpost", clickForum);
-		add(_btnForum);
-		
 		_btnDraw = new FlxButton(buttonX, 60, "Draw", clickDraw);
 		add(_btnDraw);
 		
@@ -186,9 +177,6 @@ class PCState extends FlxState
 		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post", clickPost);
 		_btnPostArt.visible = false;
 		add(_btnPostArt);
-		
-		_btnBaP = new FlxButton(buttonX, 300, "Blam and Protect", clickBap);
-		add(_btnBaP);
 		
 		_btnBack = new FlxButton(buttonX, 500, "Back", clickBack);
 		add(_btnBack);
@@ -269,13 +257,7 @@ class PCState extends FlxState
 		_statsHUD.updateText();
 	}
 	
-	private function clickForum():Void
-	{
-		var forumSubState:SubState = new SubState();
-		forumSubState.persistentDraw = false;
-		forumSubState.persistentUpdate = false;
-		openSubState(forumSubState);
-	}
+	
 	
 	private function clickDraw():Void
 	{
@@ -371,17 +353,6 @@ class PCState extends FlxState
 	private function clickBack():Void
 	{
 		FlxG.switchState(new PlayState());
-	}
-	
-	private function clickBap():Void
-	{
-		Stats.BAP();
-		Stats._stamina -= 1;
-		Stats.h += 1;
-		
-		_hud.updateHUD();
-		updateText();
-		_statsHUD.updateText;
 	}
 	
 	private function clickNG():Void

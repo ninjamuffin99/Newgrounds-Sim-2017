@@ -73,11 +73,6 @@ class PlayState extends FlxState
 	
 	override public function update(elapsed:Float):Void
 	{
-		if (FlxG.keys.justPressed.S)
-		{
-			_statsHUD.visible = !_statsHUD.visible;
-		}
-		
 		FlxG.watch.addMouse();
 		super.update(elapsed);
 	}

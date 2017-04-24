@@ -77,6 +77,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -150,12 +153,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/lenny.png", AssetType.IMAGE);
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
+		className.set ("assets/images/NGBG.png", __ASSET__assets_images_ngbg_png);
+		type.set ("assets/images/NGBG.png", AssetType.IMAGE);
+		className.set ("assets/images/NGBG.psd", __ASSET__assets_images_ngbg_psd);
+		type.set ("assets/images/NGBG.psd", AssetType.BINARY);
 		className.set ("assets/images/NG_LOGO.png", __ASSET__assets_images_ng_logo_png);
 		type.set ("assets/images/NG_LOGO.png", AssetType.IMAGE);
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
 		className.set ("assets/images/TitleScreenPSD.psd", __ASSET__assets_images_titlescreenpsd_psd);
 		type.set ("assets/images/TitleScreenPSD.psd", AssetType.BINARY);
+		className.set ("assets/images/Window.png", __ASSET__assets_images_window_png);
+		type.set ("assets/images/Window.png", AssetType.IMAGE);
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
 		className.set ("assets/music/SHITLOOP.mp3", __ASSET__assets_music_shitloop_mp3);
@@ -309,6 +318,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/NGBG.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/NGBG.psd";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
 		id = "assets/images/NG_LOGO.png";
 		path.set (id, id);
 		
@@ -321,6 +338,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.BINARY);
+		id = "assets/images/Window.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/music/1683_newgrounds_lhm__e.mp3";
 		path.set (id, id);
 		
@@ -550,6 +571,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/NewGameStats.jpg", __ASSET__assets_images_newgamestats_jpg);
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
 		
+		className.set ("assets/images/NGBG.png", __ASSET__assets_images_ngbg_png);
+		type.set ("assets/images/NGBG.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/NGBG.psd", __ASSET__assets_images_ngbg_psd);
+		type.set ("assets/images/NGBG.psd", AssetType.BINARY);
+		
 		className.set ("assets/images/NG_LOGO.png", __ASSET__assets_images_ng_logo_png);
 		type.set ("assets/images/NG_LOGO.png", AssetType.IMAGE);
 		
@@ -558,6 +585,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/TitleScreenPSD.psd", __ASSET__assets_images_titlescreenpsd_psd);
 		type.set ("assets/images/TitleScreenPSD.psd", AssetType.BINARY);
+		
+		className.set ("assets/images/Window.png", __ASSET__assets_images_window_png);
+		type.set ("assets/images/Window.png", AssetType.IMAGE);
 		
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
@@ -1340,9 +1370,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_github_mark_light_64px_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_lenny_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_newgamestats_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_ngbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_ngbg_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ng_logo_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_titlescreen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_titlescreenpsd_psd extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_window_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_music_shitloop_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_save_wav extends flash.media.Sound { }
@@ -1391,6 +1424,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font { public function new () { super (); name = "Arial Bold"; } } 
 @:keep #if display private #end class __ASSET__assets_data_featureditem_ttf extends lime.text.Font { public function new () { super (); name = "Featured Item"; } } 
 @:keep #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font { public function new () { super (); name = "Open Sans Cond Light"; } } 
+
+
+
 
 
 
@@ -1473,9 +1509,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/GitHub-Mark-Light-64px.png") #if display private #end class __ASSET__assets_images_github_mark_light_64px_png extends lime.graphics.Image {}
 @:image("assets/images/lenny.png") #if display private #end class __ASSET__assets_images_lenny_png extends lime.graphics.Image {}
 @:image("assets/images/NewGameStats.jpg") #if display private #end class __ASSET__assets_images_newgamestats_jpg extends lime.graphics.Image {}
+@:image("assets/images/NGBG.png") #if display private #end class __ASSET__assets_images_ngbg_png extends lime.graphics.Image {}
+@:file("assets/images/NGBG.psd") #if display private #end class __ASSET__assets_images_ngbg_psd extends lime.utils.Bytes {}
 @:image("assets/images/NG_LOGO.png") #if display private #end class __ASSET__assets_images_ng_logo_png extends lime.graphics.Image {}
 @:image("assets/images/TitleScreen.png") #if display private #end class __ASSET__assets_images_titlescreen_png extends lime.graphics.Image {}
 @:file("assets/images/TitleScreenPSD.psd") #if display private #end class __ASSET__assets_images_titlescreenpsd_psd extends lime.utils.Bytes {}
+@:image("assets/images/Window.png") #if display private #end class __ASSET__assets_images_window_png extends lime.graphics.Image {}
 @:file("assets/music/1683_newgrounds_lhm__e.mp3") #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends lime.utils.Bytes {}
 @:file("assets/music/SHITLOOP.mp3") #if display private #end class __ASSET__assets_music_shitloop_mp3 extends lime.utils.Bytes {}
 @:file("assets/sounds/save.wav") #if display private #end class __ASSET__assets_sounds_save_wav extends lime.utils.Bytes {}
