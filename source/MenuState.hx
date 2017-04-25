@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.ui.FlxButtonPlus;
 import flixel.addons.ui.FlxUIButton;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
@@ -40,6 +41,7 @@ class MenuState extends FlxState
 		_btnTHing.setLabelFormat("assets/data/FeaturedItem.ttf", 30);
 		add(_btnTHing);
 		
+		FlxG.camera.fade(FlxColor.BLACK, 0.2, true);
 		
 		_btnPlay = new FlxButtonPlus(500, 570, clickPlay, "PLAY GAME", 300, 50);
 		_btnPlay.loadButtonGraphic(_sprPlay, _sprPlay);
