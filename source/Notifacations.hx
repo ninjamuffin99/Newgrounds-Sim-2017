@@ -22,7 +22,7 @@ class Notifacations extends FlxTypedGroup<FlxSprite>
 		super();
 	}
 	
-	public function _newText(X:Int = 40, Y:Int = 40, Text:String = "Placeholder", Size:Int = 10, color:FlxColor = FlxColor.BLACK, delay:Float = 0.5, sound:String = ""):Void
+	public function _newText(X:Int = 40, Y:Int = 40, Text:String = "Placeholder", Size:Int = 10, color:FlxColor = FlxColor.BLACK, delay:Float = 0.5, sound:String = null):Void
 	{
 		var _notif:FlxText;
 		_notif = new FlxText(X, Y, 0, Text, Size);

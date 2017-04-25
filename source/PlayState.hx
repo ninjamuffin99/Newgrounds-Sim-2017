@@ -94,11 +94,11 @@ class PlayState extends FlxState
 		if (Stats._ngCash >= 7000 && Stats._animationLevel >= 20 && !Stats._sponsoredProject)
 		{
 			var _randomSponsor:Int;
-			_randomSponsor = FlxG.random.int(0, Std.int(Stats._animationLevel * 2));
+			_randomSponsor = FlxG.random.int(0, Std.int(Stats._animationLevel * 1.3));
 			if (_randomSponsor >= 20)
 			{
 				Stats._sponsoredProject = true;
-				_notifacations._newText(400, 400, "Your animation has been Sponsored! \n Finish it to receive bonus money!", 20, FlxColor.BLACK, 5;
+				_notifacations._newText(400, 400, "Your animation has been Sponsored! \n Finish it to receive bonus money!", 20, FlxColor.BLACK, 2.25);
 			}
 			else
 			{
