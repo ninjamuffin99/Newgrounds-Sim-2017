@@ -112,6 +112,12 @@ class PCState extends FlxState
 			Stats._animationProgress = 0;
 			Stats.animationPost(0);
 			
+			if (Stats._sponsoredProject)
+			{
+				Stats._cash += 500;
+				Stats._fans += FlxG.random.int(30, 70);
+			}
+			
 			_notifacations._newText(100, 100, "Your animation has been posted to Newgrounds!");
 		}
 		

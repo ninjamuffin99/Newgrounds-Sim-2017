@@ -39,7 +39,6 @@ class Stats
 	
 	//PERSONAL STATS
 	public static var _name:String = "Cameron";
-
 	public static var _cash:Int = 2000;
 	
 	//Newgrounds Stuff
@@ -49,7 +48,9 @@ class Stats
 	public static var _blams:Int = 0;
 	public static var _protects:Int = 0;
 	public static var _supporters:Int = 1700;
-	public static var _ngCash:Int = 3900;
+	public static var _ngCash:Int = 7000;//3900;
+	
+	public static var _sponsoredProject:Bool = false;
 	
 	//STYLE STATS will maybe use these but for now these will get cut
 	/*public static var _artVectorSkill:Float;
@@ -510,5 +511,11 @@ class Stats
 		
 		_blams += FlxG.random.int(0, B);
 		_protects += FlxG.random.int(0, P);
+	}
+	
+	public static function updateSupporters(supporters:Int):Void
+	{
+		_supporters += supporters;
+		_ngCash += supporters * Std.int(FlxG.random.float(3, 25));
 	}
 }
