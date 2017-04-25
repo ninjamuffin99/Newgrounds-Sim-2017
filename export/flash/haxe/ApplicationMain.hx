@@ -66,6 +66,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/CreditsAnim.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/CreditsAnim.swf");
 		types.push (lime.Assets.AssetType.BINARY);
 		
@@ -90,7 +94,23 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/HAXEFLIXEL.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HaxeFlixelWords.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HFLogo.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/lenny.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/MadeBy.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -110,12 +130,20 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/NinjaMuffin.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/TitleScreen.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/TitleScreenPSD.psd");
 		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/using.png");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/Window.png");
@@ -347,7 +375,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "758",
+			build: "779",
 			company: "",
 			file: "NGSimtest",
 			fps: 60,
