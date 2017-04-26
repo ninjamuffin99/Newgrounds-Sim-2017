@@ -92,7 +92,7 @@ class PlayState extends FlxState
 		Stats.save();
 		_notifacations._newText(40, 40, "Game Saved and slept for 8 hours", 10, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 		
-		if (Stats._ngCash >= 7000 && Stats._animationLevel >= 20 && !Stats._sponsoredProject //also eventually make it so you have to have so many fans to get sponsored)
+		if (Stats._ngCash >= 7000 && Stats._animationLevel >= 20 && !Stats._sponsoredProject) //also eventually make it so you have to have so many fans to get sponsored)
 		{
 			var _randomSponsor:Int;
 			_randomSponsor = FlxG.random.int(0, Std.int(Stats._animationLevel * 1.3));
@@ -131,6 +131,10 @@ class PlayState extends FlxState
 		{
 			_workable = true;
 		}
+		else
+		{
+			_notifacations._newText(100, 400, "You only work between 8AM and 5PM", 20, FlxColor.BLACK, 0.5);
+		}
 		
 		if (Stats._stamina >= 10 && _workable)
 		{
@@ -141,6 +145,7 @@ class PlayState extends FlxState
 		}
 		if (Stats._stamina <= 9)
 		{
+			_notifacations._newText(100, 400, "You're too tired to work!", 20, FlxColor.BLACK, 0.5);
 			FlxG.log.add("You're too tired to work!");
 		}
 		
