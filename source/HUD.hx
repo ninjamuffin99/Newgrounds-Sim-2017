@@ -8,6 +8,8 @@ package;
  import flixel.ui.FlxBar;
  import flixel.util.FlxColor;
  import source.Stats;
+ import com.newgrounds.*;
+ import com.newgrounds.components.*;
  using flixel.util.FlxSpriteUtil;
  
 
@@ -23,6 +25,8 @@ package;
 	
 	private var _healthBar:FlxBar;
 	private var _healthBarText:FlxText;
+	
+	
 	
     public function new()
     {
@@ -61,7 +65,6 @@ package;
 		add(profile);
 		
 		createText();
-		
     }
 	
 	private function createText():Void

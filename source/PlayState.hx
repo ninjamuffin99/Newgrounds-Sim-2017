@@ -12,6 +12,7 @@ import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import source.Stats;
+import com.newgrounds.*;
 
 class PlayState extends FlxState
 {
@@ -99,16 +100,19 @@ class PlayState extends FlxState
 			{
 				Stats._sponsoredProject = true;
 				_notifacations._newText(400, 400, "Your animation has been Sponsored! \n Finish it to receive bonus money!", 20, FlxColor.BLACK, 2.25);
+				API.unlockMedal("Basically working at Disney now");
 			}
 			else
 			{
 				FlxG.log.add("Your animation has not been sponsored yet");
 			}
 		}
+		
 		else if (Stats._sponsoredProject)
 		{
 			FlxG.log.add("already sponsored!");
 		}
+		
 		else if (Stats._ngCash < 7000)
 		{
 			FlxG.log.add("no NG CASH");

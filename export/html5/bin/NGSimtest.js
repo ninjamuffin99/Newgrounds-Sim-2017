@@ -36,22 +36,62 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("assets/images/BBSblurred.png");
 	types.push("IMAGE");
+	urls.push("assets/images/BedDoor.png");
+	types.push("IMAGE");
+	urls.push("assets/images/BG.png");
+	types.push("IMAGE");
 	urls.push("assets/images/ButtonNoText.png");
 	types.push("IMAGE");
+	urls.push("assets/images/CreditsAnim.png");
+	types.push("IMAGE");
+	urls.push("assets/images/CreditsAnim.swf");
+	types.push("BINARY");
 	urls.push("assets/images/defaultProfilePic.jpg");
+	types.push("IMAGE");
+	urls.push("assets/images/Desk.png");
+	types.push("IMAGE");
+	urls.push("assets/images/GitHub-Mark-32px.png");
+	types.push("IMAGE");
+	urls.push("assets/images/GitHub-Mark-Light-32px.png");
+	types.push("IMAGE");
+	urls.push("assets/images/GitHub-Mark-Light-64px.png");
+	types.push("IMAGE");
+	urls.push("assets/images/HAXEFLIXEL.png");
+	types.push("IMAGE");
+	urls.push("assets/images/HaxeFlixelWords.png");
+	types.push("IMAGE");
+	urls.push("assets/images/HFLogo.png");
 	types.push("IMAGE");
 	urls.push("assets/images/lenny.png");
 	types.push("IMAGE");
+	urls.push("assets/images/MadeBy.png");
+	types.push("IMAGE");
 	urls.push("assets/images/NewGameStats.jpg");
+	types.push("IMAGE");
+	urls.push("assets/images/NGBG.png");
+	types.push("IMAGE");
+	urls.push("assets/images/NGBG.psd");
+	types.push("BINARY");
+	urls.push("assets/images/NG_LOGO.png");
+	types.push("IMAGE");
+	urls.push("assets/images/NinjaMuffin.png");
 	types.push("IMAGE");
 	urls.push("assets/images/TitleScreen.png");
 	types.push("IMAGE");
 	urls.push("assets/images/TitleScreenPSD.psd");
 	types.push("BINARY");
+	urls.push("assets/images/using.png");
+	types.push("IMAGE");
+	urls.push("assets/images/Window.png");
+	types.push("IMAGE");
 	urls.push("assets/music/1683_newgrounds_lhm__e.mp3");
 	types.push("MUSIC");
 	urls.push("assets/music/SHITLOOP.mp3");
 	types.push("MUSIC");
+	urls.push("assets/sounds/flixel.mp3");
+	types.push("MUSIC");
+	urls.push("assets/sounds/save.wav");
+	types.push("SOUND");
 	urls.push("assets/sounds/sounds-go-here.txt");
 	types.push("TEXT");
 	urls.push("flixel/sounds/beep.ogg");
@@ -154,7 +194,7 @@ ApplicationMain.init = function() {
 	}
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "697", company : "", file : "NGSimtest", fps : 60, name : "NGSimtest", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 720, parameters : "{}", resizable : false, stencilBuffer : true, title : "NGSimtest", vsync : true, width : 1280, x : null, y : null}]};
+	ApplicationMain.config = { build : "809", company : "", file : "NGSimtest", fps : 60, name : "NGSimtest", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 720, parameters : "{}", resizable : false, stencilBuffer : true, title : "NGSimtest", vsync : true, width : 1280, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -2197,7 +2237,7 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 });
 var Main = function() {
 	openfl_display_Sprite.call(this);
-	this.addChild(new flixel_FlxGame(1280,720,MenuState));
+	this.addChild(new flixel_FlxGame(1280,720,SplashState,1,60,60,true));
 };
 $hxClasses["Main"] = Main;
 Main.__name__ = ["Main"];
@@ -2399,7 +2439,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this11.h[id] = value9;
 	}
-	id = "assets/images/ButtonNoText.png";
+	id = "assets/images/BedDoor.png";
 	var _this12 = this.path;
 	if(__map_reserved[id] != null) {
 		_this12.setReserved(id,id);
@@ -2413,7 +2453,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this13.h[id] = value10;
 	}
-	id = "assets/images/defaultProfilePic.jpg";
+	id = "assets/images/BG.png";
 	var _this14 = this.path;
 	if(__map_reserved[id] != null) {
 		_this14.setReserved(id,id);
@@ -2427,7 +2467,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this15.h[id] = value11;
 	}
-	id = "assets/images/lenny.png";
+	id = "assets/images/ButtonNoText.png";
 	var _this16 = this.path;
 	if(__map_reserved[id] != null) {
 		_this16.setReserved(id,id);
@@ -2441,7 +2481,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this17.h[id] = value12;
 	}
-	id = "assets/images/NewGameStats.jpg";
+	id = "assets/images/CreditsAnim.png";
 	var _this18 = this.path;
 	if(__map_reserved[id] != null) {
 		_this18.setReserved(id,id);
@@ -2455,7 +2495,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this19.h[id] = value13;
 	}
-	id = "assets/images/TitleScreen.png";
+	id = "assets/images/CreditsAnim.swf";
 	var _this20 = this.path;
 	if(__map_reserved[id] != null) {
 		_this20.setReserved(id,id);
@@ -2463,13 +2503,13 @@ var DefaultAssetLibrary = function() {
 		_this20.h[id] = id;
 	}
 	var _this21 = this.type;
-	var value14 = "IMAGE";
+	var value14 = "BINARY";
 	if(__map_reserved[id] != null) {
 		_this21.setReserved(id,value14);
 	} else {
 		_this21.h[id] = value14;
 	}
-	id = "assets/images/TitleScreenPSD.psd";
+	id = "assets/images/defaultProfilePic.jpg";
 	var _this22 = this.path;
 	if(__map_reserved[id] != null) {
 		_this22.setReserved(id,id);
@@ -2477,13 +2517,13 @@ var DefaultAssetLibrary = function() {
 		_this22.h[id] = id;
 	}
 	var _this23 = this.type;
-	var value15 = "BINARY";
+	var value15 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this23.setReserved(id,value15);
 	} else {
 		_this23.h[id] = value15;
 	}
-	id = "assets/music/1683_newgrounds_lhm__e.mp3";
+	id = "assets/images/Desk.png";
 	var _this24 = this.path;
 	if(__map_reserved[id] != null) {
 		_this24.setReserved(id,id);
@@ -2491,13 +2531,13 @@ var DefaultAssetLibrary = function() {
 		_this24.h[id] = id;
 	}
 	var _this25 = this.type;
-	var value16 = "MUSIC";
+	var value16 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this25.setReserved(id,value16);
 	} else {
 		_this25.h[id] = value16;
 	}
-	id = "assets/music/SHITLOOP.mp3";
+	id = "assets/images/GitHub-Mark-32px.png";
 	var _this26 = this.path;
 	if(__map_reserved[id] != null) {
 		_this26.setReserved(id,id);
@@ -2505,13 +2545,13 @@ var DefaultAssetLibrary = function() {
 		_this26.h[id] = id;
 	}
 	var _this27 = this.type;
-	var value17 = "MUSIC";
+	var value17 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this27.setReserved(id,value17);
 	} else {
 		_this27.h[id] = value17;
 	}
-	id = "assets/sounds/sounds-go-here.txt";
+	id = "assets/images/GitHub-Mark-Light-32px.png";
 	var _this28 = this.path;
 	if(__map_reserved[id] != null) {
 		_this28.setReserved(id,id);
@@ -2519,13 +2559,13 @@ var DefaultAssetLibrary = function() {
 		_this28.h[id] = id;
 	}
 	var _this29 = this.type;
-	var value18 = "TEXT";
+	var value18 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this29.setReserved(id,value18);
 	} else {
 		_this29.h[id] = value18;
 	}
-	id = "flixel/sounds/beep.ogg";
+	id = "assets/images/GitHub-Mark-Light-64px.png";
 	var _this30 = this.path;
 	if(__map_reserved[id] != null) {
 		_this30.setReserved(id,id);
@@ -2533,13 +2573,13 @@ var DefaultAssetLibrary = function() {
 		_this30.h[id] = id;
 	}
 	var _this31 = this.type;
-	var value19 = "SOUND";
+	var value19 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this31.setReserved(id,value19);
 	} else {
 		_this31.h[id] = value19;
 	}
-	id = "flixel/sounds/flixel.ogg";
+	id = "assets/images/HAXEFLIXEL.png";
 	var _this32 = this.path;
 	if(__map_reserved[id] != null) {
 		_this32.setReserved(id,id);
@@ -2547,43 +2587,41 @@ var DefaultAssetLibrary = function() {
 		_this32.h[id] = id;
 	}
 	var _this33 = this.type;
-	var value20 = "SOUND";
+	var value20 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this33.setReserved(id,value20);
 	} else {
 		_this33.h[id] = value20;
 	}
-	id = "flixel/fonts/nokiafc22.ttf";
-	var _this34 = this.className;
-	var value21 = _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf;
+	id = "assets/images/HaxeFlixelWords.png";
+	var _this34 = this.path;
 	if(__map_reserved[id] != null) {
-		_this34.setReserved(id,value21);
+		_this34.setReserved(id,id);
 	} else {
-		_this34.h[id] = value21;
+		_this34.h[id] = id;
 	}
 	var _this35 = this.type;
-	var value22 = "FONT";
+	var value21 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this35.setReserved(id,value22);
+		_this35.setReserved(id,value21);
 	} else {
-		_this35.h[id] = value22;
+		_this35.h[id] = value21;
 	}
-	id = "flixel/fonts/monsterrat.ttf";
-	var _this36 = this.className;
-	var value23 = _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf;
+	id = "assets/images/HFLogo.png";
+	var _this36 = this.path;
 	if(__map_reserved[id] != null) {
-		_this36.setReserved(id,value23);
+		_this36.setReserved(id,id);
 	} else {
-		_this36.h[id] = value23;
+		_this36.h[id] = id;
 	}
 	var _this37 = this.type;
-	var value24 = "FONT";
+	var value22 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this37.setReserved(id,value24);
+		_this37.setReserved(id,value22);
 	} else {
-		_this37.h[id] = value24;
+		_this37.h[id] = value22;
 	}
-	id = "flixel/images/ui/button.png";
+	id = "assets/images/lenny.png";
 	var _this38 = this.path;
 	if(__map_reserved[id] != null) {
 		_this38.setReserved(id,id);
@@ -2591,13 +2629,13 @@ var DefaultAssetLibrary = function() {
 		_this38.h[id] = id;
 	}
 	var _this39 = this.type;
-	var value25 = "IMAGE";
+	var value23 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this39.setReserved(id,value25);
+		_this39.setReserved(id,value23);
 	} else {
-		_this39.h[id] = value25;
+		_this39.h[id] = value23;
 	}
-	id = "flixel/images/logo/default.png";
+	id = "assets/images/MadeBy.png";
 	var _this40 = this.path;
 	if(__map_reserved[id] != null) {
 		_this40.setReserved(id,id);
@@ -2605,13 +2643,13 @@ var DefaultAssetLibrary = function() {
 		_this40.h[id] = id;
 	}
 	var _this41 = this.type;
-	var value26 = "IMAGE";
+	var value24 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this41.setReserved(id,value26);
+		_this41.setReserved(id,value24);
 	} else {
-		_this41.h[id] = value26;
+		_this41.h[id] = value24;
 	}
-	id = "flixel/flixel-ui/img/box.png";
+	id = "assets/images/NewGameStats.jpg";
 	var _this42 = this.path;
 	if(__map_reserved[id] != null) {
 		_this42.setReserved(id,id);
@@ -2619,13 +2657,13 @@ var DefaultAssetLibrary = function() {
 		_this42.h[id] = id;
 	}
 	var _this43 = this.type;
-	var value27 = "IMAGE";
+	var value25 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this43.setReserved(id,value27);
+		_this43.setReserved(id,value25);
 	} else {
-		_this43.h[id] = value27;
+		_this43.h[id] = value25;
 	}
-	id = "flixel/flixel-ui/img/button.png";
+	id = "assets/images/NGBG.png";
 	var _this44 = this.path;
 	if(__map_reserved[id] != null) {
 		_this44.setReserved(id,id);
@@ -2633,13 +2671,13 @@ var DefaultAssetLibrary = function() {
 		_this44.h[id] = id;
 	}
 	var _this45 = this.type;
-	var value28 = "IMAGE";
+	var value26 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this45.setReserved(id,value28);
+		_this45.setReserved(id,value26);
 	} else {
-		_this45.h[id] = value28;
+		_this45.h[id] = value26;
 	}
-	id = "flixel/flixel-ui/img/button_arrow_down.png";
+	id = "assets/images/NGBG.psd";
 	var _this46 = this.path;
 	if(__map_reserved[id] != null) {
 		_this46.setReserved(id,id);
@@ -2647,13 +2685,13 @@ var DefaultAssetLibrary = function() {
 		_this46.h[id] = id;
 	}
 	var _this47 = this.type;
-	var value29 = "IMAGE";
+	var value27 = "BINARY";
 	if(__map_reserved[id] != null) {
-		_this47.setReserved(id,value29);
+		_this47.setReserved(id,value27);
 	} else {
-		_this47.h[id] = value29;
+		_this47.h[id] = value27;
 	}
-	id = "flixel/flixel-ui/img/button_arrow_left.png";
+	id = "assets/images/NG_LOGO.png";
 	var _this48 = this.path;
 	if(__map_reserved[id] != null) {
 		_this48.setReserved(id,id);
@@ -2661,13 +2699,13 @@ var DefaultAssetLibrary = function() {
 		_this48.h[id] = id;
 	}
 	var _this49 = this.type;
-	var value30 = "IMAGE";
+	var value28 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this49.setReserved(id,value30);
+		_this49.setReserved(id,value28);
 	} else {
-		_this49.h[id] = value30;
+		_this49.h[id] = value28;
 	}
-	id = "flixel/flixel-ui/img/button_arrow_right.png";
+	id = "assets/images/NinjaMuffin.png";
 	var _this50 = this.path;
 	if(__map_reserved[id] != null) {
 		_this50.setReserved(id,id);
@@ -2675,13 +2713,13 @@ var DefaultAssetLibrary = function() {
 		_this50.h[id] = id;
 	}
 	var _this51 = this.type;
-	var value31 = "IMAGE";
+	var value29 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this51.setReserved(id,value31);
+		_this51.setReserved(id,value29);
 	} else {
-		_this51.h[id] = value31;
+		_this51.h[id] = value29;
 	}
-	id = "flixel/flixel-ui/img/button_arrow_up.png";
+	id = "assets/images/TitleScreen.png";
 	var _this52 = this.path;
 	if(__map_reserved[id] != null) {
 		_this52.setReserved(id,id);
@@ -2689,13 +2727,13 @@ var DefaultAssetLibrary = function() {
 		_this52.h[id] = id;
 	}
 	var _this53 = this.type;
-	var value32 = "IMAGE";
+	var value30 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this53.setReserved(id,value32);
+		_this53.setReserved(id,value30);
 	} else {
-		_this53.h[id] = value32;
+		_this53.h[id] = value30;
 	}
-	id = "flixel/flixel-ui/img/button_thin.png";
+	id = "assets/images/TitleScreenPSD.psd";
 	var _this54 = this.path;
 	if(__map_reserved[id] != null) {
 		_this54.setReserved(id,id);
@@ -2703,13 +2741,13 @@ var DefaultAssetLibrary = function() {
 		_this54.h[id] = id;
 	}
 	var _this55 = this.type;
-	var value33 = "IMAGE";
+	var value31 = "BINARY";
 	if(__map_reserved[id] != null) {
-		_this55.setReserved(id,value33);
+		_this55.setReserved(id,value31);
 	} else {
-		_this55.h[id] = value33;
+		_this55.h[id] = value31;
 	}
-	id = "flixel/flixel-ui/img/button_toggle.png";
+	id = "assets/images/using.png";
 	var _this56 = this.path;
 	if(__map_reserved[id] != null) {
 		_this56.setReserved(id,id);
@@ -2717,13 +2755,13 @@ var DefaultAssetLibrary = function() {
 		_this56.h[id] = id;
 	}
 	var _this57 = this.type;
-	var value34 = "IMAGE";
+	var value32 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this57.setReserved(id,value34);
+		_this57.setReserved(id,value32);
 	} else {
-		_this57.h[id] = value34;
+		_this57.h[id] = value32;
 	}
-	id = "flixel/flixel-ui/img/check_box.png";
+	id = "assets/images/Window.png";
 	var _this58 = this.path;
 	if(__map_reserved[id] != null) {
 		_this58.setReserved(id,id);
@@ -2731,13 +2769,13 @@ var DefaultAssetLibrary = function() {
 		_this58.h[id] = id;
 	}
 	var _this59 = this.type;
-	var value35 = "IMAGE";
+	var value33 = "IMAGE";
 	if(__map_reserved[id] != null) {
-		_this59.setReserved(id,value35);
+		_this59.setReserved(id,value33);
 	} else {
-		_this59.h[id] = value35;
+		_this59.h[id] = value33;
 	}
-	id = "flixel/flixel-ui/img/check_mark.png";
+	id = "assets/music/1683_newgrounds_lhm__e.mp3";
 	var _this60 = this.path;
 	if(__map_reserved[id] != null) {
 		_this60.setReserved(id,id);
@@ -2745,13 +2783,13 @@ var DefaultAssetLibrary = function() {
 		_this60.h[id] = id;
 	}
 	var _this61 = this.type;
-	var value36 = "IMAGE";
+	var value34 = "MUSIC";
 	if(__map_reserved[id] != null) {
-		_this61.setReserved(id,value36);
+		_this61.setReserved(id,value34);
 	} else {
-		_this61.h[id] = value36;
+		_this61.h[id] = value34;
 	}
-	id = "flixel/flixel-ui/img/chrome.png";
+	id = "assets/music/SHITLOOP.mp3";
 	var _this62 = this.path;
 	if(__map_reserved[id] != null) {
 		_this62.setReserved(id,id);
@@ -2759,13 +2797,13 @@ var DefaultAssetLibrary = function() {
 		_this62.h[id] = id;
 	}
 	var _this63 = this.type;
-	var value37 = "IMAGE";
+	var value35 = "MUSIC";
 	if(__map_reserved[id] != null) {
-		_this63.setReserved(id,value37);
+		_this63.setReserved(id,value35);
 	} else {
-		_this63.h[id] = value37;
+		_this63.h[id] = value35;
 	}
-	id = "flixel/flixel-ui/img/chrome_flat.png";
+	id = "assets/sounds/flixel.mp3";
 	var _this64 = this.path;
 	if(__map_reserved[id] != null) {
 		_this64.setReserved(id,id);
@@ -2773,13 +2811,13 @@ var DefaultAssetLibrary = function() {
 		_this64.h[id] = id;
 	}
 	var _this65 = this.type;
-	var value38 = "IMAGE";
+	var value36 = "MUSIC";
 	if(__map_reserved[id] != null) {
-		_this65.setReserved(id,value38);
+		_this65.setReserved(id,value36);
 	} else {
-		_this65.h[id] = value38;
+		_this65.h[id] = value36;
 	}
-	id = "flixel/flixel-ui/img/chrome_inset.png";
+	id = "assets/sounds/save.wav";
 	var _this66 = this.path;
 	if(__map_reserved[id] != null) {
 		_this66.setReserved(id,id);
@@ -2787,13 +2825,13 @@ var DefaultAssetLibrary = function() {
 		_this66.h[id] = id;
 	}
 	var _this67 = this.type;
-	var value39 = "IMAGE";
+	var value37 = "SOUND";
 	if(__map_reserved[id] != null) {
-		_this67.setReserved(id,value39);
+		_this67.setReserved(id,value37);
 	} else {
-		_this67.h[id] = value39;
+		_this67.h[id] = value37;
 	}
-	id = "flixel/flixel-ui/img/chrome_light.png";
+	id = "assets/sounds/sounds-go-here.txt";
 	var _this68 = this.path;
 	if(__map_reserved[id] != null) {
 		_this68.setReserved(id,id);
@@ -2801,13 +2839,13 @@ var DefaultAssetLibrary = function() {
 		_this68.h[id] = id;
 	}
 	var _this69 = this.type;
-	var value40 = "IMAGE";
+	var value38 = "TEXT";
 	if(__map_reserved[id] != null) {
-		_this69.setReserved(id,value40);
+		_this69.setReserved(id,value38);
 	} else {
-		_this69.h[id] = value40;
+		_this69.h[id] = value38;
 	}
-	id = "flixel/flixel-ui/img/dropdown_mark.png";
+	id = "flixel/sounds/beep.ogg";
 	var _this70 = this.path;
 	if(__map_reserved[id] != null) {
 		_this70.setReserved(id,id);
@@ -2815,13 +2853,13 @@ var DefaultAssetLibrary = function() {
 		_this70.h[id] = id;
 	}
 	var _this71 = this.type;
-	var value41 = "IMAGE";
+	var value39 = "SOUND";
 	if(__map_reserved[id] != null) {
-		_this71.setReserved(id,value41);
+		_this71.setReserved(id,value39);
 	} else {
-		_this71.h[id] = value41;
+		_this71.h[id] = value39;
 	}
-	id = "flixel/flixel-ui/img/finger_big.png";
+	id = "flixel/sounds/flixel.ogg";
 	var _this72 = this.path;
 	if(__map_reserved[id] != null) {
 		_this72.setReserved(id,id);
@@ -2829,41 +2867,43 @@ var DefaultAssetLibrary = function() {
 		_this72.h[id] = id;
 	}
 	var _this73 = this.type;
-	var value42 = "IMAGE";
+	var value40 = "SOUND";
 	if(__map_reserved[id] != null) {
-		_this73.setReserved(id,value42);
+		_this73.setReserved(id,value40);
 	} else {
-		_this73.h[id] = value42;
+		_this73.h[id] = value40;
 	}
-	id = "flixel/flixel-ui/img/finger_small.png";
-	var _this74 = this.path;
+	id = "flixel/fonts/nokiafc22.ttf";
+	var _this74 = this.className;
+	var value41 = _$_$ASSET_$_$flixel_$fonts_$nokiafc22_$ttf;
 	if(__map_reserved[id] != null) {
-		_this74.setReserved(id,id);
+		_this74.setReserved(id,value41);
 	} else {
-		_this74.h[id] = id;
+		_this74.h[id] = value41;
 	}
 	var _this75 = this.type;
-	var value43 = "IMAGE";
+	var value42 = "FONT";
 	if(__map_reserved[id] != null) {
-		_this75.setReserved(id,value43);
+		_this75.setReserved(id,value42);
 	} else {
-		_this75.h[id] = value43;
+		_this75.h[id] = value42;
 	}
-	id = "flixel/flixel-ui/img/hilight.png";
-	var _this76 = this.path;
+	id = "flixel/fonts/monsterrat.ttf";
+	var _this76 = this.className;
+	var value43 = _$_$ASSET_$_$flixel_$fonts_$monsterrat_$ttf;
 	if(__map_reserved[id] != null) {
-		_this76.setReserved(id,id);
+		_this76.setReserved(id,value43);
 	} else {
-		_this76.h[id] = id;
+		_this76.h[id] = value43;
 	}
 	var _this77 = this.type;
-	var value44 = "IMAGE";
+	var value44 = "FONT";
 	if(__map_reserved[id] != null) {
 		_this77.setReserved(id,value44);
 	} else {
 		_this77.h[id] = value44;
 	}
-	id = "flixel/flixel-ui/img/invis.png";
+	id = "flixel/images/ui/button.png";
 	var _this78 = this.path;
 	if(__map_reserved[id] != null) {
 		_this78.setReserved(id,id);
@@ -2877,7 +2917,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this79.h[id] = value45;
 	}
-	id = "flixel/flixel-ui/img/minus_mark.png";
+	id = "flixel/images/logo/default.png";
 	var _this80 = this.path;
 	if(__map_reserved[id] != null) {
 		_this80.setReserved(id,id);
@@ -2891,7 +2931,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this81.h[id] = value46;
 	}
-	id = "flixel/flixel-ui/img/plus_mark.png";
+	id = "flixel/flixel-ui/img/box.png";
 	var _this82 = this.path;
 	if(__map_reserved[id] != null) {
 		_this82.setReserved(id,id);
@@ -2905,7 +2945,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this83.h[id] = value47;
 	}
-	id = "flixel/flixel-ui/img/radio.png";
+	id = "flixel/flixel-ui/img/button.png";
 	var _this84 = this.path;
 	if(__map_reserved[id] != null) {
 		_this84.setReserved(id,id);
@@ -2919,7 +2959,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this85.h[id] = value48;
 	}
-	id = "flixel/flixel-ui/img/radio_dot.png";
+	id = "flixel/flixel-ui/img/button_arrow_down.png";
 	var _this86 = this.path;
 	if(__map_reserved[id] != null) {
 		_this86.setReserved(id,id);
@@ -2933,7 +2973,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this87.h[id] = value49;
 	}
-	id = "flixel/flixel-ui/img/swatch.png";
+	id = "flixel/flixel-ui/img/button_arrow_left.png";
 	var _this88 = this.path;
 	if(__map_reserved[id] != null) {
 		_this88.setReserved(id,id);
@@ -2947,7 +2987,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this89.h[id] = value50;
 	}
-	id = "flixel/flixel-ui/img/tab.png";
+	id = "flixel/flixel-ui/img/button_arrow_right.png";
 	var _this90 = this.path;
 	if(__map_reserved[id] != null) {
 		_this90.setReserved(id,id);
@@ -2961,7 +3001,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this91.h[id] = value51;
 	}
-	id = "flixel/flixel-ui/img/tab_back.png";
+	id = "flixel/flixel-ui/img/button_arrow_up.png";
 	var _this92 = this.path;
 	if(__map_reserved[id] != null) {
 		_this92.setReserved(id,id);
@@ -2975,7 +3015,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this93.h[id] = value52;
 	}
-	id = "flixel/flixel-ui/img/tooltip_arrow.png";
+	id = "flixel/flixel-ui/img/button_thin.png";
 	var _this94 = this.path;
 	if(__map_reserved[id] != null) {
 		_this94.setReserved(id,id);
@@ -2989,7 +3029,7 @@ var DefaultAssetLibrary = function() {
 	} else {
 		_this95.h[id] = value53;
 	}
-	id = "flixel/flixel-ui/xml/defaults.xml";
+	id = "flixel/flixel-ui/img/button_toggle.png";
 	var _this96 = this.path;
 	if(__map_reserved[id] != null) {
 		_this96.setReserved(id,id);
@@ -2997,13 +3037,13 @@ var DefaultAssetLibrary = function() {
 		_this96.h[id] = id;
 	}
 	var _this97 = this.type;
-	var value54 = "TEXT";
+	var value54 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this97.setReserved(id,value54);
 	} else {
 		_this97.h[id] = value54;
 	}
-	id = "flixel/flixel-ui/xml/default_loading_screen.xml";
+	id = "flixel/flixel-ui/img/check_box.png";
 	var _this98 = this.path;
 	if(__map_reserved[id] != null) {
 		_this98.setReserved(id,id);
@@ -3011,13 +3051,13 @@ var DefaultAssetLibrary = function() {
 		_this98.h[id] = id;
 	}
 	var _this99 = this.type;
-	var value55 = "TEXT";
+	var value55 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this99.setReserved(id,value55);
 	} else {
 		_this99.h[id] = value55;
 	}
-	id = "flixel/flixel-ui/xml/default_popup.xml";
+	id = "flixel/flixel-ui/img/check_mark.png";
 	var _this100 = this.path;
 	if(__map_reserved[id] != null) {
 		_this100.setReserved(id,id);
@@ -3025,11 +3065,291 @@ var DefaultAssetLibrary = function() {
 		_this100.h[id] = id;
 	}
 	var _this101 = this.type;
-	var value56 = "TEXT";
+	var value56 = "IMAGE";
 	if(__map_reserved[id] != null) {
 		_this101.setReserved(id,value56);
 	} else {
 		_this101.h[id] = value56;
+	}
+	id = "flixel/flixel-ui/img/chrome.png";
+	var _this102 = this.path;
+	if(__map_reserved[id] != null) {
+		_this102.setReserved(id,id);
+	} else {
+		_this102.h[id] = id;
+	}
+	var _this103 = this.type;
+	var value57 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this103.setReserved(id,value57);
+	} else {
+		_this103.h[id] = value57;
+	}
+	id = "flixel/flixel-ui/img/chrome_flat.png";
+	var _this104 = this.path;
+	if(__map_reserved[id] != null) {
+		_this104.setReserved(id,id);
+	} else {
+		_this104.h[id] = id;
+	}
+	var _this105 = this.type;
+	var value58 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this105.setReserved(id,value58);
+	} else {
+		_this105.h[id] = value58;
+	}
+	id = "flixel/flixel-ui/img/chrome_inset.png";
+	var _this106 = this.path;
+	if(__map_reserved[id] != null) {
+		_this106.setReserved(id,id);
+	} else {
+		_this106.h[id] = id;
+	}
+	var _this107 = this.type;
+	var value59 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this107.setReserved(id,value59);
+	} else {
+		_this107.h[id] = value59;
+	}
+	id = "flixel/flixel-ui/img/chrome_light.png";
+	var _this108 = this.path;
+	if(__map_reserved[id] != null) {
+		_this108.setReserved(id,id);
+	} else {
+		_this108.h[id] = id;
+	}
+	var _this109 = this.type;
+	var value60 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this109.setReserved(id,value60);
+	} else {
+		_this109.h[id] = value60;
+	}
+	id = "flixel/flixel-ui/img/dropdown_mark.png";
+	var _this110 = this.path;
+	if(__map_reserved[id] != null) {
+		_this110.setReserved(id,id);
+	} else {
+		_this110.h[id] = id;
+	}
+	var _this111 = this.type;
+	var value61 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this111.setReserved(id,value61);
+	} else {
+		_this111.h[id] = value61;
+	}
+	id = "flixel/flixel-ui/img/finger_big.png";
+	var _this112 = this.path;
+	if(__map_reserved[id] != null) {
+		_this112.setReserved(id,id);
+	} else {
+		_this112.h[id] = id;
+	}
+	var _this113 = this.type;
+	var value62 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this113.setReserved(id,value62);
+	} else {
+		_this113.h[id] = value62;
+	}
+	id = "flixel/flixel-ui/img/finger_small.png";
+	var _this114 = this.path;
+	if(__map_reserved[id] != null) {
+		_this114.setReserved(id,id);
+	} else {
+		_this114.h[id] = id;
+	}
+	var _this115 = this.type;
+	var value63 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this115.setReserved(id,value63);
+	} else {
+		_this115.h[id] = value63;
+	}
+	id = "flixel/flixel-ui/img/hilight.png";
+	var _this116 = this.path;
+	if(__map_reserved[id] != null) {
+		_this116.setReserved(id,id);
+	} else {
+		_this116.h[id] = id;
+	}
+	var _this117 = this.type;
+	var value64 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this117.setReserved(id,value64);
+	} else {
+		_this117.h[id] = value64;
+	}
+	id = "flixel/flixel-ui/img/invis.png";
+	var _this118 = this.path;
+	if(__map_reserved[id] != null) {
+		_this118.setReserved(id,id);
+	} else {
+		_this118.h[id] = id;
+	}
+	var _this119 = this.type;
+	var value65 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this119.setReserved(id,value65);
+	} else {
+		_this119.h[id] = value65;
+	}
+	id = "flixel/flixel-ui/img/minus_mark.png";
+	var _this120 = this.path;
+	if(__map_reserved[id] != null) {
+		_this120.setReserved(id,id);
+	} else {
+		_this120.h[id] = id;
+	}
+	var _this121 = this.type;
+	var value66 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this121.setReserved(id,value66);
+	} else {
+		_this121.h[id] = value66;
+	}
+	id = "flixel/flixel-ui/img/plus_mark.png";
+	var _this122 = this.path;
+	if(__map_reserved[id] != null) {
+		_this122.setReserved(id,id);
+	} else {
+		_this122.h[id] = id;
+	}
+	var _this123 = this.type;
+	var value67 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this123.setReserved(id,value67);
+	} else {
+		_this123.h[id] = value67;
+	}
+	id = "flixel/flixel-ui/img/radio.png";
+	var _this124 = this.path;
+	if(__map_reserved[id] != null) {
+		_this124.setReserved(id,id);
+	} else {
+		_this124.h[id] = id;
+	}
+	var _this125 = this.type;
+	var value68 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this125.setReserved(id,value68);
+	} else {
+		_this125.h[id] = value68;
+	}
+	id = "flixel/flixel-ui/img/radio_dot.png";
+	var _this126 = this.path;
+	if(__map_reserved[id] != null) {
+		_this126.setReserved(id,id);
+	} else {
+		_this126.h[id] = id;
+	}
+	var _this127 = this.type;
+	var value69 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this127.setReserved(id,value69);
+	} else {
+		_this127.h[id] = value69;
+	}
+	id = "flixel/flixel-ui/img/swatch.png";
+	var _this128 = this.path;
+	if(__map_reserved[id] != null) {
+		_this128.setReserved(id,id);
+	} else {
+		_this128.h[id] = id;
+	}
+	var _this129 = this.type;
+	var value70 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this129.setReserved(id,value70);
+	} else {
+		_this129.h[id] = value70;
+	}
+	id = "flixel/flixel-ui/img/tab.png";
+	var _this130 = this.path;
+	if(__map_reserved[id] != null) {
+		_this130.setReserved(id,id);
+	} else {
+		_this130.h[id] = id;
+	}
+	var _this131 = this.type;
+	var value71 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this131.setReserved(id,value71);
+	} else {
+		_this131.h[id] = value71;
+	}
+	id = "flixel/flixel-ui/img/tab_back.png";
+	var _this132 = this.path;
+	if(__map_reserved[id] != null) {
+		_this132.setReserved(id,id);
+	} else {
+		_this132.h[id] = id;
+	}
+	var _this133 = this.type;
+	var value72 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this133.setReserved(id,value72);
+	} else {
+		_this133.h[id] = value72;
+	}
+	id = "flixel/flixel-ui/img/tooltip_arrow.png";
+	var _this134 = this.path;
+	if(__map_reserved[id] != null) {
+		_this134.setReserved(id,id);
+	} else {
+		_this134.h[id] = id;
+	}
+	var _this135 = this.type;
+	var value73 = "IMAGE";
+	if(__map_reserved[id] != null) {
+		_this135.setReserved(id,value73);
+	} else {
+		_this135.h[id] = value73;
+	}
+	id = "flixel/flixel-ui/xml/defaults.xml";
+	var _this136 = this.path;
+	if(__map_reserved[id] != null) {
+		_this136.setReserved(id,id);
+	} else {
+		_this136.h[id] = id;
+	}
+	var _this137 = this.type;
+	var value74 = "TEXT";
+	if(__map_reserved[id] != null) {
+		_this137.setReserved(id,value74);
+	} else {
+		_this137.h[id] = value74;
+	}
+	id = "flixel/flixel-ui/xml/default_loading_screen.xml";
+	var _this138 = this.path;
+	if(__map_reserved[id] != null) {
+		_this138.setReserved(id,id);
+	} else {
+		_this138.h[id] = id;
+	}
+	var _this139 = this.type;
+	var value75 = "TEXT";
+	if(__map_reserved[id] != null) {
+		_this139.setReserved(id,value75);
+	} else {
+		_this139.h[id] = value75;
+	}
+	id = "flixel/flixel-ui/xml/default_popup.xml";
+	var _this140 = this.path;
+	if(__map_reserved[id] != null) {
+		_this140.setReserved(id,id);
+	} else {
+		_this140.h[id] = id;
+	}
+	var _this141 = this.type;
+	var value76 = "TEXT";
+	if(__map_reserved[id] != null) {
+		_this141.setReserved(id,value76);
+	} else {
+		_this141.h[id] = value76;
 	}
 	var assetsPrefix = null;
 	if(ApplicationMain.config != null && Object.prototype.hasOwnProperty.call(ApplicationMain.config,"assetsPrefix")) {
@@ -3040,13 +3360,13 @@ var DefaultAssetLibrary = function() {
 		while(k.hasNext()) {
 			var k1 = k.next();
 			var this1 = this.path;
-			var _this102 = this.path;
-			var value57 = assetsPrefix + (__map_reserved[k1] != null ? _this102.getReserved(k1) : _this102.h[k1]);
-			var _this103 = this1;
+			var _this142 = this.path;
+			var value77 = assetsPrefix + (__map_reserved[k1] != null ? _this142.getReserved(k1) : _this142.h[k1]);
+			var _this143 = this1;
 			if(__map_reserved[k1] != null) {
-				_this103.setReserved(k1,value57);
+				_this143.setReserved(k1,value77);
 			} else {
-				_this103.h[k1] = value57;
+				_this143.h[k1] = value77;
 			}
 		}
 	}
@@ -4312,7 +4632,7 @@ HUD.prototype = $extend(flixel_group_FlxTypedGroup.prototype,{
 				source_Stats.AMPM = "AM";
 				source_Stats.addDay(1);
 				source_Stats.PM = false;
-				source_Stats._supporters += flixel_FlxG.random["int"](2,10);
+				source_Stats.updateSupporters(flixel_FlxG.random["int"](2,10));
 			} else {
 				source_Stats.AMPM = "PM";
 				source_Stats.PM = true;
@@ -4491,13 +4811,15 @@ MenuState.prototype = $extend(flixel_FlxState.prototype,{
 		this._sprPlay = new flixel_FlxSprite(0,0);
 		this._sprPlay.loadGraphic("assets/images/ButtonNoText.png",false,342,84);
 		this._btnTHing = new flixel_addons_ui_FlxUIButton(500,570,"PLAY GAME",$bind(this,this.clickPlay),false);
-		this._btnTHing.setLabelFormat("assets/data/FeaturedItem.ttf",40);
+		this._btnTHing.loadGraphicFromSprite(this._sprPlay);
+		this._btnTHing.setLabelFormat("assets/data/FeaturedItem.ttf",30);
 		this.add(this._btnTHing);
+		flixel_FlxG.camera.fade(-16777216,0.2,true);
 		this._btnPlay = new flixel_addons_ui_FlxButtonPlus(500,570,$bind(this,this.clickPlay),"PLAY GAME",300,50);
 		this._btnPlay.loadButtonGraphic(this._sprPlay,this._sprPlay);
 		this._btnPlay.updateHitbox();
 		if(flixel_FlxG.sound.music == null) {
-			flixel_FlxG.sound.playMusic("assets/music/SHITLOOP.mp3");
+			flixel_FlxG.sound.playMusic("assets/music/1683_newgrounds_lhm__e.mp3");
 		}
 		flixel_FlxState.prototype.create.call(this);
 	}
@@ -4809,10 +5131,27 @@ $hxClasses["NewGroundsState"] = NewGroundsState;
 NewGroundsState.__name__ = ["NewGroundsState"];
 NewGroundsState.__super__ = flixel_FlxState;
 NewGroundsState.prototype = $extend(flixel_FlxState.prototype,{
-	_supporterMonthly: null
+	bg: null
+	,_btnForum: null
+	,_btnBaP: null
+	,_supporterMonthly: null
+	,_hud: null
+	,_statsHUD: null
 	,create: function() {
+		this.bg = new flixel_FlxSprite(0,0);
+		this.bg.loadGraphic("assets/images/NGBG.png",false,1280,720);
+		this.add(this.bg);
+		this._hud = new HUD();
+		this.add(this._hud);
+		this._statsHUD = new StatsHUD();
+		this._statsHUD.set_visible(false);
+		this.add(this._statsHUD);
 		this._supporterMonthly = new flixel_addons_ui_FlxUICheckBox(flixel_FlxG.width * 0.3,flixel_FlxG.height * 0.3,null,null,"Monthly",100,null,$bind(this,this.clickMonthly));
 		this.add(this._supporterMonthly);
+		this._btnForum = new flixel_ui_FlxButton(700,40,"Shitpost",$bind(this,this.clickForum));
+		this.add(this._btnForum);
+		this._btnBaP = new flixel_ui_FlxButton(700,300,"Blam and Protect",$bind(this,this.clickBap));
+		this.add(this._btnBaP);
 		flixel_FlxState.prototype.create.call(this);
 	}
 	,clickMonthly: function() {
@@ -4824,28 +5163,52 @@ NewGroundsState.prototype = $extend(flixel_FlxState.prototype,{
 			source_Stats._supporters -= 1;
 		}
 	}
+	,clickForum: function() {
+		var forumSubState = new SubState();
+		forumSubState.persistentDraw = false;
+		forumSubState.persistentUpdate = false;
+		this.openSubState(forumSubState);
+	}
+	,clickBap: function() {
+		source_Stats.BAP();
+		source_Stats._stamina -= 1;
+		source_Stats.h += 1;
+		this._hud.updateHUD();
+	}
 	,__class__: NewGroundsState
 });
 var Notifacations = function() {
 	flixel_group_FlxTypedGroup.call(this);
-	this._animationSkillUp = new flixel_text_FlxText(0,0,0,"Animation Skill Increased",10);
-	this._savedGame = new flixel_text_FlxText(0,200,0,"Game Saved",15);
-	this._savedGame.set_alpha(0);
-	this.add(this._savedGame);
 };
 $hxClasses["Notifacations"] = Notifacations;
 Notifacations.__name__ = ["Notifacations"];
 Notifacations.__super__ = flixel_group_FlxTypedGroup;
 Notifacations.prototype = $extend(flixel_group_FlxTypedGroup.prototype,{
 	_animationSkillUp: null
-	,_savedGame: null
-	,_animationSKillUp: function() {
-		this.add(this._animationSkillUp);
-		flixel_tweens_FlxTween.tween(this._animationSkillUp,{ alpha : 0},.66,{ ease : flixel_tweens_FlxEase.circOut, startDelay : 1});
-	}
-	,_saveText: function() {
-		this._savedGame.set_alpha(1);
-		flixel_tweens_FlxTween.tween(this._savedGame,{ alpha : 0, y : this._savedGame.y - 16},0.66,{ ease : flixel_tweens_FlxEase.circOut, startDelay : 0.3});
+	,_newText: function(X,Y,Text,Size,color,delay,sound) {
+		if(delay == null) {
+			delay = 0.5;
+		}
+		if(color == null) {
+			color = -16777216;
+		}
+		if(Size == null) {
+			Size = 10;
+		}
+		if(Text == null) {
+			Text = "Placeholder";
+		}
+		if(Y == null) {
+			Y = 40;
+		}
+		if(X == null) {
+			X = 40;
+		}
+		var _notif = new flixel_text_FlxText(X,Y,0,Text,Size);
+		_notif.set_color(color);
+		this.add(_notif);
+		flixel_FlxG.sound.play(sound);
+		flixel_tweens_FlxTween.tween(_notif,{ alpha : 0, y : _notif.y - 16},0.66,{ ease : flixel_tweens_FlxEase.circOut, startDelay : delay});
 	}
 	,__class__: Notifacations
 });
@@ -4873,6 +5236,9 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 	,_artProgressBar: null
 	,_programProgressBar: null
 	,_songProgressBar: null
+	,_nameBox: null
+	,_animationName: null
+	,_btnAnimationBegin: null
 	,_usingText: null
 	,_statsSubState: null
 	,_hud: null
@@ -4883,7 +5249,6 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 		this.add(this._hud);
 		this.createButtons();
 		this.createText();
-		this.createDropDowns();
 		this.createBars();
 		this._statsHUD = new StatsHUD();
 		this._statsHUD.set_visible(false);
@@ -4895,15 +5260,7 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 	}
 	,update: function(elapsed) {
 		var _this = flixel_FlxG.keys.justPressed;
-		if(_this.keyManager.checkStatus(79,_this.status)) {
-			this._notifacations._animationSKillUp();
-		}
-		var _this1 = flixel_FlxG.keys.justPressed;
-		if(_this1.keyManager.checkStatus(83,_this1.status)) {
-			this._statsHUD.set_visible(!this._statsHUD.visible);
-		}
-		var _this2 = flixel_FlxG.keys.justPressed;
-		if(_this2.keyManager.checkStatus(27,_this2.status)) {
+		if(_this.keyManager.checkStatus(27,_this.status)) {
 			var nextState = new PlayState();
 			if(flixel_FlxG.game._state.switchTo(nextState)) {
 				flixel_FlxG.game._requestedState = nextState;
@@ -4915,22 +5272,30 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 			source_Stats._artUnpubbed += 1;
 			this.updateText();
 			source_Stats.artPost(0);
+			this._notifacations._newText(100,100,"Your artwork has been posted to Newgrounds!",10,-23296,0.7);
 		}
 		if(source_Stats._songProgress >= 100) {
 			source_Stats.musicEXP(15);
 			source_Stats._songProgress = 0;
 			source_Stats.musicPost(0);
+			this._notifacations._newText(100,100,"Your song has been posted to Newgrounds!");
 		}
 		if(source_Stats._animationProgress >= 100) {
 			source_Stats.animationEXP(20);
 			source_Stats.artEXP(10);
 			source_Stats._animationProgress = 0;
 			source_Stats.animationPost(0);
+			if(source_Stats._sponsoredProject) {
+				source_Stats._cash += 500;
+				source_Stats._fans += flixel_FlxG.random["int"](30,70);
+			}
+			this._notifacations._newText(100,100,"Your animation has been posted to Newgrounds!");
 		}
 		if(source_Stats._gameProgress >= 100) {
 			source_Stats.programEXP(50);
 			source_Stats._gameProgress = 0;
 			source_Stats.gamePost(0);
+			this._notifacations._newText(100,100,"Your game has been posted to Newgrounds!");
 		}
 		if(source_Stats._animationUnpubbed >= 1) {
 			this._btnPostAnimation.set_visible(true);
@@ -4942,25 +5307,14 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 		} else {
 			this._btnPostArt.set_visible(false);
 		}
+		var _this1 = flixel_FlxG.watch;
+		flixel_FlxG.game["debugger"].watch.add(null,flixel_system_debug_watch_WatchEntryData.FIELD(source_Stats,"_animationNames"));
 		flixel_FlxState.prototype.update.call(this,elapsed);
-	}
-	,createDropDowns: function() {
-		var dropdownX = 105;
-		var _animationPrograms = ["Flash CS6","Animate CC","OpenToonz","ToonBoom Harmony"];
-		var _animationDropDown = new flixel_addons_ui_FlxUIDropDownMenu(dropdownX,22,flixel_addons_ui_FlxUIDropDownMenu.makeStrIdLabelArray(_animationPrograms,true));
-		var _artPrograms = ["MS Paint","Flash MX 2004","Krita","Photoshop CC","Aseprite","Gimp"];
-		var _artDropDown = new flixel_addons_ui_FlxUIDropDownMenu(dropdownX,60,flixel_addons_ui_FlxUIDropDownMenu.makeStrIdLabelArray(_artPrograms,true));
-		this._usingText = new flixel_text_FlxText(dropdownX,10,0,"Using",10);
-		this.add(this._usingText);
-		this.add(_artDropDown);
-		this.add(_animationDropDown);
 	}
 	,createButtons: function() {
 		var buttonX = 30;
 		this._btnAnimate = new flixel_ui_FlxButton(buttonX,22,"Animate",$bind(this,this.clickAnimate));
 		this.add(this._btnAnimate);
-		this._btnForum = new flixel_ui_FlxButton(buttonX,40,"Shitpost",$bind(this,this.clickForum));
-		this.add(this._btnForum);
 		this._btnDraw = new flixel_ui_FlxButton(buttonX,60,"Draw",$bind(this,this.clickDraw));
 		this.add(this._btnDraw);
 		this._btnMusic = new flixel_ui_FlxButton(buttonX,600,"Make Music",$bind(this,this.clickMusic));
@@ -4977,8 +5331,6 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 		this._btnPostArt = new flixel_ui_FlxButton(buttonX + 190,60,"Post",$bind(this,this.clickPost));
 		this._btnPostArt.set_visible(false);
 		this.add(this._btnPostArt);
-		this._btnBaP = new flixel_ui_FlxButton(buttonX,300,"Blam and Protect",$bind(this,this.clickBap));
-		this.add(this._btnBaP);
 		this._btnBack = new flixel_ui_FlxButton(buttonX,500,"Back",$bind(this,this.clickBack));
 		this.add(this._btnBack);
 		this._btnNG = new flixel_ui_FlxButton(buttonX,450,"Newgrounds",$bind(this,this.clickNG));
@@ -5005,6 +5357,11 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 		this._artProgressText.set_text("Artwork Progress: " + source_Stats._artProgress + "%");
 	}
 	,clickAnimate: function() {
+		if(source_Stats._animationProgress == 0) {
+			this._nameBox.set_visible(true);
+			this._animationName.set_visible(true);
+			this._btnAnimationBegin.set_visible(true);
+		}
 		if(source_Stats._stamina >= 1) {
 			source_Stats.animationEXP(1);
 			source_Stats.artEXP(0.5);
@@ -5027,12 +5384,6 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 		this.updateText();
 		this._hud.updateHUD();
 		this._statsHUD.updateText();
-	}
-	,clickForum: function() {
-		var forumSubState = new SubState();
-		forumSubState.persistentDraw = false;
-		forumSubState.persistentUpdate = false;
-		this.openSubState(forumSubState);
 	}
 	,clickDraw: function() {
 		if(source_Stats._stamina >= 1) {
@@ -5099,20 +5450,18 @@ PCState.prototype = $extend(flixel_FlxState.prototype,{
 			flixel_FlxG.game._requestedState = nextState;
 		}
 	}
-	,clickBap: function() {
-		source_Stats.BAP();
-		source_Stats._stamina -= 1;
-		source_Stats.h += 1;
-		this._hud.updateHUD();
-		this.updateText();
-	}
 	,clickNG: function() {
 		var nextState = new NewGroundsState();
 		if(flixel_FlxG.game._state.switchTo(nextState)) {
 			flixel_FlxG.game._requestedState = nextState;
 		}
 	}
-	,onAnimationChange: function() {
+	,beginAnimation: function() {
+		source_Stats._animationNames.push(this._animationName.text);
+		this._nameBox.set_visible(false);
+		this._animationName.set_visible(false);
+		this._btnAnimationBegin.set_visible(false);
+		flixel_FlxG.log.advanced("press begin",flixel_system_debug_log_LogStyle.NORMAL);
 	}
 	,__class__: PCState
 });
@@ -5123,7 +5472,8 @@ $hxClasses["PlayState"] = PlayState;
 PlayState.__name__ = ["PlayState"];
 PlayState.__super__ = flixel_FlxState;
 PlayState.prototype = $extend(flixel_FlxState.prototype,{
-	_btnPC: null
+	bg: null
+	,_btnPC: null
 	,_btnSleep: null
 	,_btnWork: null
 	,_btnDraw: null
@@ -5132,6 +5482,9 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 	,_statsHUD: null
 	,_notifacations: null
 	,create: function() {
+		this.bg = new flixel_FlxSprite(0,0);
+		this.bg.loadGraphic("assets/images/BG.png",false,1280,720);
+		this.add(this.bg);
 		this.createButtons();
 		this._hud = new HUD();
 		this.add(this._hud);
@@ -5144,9 +5497,13 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 	}
 	,createButtons: function() {
 		var btnY = 16;
-		this._btnPC = new flixel_ui_FlxButton(0,btnY,"Log on",$bind(this,this.clickPC));
+		this._btnPC = new flixel_ui_FlxButton(340,256,"Log on",$bind(this,this.clickPC));
+		this._btnPC.loadGraphic("assets/images/Desk.png",true,512,271);
+		this._btnPC.updateHitbox();
 		this.add(this._btnPC);
-		this._btnSleep = new flixel_ui_FlxButton(20,btnY + 20,"Go to sleep",$bind(this,this.clickSleep));
+		this._btnSleep = new flixel_ui_FlxButton(118,160,"",$bind(this,this.clickSleep));
+		this._btnSleep.loadGraphic("assets/images/BedDoor.png",false,202,524);
+		this._btnSleep.updateHitbox();
 		this.add(this._btnSleep);
 		this._btnWork = new flixel_ui_FlxButton(20,btnY + 40,"Work",$bind(this,this.clickWork));
 		this.add(this._btnWork);
@@ -5156,10 +5513,8 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		this.add(this._btnStore);
 	}
 	,update: function(elapsed) {
-		var _this = flixel_FlxG.keys.justPressed;
-		if(_this.keyManager.checkStatus(83,_this.status)) {
-			this._statsHUD.set_visible(!this._statsHUD.visible);
-		}
+		var _this = flixel_FlxG.watch;
+		flixel_FlxG.game["debugger"].watch.add("Mouse Position",flixel_system_debug_watch_WatchEntryData.FIELD(flixel_FlxG,"mouse"));
 		flixel_FlxState.prototype.update.call(this,elapsed);
 	}
 	,clickPC: function() {
@@ -5173,7 +5528,20 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		source_Stats._stamina = 24;
 		this._hud.updateHUD();
 		source_Stats.save();
-		this._notifacations._saveText();
+		this._notifacations._newText(40,40,"Game Saved and slept for 8 hours",10,-16777216,0.25,"assets/sounds/save.wav");
+		if(source_Stats._ngCash >= 7000 && source_Stats._animationLevel >= 20 && !source_Stats._sponsoredProject) {
+			var _randomSponsor = flixel_FlxG.random["int"](0,source_Stats._animationLevel * 1.3 | 0);
+			if(_randomSponsor >= 20) {
+				source_Stats._sponsoredProject = true;
+				this._notifacations._newText(400,400,"Your animation has been Sponsored! \n Finish it to receive bonus money!",20,-16777216,2.25);
+			} else {
+				flixel_FlxG.log.advanced("Your animation has not been sponsored yet",flixel_system_debug_log_LogStyle.NORMAL);
+			}
+		} else if(source_Stats._sponsoredProject) {
+			flixel_FlxG.log.advanced("already sponsored!",flixel_system_debug_log_LogStyle.NORMAL);
+		} else if(source_Stats._ngCash < 7000) {
+			flixel_FlxG.log.advanced("no NG CASH",flixel_system_debug_log_LogStyle.NORMAL);
+		}
 	}
 	,clickWork: function() {
 		var _workable = false;
@@ -6635,6 +7003,88 @@ Reflect.makeVarArgs = function(f) {
 		return f(a);
 	};
 };
+var SplashState = function(MaxSize) {
+	this._curPart = 0;
+	flixel_FlxState.call(this,MaxSize);
+};
+$hxClasses["SplashState"] = SplashState;
+SplashState.__name__ = ["SplashState"];
+SplashState.__super__ = flixel_FlxState;
+SplashState.prototype = $extend(flixel_FlxState.prototype,{
+	_times: null
+	,_curPart: null
+	,_functions: null
+	,_madeBy: null
+	,_ninjaMuffin: null
+	,_using: null
+	,_hfLogo: null
+	,_haxeFlixel: null
+	,create: function() {
+		flixel_FlxG.fixedTimestep = false;
+		this._madeBy = new flixel_FlxSprite(154,29);
+		this._madeBy.loadGraphic("assets/images/MadeBy.png",true,347,340);
+		this._madeBy.animation.add("play",[0,1],6);
+		this._ninjaMuffin = new flixel_FlxSprite(163,301);
+		this._ninjaMuffin.loadGraphic("assets/images/NinjaMuffin.png",true,672,276);
+		this._ninjaMuffin.animation.add("play",[0,1],6);
+		this._using = new flixel_FlxSprite(895,421);
+		this._using.loadGraphic("assets/images/using.png",true,216,129);
+		this._using.animation.add("play",[0,1],6);
+		this._hfLogo = new flixel_FlxSprite(745,490);
+		this._hfLogo.loadGraphic("assets/images/HFLogo.png",true,150,152);
+		this._hfLogo.animation.add("play",[0,1],6);
+		this._hfLogo.set_angle(20);
+		this._haxeFlixel = new flixel_FlxSprite(910,575);
+		this._haxeFlixel.loadGraphic("assets/images/HaxeFlixelWords.png",true,351,111);
+		this._haxeFlixel.animation.add("play",[0,1],6);
+		this._haxeFlixel.set_angle(20);
+		this._times = [0.041,0.184,0.334,0.495,0.636];
+		this._functions = [$bind(this,this.addText1),$bind(this,this.addText2),$bind(this,this.addText3),$bind(this,this.addText4),$bind(this,this.addText5)];
+		var _g = 0;
+		var _g1 = this._times;
+		while(_g < _g1.length) {
+			var time = _g1[_g];
+			++_g;
+			new flixel_util_FlxTimer().start(time,$bind(this,this.timerCallback));
+		}
+		flixel_FlxG.sound.play("assets/sounds/flixel.mp3",1,false,null,true);
+		flixel_FlxState.prototype.create.call(this);
+	}
+	,timerCallback: function(Timer) {
+		this._functions[this._curPart]();
+		this._curPart++;
+		if(this._curPart == 5) {
+			flixel_FlxG.camera.fade(-16777216,3.25,false,$bind(this,this.finishSound));
+		}
+	}
+	,addText1: function() {
+		this._madeBy.animation.play("play");
+		this.add(this._madeBy);
+	}
+	,addText2: function() {
+		this._ninjaMuffin.animation.play("play");
+		this.add(this._ninjaMuffin);
+	}
+	,addText3: function() {
+		this._using.animation.play("play");
+		this.add(this._using);
+	}
+	,addText4: function() {
+		this._hfLogo.animation.play("play");
+		this.add(this._hfLogo);
+	}
+	,addText5: function() {
+		this._haxeFlixel.animation.play("play");
+		this.add(this._haxeFlixel);
+	}
+	,finishSound: function() {
+		var nextState = new MenuState();
+		if(flixel_FlxG.game._state.switchTo(nextState)) {
+			flixel_FlxG.game._requestedState = nextState;
+		}
+	}
+	,__class__: SplashState
+});
 var StatsHUD = function() {
 	this._ngStatsString = "Fans: " + source_Stats._fans + "\n" + "Blams: " + source_Stats._blams + "\n" + "Protects: " + source_Stats._protects + "\n" + "Newgrounds Supporters: " + source_Stats._supporters + "\n" + "Newgrounds Supporter Earnings: " + source_Stats._ngCash;
 	this._statsVisible = false;
@@ -6670,8 +7120,10 @@ var StatsHUD = function() {
 	this.miscBG = new flixel_FlxSprite(flixel_FlxG.width - 500,flixel_FlxG.height * 0.4);
 	this.miscBG.makeGraphic(flixel_FlxG.width * 0.3 | 0,flixel_FlxG.width * 0.3 | 0,-16777216);
 	this._reset = new flixel_ui_FlxButton(flixel_FlxG.width - 300,flixel_FlxG.height - 680,"Return To Title",$bind(this,this.clickReset));
-	this._myNG = new flixel_ui_FlxButton(flixel_FlxG.width - 450,flixel_FlxG.height - 680,"Follow Me On NG!",$bind(this,this.clickMyNG));
-	this._btnSource = new flixel_ui_FlxButton(flixel_FlxG.width - 570,flixel_FlxG.height - 680,"View the Source!",$bind(this,this.clickSource));
+	this._myNG = new flixel_ui_FlxButton(flixel_FlxG.width - 450,flixel_FlxG.height - 680,"",$bind(this,this.clickMyNG));
+	this._myNG.loadGraphic("assets/images/NG_LOGO.png",false,64,64);
+	this._btnSource = new flixel_ui_FlxButton(flixel_FlxG.width - 570,flixel_FlxG.height - 680,"",$bind(this,this.clickSource));
+	this._btnSource.loadGraphic("assets/images/GitHub-Mark-Light-64px.png",false,64,64);
 	this.add(this.bgOutline);
 	this.add(this.bg);
 	this.add(this.movieOutline);
@@ -6755,6 +7207,7 @@ StatsHUD.prototype = $extend(flixel_group_FlxTypedGroup.prototype,{
 	,update: function(elapsed) {
 		var _this = flixel_FlxG.keys.justPressed;
 		if(_this.keyManager.checkStatus(83,_this.status)) {
+			this.set_visible(!this.visible);
 			this.updateText();
 		}
 		flixel_group_FlxTypedGroup.prototype.update.call(this,elapsed);
@@ -104375,6 +104828,7 @@ source_Stats._gameSave = null;
 source_Stats._file1name = null;
 source_Stats._file2name = null;
 source_Stats._file3name = null;
+source_Stats._animationNames = null;
 source_Stats.load = function() {
 	source_Stats._animationSkill = flixel_FlxG.save.data._animationSkill;
 	source_Stats._artSkill = flixel_FlxG.save.data._artSkill;
@@ -104640,6 +105094,10 @@ source_Stats.BAP = function(B,P) {
 	}
 	source_Stats._blams += flixel_FlxG.random["int"](0,B);
 	source_Stats._protects += flixel_FlxG.random["int"](0,P);
+};
+source_Stats.updateSupporters = function(supporters) {
+	source_Stats._supporters += supporters;
+	source_Stats._ngCash += supporters * (flixel_FlxG.random["float"](3,25) | 0);
 };
 source_Stats.prototype = {
 	__class__: source_Stats
@@ -107786,7 +108244,8 @@ source_Stats._forumPosts = 0;
 source_Stats._blams = 0;
 source_Stats._protects = 0;
 source_Stats._supporters = 1700;
-source_Stats._ngCash = 3900;
+source_Stats._ngCash = 7000;
+source_Stats._sponsoredProject = false;
 source_Stats._hasFlash = false;
 source_Stats._hasFlashMX = false;
 source_Stats._hasClipStudio = false;
