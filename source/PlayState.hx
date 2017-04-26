@@ -92,7 +92,7 @@ class PlayState extends FlxState
 		Stats.save();
 		_notifacations._newText(40, 40, "Game Saved and slept for 8 hours", 10, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 		
-		if (Stats._ngCash >= 7000 && Stats._animationLevel >= 20 && !Stats._sponsoredProject)
+		if (Stats._ngCash >= 7000 && Stats._animationLevel >= 20 && !Stats._sponsoredProject //also eventually make it so you have to have so many fans to get sponsored)
 		{
 			var _randomSponsor:Int;
 			_randomSponsor = FlxG.random.int(0, Std.int(Stats._animationLevel * 1.3));

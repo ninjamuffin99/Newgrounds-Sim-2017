@@ -114,8 +114,15 @@ class PCState extends FlxState
 			
 			if (Stats._sponsoredProject)
 			{
-				Stats._cash += 500;
+				var sponsoredCash:Int;
+				sponsoredCash = Stats._ngCash - 5000;
+				sponsoredCash = Std.int(sponsoredCash / 2);
+				
+				FlxG.log.add(sponsoredCash);
+				Stats._cash += sponsoredCash;
 				Stats._fans += FlxG.random.int(30, 70);
+				
+				_hud.updateHUD();
 			}
 			
 			_notifacations._newText(100, 100, "Your animation has been posted to Newgrounds!");
@@ -226,13 +233,6 @@ class PCState extends FlxState
 	
 	private function clickAnimate():Void
 	{
-		if (Stats._animationProgress == 0)
-		{
-			_nameBox.visible = true;
-			_animationName.visible = true;
-			_btnAnimationBegin.visible = true;
-		}
-		
 		if (Stats._stamina >= 1)
 		{
 			Stats.animationEXP(1);
