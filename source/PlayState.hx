@@ -108,6 +108,8 @@ class PlayState extends FlxState
 		_notifacations._newText(110, 150, "Game Saved and slept for 8 hours", 15, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 		
 		sponsoredStuff();
+		
+		API.postScore("Rankings: Fans", Stats._fans);
 	}
 	
 	

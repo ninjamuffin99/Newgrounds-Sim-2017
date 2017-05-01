@@ -74,6 +74,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/CreditsAnim.swf");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
 		urls.push ("assets/images/defaultProfilePic.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -122,6 +126,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/lenny.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/MadeBy.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -138,6 +146,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/NGBG.psd");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
 		urls.push ("assets/images/NG_LOGO.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -147,26 +159,6 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/PCBG.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/PS.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/TitleScreen.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/using.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/Window.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/WorkDoor.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -180,6 +172,30 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/projectFiles/TitleScreenPSD.psd");
 		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/PS.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/TitleScreen.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/TitleScreenPSD.psd");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/using.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Window.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/WorkDoor.png");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
@@ -407,7 +423,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1067",
+			build: "1068",
 			company: "",
 			file: "NGSim",
 			fps: 60,
