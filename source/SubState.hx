@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.text.FlxTypeText;
+import flixel.addons.ui.FlxUIButton;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
@@ -22,13 +23,16 @@ class SubState extends FlxSubState
 	
 	private var _foundFlash:FlxText;
 	
-	private var _btnShitpost:FlxButton;
-	private var _btnAdvice:FlxButton;
-	private var _btnBrowse:FlxButton;
-	private var _btnClose:FlxButton;
+	private var _btnShitpost:FlxUIButton;
+	private var _btnAdvice:FlxUIButton;
+	private var _btnBrowse:FlxUIButton;
+	private var _btnClose:FlxUIButton;
 	
 	private var _titleArray = ["Who is the cutest NG user?", "HELP ME", "Damn, I got Sat. detention AGAIN.", "GOD DAMNED SATURDAY DETENTION AGAIN", "GOD DAMNED SATURDAY DETENTION AGAIN"];
-	private var	_postArray = ["I think Tom is a cutie pie #BringBackBeardFulp", "Haha you thought i needed help didnt you? XDD", "What is even the fucking point of school. You should only have to take it once. They just beat the same things into your head. And you have to know it by the end of the year. Then forget. They should teach things that are fun or new or things that interest you. They should teach you at home as individuals not as sheep. And who the fuck needs to know fucking calculus for making a damn pie. Or if you want to be a ditch digger. Or a computer programmer. Its all stupid. Thats why I'm homeschooled. Even though my mom trys to thrwart everything I do and thinks being a mindless sheep is best. The world sucks. Newgrounds is cool. People suck. I could go on forever but I don't want to get off the subject to far. I'm just saying if they made school more interesting kids wouldn't skip.", "I GOT ANOTHER ONE TODAY, BECAUSE I WAS BEING DISRUPTIVE IN CLASS! \n After taking 4 pages of notes, Ms. Videtich busts out another page and I say GAH. to myself, rather quiet, because, naturally, my hand is starting to hurt. She yells, YELLS, DO YOU HAVE A PROBLEM WITH MY NOTES, WILLIAM? And I said, No...why...what are you talking about, wha? You know, I didn't see it coming...and then she says If you dont like my notes, feel free to leave the class. I was silent...and so was everyone else, I just wanted her to continue and leave me alone...I thought it was over...and then she says Well, are you QUITE finished, Will? Hmmm? ANSWER ME. \n  I shook my head yes, and she was like I CANT HEAR YOU!!! She was YELLING...and I was really starting to get pissed off. All I said was, YES, YES MS. V, SHUT YOUR MOUTH...GET OFF MY CASE. \n My friend Darius (D) says Yeah yah fat bee-itch. And she didnt even pay attention to him. \n Anyway, she grabbed me by the arm like a little kid and took me to the door where she let go and told me to go to the office and explain myself. I started to walk down the hall and instead of going to the office I headed for the parking lot, and she yelled after YOU WILL HAVE SATURDAY DETENTION AGAIN NEXT WEEK, CONGRATULATIONS!!! In a deep evil bitch voice, so I hopped in my car and went home, got a hot pocket and some Pepsi, came upstairs, sat down, turned on the computer, went to Newgrounds and now, here I am. God damn, is that crazy or what? \n -Stamper"];
+	private var	_postArray = ["I think Tom is a cutie pie #BringBackBeardFulp", 
+			"Haha you thought i needed help didnt you? XDD", 
+			"What is even the fucking point of school. You should only have to take it once. They just beat the same things into your head. And you have to know it by the end of the year. Then forget. They should teach things that are fun or new or things that interest you. They should teach you at home as individuals not as sheep. And who the fuck needs to know fucking calculus for making a damn pie. Or if you want to be a ditch digger. Or a computer programmer. Its all stupid. Thats why I'm homeschooled. Even though my mom trys to thrwart everything I do and thinks being a mindless sheep is best. The world sucks. Newgrounds is cool. People suck. I could go on forever but I don't want to get off the subject to far. I'm just saying if they made school more interesting kids wouldn't skip.", 
+			"I GOT ANOTHER ONE TODAY, BECAUSE I WAS BEING DISRUPTIVE IN CLASS! \n After taking 4 pages of notes, Ms. Videtich busts out another page and I say GAH. to myself, rather quiet, because, naturally, my hand is starting to hurt. She yells, YELLS, DO YOU HAVE A PROBLEM WITH MY NOTES, WILLIAM? And I said, No...why...what are you talking about, wha? You know, I didn't see it coming...and then she says If you dont like my notes, feel free to leave the class. I was silent...and so was everyone else, I just wanted her to continue and leave me alone...I thought it was over...and then she says Well, are you QUITE finished, Will? Hmmm? ANSWER ME. \nI shook my head yes, and she was like I CANT HEAR YOU!!! She was YELLING...and I was really starting to get pissed off. All I said was, YES, YES MS. V, SHUT YOUR MOUTH...GET OFF MY CASE. \n My friend Darius (D) says Yeah yah fat bee-itch. And she didnt even pay attention to him. \n Anyway, she grabbed me by the arm like a little kid and took me to the door where she let go and told me to go to the office and explain myself. I started to walk down the hall and instead of going to the office I headed for the parking lot, and she yelled after YOU WILL HAVE SATURDAY DETENTION AGAIN NEXT WEEK, CONGRATULATIONS!!! "];
 	
 	private var _randomPost:Int;
 	
@@ -50,9 +54,7 @@ class SubState extends FlxSubState
 		
 		_foundFlash = new FlxText(200, 400, 0, "Someone found a way to get Flash MX for free! Thanks JessieJJones!", 12);
 		_foundFlash.visible = false;
-		add(_foundFlash);
-		
-		
+		//add(_foundFlash);
 		
 		_title = new FlxTypeText(wordsX, 110, Std.int(FlxG.width * 0.95) - 290, "", 16);
 		_title.font = "assets/data/ARIALBD.TTF";
@@ -80,19 +82,26 @@ class SubState extends FlxSubState
 	{
 		var btnX:Int = 600;
 		
-		_btnShitpost = new FlxButton(btnX, 250, "Shitpost on the BBS", clickShitpost);
-		_btnShitpost.scale.y = _btnShitpost.scale.x = 2.5;
-		_btnShitpost.label.scale.x = _btnShitpost.label.scale.y = 1.5;
+		var featuredFont:String = "assets/data/FeaturedItem.ttf";
+		
+		_btnShitpost = new FlxUIButton(btnX, 250, "Shitpost on the BBS", clickShitpost);
+		_btnShitpost.loadGraphic("assets/images/ButtonNoText.png", false, 342, 84);
+		_btnShitpost.setAllLabelOffsets(0, 8);
+		_btnShitpost.setLabelFormat(featuredFont, 40);
+		_btnShitpost.screenCenter(X);
 		add(_btnShitpost);
 		
-		_btnAdvice = new FlxButton(btnX, 100, "Ask for advice", clickAdvice);
-		add(_btnAdvice);
+		_btnAdvice = new FlxUIButton(btnX, 100, "Ask for advice", clickAdvice);
+		_btnAdvice.loadGraphic("assets/images/ButtonNoText.png", false, 342, 84);
+		_btnAdvice.setLabelFormat(featuredFont, 40);
+		_btnAdvice.screenCenter(X);
+		//add(_btnAdvice);
 		
-		_btnClose = new FlxButton(100, 600, "Close", clickClose);
+		_btnClose = new FlxUIButton(100, 600, "Close", clickClose);
 		add(_btnClose);
 		
-		_btnBrowse = new FlxButton(btnX, 75, "Lurk and browse", clickBrowse);
-		add(_btnBrowse);
+		_btnBrowse = new FlxUIButton(btnX, 75, "Lurk and browse", clickBrowse);
+		//add(_btnBrowse);
 	}
 	
 	private function clickBrowse():Void

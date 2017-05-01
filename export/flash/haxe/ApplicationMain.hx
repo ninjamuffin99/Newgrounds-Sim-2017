@@ -46,6 +46,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
+		urls.push ("assets/images/animate.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/BBS.PNG");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -70,15 +74,23 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/CreditsAnim.swf");
-		types.push (lime.Assets.AssetType.BINARY);
-		
-		
 		urls.push ("assets/images/defaultProfilePic.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/Desk.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/fd.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/fl.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/gear.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -106,11 +118,15 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/lenny.png");
+		urls.push ("assets/images/internet.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/MadeBy.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/mouse.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -122,10 +138,6 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/NGBG.psd");
-		types.push (lime.Assets.AssetType.BINARY);
-		
-		
 		urls.push ("assets/images/NG_LOGO.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -134,12 +146,16 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/TitleScreen.png");
+		urls.push ("assets/images/PCBG.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/TitleScreenPSD.psd");
-		types.push (lime.Assets.AssetType.BINARY);
+		urls.push ("assets/images/PS.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/TitleScreen.png");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/using.png");
@@ -148,6 +164,22 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/Window.png");
 		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/WorkDoor.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/projectFiles/CreditsAnim.swf");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/projectFiles/NGBG.psd");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/projectFiles/TitleScreenPSD.psd");
+		types.push (lime.Assets.AssetType.BINARY);
 		
 		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
@@ -375,11 +407,11 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "828",
+			build: "1067",
 			company: "",
-			file: "NGSimtest",
+			file: "NGSim",
 			fps: 60,
-			name: "NGSimtest",
+			name: "Newgrounds SIM 2017",
 			orientation: "",
 			packageName: "com.example.myapp",
 			version: "0.0.1",
@@ -397,7 +429,7 @@ class ApplicationMain {
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
-					title: "NGSimtest",
+					title: "Newgrounds SIM 2017",
 					vsync: true,
 					width: 1280,
 					x: null,

@@ -1,6 +1,7 @@
 package source;
 import flash.display.Bitmap;
 import flixel.FlxG;
+import flixel.input.FlxAccelerometer;
 import flixel.util.FlxSave;
 
 /**
@@ -26,11 +27,18 @@ class Stats
 	public static var _voiceLevel:Float = 1;
 	public static var _writingLevel:Float = 1;
 	
+	public static var _animationLevelUp:Float = 15;
+	public static var _artLevelUp:Float = 15;
+	public static var _musicLevelUp:Float = 15;
+	public static var _programLevelUp:Float = 15;
+	public static var _voiceLevelUp:Float = 15;
+	public static var _writingLevelUp:Float = 15;
+	
 	
 	//DATE AND TIME STATS
 	public static var yyyy:Int = 2017;
 	public static var mm:Int = 1;
-	public static var dd:Int = 26;
+	public static var dd:Int = 4;
 	public static var PM:Bool;
 	public static var AMPM:String = "AM";
 	public static var h:Int = 8;
@@ -39,7 +47,7 @@ class Stats
 	
 	//PERSONAL STATS
 	public static var _name:String = "Cameron";
-	public static var _cash:Int = 2000;
+	public static var _cash:Int = 1000;
 	
 	//Newgrounds Stuff
 	public static var _username:String = "ninjamuffin99";
@@ -50,7 +58,10 @@ class Stats
 	public static var _supporters:Int = 1700;
 	public static var _ngCash:Int = 7000;//3900;
 	
-	public static var _sponsoredProject:Bool = false;
+	public static var _sponsoredAnimation:Bool = false;
+	public static var _sponsoredGame:Bool = false;
+	public static var _sponsoredSong:Bool = false;
+	public static var _soundTrackAmount:Int;
 	
 	//STYLE STATS will maybe use these but for now these will get cut
 	/*public static var _artVectorSkill:Float;
@@ -106,6 +117,12 @@ class Stats
 	public static var _TotalCashEarned:Int = 0;
 	public static var _TotalHoursWorked:Int = 0;
 	public static var _TotalDaysPassed:Int = 0;
+	public static var _TotalHoursAnimating:Int = 0;
+	public static var _TotalHoursProgramming:Int = 0;
+	public static var _TotalHoursMakingMusic:Int = 0;
+	public static var _TotalHoursDrawing:Int = 0;
+	public static var _shitLoop:Bool = false;
+	public static var _hintsON:Bool = true;
 	
 	//SAVING LOADING
 	public static var _gameSave:FlxSave;
@@ -117,6 +134,7 @@ class Stats
 	//NAMES ARRAYS
 	public static var _animationNames:Array<String>;
 	
+	public static var _loadFade:Bool = false;
 	
 	public function new() 
 	{
@@ -139,6 +157,15 @@ class Stats
 		_voiceLevel = FlxG.save.data._voiceLevel;
 		_writingLevel = FlxG.save.data._writingLevel;
 		
+		_animationLevelUp = FlxG.save.data._animationLevelUp;
+		_artLevelUp = FlxG.save.data._artLevelUp;
+		_musicLevelUp = FlxG.save.data._musicLevelUp;
+		_programLevelUp = FlxG.save.data._programLevelUp;
+		_voiceLevelUp = FlxG.save.data._voiceLevelUp;
+		_writingLevelUp = FlxG.save.data._writingLevelUp;
+		
+		
+		
 		yyyy = FlxG.save.data.yyyy;
 		mm = FlxG.save.data.mm;
 		dd = FlxG.save.data.dd;
@@ -158,10 +185,33 @@ class Stats
 		_supporters = FlxG.save.data._supporters;
 		_ngCash = FlxG.save.data._ngCash;
 		
+		_sponsoredAnimation = FlxG.save.data._sponsoredAnimation;
+		_sponsoredGame = FlxG.save.data._sponsoredGame;
+		_sponsoredSong = FlxG.save.data._sponsoredSong;
+		_soundTrackAmount = FlxG.save.data._sponsoredTrackAmount;
+		
+		
 		_animationQuality = FlxG.save.data._animationQuality;
 		_artQuality = FlxG.save.data._artQuality;
 		_gameQuality = FlxG.save.data._gameQuality;
 		_songQuality = FlxG.save.data._songQuality;
+		
+		_artProgress = FlxG.save.data._artProgress;
+		_animationProgress = FlxG.save.data._animationProgress;
+		_gameProgress = FlxG.save.data._gameProgress;
+		_songProgress = FlxG.save.data._songProgress;
+		
+		_TotalCashEarned = FlxG.save.data._TotalCashEarned;
+		_TotalDaysPassed = FlxG.save.data._TotalDaysPassed;
+		_TotalHoursAnimating = 	FlxG.save.data._TotalHoursAnimating;
+		_TotalHoursProgramming = FlxG.save.data._TotalHoursProgramming;
+		_TotalHoursMakingMusic = FlxG.save.data._TotalHoursMakingMusic;
+		_TotalHoursDrawing = FlxG.save.data._TotalHoursDrawing;
+		
+		
+		
+		_hintsON = FlxG.save.data._hintsON;
+		_shitLoop = FlxG.save.data._shitLoop;
 		
 		FlxG.log.add("Stats Loaded");
 	}
@@ -181,6 +231,13 @@ class Stats
 		FlxG.save.data._programLevel = _programLevel;
 		FlxG.save.data._voiceLevel = _voiceLevel;
 		FlxG.save.data._writingLevel = _writingLevel;
+		
+		FlxG.save.data._animationLevelUp = _animationLevelUp;
+		FlxG.save.data._artLevelUp = _artLevelUp;
+		FlxG.save.data._musicLevelUp = _musicLevelUp;
+		FlxG.save.data._programLevelUp = _programLevelUp;
+		FlxG.save.data._voiceLevelUp = _voiceLevelUp;
+		FlxG.save.data._writingLevelUp = _writingLevelUp;
 		
 		FlxG.save.data.yyyy = yyyy;
 		FlxG.save.data.mm = mm;
@@ -213,6 +270,15 @@ class Stats
 		FlxG.save.data._gameProgress = _gameProgress;
 		FlxG.save.data._songProgress = _songProgress;
 		
+		FlxG.save.data._shitLoop = _shitLoop;
+		FlxG.save.data._hintsON = _hintsON;
+		
+		FlxG.save.data._TotalCashEarned = _TotalCashEarned;
+		FlxG.save.data._TotalDaysPassed = _TotalDaysPassed;
+		FlxG.save.data._TotalHoursAnimating = _TotalHoursAnimating;
+		FlxG.save.data._TotalHoursProgramming = _TotalHoursProgramming;
+		FlxG.save.data._TotalHoursMakingMusic = _TotalHoursMakingMusic;
+		FlxG.save.data._TotalHoursDrawing = _TotalHoursDrawing;
 		
 		
 		FlxG.log.add("Stats Saved");
@@ -336,10 +402,12 @@ class Stats
 		
 		_animationSkill += E;
 		
-		if (_animationSkill >= 100)
+		if (_animationSkill >= _animationLevelUp)
 		{
 			_animationLevel += 1;
-			_animationSkill -= 100;
+			_animationSkill -= _animationLevelUp;
+			
+			_animationLevelUp = _animationLevelUp * 1.3;
 		}
 	}
 	
@@ -356,10 +424,11 @@ class Stats
 		
 		_artSkill += E;
 		
-		if (_artSkill >= 100)
+		if (_artSkill >= _artLevelUp)
 		{
 			_artLevel += 1;
-			_artSkill -= 100;
+			_artSkill -= _artLevelUp;
+			_artLevelUp = _artLevelUp * 1.2;
 		}
 	}
 	
@@ -376,10 +445,12 @@ class Stats
 		
 		_musicSkill += E;
 		
-		if (_musicSkill >= 100)
+		if (_musicSkill >= _musicLevelUp)
 		{
 			_musicLevel += 1;
-			_musicSkill -= 100;
+			_musicSkill -= _musicLevelUp;
+			
+			_musicLevelUp = _musicLevelUp * 1.2;
 		}
 	}
 	
@@ -395,10 +466,12 @@ class Stats
 		}
 		
 		_programSkill += E;
-		if (_programSkill >= 100)
+		if (_programSkill >= _programLevelUp)
 		{
-			_programSkill -= 100;
+			_programSkill -= _programLevelUp;
 			_programLevel += 1;
+			
+			_programLevelUp = _programLevelUp * 1.2;
 		}
 	}
 	
@@ -415,10 +488,12 @@ class Stats
 		
 		_voiceSkill += E;
 		
-		if (_voiceSkill >= 100)
+		if (_voiceSkill >= _voiceLevelUp)
 		{
-			_voiceSkill -= 100;
+			_voiceSkill -= _voiceLevelUp;
 			_voiceLevel += 1;
+			
+			_voiceLevelUp = _voiceLevelUp * 1.2;
 		}
 	}
 	
@@ -435,10 +510,12 @@ class Stats
 		
 		_writingSkill += E;
 		
-		if (_writingSkill >= 100)
+		if (_writingSkill >= _writingLevelUp)
 		{
-			_writingSkill -= 100;
+			_writingSkill -= _writingLevelUp;
 			_writingLevel += 1;
+			
+			_writingLevelUp = _writingLevelUp * 1.2;
 		}
 	}
 	
@@ -516,6 +593,6 @@ class Stats
 	public static function updateSupporters(supporters:Int):Void
 	{
 		_supporters += supporters;
-		_ngCash += supporters * Std.int(FlxG.random.float(3, 25));
+		_ngCash += Std.int(FlxG.random.float(3, 25) * supporters);
 	}
 }

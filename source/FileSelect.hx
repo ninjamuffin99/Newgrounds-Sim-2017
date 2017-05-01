@@ -3,6 +3,8 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.ui.FlxButtonPlus;
+import flixel.addons.ui.FlxUIButton;
+import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import source.Stats;
 
@@ -13,43 +15,40 @@ import source.Stats;
  */
 class FileSelect extends FlxState 
 {
+	private var _file1:FlxUIButton;
 	
-	private var _file1:FlxButtonPlus;
-	private var _file2:FlxButtonPlus;
-	private var _file3:FlxButtonPlus;
-	
-	private var _delete:FlxButtonPlus;
+	private var _delete:FlxUIButton;
 	
 	override public function create():Void 
 	{
+		FlxG.camera.fade(FlxColor.BLACK, 0.5, true);
 		
 		var centerX:Float = FlxG.width / 2;
 		
-		_file1 = new FlxButtonPlus(centerX, 100, load1, "File 1");
-		_file2 = new FlxButtonPlus(centerX, 200, load2, "File 2");
-		_file3 = new FlxButtonPlus(centerX, 300, load3, "File3");
-		_delete = new FlxButtonPlus(centerX, 400, delete, "delet this");
+		_file1 = new FlxUIButton(centerX, 100, "File 1", load1);
+		_file1.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
+		_file1.setLabelFormat("assets/data/FeaturedItem.ttf", 40);
+		_file1.setGraphicSize(250);
+		_file1.setAllLabelOffsets(0, 15);
+		_file1.screenCenter(X);
+		
+		_delete = new FlxUIButton(centerX, 400, "Delete Data", delete);
+		_delete.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
+		_delete.setLabelFormat("assets/data/FeaturedItem.ttf", 30);
+		_delete.setGraphicSize(200);
+		_delete.setAllLabelOffsets(0, 15);
+		_delete.screenCenter(X);
 		
 		add(_file1);
-		add(_file2);
-		add(_file3);
 		
 		add(_delete);
+		
+		Stats._loadFade = true;
 		
 		super.create();
 	}
 	
 	private function load1():Void
-	{
-		loadGame();
-	}
-	
-	private function load2():Void
-	{
-		loadGame();
-	}
-	
-	private function load3():Void
 	{
 		loadGame();
 	}
@@ -67,10 +66,8 @@ class FileSelect extends FlxState
 		}
 		else
 		{
-			Stats.load();
-			FlxG.log.add("Animation SKill" + Stats._animationSkill);
-			FlxG.log.add("Saved Data " + FlxG.save.data._animationSkill);
-			FlxG.switchState(new PlayState());
+			
+			FlxG.camera.fade(FlxColor.BLACK, 0.5, false, loadFade);
 		}
 	}
 	private function delete():Void
@@ -81,5 +78,11 @@ class FileSelect extends FlxState
 		{
 			FlxG.log.add("Data is null");
 		}
+	}
+	
+	private function loadFade():Void
+	{
+		Stats.load();
+		FlxG.switchState(new PlayState());
 	}
 }
