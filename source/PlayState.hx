@@ -108,6 +108,8 @@ class PlayState extends FlxState
 		_notifacations._newText(110, 150, "Game Saved and slept for 8 hours", 15, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 		
 		sponsoredStuff();
+		
+		API.postScore("Rankings: Fans", Stats._fans);
 	}
 	
 	
@@ -198,7 +200,7 @@ class PlayState extends FlxState
 					Stats._soundTrackAmount = FlxG.random.int(5, 10);
 					
 					_notifacations._newText(notifX, notifY, "You have been commisioned to do a soundtrack for a game \nfinish " + Stats._soundTrackAmount + " songs to recieve money!", 20, FlxColor.BLACK, 2.25);
-					//API.unlockMedal("Basically working at Disney now");
+					API.unlockMedal("Fire mixtape");
 				}
 				else
 				{
