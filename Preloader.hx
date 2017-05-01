@@ -21,7 +21,7 @@ import com.newgrounds.components.*;
  * ...
  * @author ninjaMuffin
  */
-@:bitmap("assets/images/lenny.png") class LogoImage extends BitmapData { }
+//@:bitmap("assets/images/") class LogoImage extends BitmapData { }
 @:font("assets/data/OpenSans-CondLight.ttf") class CustomFont extends Font { }
 
 class Preloader extends FlxBasePreloader 
@@ -42,11 +42,11 @@ class Preloader extends FlxBasePreloader
 		
 		var ratio:Float = this._width / 800; //This allows us to scale assets depending on the size of the screen.
 		
-		logo = new Sprite();
-		logo.addChild(new Bitmap(new LogoImage(0, 0))); //Sets the graphic of the sprite to a bitmap object, which uses our embedded bitmapData class
-		logo.scaleX = logo.scaleY = ratio;
-		logo.x = ((this._width) / 2) - ((logo.width) / 2);
-		logo.y = (this._height / 2) - ((logo.height) / 2);
+		//logo = new Sprite();
+		//logo.addChild(new Bitmap(new LogoImage(0, 0))); //Sets the graphic of the sprite to a bitmap object, which uses our embedded bitmapData class
+		//logo.scaleX = logo.scaleY = ratio;
+		//logo.x = ((this._width) / 2) - ((logo.width) / 2);
+		//logo.y = (this._height / 2) - ((logo.height) / 2);
 		//addChild(logo);
 		
 		/*
@@ -64,7 +64,7 @@ class Preloader extends FlxBasePreloader
 		addChild(text);
 		*/
 		#if (flash)
-			API.connect(root, "API ID", "Encrypiton");
+			API.connect(root, "API KEY", "Encryptionskeu");
 			
 			if (API.isNewgrounds)
 			{

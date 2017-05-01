@@ -63,6 +63,16 @@ class SplashState extends FlxState
 		super.create();
 	}
 	
+	override public function update(elapsed:Float):Void 
+	{
+		if (FlxG.keys.justPressed.SPACE || FlxG.mouse.justPressed)
+		{
+			finishSound();
+		}
+		
+		super.update(elapsed);
+	}
+	
 	private function timerCallback(Timer:FlxTimer):Void
 	{
 		_functions[_curPart]();

@@ -3,9 +3,11 @@ package;
  import flixel.FlxBasic;
  import flixel.FlxG;
  import flixel.FlxSprite;
+ import flixel.addons.ui.FlxUICheckBox;
  import flixel.group.FlxGroup.FlxTypedGroup;
  import flixel.text.FlxText;
  import flixel.ui.FlxBar;
+ import flixel.ui.FlxButton;
  import flixel.util.FlxColor;
  import source.Stats;
  import com.newgrounds.*;
@@ -15,6 +17,7 @@ package;
 
  class HUD extends FlxTypedGroup<FlxSprite>
  {
+	
 	private var _sprTime:FlxText;
 	private var _textAMPM:FlxText;
 	private var _usernameText:FlxText;
@@ -24,13 +27,22 @@ package;
 	private var _textMonth:FlxText;
 	
 	private var _healthBar:FlxBar;
-	private var _healthBarText:FlxText;
+	private var textColor:FlxColor;
 	
 	
+	private var dim:FlxSprite;
+	private var bg:FlxSprite;
+	private var _txtSound:FlxText;
+	private var _txtOldSound:FlxUICheckBox;
+	private var _hints:FlxUICheckBox;
+	private var _btnCred:FlxButton;
 	
     public function new()
     {
         super();
+		
+		textColor = new FlxColor();
+		textColor.setRGB(235, 117, 34);
 		
 		var barcolor:FlxColor;
 		
@@ -40,21 +52,18 @@ package;
 		
 		var _orangebar:FlxSprite;
 		_orangebar = new FlxSprite();
-		_orangebar.makeGraphic(FlxG.width, 20, barcolor);
+		_orangebar.makeGraphic(FlxG.width, 24, barcolor);
 		add(_orangebar);
 		
 		
 		_healthBar = new FlxBar(FlxG.width / 2, 3, LEFT_TO_RIGHT, 100, 10, Stats, "_stamina", 0, 24);
+		_healthBar.createColoredEmptyBar(0xFFA44F0F);
+		_healthBar.createColoredFilledBar(textColor);
 		add(_healthBar);
 		
-		
-		_healthBarText = new FlxText(FlxG.width / 2, 20, 0);
-		_healthBarText.text = _healthBar.percent + " Stamina";
-		add(_healthBarText);
-		
 		var _whiteLine:FlxSprite;
-		_whiteLine = new FlxSprite(0, 20);
-		_whiteLine.makeGraphic(FlxG.width, 2, FlxColor.BLACK);
+		_whiteLine = new FlxSprite(0, 24);
+		_whiteLine.makeGraphic(FlxG.width, 2, FlxColor.ORANGE);
 		add(_whiteLine);
 		
 		var profile:FlxSprite;
@@ -64,29 +73,41 @@ package;
 		profile.updateHitbox();
 		add(profile);
 		
+		var gear:FlxButton;
+		gear = new FlxButton(FlxG.width * 0.9, 2, "", clickGear);
+		gear.loadGraphic("assets/images/gear.png", false, 26, 20);
+		add(gear);
+		
 		createText();
+		
+		createGearPopup();
     }
 	
 	private function createText():Void
 	{
-		
 		var textFont:String = "assets/data/ARIALBD.TTF";
 		
-		var textColor:FlxColor;
-		textColor = new FlxColor();
-		textColor.setRGB(235, 117, 34);
-		
-		_sprTime = new FlxText(0, 0, 0, Std.string(Stats.h), 10);
+		_sprTime = new FlxText(0, 0, 0, Std.string(Stats.h), 15);
+		_sprTime.font = textFont;
 		add(_sprTime);
 		
-		_textDay = new FlxText(40, 0, 0, Stats.dd + "/", 10);
+		_textDay = new FlxText(40, 0, 0, Stats.dd + "/", 15);
+		_textDay.font = textFont;
 		add(_textDay);
 		
-		_textMonth = new FlxText(60, 0, 0, Stats.mm + "/", 10);
+		_textMonth = new FlxText(65, 0, 0, Stats.mm + "/", 15);
+		_textMonth.font = textFont;
 		add(_textMonth);
 		
-		_textAMPM = new FlxText(12, 0, 0, Stats.AMPM, 10);
+		_textAMPM = new FlxText(15, 0, 0, Stats.AMPM, 15);
+		_textAMPM.font = textFont;
 		add(_textAMPM);
+		
+		var staminaText:FlxText;
+		staminaText = new FlxText(577, 0, 0, "Stamina:", 12);
+		staminaText.font = "assets/data/ARIALBD.TTF";
+		staminaText.color = textColor;
+		add(staminaText);
 		
 		_usernameText = new FlxText(FlxG.width * 0.3, 0, 0, Stats._username, 13);
 		_usernameText.font = "assets/data/ARIALBD.TTF";
@@ -128,25 +149,106 @@ package;
 		{
 			Stats.dd = 1;
 			Stats.mm += 1;
-			Stats._cash -= 1750;
+			Stats._cash -= 1400;
 		}
 		
 		
 		_sprTime.text = Std.string(Stats.h);
 		_textAMPM.text = Stats.AMPM;
-		_textDay.text = Stats.dd + "/";
-		_textMonth.text = Stats.mm + "/";
+		_textDay.text = Stats.dd + " /";
+		_textMonth.text = Stats.mm + " /";
 		
 		
 		_cashText.text = "Cash: " + Stats._cash;
 		
 		_healthBar.value = Stats._stamina;
-		_healthBarText.text = _healthBar.percent + " Stamina" ;
+		
 		
     }
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
+	}
+	
+	private function clickGear():Void
+	{
+		dim.visible = !dim.visible;
+		bg.visible = !bg.visible;
+		_txtSound.visible = !_txtSound.visible;
+		_txtOldSound.visible = !_txtOldSound.visible;
+		_btnCred.visible = !_btnCred.visible;
+		_hints.visible = !_hints.visible;
+	}
+	
+	private function createGearPopup():Void
+	{
+		
+		dim = new FlxSprite();
+		dim.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		dim.alpha = 0.35;
+		//add(dim); 
+		
+		bg = new FlxSprite(1030, 30);
+		bg.makeGraphic(180, 125, FlxColor.BLACK);
+		add(bg);
+		
+		_txtSound = new FlxText(1050, 40, 170, "Use + and - to change volume!", 14);
+		_txtSound.font = "assets/data/ARIALBD.TTF";
+		add(_txtSound);
+		
+		_txtOldSound = new FlxUICheckBox(1050, 80, null, null, "Compressed sound(old school baby)", 100, null, clickOld);
+		_txtOldSound.checked = Stats._shitLoop;
+		add(_txtOldSound);
+		
+		_hints = new FlxUICheckBox(1050, 110, null, null, "Hints", 100, null, clickHints);
+		_hints.checked = Stats._hintsON;
+		add(_hints);
+		
+		_btnCred = new FlxButton(1050, 135, "Credits", clickCredits);
+		add(_btnCred);
+		
+		
+		dim.visible = false;
+		bg.visible = false;
+		_txtSound.visible = false;
+		_txtOldSound.visible = false;
+		_hints.visible = false;
+		_btnCred.visible = false;
+	}
+	
+	private function clickCredits():Void
+	{
+		FlxG.switchState(new CreditsState());
+	}
+	
+	private function clickHints():Void
+	{
+		if (_hints.checked)
+		{
+			Stats._hintsON = true;
+		}
+		else
+		{
+			Stats._hintsON = false;
+		}
+	}
+	
+	private function clickOld():Void
+	{
+		if (_txtOldSound.checked)
+		{
+			
+			FlxG.log.add("shitty");
+			FlxG.sound.playMusic("assets/music/SHITLOOP.mp3");
+			Stats._shitLoop = true;
+		}
+		else
+		{
+			
+			FlxG.log.add("new song");
+			FlxG.sound.playMusic("assets/music/1683_newgrounds_lhm__e.mp3");
+			Stats._shitLoop = false;
+		}
 	}
 }

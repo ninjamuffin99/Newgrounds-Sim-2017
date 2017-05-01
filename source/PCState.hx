@@ -19,6 +19,8 @@ import source.Stats;
  */
 class PCState extends FlxState 
 {
+	private var _bg:FlxSprite;
+	
 	private var _btnAnimate:FlxButton;
 	private var _btnDraw:FlxButton;
 	private var _btnMusic:FlxButton;
@@ -48,7 +50,6 @@ class PCState extends FlxState
 	
 	private var _usingText:FlxText;
 	
-	private var _statsSubState:StatsSubState;
 	private var _hud:HUD;
 	private var _statsHUD:StatsHUD;
 	
@@ -57,6 +58,10 @@ class PCState extends FlxState
 	
 	override public function create():Void 
 	{
+		_bg = new FlxSprite(0, 0);
+		_bg.loadGraphic("assets/images/PCBG.png", false, 1280, 720);
+		add(_bg);
+		
 		_hud = new HUD();
 		add(_hud);
 		
@@ -69,10 +74,10 @@ class PCState extends FlxState
 		_statsHUD.visible = false;
 		add(_statsHUD);
 		
-		_statsSubState = new StatsSubState();
-		
 		_notifacations = new Notifacations();
 		add(_notifacations);
+		
+		
 		
 		super.create();
 	}
@@ -93,7 +98,7 @@ class PCState extends FlxState
 			updateText();
 			Stats.artPost(0);
 			
-			_notifacations._newText(100, 100, "Your artwork has been posted to Newgrounds!", 10, FlxColor.ORANGE, 0.7);
+			_notifacations._newText(320, 50, "Your artwork has been posted to Newgrounds!", 10, FlxColor.ORANGE, 0.7);
 		}
 		
 		if (Stats._songProgress >= 100)
@@ -102,7 +107,22 @@ class PCState extends FlxState
 			Stats._songProgress = 0;
 			Stats.musicPost(0);
 			
-			_notifacations._newText(100, 100, "Your song has been posted to Newgrounds!");
+			
+			if (Stats._sponsoredSong)
+			{
+				Stats._cash += 100;
+				Stats._soundTrackAmount -= 1;
+				
+				if (Stats._soundTrackAmount == 0)
+				{
+					Stats._fans += FlxG.random.int(30, 70);
+					
+					Stats._sponsoredSong = false;
+				}
+			}
+			
+			_notifacations._newText(120, 140, "Your song has been posted to Newgrounds!");
+			
 		}
 		
 		if (Stats._animationProgress >= 100)
@@ -112,7 +132,7 @@ class PCState extends FlxState
 			Stats._animationProgress = 0;
 			Stats.animationPost(0);
 			
-			if (Stats._sponsoredProject)
+			if (Stats._sponsoredAnimation)
 			{
 				var sponsoredCash:Int;
 				sponsoredCash = Stats._ngCash - 5000;
@@ -122,10 +142,12 @@ class PCState extends FlxState
 				Stats._cash += sponsoredCash;
 				Stats._fans += FlxG.random.int(30, 70);
 				
+				Stats._sponsoredAnimation = false;
+				
 				_hud.updateHUD();
 			}
 			
-			_notifacations._newText(100, 100, "Your animation has been posted to Newgrounds!");
+			_notifacations._newText(120, 40, "Your animation has been posted to Newgrounds!");
 		}
 		
 		if (Stats._gameProgress >= 100)
@@ -134,96 +156,118 @@ class PCState extends FlxState
 			Stats._gameProgress = 0;
 			Stats.gamePost(0);
 			
-			_notifacations._newText(100, 100, "Your game has been posted to Newgrounds!");
-		}
-		
-		//PUBLISHED CHECKS
-		if (Stats._animationUnpubbed >= 1)
-		{
-			_btnPostAnimation.visible = true;
-		}
-		else
-		{
-			_btnPostAnimation.visible = false;
-		}
-		
-		if (Stats._artUnpubbed >= 1)
-		{
-			_btnPostArt.visible = true;
-		}
-		else
-		{
-			_btnPostArt.visible = false;
+			if (Stats._sponsoredGame)
+			{
+				var sponsoredCash:Int;
+				sponsoredCash = Stats._ngCash - 5000;
+				sponsoredCash = Std.int(sponsoredCash / 2);
+				
+				FlxG.log.add(sponsoredCash);
+				Stats._cash += sponsoredCash;
+				Stats._fans += FlxG.random.int(30, 70);
+				
+				Stats._sponsoredGame = false;
+				
+				_hud.updateHUD();
+			}
+			
+			_notifacations._newText(320, 150, "Your game has been posted to Newgrounds!");
 		}
 		
 		FlxG.watch.add(Stats, "_animationNames");
+		FlxG.watch.addMouse();
 		
 		super.update(elapsed);
 	}
 	
 	private function createButtons():Void
 	{
-		var buttonX:Int = 30;
+		var buttonX:Int = 35;
+		var buttonY:Int = 35;
 		
-		_btnAnimate = new FlxButton(buttonX, 22, "Animate", clickAnimate);
+		_btnAnimate = new FlxButton(buttonX, buttonY, "", clickAnimate);
+		_btnAnimate.loadGraphic("assets/images/animate.png", false, 89, 93);
 		add(_btnAnimate);
 		
-		_btnDraw = new FlxButton(buttonX, 60, "Draw", clickDraw);
+		buttonX += 200;
+		
+		_btnDraw = new FlxButton(buttonX, buttonY, "", clickDraw);
+		_btnDraw.loadGraphic("assets/images/PS.png", false, 78, 108);
 		add(_btnDraw);
 		
-		_btnMusic = new FlxButton(buttonX, 600, "Make Music", clickMusic);
+		buttonX -= 200;
+		buttonY += 100;
+		
+		_btnMusic = new FlxButton(buttonX, buttonY, "", clickMusic);
+		_btnMusic.loadGraphic("assets/images/fl.png", false, 96, 94);
 		add(_btnMusic);
 		
-		_btnProgram = new FlxButton(buttonX, 90, "Program", clickProgram);
+		buttonX += 200;
+		
+		
+		_btnProgram = new FlxButton(buttonX, buttonY, "", clickProgram);
+		_btnProgram.loadGraphic("assets/images/fd.png", false, 71, 93);
 		add(_btnProgram);
 		
+		buttonX += 80;
+		
 		_btnVoice = new FlxButton(buttonX, 120, "Voice Act", clickVoice);
-		add(_btnVoice);
+		//add(_btnVoice);
 		
 		_btnWrite = new FlxButton(buttonX, 150, "Write", clickWrite);
-		add(_btnWrite);
-		
-		_btnPostAnimation = new FlxButton(buttonX + 190, 50, "Post Animation", clickPostAnimation);
-		_btnPostAnimation.visible = false;
-		add(_btnPostAnimation);
-		
-		_btnPostArt = new FlxButton(buttonX + 190, 60, "Post", clickPost);
-		_btnPostArt.visible = false;
-		add(_btnPostArt);
+		//add(_btnWrite);
 		
 		_btnBack = new FlxButton(buttonX, 500, "Back", clickBack);
 		add(_btnBack);
 		
-		_btnNG = new FlxButton(buttonX, 450, "Newgrounds", clickNG);
+		_btnNG = new FlxButton(buttonX, 300, "", clickNG);
+		_btnNG.loadGraphic("assets/images/internet.png", false, 82, 93);
 		add(_btnNG);
 	}
 	
 	private function createText():Void
 	{
-		var textX:Int = FlxG.width - 250;
-		var textY:Int = 60;
-		var textSize:Int = 15;
-		
-		_artProgressText = new FlxText(textX, textY + 80, 0, "Artwork Progress: " + Stats._artProgress + "%", textSize);
-		
-		
-		add(_artProgressText);
 		
 	}
 	
 	private function createBars():Void
 	{
-		_animationProgressBar = new FlxBar(300, 50, LEFT_TO_RIGHT, 100, 10, Stats, "_animationProgress");
+		var barX:Int = 120;
+		var barY:Int = 60;
+		
+		_animationProgressBar = new FlxBar(barX, barY, LEFT_TO_RIGHT, 100, 10, Stats, "_animationProgress");
+		_animationProgressBar.createColoredEmptyBar(0xff222020, true, FlxColor.BLACK);
+		_animationProgressBar.createColoredFilledBar(0xFF9C3435);
 		add(_animationProgressBar);
 		
-		_artProgressBar = new FlxBar(300, 80, LEFT_TO_RIGHT, 100, 10, Stats, "_artProgress");
+		_artProgressBar = new FlxBar(barX + 200, barY, LEFT_TO_RIGHT, 100, 10, Stats, "_artProgress");
+		_artProgressBar.createColoredEmptyBar(0xff222020, true, FlxColor.BLACK);
+		_artProgressBar.createColoredFilledBar(0xFFA84178);
 		add(_artProgressBar);
 		
-		_programProgressBar = new FlxBar(300, 100, LEFT_TO_RIGHT, 100, 10, Stats, "_gameProgress");
+		barY += 100;
+		
+		_programProgressBar = new FlxBar(barX + 200, barY, LEFT_TO_RIGHT, 100, 10, Stats, "_gameProgress");
+		_programProgressBar.createColoredFilledBar(0xff275D8B);
+		_programProgressBar.createColoredEmptyBar(0xff222020, true, FlxColor.BLACK);
 		add(_programProgressBar);
 		
-		_songProgressBar = new FlxBar(300, 150, LEFT_TO_RIGHT, 100, 10, Stats, "_songProgress");
+		_songProgressBar = new FlxBar(barX, barY, LEFT_TO_RIGHT, 100, 10, Stats, "_songProgress");
+		_songProgressBar.createColoredEmptyBar(0xff222020, true, FlxColor.BLACK);
+		_songProgressBar.createColoredFilledBar(0xFF406B23);
 		add(_songProgressBar);
+		
+		//COLORS
+		/*
+		 grey: 34, 32, 32 0x222020
+		 bklue: 39, 93, 139
+		 red: 156, 52, 53
+		 green: 64, 107, 35
+		 pink/art : 168, 65, 120
+		 
+		 0x275D8B
+		  
+		*/
 	}
 	
 	private function updateText():Void
@@ -241,11 +285,13 @@ class PCState extends FlxState
 			Stats._flashSkill += 0.5;
 			Stats.h += 1;
 			Stats.animationProgress(2.5);
+			
+			updateText();
+			_hud.updateHUD();
+			_statsHUD.updateText();
 		}
 		
-		updateText();
-		_hud.updateHUD();
-		_statsHUD.updateText();
+		
 	}
 	
 	private function clickMusic():Void
@@ -255,12 +301,12 @@ class PCState extends FlxState
 			Stats.musicEXP(5);
 			Stats._stamina -= 1;
 			Stats.h += 1;
-			Stats.songProgress(10);
+			Stats.songProgress(7);
+			
+			updateText();
+			_hud.updateHUD();
+			_statsHUD.updateText();
 		}
-		
-		updateText();
-		_hud.updateHUD();
-		_statsHUD.updateText();
 	}
 	
 	
@@ -273,6 +319,10 @@ class PCState extends FlxState
 			Stats._artProgress += 20;
 			Stats.h += 1;
 			Stats._stamina -= 1;
+			
+			_hud.updateHUD();
+			updateText();
+			_statsHUD.updateText();
 		}
 		
 		
@@ -281,9 +331,7 @@ class PCState extends FlxState
 			FlxG.log.add("You're too tired!");
 		}
 		
-		_hud.updateHUD();
-		updateText();
-		_statsHUD.updateText();
+		
 	}
 	
 	private function clickProgram():Void
@@ -295,6 +343,10 @@ class PCState extends FlxState
 			//Stats._artProgress += 20;
 			Stats.h += 1;
 			Stats._stamina -= 1;
+			
+			_hud.updateHUD();
+			updateText();
+			_statsHUD.updateText();
 		}
 		
 		
@@ -305,9 +357,7 @@ class PCState extends FlxState
 			FlxG.log.add("You're too tired!");
 		}
 		
-		_hud.updateHUD();
-		updateText();
-		_statsHUD.updateText();
+		
 	}
 	
 	private function clickVoice():Void
@@ -317,12 +367,11 @@ class PCState extends FlxState
 			Stats.voiceEXP(1);
 			Stats.h += 1;
 			Stats._stamina -= 1;
+			
+			_hud.updateHUD();
+			updateText();
+			_statsHUD.updateText();
 		}
-		
-		
-		_hud.updateHUD();
-		updateText();
-		_statsHUD.updateText();
 	}
 	
 	private function clickWrite():Void
@@ -332,10 +381,14 @@ class PCState extends FlxState
 			Stats.writingEXP(1);
 			Stats.h += 1;
 			Stats._stamina -= 1;
+			
+			
+			_hud.updateHUD();
+			updateText();
+			_statsHUD.updateText();
+		
 		}
-		_hud.updateHUD();
-		updateText();
-		_statsHUD.updateText();
+		
 	}
 	
 	private function clickPostAnimation():Void

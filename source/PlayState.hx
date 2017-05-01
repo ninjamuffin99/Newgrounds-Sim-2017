@@ -21,12 +21,12 @@ class PlayState extends FlxState
 	private var _btnPC:FlxButton;
 	private var _btnSleep:FlxButton;
 	private var _btnWork:FlxButton;
-	private var _btnDraw:FlxButton;
-	private var _btnStore:FlxButton;
 	
 	private var _hud:HUD;
 	private var _statsHUD:StatsHUD;
 	private var _notifacations:Notifacations;
+	
+	private var _hints:FlxText;
 	
 	override public function create():Void
 	{
@@ -46,35 +46,50 @@ class PlayState extends FlxState
 		_notifacations = new Notifacations();
 		add(_notifacations);
 		
+		
+		_hints = new FlxText(1000, 600, 0, "Press S to bring up stats\nEscape to return to the previous screen\nEvery month you'll lose 1400$ \nfor monthly bills and whatnot\nThese hints can be turned of in the options", 14);
+		_hints.font = "assets/data/ARIALBD.TTF";
+		_hints.color = FlxColor.BLACK;
+		add(_hints);
+		
+		
+		if (Stats._loadFade)
+		{
+			FlxG.camera.fade(FlxColor.BLACK, 0.5, true);
+			Stats._loadFade = false;
+		}
+		
 		super.create();
 	}
 	
 	private function createButtons():Void
 	{
 		var btnY:Int = 16;
-		_btnPC = new FlxButton(340, 256, "Log on", clickPC);
-		_btnPC.loadGraphic("assets/images/Desk.png", true, 512, 271);
+		_btnPC = new FlxButton(340, 235, "", clickPC);
+		_btnPC.loadGraphic("assets/images/Desk.png", true, 512, 302);
 		_btnPC.updateHitbox();
 		add(_btnPC);
 		
 		_btnSleep = new FlxButton(118, 160, "", clickSleep);
-		_btnSleep.loadGraphic("assets/images/BedDoor.png", false, 202, 524);
+		_btnSleep.loadGraphic("assets/images/BedDoor.png", false, 202, 525);
 		_btnSleep.updateHitbox();
 		add(_btnSleep);
 		
-		_btnWork = new FlxButton(20, btnY + 40, "Work", clickWork);
+		_btnWork = new FlxButton(973, 157, "", clickWork);
+		_btnWork.loadGraphic("assets/images/WorkDoor.png", false, 258, 329);
 		add(_btnWork);
 		
-		_btnDraw = new FlxButton(20, btnY + 60, "Draw", clickDraw);
-		add(_btnDraw);
-		
-		_btnStore = new FlxButton(20, btnY + 85, "Store", clickStore);
-		add(_btnStore);
 	}
 	
 	override public function update(elapsed:Float):Void
 	{
+		
+		_hints.visible = Stats._hintsON;
+		
 		FlxG.watch.addMouse();
+		FlxG.watch.add(Stats, "h");
+		FlxG.watch.add(Stats, "AMPM");
+		
 		super.update(elapsed);
 	}
 	
@@ -90,33 +105,9 @@ class PlayState extends FlxState
 		_hud.updateHUD();
 		
 		Stats.save();
-		_notifacations._newText(40, 40, "Game Saved and slept for 8 hours", 10, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
+		_notifacations._newText(110, 150, "Game Saved and slept for 8 hours", 15, FlxColor.BLACK, 0.25, "assets/sounds/save.wav");
 		
-		if (Stats._ngCash >= 7000 && Stats._animationLevel >= 20 && !Stats._sponsoredProject) //also eventually make it so you have to have so many fans to get sponsored)
-		{
-			var _randomSponsor:Int;
-			_randomSponsor = FlxG.random.int(0, Std.int(Stats._animationLevel * 1.3));
-			if (_randomSponsor >= 20)
-			{
-				Stats._sponsoredProject = true;
-				_notifacations._newText(400, 400, "Your animation has been Sponsored! \n Finish it to receive bonus money!", 20, FlxColor.BLACK, 2.25);
-				API.unlockMedal("Basically working at Disney now");
-			}
-			else
-			{
-				FlxG.log.add("Your animation has not been sponsored yet");
-			}
-		}
-		
-		else if (Stats._sponsoredProject)
-		{
-			FlxG.log.add("already sponsored!");
-		}
-		
-		else if (Stats._ngCash < 7000)
-		{
-			FlxG.log.add("no NG CASH");
-		}
+		sponsoredStuff();
 	}
 	
 	
@@ -131,9 +122,9 @@ class PlayState extends FlxState
 		{
 			_workable = true;
 		}
-		else
+		if (Stats.h == 12 && Stats.PM)
 		{
-			_notifacations._newText(100, 400, "You only work between 8AM and 5PM", 20, FlxColor.BLACK, 0.5);
+			_workable = true;
 		}
 		
 		if (Stats._stamina >= 10 && _workable)
@@ -141,25 +132,85 @@ class PlayState extends FlxState
 			Stats.addCash(65);
 			Stats.addWorkHours(6);
 			Stats._stamina -= 7;
-			FlxG.log.add("Cash = " + Stats._cash);
+			
+			_notifacations._newText(1000, 130, "You earned 65 dollars!", 15, FlxColor.BLACK, 0.5);
 		}
-		if (Stats._stamina <= 9)
+		if (Stats._stamina <= 9 && _workable)
 		{
-			_notifacations._newText(100, 400, "You're too tired to work!", 20, FlxColor.BLACK, 0.5);
-			FlxG.log.add("You're too tired to work!");
+			_notifacations._newText(1000, 130, "You're too tired to work!", 15, FlxColor.BLACK, 0.5);
+		}
+		
+		if (!_workable)
+		{
+			_notifacations._newText(1000, 130, "You only work between 8AM and 5PM", 15, FlxColor.BLACK, 0.5);
 		}
 		
 		_hud.updateHUD();
 	}
 	
-	private function clickDraw():Void
+	private function sponsoredStuff():Void
 	{
-		Stats._artSkill += 1;
-		FlxG.log.add("Art Skill = " + Stats._artSkill);
-	}
-	
-	private function clickStore():Void
-	{
-		FlxG.switchState(new StoreState());
+		if (Stats._ngCash >= 7000 && Stats._fans >= 50) //also eventually make it so you have to have so many fans to get sponsored)
+		{
+			var _randomSponsor:Int;
+			
+			var notifX:Int = 400;
+			var notifY:Int = 600;
+			
+			if (Stats._animationLevel >= 20)
+			{
+				_randomSponsor = FlxG.random.int(0, Std.int(Stats._animationLevel * 1.3));
+				if (_randomSponsor >= 20 && !Stats._sponsoredAnimation)
+				{
+					Stats._sponsoredAnimation = true;
+					_notifacations._newText(notifX, notifY, "Your animation has been Sponsored! \n Finish it to receive bonus money!", 20, FlxColor.BLACK, 2.25);
+					API.unlockMedal("Basically working at Disney now");
+				}
+				else
+				{
+					FlxG.log.add("Your animation has not been sponsored yet");
+				}
+			}
+			
+			if (Stats._programLevel >= 15 && !Stats._sponsoredGame)
+			{
+				_randomSponsor = FlxG.random.int(0, Std.int(Stats._programLevel * 1.3));
+				
+				if (_randomSponsor >= 20)
+				{
+					Stats._sponsoredGame = true;
+					_notifacations._newText(notifX, notifY, "Your game has been Sponsored! \n Finish it to receive bonus money!", 20, FlxColor.BLACK, 2.25);
+					//API.unlockMedal("Basically working at Disney now");
+				}
+				else
+				{
+					FlxG.log.add("Your game has not been sponsored yet");
+				}
+			}
+			
+			if (Stats._musicLevel >= 15 && !Stats._sponsoredSong)
+			{
+				_randomSponsor = FlxG.random.int(0, Std.int(Stats._musicLevel * 1.3));
+				
+				if (_randomSponsor >= 15)
+				{
+					Stats._sponsoredSong = true;
+					Stats._soundTrackAmount = FlxG.random.int(5, 10);
+					
+					_notifacations._newText(notifX, notifY, "You have been commisioned to do a soundtrack for a game \nfinish " + Stats._soundTrackAmount + " songs to recieve money!", 20, FlxColor.BLACK, 2.25);
+					//API.unlockMedal("Basically working at Disney now");
+				}
+				else
+				{
+					FlxG.log.add("Your song has not been sponsored yet");
+				}
+			}
+			
+		}
+		
+		else if (Stats._ngCash < 7000)
+		{
+			FlxG.log.add("no NG CASH");
+		}
 	}
 }
