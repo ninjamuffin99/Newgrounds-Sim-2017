@@ -10,6 +10,7 @@ import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 import source.Stats;
 
+
 /**
  * ...
  * @author 
@@ -20,6 +21,8 @@ class SubState extends FlxSubState
 	
 	private var _title:FlxTypeText;
 	private var _post:FlxTypeText;
+	
+	private var _notifacations:Notifacations;
 	
 	private var _foundFlash:FlxText;
 	
@@ -67,6 +70,9 @@ class SubState extends FlxSubState
 		_post.color = FlxColor.BLACK;
 		_post.font = "assets/data/ARIALBD.TTF";
 		add(_post);
+		
+		_notifacations = new Notifacations();
+		add(_notifacations);
 		
 		super.create();
 	}
@@ -123,13 +129,26 @@ class SubState extends FlxSubState
 	
 	private function clickShitpost():Void
 	{
-		//TODO: instead of doing this, it'll change the title and post text to suit, and then call typingStart
-		_randomPost = FlxG.random.int(0, 3);
-		_title.resetText(_titleArray[_randomPost]);
-		_post.resetText(_postArray[_randomPost]);
+		var banTimer:Int;
+		banTimer = Stats.h - Stats._timeOfBan;
+		banTimer = 12 - banTimer;
+		if (banTimer == 0)
+			Stats._banned = false;
 		
-		Stats.forumPost(10);
-		typingStart();
+		if (!Stats._banned)
+		{
+			//TODO: instead of doing this, it'll change the title and post text to suit, and then call typingStart
+			_randomPost = FlxG.random.int(0, 3);
+			_title.resetText(_titleArray[_randomPost]);
+			_post.resetText(_postArray[_randomPost]);
+			
+			Stats.forumPost(FlxG.random.int(2, 12));
+			typingStart();
+		}
+		else
+		{
+			_notifacations._newText(250, 500, "You're still banned for " + banTimer + " more hours!", 20, FlxColor.WHITE, 1.2);
+		}
 	}
 	
 	private function clickAdvice():Void
@@ -162,8 +181,11 @@ class SubState extends FlxSubState
 		if (_randomPost >= 1)
 			_post.start(0.015, false, false, ["SPACE"]);
 		_post.start(0.025, false, false, ["SPACE"]);
-		Stats.forumPost(FlxG.random.int(1, 3));
 		FlxG.log.add("Forum Posts = " + Stats._forumPosts);
+		if (Stats._banned)
+		{
+			_notifacations._newText(250, 500, "You have been temp banned from the forums! Quit shitposting so much!", 20, FlxColor.WHITE, 1.3);
+		}
 	}
 	
 	private function clickClose():Void

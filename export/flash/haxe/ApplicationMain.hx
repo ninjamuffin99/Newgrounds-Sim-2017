@@ -146,10 +146,6 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/NGBG.psd");
-		types.push (lime.Assets.AssetType.BINARY);
-		
-		
 		urls.push ("assets/images/NG_LOGO.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -160,10 +156,6 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/PCBG.png");
 		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/projectFiles/CreditsAnim.swf");
-		types.push (lime.Assets.AssetType.BINARY);
 		
 		
 		urls.push ("assets/images/projectFiles/NGBG.psd");
@@ -180,10 +172,6 @@ class ApplicationMain {
 		
 		urls.push ("assets/images/TitleScreen.png");
 		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/TitleScreenPSD.psd");
-		types.push (lime.Assets.AssetType.BINARY);
 		
 		
 		urls.push ("assets/images/using.png");
@@ -423,7 +411,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1068",
+			build: "1071",
 			company: "",
 			file: "NGSim",
 			fps: 60,
