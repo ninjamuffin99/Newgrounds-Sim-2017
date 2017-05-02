@@ -3,6 +3,7 @@ import flash.display.Bitmap;
 import flixel.FlxG;
 import flixel.input.FlxAccelerometer;
 import flixel.util.FlxSave;
+import com.newgrounds.*;
 
 /**
  * ...
@@ -57,6 +58,9 @@ class Stats
 	public static var _protects:Int = 0;
 	public static var _supporters:Int = 1700;
 	public static var _ngCash:Int = 7000;//3900;
+	public static var _banned:Bool;
+	public static var _timesBanned:Int = 0;
+	public static var _timeOfBan:Int;
 	
 	public static var _sponsoredAnimation:Bool = false;
 	public static var _sponsoredGame:Bool = false;
@@ -184,6 +188,9 @@ class Stats
 		_protects = FlxG.save.data._protects;
 		_supporters = FlxG.save.data._supporters;
 		_ngCash = FlxG.save.data._ngCash;
+		_banned = FlxG.save.data._banned;
+		_timesBanned = FlxG.save.data._timesBanned;
+		_timeOfBan = FlxG.save.data._timeOfBan;
 		
 		_sponsoredAnimation = FlxG.save.data._sponsoredAnimation;
 		_sponsoredGame = FlxG.save.data._sponsoredGame;
@@ -259,6 +266,9 @@ class Stats
 		FlxG.save.data._protects = _protects;
 		FlxG.save.data._supporters = _supporters;
 		FlxG.save.data._ngCash = _ngCash;
+		FlxG.save.data._banned = _banned;
+		FlxG.save.data._timesBanned = _timesBanned;
+		FlxG.save.data._timeOfBan = _timeOfBan;
 		
 		FlxG.save.data._animationQuality = _animationQuality;
 		FlxG.save.data._artQuality = _artQuality;
@@ -307,6 +317,17 @@ class Stats
 	public static function forumPost(P:Int):Void
 	{
 		_forumPosts += P;
+		if (P >= 11)
+		{
+			_banned = true;
+			_timesBanned += 1;
+			_timeOfBan = h;
+			if (_timesBanned >= 10)
+			{
+				API.unlockMedal("Shitposter Extraordinaire");
+			}
+			h += 1;
+		}
 	}
 	
 	public static function animationPost(P:Int):Void
