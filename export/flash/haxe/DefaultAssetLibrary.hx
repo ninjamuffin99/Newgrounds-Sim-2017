@@ -97,9 +97,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
-		
-		
-		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -197,16 +194,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/NewGameStats.jpg", AssetType.IMAGE);
 		className.set ("assets/images/NGBG.png", __ASSET__assets_images_ngbg_png);
 		type.set ("assets/images/NGBG.png", AssetType.IMAGE);
-		className.set ("assets/images/NGBG.psd", __ASSET__assets_images_ngbg_psd);
-		type.set ("assets/images/NGBG.psd", AssetType.BINARY);
 		className.set ("assets/images/NG_LOGO.png", __ASSET__assets_images_ng_logo_png);
 		type.set ("assets/images/NG_LOGO.png", AssetType.IMAGE);
 		className.set ("assets/images/NinjaMuffin.png", __ASSET__assets_images_ninjamuffin_png);
 		type.set ("assets/images/NinjaMuffin.png", AssetType.IMAGE);
 		className.set ("assets/images/PCBG.png", __ASSET__assets_images_pcbg_png);
 		type.set ("assets/images/PCBG.png", AssetType.IMAGE);
-		className.set ("assets/images/projectFiles/CreditsAnim.swf", __ASSET__assets_images_projectfiles_creditsanim_swf);
-		type.set ("assets/images/projectFiles/CreditsAnim.swf", AssetType.BINARY);
 		className.set ("assets/images/projectFiles/NGBG.psd", __ASSET__assets_images_projectfiles_ngbg_psd);
 		type.set ("assets/images/projectFiles/NGBG.psd", AssetType.BINARY);
 		className.set ("assets/images/projectFiles/TitleScreenPSD.psd", __ASSET__assets_images_projectfiles_titlescreenpsd_psd);
@@ -215,8 +208,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/PS.png", AssetType.IMAGE);
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
-		className.set ("assets/images/TitleScreenPSD.psd", __ASSET__assets_images_titlescreenpsd_psd);
-		type.set ("assets/images/TitleScreenPSD.psd", AssetType.BINARY);
 		className.set ("assets/images/using.png", __ASSET__assets_images_using_png);
 		type.set ("assets/images/using.png", AssetType.IMAGE);
 		className.set ("assets/images/Window.png", __ASSET__assets_images_window_png);
@@ -426,10 +417,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/NGBG.psd";
-		path.set (id, id);
-		
-		type.set (id, AssetType.BINARY);
 		id = "assets/images/NG_LOGO.png";
 		path.set (id, id);
 		
@@ -442,10 +429,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/projectFiles/CreditsAnim.swf";
-		path.set (id, id);
-		
-		type.set (id, AssetType.BINARY);
 		id = "assets/images/projectFiles/NGBG.psd";
 		path.set (id, id);
 		
@@ -462,10 +445,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/TitleScreenPSD.psd";
-		path.set (id, id);
-		
-		type.set (id, AssetType.BINARY);
 		id = "assets/images/using.png";
 		path.set (id, id);
 		
@@ -747,9 +726,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/NGBG.png", __ASSET__assets_images_ngbg_png);
 		type.set ("assets/images/NGBG.png", AssetType.IMAGE);
 		
-		className.set ("assets/images/NGBG.psd", __ASSET__assets_images_ngbg_psd);
-		type.set ("assets/images/NGBG.psd", AssetType.BINARY);
-		
 		className.set ("assets/images/NG_LOGO.png", __ASSET__assets_images_ng_logo_png);
 		type.set ("assets/images/NG_LOGO.png", AssetType.IMAGE);
 		
@@ -758,9 +734,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/PCBG.png", __ASSET__assets_images_pcbg_png);
 		type.set ("assets/images/PCBG.png", AssetType.IMAGE);
-		
-		className.set ("assets/images/projectFiles/CreditsAnim.swf", __ASSET__assets_images_projectfiles_creditsanim_swf);
-		type.set ("assets/images/projectFiles/CreditsAnim.swf", AssetType.BINARY);
 		
 		className.set ("assets/images/projectFiles/NGBG.psd", __ASSET__assets_images_projectfiles_ngbg_psd);
 		type.set ("assets/images/projectFiles/NGBG.psd", AssetType.BINARY);
@@ -773,9 +746,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
-		
-		className.set ("assets/images/TitleScreenPSD.psd", __ASSET__assets_images_titlescreenpsd_psd);
-		type.set ("assets/images/TitleScreenPSD.psd", AssetType.BINARY);
 		
 		className.set ("assets/images/using.png", __ASSET__assets_images_using_png);
 		type.set ("assets/images/using.png", AssetType.IMAGE);
@@ -1582,16 +1552,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_mouse_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_newgamestats_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ngbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_ngbg_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ng_logo_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ninjamuffin_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_pcbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_projectfiles_creditsanim_swf extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_projectfiles_ngbg_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_projectfiles_titlescreenpsd_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ps_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_titlescreen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__assets_images_titlescreenpsd_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_using_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_window_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_workdoor_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1644,9 +1611,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font { public function new () { super (); name = "Arial Bold"; } } 
 @:keep #if display private #end class __ASSET__assets_data_featureditem_ttf extends lime.text.Font { public function new () { super (); name = "Featured Item"; } } 
 @:keep #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font { public function new () { super (); name = "Open Sans Cond Light"; } } 
-
-
-
 
 
 
@@ -1761,16 +1725,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/mouse.png") #if display private #end class __ASSET__assets_images_mouse_png extends lime.graphics.Image {}
 @:image("assets/images/NewGameStats.jpg") #if display private #end class __ASSET__assets_images_newgamestats_jpg extends lime.graphics.Image {}
 @:image("assets/images/NGBG.png") #if display private #end class __ASSET__assets_images_ngbg_png extends lime.graphics.Image {}
-@:file("assets/images/NGBG.psd") #if display private #end class __ASSET__assets_images_ngbg_psd extends lime.utils.Bytes {}
 @:image("assets/images/NG_LOGO.png") #if display private #end class __ASSET__assets_images_ng_logo_png extends lime.graphics.Image {}
 @:image("assets/images/NinjaMuffin.png") #if display private #end class __ASSET__assets_images_ninjamuffin_png extends lime.graphics.Image {}
 @:image("assets/images/PCBG.png") #if display private #end class __ASSET__assets_images_pcbg_png extends lime.graphics.Image {}
-@:file("assets/images/projectFiles/CreditsAnim.swf") #if display private #end class __ASSET__assets_images_projectfiles_creditsanim_swf extends lime.utils.Bytes {}
 @:file("assets/images/projectFiles/NGBG.psd") #if display private #end class __ASSET__assets_images_projectfiles_ngbg_psd extends lime.utils.Bytes {}
 @:file("assets/images/projectFiles/TitleScreenPSD.psd") #if display private #end class __ASSET__assets_images_projectfiles_titlescreenpsd_psd extends lime.utils.Bytes {}
 @:image("assets/images/PS.png") #if display private #end class __ASSET__assets_images_ps_png extends lime.graphics.Image {}
 @:image("assets/images/TitleScreen.png") #if display private #end class __ASSET__assets_images_titlescreen_png extends lime.graphics.Image {}
-@:file("assets/images/TitleScreenPSD.psd") #if display private #end class __ASSET__assets_images_titlescreenpsd_psd extends lime.utils.Bytes {}
 @:image("assets/images/using.png") #if display private #end class __ASSET__assets_images_using_png extends lime.graphics.Image {}
 @:image("assets/images/Window.png") #if display private #end class __ASSET__assets_images_window_png extends lime.graphics.Image {}
 @:image("assets/images/WorkDoor.png") #if display private #end class __ASSET__assets_images_workdoor_png extends lime.graphics.Image {}

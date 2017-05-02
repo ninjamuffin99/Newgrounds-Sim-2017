@@ -142,7 +142,7 @@ class SubState extends FlxSubState
 			_title.resetText(_titleArray[_randomPost]);
 			_post.resetText(_postArray[_randomPost]);
 			
-			Stats.forumPost(FlxG.random.int(2, 12);
+			Stats.forumPost(FlxG.random.int(2, 12));
 			typingStart();
 		}
 		else
