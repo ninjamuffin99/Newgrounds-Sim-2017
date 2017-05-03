@@ -89,6 +89,7 @@ class NewGameState extends FlxState
 		createUserStats();
 		
 		
+		
 		/*
 		_btnPicUpload = new FlxButton(200, 200, "Upload profile pic", clickUpload);
 		add(_btnPicUpload);
