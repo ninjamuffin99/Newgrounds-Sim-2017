@@ -8,7 +8,7 @@ import com.newgrounds.*;
 import com.newgrounds.components.*;
 
 /**
- * ...
+ * Simple credits state, makes one giant FlxText, and scrolls it upwards
  * @author ...
  */
 class CreditsState extends FlxState 
