@@ -10,7 +10,8 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 
 /**
- * ...
+ * A simple class that makes a  little popup text (NOTE: There seems to be a bug when you call _newText() for the first time
+ * to fix it I just call _newtext() in create, with no words
  * @author ...
  */
 class Notifacations extends FlxTypedGroup<FlxSprite>
@@ -33,8 +34,8 @@ class Notifacations extends FlxTypedGroup<FlxSprite>
 	{
 		var _notif:FlxText;
 		_notif = new FlxText(X, Y, 0, Text, Size);
-		_notif .color = color;
-		_notif .font = "assets/data/ARIALBD.TTF";
+		_notif.color = color;
+		_notif.font = "assets/data/ARIALBD.TTF";
 		add(_notif);
 		/*
 		if (formating)
@@ -43,7 +44,11 @@ class Notifacations extends FlxTypedGroup<FlxSprite>
 			_notif.addFormat(format);
 		}
 		*/
+		
+		//Plays a sound if defined in parameters
 		FlxG.sound.play(sound);
+		
+		//This is the tween that fades it out and up
 		FlxTween.tween(_notif, { alpha: 0, y: _notif.y - 16}, 0.66, { ease:FlxEase.circOut, startDelay: delay}); 
 	}
 }
