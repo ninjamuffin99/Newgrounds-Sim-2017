@@ -80,7 +80,7 @@ class FileSelect extends FlxState
 	private function createDelete()
 	{
 		var offset:Int = 750;
-		var wordX:Float = -25;
+		var wordX:Float = -65;
 		
 		_delete = new FlxUIButton(offset, 100, "Delete Data", delete1);
 		_delete.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
