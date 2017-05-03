@@ -30,26 +30,29 @@ class FileSelect extends FlxState
 		FlxG.camera.fade(FlxColor.BLACK, 0.5, true);
 		
 		var centerX:Float = FlxG.width / 2;
+		var wordOffset:Float = -40;
 		
 		_file1 = new FlxUIButton(centerX, 100, "File 1", load1);
 		_file1.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_file1.setLabelFormat("assets/data/FeaturedItem.ttf", 40);
 		_file1.setGraphicSize(250);
-		_file1.setAllLabelOffsets(0, 15);
+		_file1.setAllLabelOffsets(wordOffset, 0);
 		_file1.screenCenter(X);
+		_file1.updateHitbox();
 		
 		_file2 = new FlxUIButton(centerX, 200, "File 2", load2);
 		_file2.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_file2.setLabelFormat("assets/data/FeaturedItem.ttf", 40);
 		_file2.setGraphicSize(250);
-		_file2.setAllLabelOffsets(0, 15);
+		_file2.setAllLabelOffsets(wordOffset, 0);
 		_file2.screenCenter(X);
+		_file2.updateHitbox();
 		
 		_file3 = new FlxUIButton(centerX, 300, "File 3", load3);
 		_file3.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_file3.setLabelFormat("assets/data/FeaturedItem.ttf", 40);
 		_file3.setGraphicSize(250);
-		_file3.setAllLabelOffsets(0, 0);
+		_file3.setAllLabelOffsets(wordOffset, 0);
 		_file3.screenCenter(X);
 		_file3.updateHitbox();
 		
@@ -76,26 +79,30 @@ class FileSelect extends FlxState
 	
 	private function createDelete()
 	{
-		var offset:Int = 700;
+		var offset:Int = 750;
+		var wordX:Float = -25;
 		
 		_delete = new FlxUIButton(offset, 100, "Delete Data", delete1);
 		_delete.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_delete.setLabelFormat("assets/data/FeaturedItem.ttf", 30);
 		_delete.setGraphicSize(200);
-		_delete.setAllLabelOffsets(0, 15);
+		_delete.setAllLabelOffsets(wordX, 0);
+		_delete.updateHitbox();
 		
 		_delete2 = new FlxUIButton(offset, 200, "Delete Data", delete2);
 		_delete2.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_delete2.setLabelFormat("assets/data/FeaturedItem.ttf", 30);
 		_delete2.setGraphicSize(200);
-		_delete2.setAllLabelOffsets(0, 15);
+		_delete2.setAllLabelOffsets(wordX, 0);
+		_delete2.updateHitbox();
 		
 		
 		_delete3 = new FlxUIButton(offset, 300, "Delete Data", delete3);
 		_delete3.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_delete3.setLabelFormat("assets/data/FeaturedItem.ttf", 30);
 		_delete3.setGraphicSize(200);
-		_delete3.setAllLabelOffsets(0, 15);
+		_delete3.setAllLabelOffsets(wordX, 0);
+		_delete3.updateHitbox();
 	}
 	
 	private function load1():Void
