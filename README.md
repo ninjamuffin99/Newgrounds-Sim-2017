@@ -10,6 +10,6 @@ The dev branch is the..well.. developement branch, where all the developement ha
 
 #### Useful stuff and things
 
-[The License](/LICENSE.md)
+[The License](/Licesnse.md)
 
 [The Code of Conduct](/CODE_OF_CONDUCT.md)
