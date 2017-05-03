@@ -86,7 +86,10 @@ class NewGameState extends FlxState
 		_btnNext = new FlxButton(230, 203, "Next", clickNext);
 		add(_btnNext);
 		
+		createVariables();
+		
 		createUserStats();
+		
 		
 		
 		
@@ -101,6 +104,122 @@ class NewGameState extends FlxState
 		_showImage(new GraphicLogo(0, 0));
 		*/
 		super.create();
+	}
+	
+	private function createVariables():Void
+	{
+		Stats._animationSkill = 0;
+		Stats._artSkill = 0;
+		Stats._musicSkill = 0;
+		Stats._programSkill = 0;
+		Stats._voiceSkill = 0;
+		Stats._writingSkill = 0; //will use for quality of jokes in animations as well as forum stuff maybe
+		
+		//Leveling System
+		Stats._animationLevel = 1;
+		Stats._artLevel = 1;
+		Stats._musicLevel = 1;
+		Stats._programLevel = 1;
+		Stats._voiceLevel = 1;
+		Stats._writingLevel = 1;
+		
+		Stats._animationLevelUp = 15;
+		Stats._artLevelUp = 15;
+		Stats._musicLevelUp = 15;
+		Stats._programLevelUp = 15;
+		Stats._voiceLevelUp = 15;
+		Stats._writingLevelUp = 15;
+	
+	
+	//DATE AND TIME STATS
+		Stats.yyyy = 2017;
+		Stats.mm = 1;
+		Stats.dd = 4;
+		Stats.PM = false;
+		Stats.AMPM = "AM";
+		Stats.h = 8;
+		Stats.m;
+		Stats._stamina = 24;
+	
+	//PERSONAL STATS
+		Stats._cash = 1000;
+	
+	//Newgrounds Stuff
+		Stats._fans = 0;
+		Stats._forumPosts = 0;
+		Stats._blams = 0;
+		Stats._protects = 0;
+		Stats._supporters = 1700;
+		Stats._ngCash = 7000;//3900;
+		Stats._banned = false;
+		Stats._timesBanned = 0;
+		Stats._timeOfBan;
+		
+		Stats._sponsoredAnimation = false;
+		Stats._sponsoredGame = false;
+		Stats._sponsoredSong = false;
+		Stats._soundTrackAmount;
+	
+	//STYLE STATS will maybe use these but for now these will get cut
+	/*Stats._artVectorSkill;
+	Stats._artPixelSkill;
+	
+	Stats._animationVectorSkill;
+	Stats._animationPixelSkill;*/
+	
+	//WHICH PROGRAMS USER OWNS
+		Stats._hasFlash = false;
+		Stats._hasFlashMX = false;
+		
+		Stats._hasClipStudio = false;
+	
+	//SPECIFIC PROGRAM STATS
+		Stats._flashSkill = 5;
+		Stats._toonBoomSkill;
+		Stats._openToonzSkill;
+		Stats._photoshopSkill;
+		Stats._mspaintSkill;
+		Stats._flSkill;
+		Stats._blenderSkill;
+		Stats._mayaSkill;
+		Stats._unitySkill;
+		Stats._stencylSkill;
+		Stats._gamemakerSkill;
+		Stats._constructSkill;
+		Stats._kritaSkill;
+		Stats._gimpSkill;
+		Stats._asepriteSkill;
+		
+		//QUALITY STATS
+		Stats._animationQuality;//= _animationSkill + _artSkill / _flashSkill; // change this to program of choice possibly have it change dependign on which program you're using
+		Stats._artQuality;
+		Stats._gameQuality;
+		Stats._songQuality;
+		
+		//add in more programs later such as unity or other art programs liek krita
+		
+		//PROGRESS OF PROJECTS
+		Stats._artProgress = 0;
+		Stats._animationProgress = 0;
+		Stats._gameProgress = 0;
+		Stats._songProgress = 0;
+		
+		Stats._animationUnpubbed = 0;
+		Stats._animationPubbed = 0;
+		
+		Stats._artUnpubbed = 0;
+		Stats._artPubbed = 0;
+		
+		//MISC STATS SUCH AS TOTALS
+		Stats._TotalCashEarned = 0;
+		Stats._TotalHoursWorked = 0;
+		Stats._TotalDaysPassed = 0;
+		Stats._TotalHoursAnimating = 0;
+		Stats._TotalHoursProgramming = 0;
+		Stats._TotalHoursMakingMusic = 0;
+		Stats._TotalHoursDrawing = 0;
+		Stats._shitLoop = false;
+		Stats._hintsON = true;
 	}
 	
 	private function createUserStats():Void
@@ -246,9 +365,7 @@ class NewGameState extends FlxState
 		updateText();
 	}
 	
-	
-	
-	
+	//SUBTRACTION BUTTONS
 	
 	private function clickSubAnimation():Void
 	{
@@ -326,7 +443,7 @@ class NewGameState extends FlxState
 	
 	private function clickNext():Void
 	{
-		var noName = ["NoNameMagee", "NamelessAndShameless", "Blanca", "InsertNameHere"];
+		var noName = ["NoNameMagee", "NamelessAndShameless", "Blanca", "InsertNameHere", "DefaultoDave", "BlankBlake" ];
 		
 		Stats._username = _usernameInput.text;
 		if (Stats._username == "")
