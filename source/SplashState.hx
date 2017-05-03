@@ -10,6 +10,7 @@ import flixel.util.FlxTimer;
 /**
  * Basically a stripped down version of the FlxSplash that comes with HaxeFlixel
  * More info can be found here : https://github.com/ninjamuffin99/HFSplashTemplate
+ * and at the original file: https://github.com/HaxeFlixel/flixel/blob/master/flixel/system/FlxSplash.hx
  * @author ...
  */
 class SplashState extends FlxState 
