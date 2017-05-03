@@ -14,6 +14,11 @@ package;
  import com.newgrounds.components.*;
  using flixel.util.FlxSpriteUtil;
  
+/*
+* The bar at the top of the screen, also manages time and date stuff.
+*
+*
+*/
 
  class HUD extends FlxTypedGroup<FlxSprite>
  {
