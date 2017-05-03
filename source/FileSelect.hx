@@ -23,6 +23,8 @@ class FileSelect extends FlxState
 	private var _delete2:FlxUIButton;
 	private var _delete3:FlxUIButton;
 	
+	private var _notif:Notifacations;
+	
 	override public function create():Void 
 	{
 		FlxG.camera.fade(FlxColor.BLACK, 0.5, true);
@@ -47,8 +49,9 @@ class FileSelect extends FlxState
 		_file3.loadGraphic("assets/images/ButtonNoText.png", false, 342, 42);
 		_file3.setLabelFormat("assets/data/FeaturedItem.ttf", 40);
 		_file3.setGraphicSize(250);
-		_file3.setAllLabelOffsets(0, 15);
+		_file3.setAllLabelOffsets(0, 0);
 		_file3.screenCenter(X);
+		_file3.updateHitbox();
 		
 		createDelete();
 		
@@ -61,6 +64,10 @@ class FileSelect extends FlxState
 		add(_delete);
 		add(_delete2);
 		add(_delete3);
+		
+		_notif = new Notifacations();
+		add(_notif);
+		_notif._newText(0, 0, "");
 		
 		Stats._loadFade = true;
 		
@@ -134,7 +141,7 @@ class FileSelect extends FlxState
 		
 		if (FlxG.save.data._animationSkill == null)
 		{
-			FlxG.log.add("Data is null");
+			_notif._newText(Std.int(_delete.x), Std.int(_delete.y) - 10, "File 1 data Erased successfully", 13, FlxColor.WHITE);
 		}
 	}
 	
@@ -145,7 +152,7 @@ class FileSelect extends FlxState
 		
 		if (FlxG.save.data._animationSkill == null)
 		{
-			FlxG.log.add("Data is null");
+			_notif._newText(Std.int(_delete2.x), Std.int(_delete2.y) - 10, "File 2 data Erased successfully", 13, FlxColor.WHITE);
 		}
 	}
 	
@@ -156,7 +163,7 @@ class FileSelect extends FlxState
 		
 		if (FlxG.save.data._animationSkill == null)
 		{
-			FlxG.log.add("Data is null");
+			_notif._newText(Std.int(_delete3.x), Std.int(_delete3.y) - 10, "File 3 data Erased successfully", 13, FlxColor.WHITE);
 		}
 	}
 	
