@@ -94,10 +94,14 @@ class NewGroundsState extends FlxState
 	
 	private function clickForum():Void
 	{
+		/* old substate things
 		var forumSubState:SubState = new SubState();
 		forumSubState.persistentDraw = false;
 		forumSubState.persistentUpdate = false;
 		openSubState(forumSubState);
+		*/
+		
+		FlxG.switchState(new ForumState());
 	}
 
 	private function clickBap():Void
