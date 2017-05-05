@@ -51,7 +51,6 @@ class PCState extends FlxState
 	private var _usingText:FlxText;
 	
 	private var _hud:HUD;
-	private var _statsHUD:StatsHUD;
 	
 	private var _notifacations:Notifacations;
 	
@@ -69,10 +68,6 @@ class PCState extends FlxState
 		createText();
 		
 		createBars();
-		
-		_statsHUD = new StatsHUD();
-		_statsHUD.visible = false;
-		//add(_statsHUD);
 		
 		_notifacations = new Notifacations();
 		add(_notifacations);
@@ -296,7 +291,6 @@ class PCState extends FlxState
 			
 			updateText();
 			_hud.updateHUD();
-			_statsHUD.updateText();
 		}
 		
 		
@@ -313,7 +307,6 @@ class PCState extends FlxState
 			
 			updateText();
 			_hud.updateHUD();
-			_statsHUD.updateText();
 		}
 	}
 	
@@ -330,7 +323,6 @@ class PCState extends FlxState
 			
 			_hud.updateHUD();
 			updateText();
-			_statsHUD.updateText();
 		}
 		
 		
@@ -354,7 +346,6 @@ class PCState extends FlxState
 			
 			_hud.updateHUD();
 			updateText();
-			_statsHUD.updateText();
 		}
 		
 		
@@ -378,7 +369,6 @@ class PCState extends FlxState
 			
 			_hud.updateHUD();
 			updateText();
-			_statsHUD.updateText();
 		}
 	}
 	
@@ -393,8 +383,6 @@ class PCState extends FlxState
 			
 			_hud.updateHUD();
 			updateText();
-			_statsHUD.updateText();
-		
 		}
 		
 	}

@@ -22,7 +22,6 @@ class NewGroundsState extends FlxState
 	private var _supporterMonthly:FlxUICheckBox;
 	
 	private var _hud:HUD;
-	private var _statsHUD:StatsHUD;
 	private var _notif:Notifacations;
 	
 	override public function create():Void 
@@ -55,11 +54,6 @@ class NewGroundsState extends FlxState
 		
 		_notif = new Notifacations();
 		add(_notif);
-		
-		_statsHUD = new StatsHUD();
-		_statsHUD.visible = false;
-		//add(_statsHUD);
-		
 		
 		super.create();
 	}
@@ -142,7 +136,6 @@ class NewGroundsState extends FlxState
 		Stats.h += 1;
 		
 		_hud.updateHUD();
-		_statsHUD.updateText;
 	}
 	
 }
