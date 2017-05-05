@@ -64,6 +64,10 @@ class SubState extends FlxSubState
     public function new(BGColor:FlxColor=FlxColor.TRANSPARENT)
     {
         super(BGColor);
+		var transBG:FlxSprite = new FlxSprite(0, 0);
+		transBG.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		transBG.alpha = 0.25;
+		add(transBG);
 		
 		var outlineColor:FlxColor;
 		outlineColor = new FlxColor();
