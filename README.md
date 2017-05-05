@@ -1,7 +1,11 @@
 # Newgrounds-Sim-2017 
 A remake of AfroNinja's Newgrounds Sim
 ## Current Version
+<<<<<<< HEAD
+0.1.2 (Posted May 2nd 2017)
+=======
 0.1.3 (Posted May 3rd 2017)
+>>>>>>> refs/remotes/origin/dev
 
 ### About the branches
 The master branch is the branch that holds the code of the version currently hosted on Newgrounds
