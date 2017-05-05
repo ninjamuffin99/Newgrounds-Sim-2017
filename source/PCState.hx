@@ -72,7 +72,7 @@ class PCState extends FlxState
 		
 		_statsHUD = new StatsHUD();
 		_statsHUD.visible = false;
-		add(_statsHUD);
+		//add(_statsHUD);
 		
 		_notifacations = new Notifacations();
 		add(_notifacations);
@@ -87,6 +87,14 @@ class PCState extends FlxState
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.switchState(new PlayState());
+		}
+		
+		if (FlxG.keys.justPressed.S)
+		{
+			var StatsState:SubState = new SubState();
+			StatsState.persistentDraw = false;
+			StatsState.persistentUpdate = false;
+			openSubState(StatsState);
 		}
 		
 		

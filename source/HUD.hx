@@ -3,6 +3,7 @@ package;
  import flixel.FlxBasic;
  import flixel.FlxG;
  import flixel.FlxSprite;
+ import flixel.FlxState;
  import flixel.addons.ui.FlxUICheckBox;
  import flixel.group.FlxGroup.FlxTypedGroup;
  import flixel.text.FlxText;
@@ -173,6 +174,14 @@ package;
 	
 	override public function update(elapsed:Float):Void 
 	{
+		/*if (FlxG.keys.justPressed.S)
+		{
+			var StatsState:SubState = new SubState();
+			StatsState.persistentDraw = false;
+			StatsState.persistentUpdate = false;
+			openSubState(StatsState);
+		}*/
+		
 		super.update(elapsed);
 	}
 	

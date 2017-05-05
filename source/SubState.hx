@@ -18,174 +18,209 @@ import source.Stats;
 class SubState extends FlxSubState 
 {
 	private var bg:FlxSprite;
+	private var bgOutline:FlxSprite;
+	private var movieBG:FlxSprite;
+	private var movieOutline:FlxSprite;
 	
-	private var _title:FlxTypeText;
-	private var _post:FlxTypeText;
+	private var miscBG:FlxSprite;
+	private var miscBG2:FlxSprite;
 	
-	private var _notifacations:Notifacations;
+	private var _statsVisible:Bool = false;
 	
-	private var _foundFlash:FlxText;
+	private var _hudTitle:FlxText;
 	
-	private var _btnShitpost:FlxUIButton;
-	private var _btnAdvice:FlxUIButton;
-	private var _btnBrowse:FlxUIButton;
-	private var _btnClose:FlxUIButton;
+	//BASE SKILLS TEXT
+	private var _SkillText:FlxText;
 	
-	private var _titleArray = ["Who is the cutest NG user?", "HELP ME", "Damn, I got Sat. detention AGAIN.", "GOD DAMNED SATURDAY DETENTION AGAIN", "GOD DAMNED SATURDAY DETENTION AGAIN"];
-	private var	_postArray = ["I think Tom is a cutie pie #BringBackBeardFulp", 
-			"Haha you thought i needed help didnt you? XDD", 
-			"What is even the fucking point of school. You should only have to take it once. They just beat the same things into your head. And you have to know it by the end of the year. Then forget. They should teach things that are fun or new or things that interest you. They should teach you at home as individuals not as sheep. And who the fuck needs to know fucking calculus for making a damn pie. Or if you want to be a ditch digger. Or a computer programmer. Its all stupid. Thats why I'm homeschooled. Even though my mom trys to thrwart everything I do and thinks being a mindless sheep is best. The world sucks. Newgrounds is cool. People suck. I could go on forever but I don't want to get off the subject to far. I'm just saying if they made school more interesting kids wouldn't skip.", 
-			"I GOT ANOTHER ONE TODAY, BECAUSE I WAS BEING DISRUPTIVE IN CLASS! \n After taking 4 pages of notes, Ms. Videtich busts out another page and I say GAH. to myself, rather quiet, because, naturally, my hand is starting to hurt. She yells, YELLS, DO YOU HAVE A PROBLEM WITH MY NOTES, WILLIAM? And I said, No...why...what are you talking about, wha? You know, I didn't see it coming...and then she says If you dont like my notes, feel free to leave the class. I was silent...and so was everyone else, I just wanted her to continue and leave me alone...I thought it was over...and then she says Well, are you QUITE finished, Will? Hmmm? ANSWER ME. \nI shook my head yes, and she was like I CANT HEAR YOU!!! She was YELLING...and I was really starting to get pissed off. All I said was, YES, YES MS. V, SHUT YOUR MOUTH...GET OFF MY CASE. \n My friend Darius (D) says Yeah yah fat bee-itch. And she didnt even pay attention to him. \n Anyway, she grabbed me by the arm like a little kid and took me to the door where she let go and told me to go to the office and explain myself. I started to walk down the hall and instead of going to the office I headed for the parking lot, and she yelled after YOU WILL HAVE SATURDAY DETENTION AGAIN NEXT WEEK, CONGRATULATIONS!!! "];
+	//LEVEL TEXT
+	private var _LevelText:FlxText;
+	private var _animationEXPText:FlxText;
 	
-	private var _randomPost:Int;
+	private var _artLevelText:FlxText;
+	private var _artEXPText:FlxText;
 	
-	public function new(BGColor:FlxColor=FlxColor.TRANSPARENT) 
-	{
-		super(BGColor);
-	}
 	
-	override public function create():Void 
-	{
-		bg = new FlxSprite(312 / 2, 152 / 2);
-		bg.loadGraphic("assets/images/BBSblurred.png");
-		bg.setGraphicSize(1280, 720);
+	//QUALITY TEXT
+	private var _animationQualityText:FlxText;
+	private var _artQualityText:FlxText;
+	
+	private var _artPubbedText:FlxText;
+	private var _artUnpubbedText:FlxText;
+	
+	
+	//MISC STATS
+	private var _ngStats:FlxText;
+	private var _ngStatsString:String = "Fans: " + Stats._fans + "\n" + "Blams: " + Stats._blams + "\n" + "Protects: " + Stats._protects + "\n" + "Newgrounds Supporters: " + Stats._supporters + "\n" + "Newgrounds Supporter Earnings: " + Stats._ngCash;
+	private var _miscStatsText:FlxText;
+	
+	//BUTTONS
+	private var _reset:FlxButton;
+	private var _myNG:FlxButton;
+	private var _btnSource:FlxButton;
+	
+	//FOnt
+	private var _font:String = "assets/data/ARIALBD.TTF";
+	
+    public function new(BGColor:FlxColor=FlxColor.TRANSPARENT)
+    {
+        super(BGColor);
+		
+		var outlineColor:FlxColor;
+		outlineColor = new FlxColor();
+		outlineColor.setRGB(0, 0, 0);
+		
+		var bgColor:FlxColor;
+		bgColor = new FlxColor();
+		bgColor.setRGB(76, 72, 72);
+		
+		bgOutline = new FlxSprite(0, 50);
+		bgOutline.makeGraphic(FlxG.width - 100, 354, outlineColor);
+		bgOutline.screenCenter(X);
+		
+		bg = new FlxSprite(0, 52);
+		bg.makeGraphic(FlxG.width - 105, 350, bgColor);
+		bg.screenCenter(X);
+		
+		movieOutline = new FlxSprite(FlxG.width - 1201, FlxG.height - 651);
+		movieOutline.makeGraphic(502, 157);
+		
+		movieBG = new FlxSprite(FlxG.width - 1200, FlxG.height - 650);
+		movieBG.makeGraphic(500, 155, 0xFF9C3435);
+		
+		miscBG = new FlxSprite(FlxG.width - 1200, FlxG.height - 480);
+		miscBG.makeGraphic(500, 140, 0xFFAB591F);
+		
+		miscBG2 = new FlxSprite(650, FlxG.height - 650);
+		miscBG2.makeGraphic(500, 185, 0xFF9858AF);
+		
+		//BUTTONS
+		createLinks();
+		
+		
+		add(bgOutline);
 		add(bg);
+		add(movieOutline);
+		add(movieBG);
+		add(miscBG);
+		add(miscBG2);
+		add(_reset);
+		add(_myNG);
+		add(_btnSource);
 		
-		createButtons();
+		createText();
+    }
+	
+	private function createText():Void
+	{
+		var textX:Int = FlxG.width - 1195;
+		var textY:Int = 75;
+		var textSize:Int = 20;
+		var _animationEXP:Float = 100 - Stats._animationSkill;
+		var _artEXP:Float = 100 - Stats._artSkill;
+		var arialBLD:String = "assets/data/ARIALBD.TTF";
 		
-		var wordsX:Int = 290;
+		_hudTitle = new FlxText(FlxG.width / 2, FlxG.height / 2, 0, "Stats", 20);
+		_hudTitle.screenCenter();
 		
-		_foundFlash = new FlxText(200, 400, 0, "Someone found a way to get Flash MX for free! Thanks JessieJJones!", 12);
-		_foundFlash.visible = false;
-		//add(_foundFlash);
 		
-		_title = new FlxTypeText(wordsX, 110, Std.int(FlxG.width * 0.95) - 290, "", 16);
-		_title.font = "assets/data/ARIALBD.TTF";
-		_title.cursorCharacter = "|";
-		_title.color = FlxColor.BLACK;
-		add(_title);
+		_SkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill + "\n" + "Art Skill:" + Stats._artSkill + "\n" + "Music Skill: " + Stats._musicSkill + "\n" + "Programming Skill: " + Stats._programSkill + "\n" + "Voice Acting Skill: " + Stats._voiceSkill + "\n" + "Writing Skill: " + Stats._writingSkill, textSize);
+		_SkillText.font = arialBLD;
 		
-		_post = new FlxTypeText(wordsX, 300, Std.int(FlxG.width * 0.95) - 290, "", 16);
-		_post.cursorCharacter = "|";
-		_post.color = FlxColor.BLACK;
-		_post.font = "assets/data/ARIALBD.TTF";
-		add(_post);
+		_animationQualityText = new FlxText(textX, textY + 80, 0, "Animation Quality: " + Stats._animationQuality, textSize);
 		
-		_notifacations = new Notifacations();
-		add(_notifacations);
 		
-		super.create();
+		_artPubbedText = new FlxText(FlxG.width / 2, FlxG.height - 670, 0, "Published art: " + Stats._artPubbed, textSize);
+		
+		
+		
+		_artQualityText = new FlxText(textX, textY + 220, 0, "Art Quality: " + Stats._artQuality, textSize);
+		
+		_LevelText = new FlxText(textX + 275, textY, 0, "Animation Level: " + Stats._animationLevel + "\n" + "Art Level: " + Stats._artLevel + "\n" + "Music Level: " + Stats._musicLevel + "\n" + "Programming Level: " + Stats._programLevel + "\n" + "Voice Acting Level: " + Stats._voiceLevel + "\n" + "Writing Level: " + Stats._writingLevel, textSize);
+		_LevelText.font = arialBLD;
+		
+		
+		_ngStats = new FlxText(textX, 250, 0, _ngStatsString, textSize);
+		_ngStats.font = arialBLD;
+		
+		_miscStatsText = new FlxText(660, 70, 0, "Total Cash Earned: " + Stats._TotalCashEarned + "\n" + "Total Days Passed: " + Stats._TotalDaysPassed + "\n" + "Total Hours:" + "\n" + " Animating: " + Stats._TotalHoursAnimating + "\n" + " Programming: " + Stats._TotalHoursProgramming + "\n" + " Making Music: " + Stats._TotalHoursMakingMusic + "\n" + " Drawing: " + Stats._TotalHoursDrawing + "\n" + " Worked(At Job): " + Stats._TotalHoursWorked, textSize);
+		_miscStatsText.font = arialBLD;
+		
+		add(_hudTitle);
+		add(_SkillText);
+		//add(_artPubbedText);
+		
+		add(_LevelText);
+		
+		add(_miscStatsText);
+		add(_ngStats);
+		
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
-		FlxG.watch.addMouse();
+		if (FlxG.keys.justPressed.S)
+		{
+			clickClose();
+			updateText();
+		}
 		
 		super.update(elapsed);
 	}
 	
-	private function createButtons():Void
+	public function updateText():Void
 	{
-		var btnX:Int = 600;
+		var _animationEXP:Float = 100 - Stats._animationSkill;
+		var _artEXP:Float = 100 - Stats._artSkill;
 		
-		var featuredFont:String = "assets/data/FeaturedItem.ttf";
+		_SkillText.text = "Animation Skill:" + Stats._animationSkill + "\n" + "Art Skill:" + Stats._artSkill + "\n" + "Music Skill: " + Stats._musicSkill + "\n" + "Programming Skill: " + Stats._programSkill + "\n" + "Voice Acting Skill: " + Stats._voiceSkill + "\n" + "Writing Skill: " + Stats._writingSkill;
+		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
+		_artPubbedText.text = "Published art: " + Stats._artPubbed;
 		
-		_btnShitpost = new FlxUIButton(btnX, 250, "Shitpost on the BBS", clickShitpost);
-		_btnShitpost.loadGraphic("assets/images/ButtonNoText.png", false, 342, 84);
-		_btnShitpost.setAllLabelOffsets(0, 8);
-		_btnShitpost.setLabelFormat(featuredFont, 40);
-		_btnShitpost.screenCenter(X);
-		add(_btnShitpost);
+		_animationQualityText.text = "Animation Quality: " + Stats._animationQuality;
+		_artQualityText.text = "Art Quality: " + Stats._artQuality;
 		
-		_btnAdvice = new FlxUIButton(btnX, 100, "Ask for advice", clickAdvice);
-		_btnAdvice.loadGraphic("assets/images/ButtonNoText.png", false, 342, 84);
-		_btnAdvice.setLabelFormat(featuredFont, 40);
-		_btnAdvice.screenCenter(X);
-		//add(_btnAdvice);
+		_LevelText.text = "Animation Level: " + Stats._animationLevel + "\n" + "Art Level: " + Stats._artLevel + "\n" + "Music Level: " + Stats._musicLevel + "\n" + "Programming Level: " + Stats._programLevel + "\n" + "Voice Acting Level: " + Stats._voiceLevel + "\n" + "Writing Level: " + Stats._writingLevel;
+		_animationEXPText.text = "EXP until next level: " + _animationEXP;
 		
-		_btnClose = new FlxUIButton(100, 600, "Close", clickClose);
-		add(_btnClose);
+		_artLevelText.text = "Art Level: " + Stats._artLevel;
+		_artEXPText.text = "EXP until next level: " + _artEXP;
 		
-		_btnBrowse = new FlxUIButton(btnX, 75, "Lurk and browse", clickBrowse);
-		//add(_btnBrowse);
+		_miscStatsText.text = "Total Cash Earned: " + Stats._TotalCashEarned + "\n" + "Total Days Passed: " + Stats._TotalDaysPassed + "\n" + "Total Hours:" + "\n" + " Animating: " + Stats._TotalHoursAnimating + "\n" + " Programming: " + Stats._TotalHoursProgramming + "\n" + " Making Music: " + Stats._TotalHoursMakingMusic + "\n" + " Drawing: " + Stats._TotalHoursDrawing + "\n" + " Worked(At Job): " + Stats._TotalHoursWorked;
+		_ngStats.text = _ngStatsString;
 	}
 	
-	private function clickBrowse():Void
+	public function createLinks():Void
 	{
+		var X:Int = 680;
+		var Y:Int = 300;
 		
-		if (!Stats._hasFlashMX)
-		{
-			Stats._hasFlashMX = FlxG.random.bool(5);
-			if (Stats._hasFlashMX)
-			{
-				_foundFlash.visible = true;
-			}
-			FlxG.log.add("DO NOT HAVE FLASH");
-		}
+		_reset = new FlxButton(X, Y + 20, "Return To Title", clickReset);
 		
+		X += 95;
 		
-		FlxG.log.add(Stats._hasFlashMX);
+		_myNG = new FlxButton(X, Y, "", clickMyNG);
+		_myNG.loadGraphic("assets/images/NG_LOGO.png", false, 64, 64);
+		
+		X += 85;
+		
+		_btnSource = new FlxButton(X, Y, "", clickSource);
+		_btnSource.loadGraphic("assets/images/GitHub-Mark-Light-64px.png", false, 64, 64);
 	}
 	
-	private function clickShitpost():Void
+	//BUTTON STUFF
+	private function clickReset():Void
 	{
-		var banTimer:Int;
-		banTimer = Stats.h - Stats._timeOfBan;
-		banTimer = 12 - banTimer;
-		if (banTimer == 0)
-			Stats._banned = false;
-		
-		if (!Stats._banned)
-		{
-			//TODO: instead of doing this, it'll change the title and post text to suit, and then call typingStart
-			_randomPost = FlxG.random.int(0, 3);
-			_title.resetText(_titleArray[_randomPost]);
-			_post.resetText(_postArray[_randomPost]);
-			
-			Stats.forumPost(FlxG.random.int(2, 12));
-			typingStart();
-		}
-		else
-		{
-			_notifacations._newText(250, 500, "You're still banned for " + banTimer + " more hours!", 20, FlxColor.WHITE, 1.2);
-		}
+		FlxG.resetGame();
 	}
 	
-	private function clickAdvice():Void
+	private function clickMyNG():Void
 	{
-		_randomPost = FlxG.random.int(0, 3);
-		_title.resetText(_titleArray[_randomPost]);
-		_post.resetText(_postArray[_randomPost]);
-		Stats.forumPost(5);
-		typingStart();
+		FlxG.openURL("http://ninjamuffin99.newgrounds.com/");
 	}
 	
-	private function typingStart():Void
+	private function clickSource():Void
 	{
-		bg.loadGraphic("assets/images/BBS.PNG");
-		
-		_btnShitpost.visible = false;
-		_btnAdvice.visible = false;
-		
-		_title.showCursor = true;
-		_title.setTypingVariation(0.5);
-		_title.start(0.025, false, false, ["SPACE"], finishTitle);
-	}
-	
-	private function finishTitle():Void
-	{
-		
-		_title.showCursor = false;
-		_post.showCursor = true;
-		
-		if (_randomPost >= 1)
-			_post.start(0.015, false, false, ["SPACE"]);
-		_post.start(0.025, false, false, ["SPACE"]);
-		FlxG.log.add("Forum Posts = " + Stats._forumPosts);
-		if (Stats._banned)
-		{
-			_notifacations._newText(250, 500, "You have been temp banned from the forums! Quit shitposting so much!", 20, FlxColor.WHITE, 1.3);
-		}
+		FlxG.openURL("https://github.com/ninjamuffin99/Newgrounds-Sim-2017");
 	}
 	
 	private function clickClose():Void

@@ -58,7 +58,7 @@ class NewGroundsState extends FlxState
 		
 		_statsHUD = new StatsHUD();
 		_statsHUD.visible = false;
-		add(_statsHUD);
+		//add(_statsHUD);
 		
 		
 		super.create();
@@ -67,6 +67,14 @@ class NewGroundsState extends FlxState
 	override public function update(elapsed:Float):Void 
 	{
 		FlxG.watch.addMouse();
+		
+		if (FlxG.keys.justPressed.S)
+		{
+			var StatsState:SubState = new SubState();
+			StatsState.persistentDraw = false;
+			StatsState.persistentUpdate = false;
+			openSubState(StatsState);
+		}
 		
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
