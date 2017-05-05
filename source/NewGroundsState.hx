@@ -22,7 +22,6 @@ class NewGroundsState extends FlxState
 	private var _supporterMonthly:FlxUICheckBox;
 	
 	private var _hud:HUD;
-	private var _statsHUD:StatsHUD;
 	private var _notif:Notifacations;
 	
 	override public function create():Void 
@@ -56,17 +55,20 @@ class NewGroundsState extends FlxState
 		_notif = new Notifacations();
 		add(_notif);
 		
-		_statsHUD = new StatsHUD();
-		_statsHUD.visible = false;
-		add(_statsHUD);
-		
-		
 		super.create();
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		FlxG.watch.addMouse();
+		
+		if (FlxG.keys.justPressed.S)
+		{
+			var StatsState:SubState = new SubState();
+			StatsState.persistentDraw = false;
+			StatsState.persistentUpdate = false;
+			openSubState(StatsState);
+		}
 		
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
@@ -94,10 +96,14 @@ class NewGroundsState extends FlxState
 	
 	private function clickForum():Void
 	{
+		/* old substate things
 		var forumSubState:SubState = new SubState();
 		forumSubState.persistentDraw = false;
 		forumSubState.persistentUpdate = false;
 		openSubState(forumSubState);
+		*/
+		
+		FlxG.switchState(new ForumState());
 	}
 
 	private function clickBap():Void
@@ -130,7 +136,6 @@ class NewGroundsState extends FlxState
 		Stats.h += 1;
 		
 		_hud.updateHUD();
-		_statsHUD.updateText;
 	}
 	
 }

@@ -23,7 +23,6 @@ class PlayState extends FlxState
 	private var _btnWork:FlxButton;
 	
 	private var _hud:HUD;
-	private var _statsHUD:StatsHUD;
 	private var _notifacations:Notifacations;
 	
 	private var _hints:FlxText;
@@ -38,10 +37,6 @@ class PlayState extends FlxState
 		
 		_hud = new HUD();
 		add(_hud);
-		
-		_statsHUD = new StatsHUD();
-		_statsHUD.visible = false;
-		add(_statsHUD);
 		
 		_notifacations = new Notifacations();
 		add(_notifacations);
@@ -83,6 +78,14 @@ class PlayState extends FlxState
 	
 	override public function update(elapsed:Float):Void
 	{
+		
+		if (FlxG.keys.justPressed.S)
+		{
+			var StatsState:SubState = new SubState();
+			StatsState.persistentDraw = false;
+			StatsState.persistentUpdate = false;
+			openSubState(StatsState);
+		}
 		
 		_hints.visible = Stats._hintsON;
 		

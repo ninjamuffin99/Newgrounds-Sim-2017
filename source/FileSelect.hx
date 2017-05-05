@@ -7,8 +7,6 @@ import flixel.addons.ui.FlxUIButton;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import source.Stats;
-
-
 /**
  * ...
  * @author ninjaMuffin
@@ -29,6 +27,30 @@ class FileSelect extends FlxState
 	{
 		FlxG.camera.fade(FlxColor.BLACK, 0.5, true);
 		
+		createFiles();
+		
+		createDelete();
+		
+		
+		add(_file1);
+		add(_file2);
+		add(_file3);
+		
+		add(_delete);
+		add(_delete2);
+		add(_delete3);
+		
+		_notif = new Notifacations();
+		add(_notif);
+		_notif._newText(0, 0, "");
+		
+		Stats._loadFade = true;
+		
+		super.create();
+	}
+	
+	private function createFiles():Void
+	{
 		var centerX:Float = FlxG.width / 2;
 		var wordOffset:Float = -40;
 		
@@ -55,26 +77,6 @@ class FileSelect extends FlxState
 		_file3.setAllLabelOffsets(wordOffset, 0);
 		_file3.screenCenter(X);
 		_file3.updateHitbox();
-		
-		createDelete();
-		
-		
-		
-		add(_file1);
-		add(_file2);
-		add(_file3);
-		
-		add(_delete);
-		add(_delete2);
-		add(_delete3);
-		
-		_notif = new Notifacations();
-		add(_notif);
-		_notif._newText(0, 0, "");
-		
-		Stats._loadFade = true;
-		
-		super.create();
 	}
 	
 	private function createDelete()

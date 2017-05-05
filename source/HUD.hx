@@ -3,6 +3,7 @@ package;
  import flixel.FlxBasic;
  import flixel.FlxG;
  import flixel.FlxSprite;
+ import flixel.FlxState;
  import flixel.addons.ui.FlxUICheckBox;
  import flixel.group.FlxGroup.FlxTypedGroup;
  import flixel.text.FlxText;
@@ -14,6 +15,11 @@ package;
  import com.newgrounds.components.*;
  using flixel.util.FlxSpriteUtil;
  
+/*
+* The bar at the top of the screen, also manages time and date stuff.
+*
+*
+*/
 
  class HUD extends FlxTypedGroup<FlxSprite>
  {
@@ -168,6 +174,14 @@ package;
 	
 	override public function update(elapsed:Float):Void 
 	{
+		/*if (FlxG.keys.justPressed.S)
+		{
+			var StatsState:SubState = new SubState();
+			StatsState.persistentDraw = false;
+			StatsState.persistentUpdate = false;
+			openSubState(StatsState);
+		}*/
+		
 		super.update(elapsed);
 	}
 	
