@@ -43,6 +43,8 @@ package;
 	private var _hints:FlxUICheckBox;
 	private var _btnCred:FlxButton;
 	
+	private var _notif:Notifacations;
+	
     public function new()
     {
         super();
@@ -87,6 +89,10 @@ package;
 		createText();
 		
 		createGearPopup();
+		
+		_notif = new Notifacations();
+		add(_notif);
+		_notif._newText(0, 0, "");
     }
 	
 	private function createText():Void
@@ -141,8 +147,10 @@ package;
 				Stats.AMPM = "AM";
 				Stats.addDay(1);
 				Stats.PM = false;
-				Stats.updateSupporters(FlxG.random.int(2, 10));
-				
+				var supporters:Int;
+				supporters = FlxG.random.int(2, 10);
+				Stats.updateSupporters(supporters);
+				_notif._newText(25, 15, "Newgrounds Gained " + supporters + " supporters today!", 15);
 			}
 			else
 			{
