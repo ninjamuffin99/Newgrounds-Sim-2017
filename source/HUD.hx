@@ -159,6 +159,12 @@ package;
 			Stats._cash -= 1400;
 		}
 		
+		if (Stats.mm >= 13)
+		{
+			Stats.yyyy += 1;
+			Stats.mm = 1;
+		}
+		
 		
 		_sprTime.text = Std.string(Stats.h);
 		_textAMPM.text = Stats.AMPM;
@@ -183,7 +189,7 @@ package;
 			openSubState(StatsState);
 		}*/
 		
-		updateHUD();
+		//updateHUD();
 		
 		super.update(elapsed);
 	}
