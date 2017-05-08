@@ -7,6 +7,9 @@ import flixel.addons.ui.FlxUIButton;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import source.Stats;
+import com.newgrounds.*;
+import com.newgrounds.components.*;
+
 /**
  * ...
  * @author ninjaMuffin
@@ -110,18 +113,21 @@ class FileSelect extends FlxState
 	private function load1():Void
 	{
 		FlxG.save.bind("File1");
+		API.logCustomEvent("File1");
 		loadGame();
 	}
 	
 	private function load2():Void
 	{
 		FlxG.save.bind("File2");
+		API.logCustomEvent("File2");
 		loadGame();
 	}
 	
 	private function load3():Void
 	{
 		FlxG.save.bind("File3");
+		API.logCustomEvent("File3");
 		loadGame();
 	}
 	
