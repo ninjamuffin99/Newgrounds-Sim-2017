@@ -141,8 +141,9 @@ package;
 				Stats.AMPM = "AM";
 				Stats.addDay(1);
 				Stats.PM = false;
-				Stats.updateSupporters(FlxG.random.int(2, 10));
-				
+				var supporters:Int;
+				supporters = FlxG.random.int(2, 10);
+				Stats.updateSupporters(supporters);
 			}
 			else
 			{
@@ -156,6 +157,12 @@ package;
 			Stats.dd = 1;
 			Stats.mm += 1;
 			Stats._cash -= 1400;
+		}
+		
+		if (Stats.mm >= 13)
+		{
+			Stats.yyyy += 1;
+			Stats.mm = 1;
 		}
 		
 		
@@ -181,6 +188,8 @@ package;
 			StatsState.persistentUpdate = false;
 			openSubState(StatsState);
 		}*/
+		
+		//updateHUD();
 		
 		super.update(elapsed);
 	}
