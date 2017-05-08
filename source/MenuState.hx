@@ -34,7 +34,7 @@ class MenuState extends FlxState
 		bg.loadGraphic("assets/images/TitleScreen.png", false, 1280, 720);
 		add(bg);
 		
-		_version = new FlxText(750, 520, 0, "Version 0.1.3", 15);
+		_version = new FlxText(750, 520, 0, "Version 0.1.5", 15);
 		_version.font = "assets/data/ARIALBD.TTF";
 		add(_version);
 		

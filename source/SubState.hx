@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.text.FlxTypeText;
 import flixel.addons.ui.FlxUIButton;
+import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
@@ -126,6 +127,7 @@ class SubState extends FlxSubState
 		_hudTitle = new FlxText(FlxG.width / 2, FlxG.height / 2, 0, "Stats", 20);
 		_hudTitle.screenCenter();
 		
+		roundStats();
 		
 		_SkillText = new FlxText(textX, textY, 0, "Animation Skill:" + Stats._animationSkill + "\n" + "Art Skill:" + Stats._artSkill + "\n" + "Music Skill: " + Stats._musicSkill + "\n" + "Programming Skill: " + Stats._programSkill + "\n" + "Voice Acting Skill: " + Stats._voiceSkill + "\n" + "Writing Skill: " + Stats._writingSkill, textSize);
 		_SkillText.font = arialBLD;
@@ -134,8 +136,6 @@ class SubState extends FlxSubState
 		
 		
 		_artPubbedText = new FlxText(FlxG.width / 2, FlxG.height - 670, 0, "Published art: " + Stats._artPubbed, textSize);
-		
-		
 		
 		_artQualityText = new FlxText(textX, textY + 220, 0, "Art Quality: " + Stats._artQuality, textSize);
 		
@@ -230,5 +230,17 @@ class SubState extends FlxSubState
 	private function clickClose():Void
 	{
 		close();
+	}
+	
+	private function roundStats():Void
+	{
+		var decimalPlaces:Int = 3;
+		
+		Stats._animationSkill = FlxMath.roundDecimal(Stats._animationSkill, decimalPlaces);
+		Stats._artSkill = FlxMath.roundDecimal(Stats._artSkill, decimalPlaces);
+		Stats._musicSkill = FlxMath.roundDecimal(Stats._musicSkill, decimalPlaces);
+		Stats._programSkill = FlxMath.roundDecimal(Stats._programSkill, decimalPlaces);
+		Stats._voiceSkill = FlxMath.roundDecimal(Stats._voiceSkill, decimalPlaces);
+		Stats._writingSkill = FlxMath.roundDecimal(Stats._writingSkill, decimalPlaces);
 	}
 }
