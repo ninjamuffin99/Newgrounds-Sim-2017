@@ -182,6 +182,8 @@ package;
 			openSubState(StatsState);
 		}*/
 		
+		updateHUD();
+		
 		super.update(elapsed);
 	}
 	
