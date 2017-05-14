@@ -8,6 +8,7 @@ import flixel.system.FlxBasePreloader;
 import flash.display.*;
 import flash.text.*;
 import flash.Lib;
+import flixel.text.FlxText;
 import lime.audio.FlashAudioContext;
 import openfl.display.Sprite;
 import flash.text.Font;
@@ -22,7 +23,8 @@ import com.newgrounds.components.*;
  * @author ninjaMuffin
  */
 //@:bitmap("assets/images/") class LogoImage extends BitmapData { }
-@:font("assets/data/OpenSans-CondLight.ttf") class CustomFont extends Font { }
+@:font("assets/data/ARIALBD.TTF") class CustomFont extends Font { }
+@:bitmap("assets/images/NewGameStats.jpg") class BG extends BitmapData { }
 
 class Preloader extends FlxBasePreloader 
 {
@@ -33,6 +35,7 @@ class Preloader extends FlxBasePreloader
 	}
 	
 	var logo:Sprite;
+	var bg:Sprite;
 	var text:TextField;
 	
 	override function create():Void 
@@ -49,10 +52,14 @@ class Preloader extends FlxBasePreloader
 		//logo.y = (this._height / 2) - ((logo.height) / 2);
 		//addChild(logo);
 		
+		bg = new Sprite();
+		bg.addChild(new Bitmap(new BG(0, 0))); //Sets the graphic of the sprite to a bitmap object, which uses our embedded bitmapData class
+		addChild(bg);
+		
 		/*
 		Font.registerFont(CustomFont);
 		text = new TextField();
-		text.defaultTextFormat = new TextFormat("Open Sans Condensed Light", Std.int(24 * ratio), 0xffffff);
+		text.defaultTextFormat = new TextFormat("Arial", 24, 0xffffff, false, false, false, "", "", TextFormatAlign.CENTER);
 		text.embedFonts = true;
 		text.selectable = false;
 		text.multiline = false;

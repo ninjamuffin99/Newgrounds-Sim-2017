@@ -28,6 +28,7 @@ package;
 	private var _textAMPM:FlxText;
 	private var _usernameText:FlxText;
 	private var _cashText:FlxText;
+	private var displayH:Int;
 	
 	private var _textDay:FlxText;
 	private var _textMonth:FlxText;
@@ -129,27 +130,26 @@ package;
 	
 	public function updateHUD():Void
     {
+		displayH = Stats.h;
+		
 		if (Stats.h >= 12)
 		{
-			if (Stats.h >= 13)
-			{
-				Stats.h -= 12;
-			}
-			
-			if (Stats.PM)
-			{
-				Stats.AMPM = "AM";
-				Stats.addDay(1);
-				Stats.PM = false;
-				var supporters:Int;
-				supporters = FlxG.random.int(2, 10);
-				Stats.updateSupporters(supporters);
-			}
-			else
-			{
-				Stats.AMPM = "PM";
-				Stats.PM = true;
-			}
+			Stats.AMPM = "PM";
+			Stats.PM = true;
+			if (Stats.h > 12)
+				displayH = Stats.h;
+				displayH -= 12;
+		}
+		
+		if (Stats.h > 23)
+		{
+			Stats.AMPM = "AM";
+			Stats.addDay(1);
+			Stats.PM = false;
+			var supporters:Int;
+			supporters = FlxG.random.int(2, 10);
+			Stats.updateSupporters(supporters);
+			Stats.h -= 24;
 		}
 		
 		if (Stats.dd >= 29)
@@ -165,8 +165,13 @@ package;
 			Stats.mm = 1;
 		}
 		
+		if (displayH == 0)
+		{
+			displayH = 12;
+		}
 		
-		_sprTime.text = Std.string(Stats.h);
+		
+		_sprTime.text = Std.string(displayH);
 		_textAMPM.text = Stats.AMPM;
 		_textDay.text = Stats.dd + " /";
 		_textMonth.text = Stats.mm + " /";
@@ -189,7 +194,8 @@ package;
 			openSubState(StatsState);
 		}*/
 		
-		//updateHUD();
+		
+		updateHUD();
 		
 		super.update(elapsed);
 	}

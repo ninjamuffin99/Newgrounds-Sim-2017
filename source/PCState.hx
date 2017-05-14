@@ -79,6 +79,8 @@ class PCState extends FlxState
 	
 	override public function update(elapsed:Float):Void 
 	{
+		FlxG.watch.add(Stats, "h");
+		
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.switchState(new PlayState());

@@ -40,6 +40,7 @@ class PlayState extends FlxState
 		
 		_notifacations = new Notifacations();
 		add(_notifacations);
+		//_notifacations._newText(0, 0, "");
 		
 		
 		_hints = new FlxText(1000, 600, 0, "Press S to bring up stats\nEscape to return to the previous screen\nEvery month you'll lose 1400$ \nfor monthly bills and whatnot\nThese hints can be turned of in the options", 14);
@@ -119,15 +120,7 @@ class PlayState extends FlxState
 	private function clickWork():Void
 	{
 		var _workable:Bool = false;
-		if (Stats.h >= 8 && !Stats.PM)
-		{
-			_workable = true;
-		}
-		if (Stats.h >= 1 && Stats.h <= 5 && Stats.PM)
-		{
-			_workable = true;
-		}
-		if (Stats.h == 12 && Stats.PM)
+		if (Stats.h >= 8 && Stats.h <= 17)
 		{
 			_workable = true;
 		}
