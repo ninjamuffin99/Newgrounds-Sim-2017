@@ -1,10 +1,12 @@
 package;
 
+import flash.filters.DropShadowFilter;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.text.FlxTypeText;
 import flixel.addons.ui.FlxUIButton;
+import flixel.graphics.frames.FlxFilterFrames;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
@@ -62,6 +64,9 @@ class SubState extends FlxSubState
 	//FOnt
 	private var _font:String = "assets/data/ARIALBD.TTF";
 	
+	
+	var dropShadowFilter:DropShadowFilter;
+	
     public function new(BGColor:FlxColor=FlxColor.TRANSPARENT)
     {
         super(BGColor);
@@ -69,6 +74,8 @@ class SubState extends FlxSubState
 		transBG.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		transBG.alpha = 0.25;
 		add(transBG);
+		
+		dropShadowFilter = new DropShadowFilter(10, 60, 0, 0.75, 7, 7, 1, 1);
 		
 		var outlineColor:FlxColor;
 		outlineColor = new FlxColor();
@@ -81,6 +88,7 @@ class SubState extends FlxSubState
 		bgOutline = new FlxSprite(0, 50);
 		bgOutline.makeGraphic(FlxG.width - 100, 354, outlineColor);
 		bgOutline.screenCenter(X);
+		
 		
 		bg = new FlxSprite(0, 52);
 		bg.makeGraphic(FlxG.width - 105, 350, bgColor);
