@@ -1,7 +1,7 @@
 # Newgrounds-Sim-2017 
 A remake of AfroNinja's Newgrounds Sim
 ## Current Version
-0.1.4 (Posted May 5 2017)
+0.1.6 (Posted May 13 2017)
 
 
 ### About the branches
