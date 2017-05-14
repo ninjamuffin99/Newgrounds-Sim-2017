@@ -411,7 +411,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1127",
+			build: "1154",
 			company: "",
 			file: "NGSim",
 			fps: 60,
