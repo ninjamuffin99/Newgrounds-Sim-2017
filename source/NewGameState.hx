@@ -451,8 +451,20 @@ class NewGameState extends FlxState
 			Stats._username = FlxG.random.getObject(noName);
 			//API.unlockMedal("I need to PAY to change that now?!");
 		}
+		
 		FlxG.log.add("Username is" + Stats._username);
-		FlxG.switchState(new PlayState());
+		
+		if (_usernameInput.text == "Tom" || _usernameInput.text == "TomFulp" || _usernameInput.text == "Fom" || _usernameInput.text == "FomTulp")
+		{
+			FlxG.switchState(new FulpState());
+		}
+		else
+		{
+			FlxG.switchState(new PlayState());
+		}
+		
+		
+		
 	}
 	
 	/*

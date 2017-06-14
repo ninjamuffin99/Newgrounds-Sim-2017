@@ -97,6 +97,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -208,6 +210,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/PS.png", AssetType.IMAGE);
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
+		className.set ("assets/images/tomfulpcoe.jpg", __ASSET__assets_images_tomfulpcoe_jpg);
+		type.set ("assets/images/tomfulpcoe.jpg", AssetType.IMAGE);
 		className.set ("assets/images/using.png", __ASSET__assets_images_using_png);
 		type.set ("assets/images/using.png", AssetType.IMAGE);
 		className.set ("assets/images/Window.png", __ASSET__assets_images_window_png);
@@ -216,6 +220,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/WorkDoor.png", AssetType.IMAGE);
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
+		className.set ("assets/music/mynamatom.mp3", __ASSET__assets_music_mynamatom_mp3);
+		type.set ("assets/music/mynamatom.mp3", AssetType.MUSIC);
 		className.set ("assets/music/SHITLOOP.mp3", __ASSET__assets_music_shitloop_mp3);
 		type.set ("assets/music/SHITLOOP.mp3", AssetType.MUSIC);
 		className.set ("assets/sounds/flixel.mp3", __ASSET__assets_sounds_flixel_mp3);
@@ -445,6 +451,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/tomfulpcoe.jpg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/using.png";
 		path.set (id, id);
 		
@@ -458,6 +468,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/music/1683_newgrounds_lhm__e.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "assets/music/mynamatom.mp3";
 		path.set (id, id);
 		
 		type.set (id, AssetType.MUSIC);
@@ -747,6 +761,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/TitleScreen.png", __ASSET__assets_images_titlescreen_png);
 		type.set ("assets/images/TitleScreen.png", AssetType.IMAGE);
 		
+		className.set ("assets/images/tomfulpcoe.jpg", __ASSET__assets_images_tomfulpcoe_jpg);
+		type.set ("assets/images/tomfulpcoe.jpg", AssetType.IMAGE);
+		
 		className.set ("assets/images/using.png", __ASSET__assets_images_using_png);
 		type.set ("assets/images/using.png", AssetType.IMAGE);
 		
@@ -758,6 +775,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/music/1683_newgrounds_lhm__e.mp3", __ASSET__assets_music_1683_newgrounds_lhm__e_mp3);
 		type.set ("assets/music/1683_newgrounds_lhm__e.mp3", AssetType.MUSIC);
+		
+		className.set ("assets/music/mynamatom.mp3", __ASSET__assets_music_mynamatom_mp3);
+		type.set ("assets/music/mynamatom.mp3", AssetType.MUSIC);
 		
 		className.set ("assets/music/SHITLOOP.mp3", __ASSET__assets_music_shitloop_mp3);
 		type.set ("assets/music/SHITLOOP.mp3", AssetType.MUSIC);
@@ -1559,10 +1579,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_projectfiles_titlescreenpsd_psd extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ps_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_titlescreen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_tomfulpcoe_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_using_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_window_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_workdoor_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_music_mynamatom_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_music_shitloop_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_save_wav extends flash.media.Sound { }
@@ -1611,6 +1633,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep #if display private #end class __ASSET__assets_data_arialbd_ttf extends lime.text.Font { public function new () { super (); name = "Arial Bold"; } } 
 @:keep #if display private #end class __ASSET__assets_data_featureditem_ttf extends lime.text.Font { public function new () { super (); name = "Featured Item"; } } 
 @:keep #if display private #end class __ASSET__assets_data_opensans_condlight_ttf extends lime.text.Font { public function new () { super (); name = "Open Sans Cond Light"; } } 
+
+
 
 
 
@@ -1732,20 +1756,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:file("assets/images/projectFiles/TitleScreenPSD.psd") #if display private #end class __ASSET__assets_images_projectfiles_titlescreenpsd_psd extends lime.utils.Bytes {}
 @:image("assets/images/PS.png") #if display private #end class __ASSET__assets_images_ps_png extends lime.graphics.Image {}
 @:image("assets/images/TitleScreen.png") #if display private #end class __ASSET__assets_images_titlescreen_png extends lime.graphics.Image {}
+@:image("assets/images/tomfulpcoe.jpg") #if display private #end class __ASSET__assets_images_tomfulpcoe_jpg extends lime.graphics.Image {}
 @:image("assets/images/using.png") #if display private #end class __ASSET__assets_images_using_png extends lime.graphics.Image {}
 @:image("assets/images/Window.png") #if display private #end class __ASSET__assets_images_window_png extends lime.graphics.Image {}
 @:image("assets/images/WorkDoor.png") #if display private #end class __ASSET__assets_images_workdoor_png extends lime.graphics.Image {}
 @:file("assets/music/1683_newgrounds_lhm__e.mp3") #if display private #end class __ASSET__assets_music_1683_newgrounds_lhm__e_mp3 extends lime.utils.Bytes {}
+@:file("assets/music/mynamatom.mp3") #if display private #end class __ASSET__assets_music_mynamatom_mp3 extends lime.utils.Bytes {}
 @:file("assets/music/SHITLOOP.mp3") #if display private #end class __ASSET__assets_music_shitloop_mp3 extends lime.utils.Bytes {}
 @:file("assets/sounds/flixel.mp3") #if display private #end class __ASSET__assets_sounds_flixel_mp3 extends lime.utils.Bytes {}
 @:file("assets/sounds/save.wav") #if display private #end class __ASSET__assets_sounds_save_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/sounds-go-here.txt") #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends lime.utils.Bytes {}
-@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/beep.mp3") #if display private #end class __ASSET__flixel_sounds_beep_mp3 extends lime.utils.Bytes {}
-@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/flixel.mp3") #if display private #end class __ASSET__flixel_sounds_flixel_mp3 extends lime.utils.Bytes {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/monsterrat.ttf") #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
-@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/ui/button.png") #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
-@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/logo/default.png") #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
+@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/sounds/beep.mp3") #if display private #end class __ASSET__flixel_sounds_beep_mp3 extends lime.utils.Bytes {}
+@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/sounds/flixel.mp3") #if display private #end class __ASSET__flixel_sounds_flixel_mp3 extends lime.utils.Bytes {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/fonts/monsterrat.ttf") #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
+@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/images/ui/button.png") #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
+@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/images/logo/default.png") #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
 @:image("C:/HaxeToolkit/haxe/lib/flixel-ui/2,2,0/assets/images/box.png") #if display private #end class __ASSET__flixel_flixel_ui_img_box_png extends lime.graphics.Image {}
 @:image("C:/HaxeToolkit/haxe/lib/flixel-ui/2,2,0/assets/images/button.png") #if display private #end class __ASSET__flixel_flixel_ui_img_button_png extends lime.graphics.Image {}
 @:image("C:/HaxeToolkit/haxe/lib/flixel-ui/2,2,0/assets/images/button_arrow_down.png") #if display private #end class __ASSET__flixel_flixel_ui_img_button_arrow_down_png extends lime.graphics.Image {}

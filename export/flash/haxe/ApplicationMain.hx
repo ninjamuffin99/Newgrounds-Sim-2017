@@ -174,6 +174,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/tomfulpcoe.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/using.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -187,6 +191,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/music/1683_newgrounds_lhm__e.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
+		urls.push ("assets/music/mynamatom.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
@@ -411,7 +419,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1160",
+			build: "1171",
 			company: "",
 			file: "NGSim",
 			fps: 60,
