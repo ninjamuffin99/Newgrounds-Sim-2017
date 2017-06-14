@@ -186,15 +186,8 @@ package;
 	
 	override public function update(elapsed:Float):Void 
 	{
-		/*if (FlxG.keys.justPressed.S)
-		{
-			var StatsState:SubState = new SubState();
-			StatsState.persistentDraw = false;
-			StatsState.persistentUpdate = false;
-			openSubState(StatsState);
-		}*/
-		
-		
+		if (FlxG.keys.justPressed.F)
+			FlxG.fullscreen = !FlxG.fullscreen;
 		updateHUD();
 		
 		super.update(elapsed);
