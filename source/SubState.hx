@@ -80,7 +80,7 @@ class SubState extends FlxSubState
 		transBG.alpha = 0.25;
 		add(transBG);
 		
-		dropShadowFilter = new DropShadowFilter(10, 60, 0, 0.75, 7, 7, 1, 1);
+		dropShadowFilter = new DropShadowFilter(20, 40, 0, 0.75, 15, 15, 0.6, 1);
 		
 		var outlineColor:FlxColor;
 		outlineColor = new FlxColor();
