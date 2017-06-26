@@ -215,7 +215,7 @@ package;
 		bg.makeGraphic(180, 125, FlxColor.BLACK);
 		add(bg);
 		
-		_txtSound = new FlxText(1050, 40, 170, "Use + and - to change volume!", 14);
+		_txtSound = new FlxText(1050, 40, 170, "Use + and - to change volume, 0 to mute!", 14);
 		_txtSound.font = "assets/data/ARIALBD.TTF";
 		add(_txtSound);
 		

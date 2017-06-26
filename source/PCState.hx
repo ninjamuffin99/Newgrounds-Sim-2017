@@ -288,7 +288,7 @@ class PCState extends FlxState
 			Stats.artEXP(0.5);
 			Stats._stamina -= 1;
 			Stats._flashSkill += 0.5;
-			Stats.h += 1;
+			Stats.addHours("animate");
 			Stats.animationProgress(2.5);
 			
 			updateText();
@@ -304,7 +304,7 @@ class PCState extends FlxState
 		{
 			Stats.musicEXP(5);
 			Stats._stamina -= 1;
-			Stats.h += 1;
+			Stats.addHours("music", 1);
 			Stats.songProgress(7);
 			
 			updateText();
@@ -320,7 +320,7 @@ class PCState extends FlxState
 		{
 			Stats.artEXP(1);
 			Stats._artProgress += 20;
-			Stats.h += 1;
+			Stats.addHours("draw", 1);
 			Stats._stamina -= 1;
 			
 			_hud.updateHUD();
@@ -343,7 +343,7 @@ class PCState extends FlxState
 			Stats.programEXP(1);
 			Stats.gameProgress(5);
 			//Stats._artProgress += 20;
-			Stats.h += 1;
+			Stats.addHours("program");
 			Stats._stamina -= 1;
 			
 			_hud.updateHUD();
@@ -366,7 +366,8 @@ class PCState extends FlxState
 		if (Stats._stamina >= 1)
 		{
 			Stats.voiceEXP(1);
-			Stats.h += 1;
+			
+			Stats.addHours("voice", 1);
 			Stats._stamina -= 1;
 			
 			_hud.updateHUD();

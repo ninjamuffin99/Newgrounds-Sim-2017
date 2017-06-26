@@ -57,9 +57,11 @@ class Preloader extends FlxBasePreloader
 		addChild(bg);
 		
 		/*
+		var font:CustomFont = new CustomFont();
+		
 		Font.registerFont(CustomFont);
 		text = new TextField();
-		text.defaultTextFormat = new TextFormat("Arial", 24, 0xffffff, false, false, false, "", "", TextFormatAlign.CENTER);
+		text.defaultTextFormat = new TextFormat(font.fontName, 24, 0xffffff, false, false, false, "", "", TextFormatAlign.CENTER);
 		text.embedFonts = true;
 		text.selectable = false;
 		text.multiline = false;
@@ -86,11 +88,12 @@ class Preloader extends FlxBasePreloader
 		super.create();
 	}
 	
-	/*
+	
 	override function update(Percent:Float):Void
 	{
-		text.text = "Loading " + Std.int(Percent * 100) + "%";
+		//text.text = "Loading " + Std.int(Percent * 100) + "%";
 		super.update(Percent);
+		
 	}
-	*/
+	
 }

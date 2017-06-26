@@ -308,6 +308,36 @@ class Stats
 		_TotalHoursWorked += H;
 	}
 	
+	public static function addHours(Htype:String, H:Int = 1):Void
+	{
+		h += H;
+		
+		if (Htype == "program")
+		{
+			_TotalHoursProgramming += H;
+		}
+		
+		if (Htype == "animate")
+		{
+			_TotalHoursAnimating += H;
+		}
+		
+		if (Htype == "draw")
+		{
+			_TotalHoursDrawing += H;
+		}
+		
+		if (Htype == "music")
+		{
+			_TotalHoursMakingMusic += H;
+		}
+		
+		if (Htype == "voice")
+		{
+			//total hours voice acting get it done
+		}
+	}
+	
 	public static function addDay(D:Int):Void
 	{
 		dd += D;
