@@ -62,6 +62,10 @@ class Stats
 	public static var _timesBanned:Int = 0;
 	public static var _timeOfBan:Int;
 	
+	public static var _isMonthly:Bool;
+	public static var _isYearly:Bool;
+	public static var _supporterCountdown:Int = 0; //in months
+	
 	public static var _sponsoredAnimation:Bool = false;
 	public static var _sponsoredGame:Bool = false;
 	public static var _sponsoredSong:Bool = false;
@@ -191,6 +195,7 @@ class Stats
 		_banned = FlxG.save.data._banned;
 		_timesBanned = FlxG.save.data._timesBanned;
 		_timeOfBan = FlxG.save.data._timeOfBan;
+		
 		
 		_sponsoredAnimation = FlxG.save.data._sponsoredAnimation;
 		_sponsoredGame = FlxG.save.data._sponsoredGame;
@@ -342,6 +347,17 @@ class Stats
 	{
 		dd += D;
 		_TotalDaysPassed += D;
+		
+		if (_isMonthly || _isYearly)
+		{
+			_supporterCountdown -= 1;
+			FlxG.log.add("Days until renew supporter" + _supporterCountdown);
+			if (_supporterCountdown < 0)
+			{
+				_supporterCountdown = 30;
+				_cash -= 3;
+			}
+		}
 	}
 	
 	public static function forumPost(P:Int):Void
