@@ -196,6 +196,10 @@ class Stats
 		_timesBanned = FlxG.save.data._timesBanned;
 		_timeOfBan = FlxG.save.data._timeOfBan;
 		
+		_isMonthly = FlxG.save.data._isMonthly;
+		_isYearly = FlxG.save.data._isYearly;
+		_supporterCountdown = FlxG.save.data._supporterCountdown;
+		
 		
 		_sponsoredAnimation = FlxG.save.data._sponsoredAnimation;
 		_sponsoredGame = FlxG.save.data._sponsoredGame;
@@ -274,6 +278,11 @@ class Stats
 		FlxG.save.data._banned = _banned;
 		FlxG.save.data._timesBanned = _timesBanned;
 		FlxG.save.data._timeOfBan = _timeOfBan;
+		
+		FlxG.save.data._isMonthly = _isMonthly;
+		FlxG.save.data._isYearly = _isYearly;
+		
+		FlxG.save.data._supporterCountdown = _supporterCountdown;
 		
 		FlxG.save.data._animationQuality = _animationQuality;
 		FlxG.save.data._artQuality = _artQuality;
