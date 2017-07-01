@@ -20,6 +20,7 @@ class NewGroundsState extends FlxState
 	private var _btnBaP:FlxUIButton;
 	
 	private var _supporterMonthly:FlxUICheckBox;
+	private var _supporterYearly:FlxUICheckBox;
 	
 	private var _hud:HUD;
 	private var _notif:Notifacations;
@@ -36,6 +37,9 @@ class NewGroundsState extends FlxState
 		
 		_supporterMonthly = new FlxUICheckBox(800, 616, null, null, "Monthly", 100, null, clickMonthly); 
 		add(_supporterMonthly);
+		
+		_supporterYearly = new FlxUICheckBox(900, 616, null, null, "Yearly", 100, null, clickYearly);
+		add(_supporterYearly);
 		
 		var featuredFont:String = "assets/data/FeaturedItem.ttf";
 		
@@ -75,6 +79,9 @@ class NewGroundsState extends FlxState
 			FlxG.switchState(new PCState());
 		}
 		
+		Stats._isMonthly = _supporterMonthly.checked;
+		Stats._isYearly = _supporterYearly.checked;
+		
 		super.update(elapsed);
 	}
 	
@@ -85,6 +92,28 @@ class NewGroundsState extends FlxState
 			
 			FlxG.log.add("you are a supporter");
 			Stats._supporters += 1;
+			_supporterYearly.checked = false;
+			Stats._cash -= 3;
+			Stats._supporterCountdown += 30;
+		}
+		else
+		{
+			
+			FlxG.log.add("you are not a supporter");
+			Stats._supporters -= 1;
+		}
+	}
+	
+	private function clickYearly():Void
+	{
+		if (_supporterYearly.checked)
+		{
+			
+			FlxG.log.add("you are a supporter");
+			Stats._supporters += 1;
+			_supporterMonthly.checked = false;
+			Stats._cash -= 25;
+			Stats._supporterCountdown += 348;
 		}
 		else
 		{

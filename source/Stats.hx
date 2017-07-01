@@ -62,6 +62,10 @@ class Stats
 	public static var _timesBanned:Int = 0;
 	public static var _timeOfBan:Int;
 	
+	public static var _isMonthly:Bool;
+	public static var _isYearly:Bool;
+	public static var _supporterCountdown:Int = 0; //in months
+	
 	public static var _sponsoredAnimation:Bool = false;
 	public static var _sponsoredGame:Bool = false;
 	public static var _sponsoredSong:Bool = false;
@@ -192,6 +196,11 @@ class Stats
 		_timesBanned = FlxG.save.data._timesBanned;
 		_timeOfBan = FlxG.save.data._timeOfBan;
 		
+		_isMonthly = FlxG.save.data._isMonthly;
+		_isYearly = FlxG.save.data._isYearly;
+		_supporterCountdown = FlxG.save.data._supporterCountdown;
+		
+		
 		_sponsoredAnimation = FlxG.save.data._sponsoredAnimation;
 		_sponsoredGame = FlxG.save.data._sponsoredGame;
 		_sponsoredSong = FlxG.save.data._sponsoredSong;
@@ -270,6 +279,11 @@ class Stats
 		FlxG.save.data._timesBanned = _timesBanned;
 		FlxG.save.data._timeOfBan = _timeOfBan;
 		
+		FlxG.save.data._isMonthly = _isMonthly;
+		FlxG.save.data._isYearly = _isYearly;
+		
+		FlxG.save.data._supporterCountdown = _supporterCountdown;
+		
 		FlxG.save.data._animationQuality = _animationQuality;
 		FlxG.save.data._artQuality = _artQuality;
 		FlxG.save.data._gameQuality = _gameQuality;
@@ -308,10 +322,51 @@ class Stats
 		_TotalHoursWorked += H;
 	}
 	
+	public static function addHours(Htype:String, H:Int = 1):Void
+	{
+		h += H;
+		
+		if (Htype == "program")
+		{
+			_TotalHoursProgramming += H;
+		}
+		
+		if (Htype == "animate")
+		{
+			_TotalHoursAnimating += H;
+		}
+		
+		if (Htype == "draw")
+		{
+			_TotalHoursDrawing += H;
+		}
+		
+		if (Htype == "music")
+		{
+			_TotalHoursMakingMusic += H;
+		}
+		
+		if (Htype == "voice")
+		{
+			//total hours voice acting get it done
+		}
+	}
+	
 	public static function addDay(D:Int):Void
 	{
 		dd += D;
 		_TotalDaysPassed += D;
+		
+		if (_isMonthly || _isYearly)
+		{
+			_supporterCountdown -= 1;
+			FlxG.log.add("Days until renew supporter" + _supporterCountdown);
+			if (_supporterCountdown < 0)
+			{
+				_supporterCountdown = 30;
+				_cash -= 3;
+			}
+		}
 	}
 	
 	public static function forumPost(P:Int):Void

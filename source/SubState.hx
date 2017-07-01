@@ -1,5 +1,6 @@
 package;
 
+import flash.filters.BitmapFilter;
 import flash.filters.DropShadowFilter;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -31,6 +32,10 @@ class SubState extends FlxSubState
 	private var _statsVisible:Bool = false;
 	
 	private var _hudTitle:FlxText;
+	
+	//filters
+	private var bgShad:FlxFilterFrames;
+	
 	
 	//BASE SKILLS TEXT
 	private var _SkillText:FlxText;
@@ -75,7 +80,7 @@ class SubState extends FlxSubState
 		transBG.alpha = 0.25;
 		add(transBG);
 		
-		dropShadowFilter = new DropShadowFilter(10, 60, 0, 0.75, 7, 7, 1, 1);
+		dropShadowFilter = new DropShadowFilter(20, 40, 0, 0.75, 15, 15, 0.6, 1);
 		
 		var outlineColor:FlxColor;
 		outlineColor = new FlxColor();
@@ -93,6 +98,9 @@ class SubState extends FlxSubState
 		bg = new FlxSprite(0, 52);
 		bg.makeGraphic(FlxG.width - 105, 350, bgColor);
 		bg.screenCenter(X);
+		
+		bgShad = createFilterFrames(bg, dropShadowFilter);
+		
 		
 		movieOutline = new FlxSprite(FlxG.width - 1201, FlxG.height - 651);
 		movieOutline.makeGraphic(502, 157);
@@ -250,5 +258,18 @@ class SubState extends FlxSubState
 		Stats._programSkill = FlxMath.roundDecimal(Stats._programSkill, decimalPlaces);
 		Stats._voiceSkill = FlxMath.roundDecimal(Stats._voiceSkill, decimalPlaces);
 		Stats._writingSkill = FlxMath.roundDecimal(Stats._writingSkill, decimalPlaces);
+	}
+
+	function createFilterFrames(sprite:FlxSprite, filter:BitmapFilter)
+	{
+		var filterFrames = FlxFilterFrames.fromFrames(
+				sprite.frames, 10, 10, [filter]);
+		updateFilter(sprite, filterFrames);
+		return filterFrames;
+	}
+	
+	function updateFilter(spr:FlxSprite, sprFilter:FlxFilterFrames)
+	{
+		sprFilter.applyToSprite(spr, false, true);
 	}
 }

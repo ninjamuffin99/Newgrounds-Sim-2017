@@ -40,7 +40,7 @@ class PlayState extends FlxState
 		
 		_notifacations = new Notifacations();
 		add(_notifacations);
-		//_notifacations._newText(0, 0, "");
+		
 		
 		
 		_hints = new FlxText(1000, 600, 0, "Press S to bring up stats\nEscape to return to the previous screen\nEvery month you'll lose 1400$ \nfor monthly bills and whatnot\nThese hints can be turned of in the options", 14);
