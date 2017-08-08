@@ -60,6 +60,7 @@ class FileSelect extends FlxState
 			_profileInfo[i].color = FlxColor.WHITE;
 			add(_profileInfo[i]);
 		}
+		
 		*/
 		
 		super.create();
