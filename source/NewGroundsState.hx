@@ -124,14 +124,7 @@ class NewGroundsState extends FlxState
 	}
 	
 	private function clickForum():Void
-	{
-		/* old substate things
-		var forumSubState:SubState = new SubState();
-		forumSubState.persistentDraw = false;
-		forumSubState.persistentUpdate = false;
-		openSubState(forumSubState);
-		*/
-		
+	{	
 		FlxG.switchState(new ForumState());
 	}
 
@@ -156,6 +149,7 @@ class NewGroundsState extends FlxState
 		B = FlxG.random.int(0, B);
 		P = FlxG.random.int(0, P);
 		
+		_notif._newText(0, 0, "");
 		_notif._newText(660, 270, "You blammed " + B + "flashes and protected " + P, 16, FlxColor.WHITE, 0.6);
 		
 		Stats._blams += B;
