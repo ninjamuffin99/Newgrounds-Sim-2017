@@ -119,6 +119,7 @@ class PlayState extends FlxState
 	
 	private function clickWork():Void
 	{
+		_notifacations._newText(0, 0, "");
 		var _workable:Bool = false;
 		if (Stats.h >= 8 && Stats.h <= 17)
 		{
@@ -148,7 +149,7 @@ class PlayState extends FlxState
 	
 	private function sponsoredStuff():Void
 	{
-		if (Stats._ngCash >= 7000 && Stats._fans >= 50) //also eventually make it so you have to have so many fans to get sponsored)
+		if (Stats._ngCash >= 7000 && Stats._fans >= 50)
 		{
 			var _randomSponsor:Int;
 			

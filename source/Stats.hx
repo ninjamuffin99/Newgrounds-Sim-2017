@@ -56,8 +56,8 @@ class Stats
 	public static var _forumPosts:Int = 0;
 	public static var _blams:Int = 0;
 	public static var _protects:Int = 0;
-	public static var _supporters:Int = 1700;
-	public static var _ngCash:Int = 7000;//3900;
+	public static var _supporters:Int = 1669;
+	public static var _ngCash:Int = 2733;
 	public static var _banned:Bool;
 	public static var _timesBanned:Int = 0;
 	public static var _timeOfBan:Int;
