@@ -8,8 +8,11 @@ import flixel.FlxSubState;
 import flixel.addons.text.FlxTypeText;
 import flixel.addons.ui.FlxUIButton;
 import flixel.graphics.frames.FlxFilterFrames;
+import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
 import source.Stats;
@@ -68,6 +71,7 @@ class SubState extends FlxSubState
 	
 	//FOnt
 	private var _font:String = "assets/data/ARIALBD.TTF";
+	private var _grpStats:FlxSpriteGroup;
 	
 	
 	var dropShadowFilter:DropShadowFilter;
@@ -128,7 +132,32 @@ class SubState extends FlxSubState
 		add(_myNG);
 		add(_btnSource);
 		
+		
+		
+		_grpStats = new FlxSpriteGroup();
+		
+		_grpStats.add(bgOutline);
+		_grpStats.add(bg);
+		_grpStats.add(movieOutline);
+		_grpStats.add(movieBG);
+		_grpStats.add(miscBG);
+		_grpStats.add(miscBG2);
+		_grpStats.add(_reset);
+		_grpStats.add(_myNG);
+		
 		createText();
+		
+		_grpStats.add(_btnSource);
+		_grpStats.add(_hudTitle);
+		_grpStats.add(_SkillText);
+		_grpStats.add(_LevelText);
+		_grpStats.add(_miscStatsText);
+		_grpStats.add(_ngStats);
+		
+		_grpStats.y = FlxG.height;
+		FlxTween.tween(_grpStats, {y: 52}, 0.5, {ease:FlxEase.backOut});
+		
+		
     }
 	
 	private function createText():Void
@@ -214,35 +243,20 @@ class SubState extends FlxSubState
 		var X:Int = 680;
 		var Y:Int = 300;
 		
-		_reset = new FlxButton(X, Y + 20, "Return To Title", clickReset);
+		_reset = new FlxButton(X, Y + 20, "Return To Title", function(){FlxG.resetGame();});
 		
 		X += 95;
 		
-		_myNG = new FlxButton(X, Y, "", clickMyNG);
+		_myNG = new FlxButton(X, Y, "", function(){FlxG.openURL("http://ninjamuffin99.newgrounds.com/"); });
 		_myNG.loadGraphic("assets/images/NG_LOGO.png", false, 64, 64);
 		
 		X += 85;
 		
-		_btnSource = new FlxButton(X, Y, "", clickSource);
+		_btnSource = new FlxButton(X, Y, "", function(){FlxG.openURL("https://github.com/ninjamuffin99/Newgrounds-Sim-2017");});
 		_btnSource.loadGraphic("assets/images/GitHub-Mark-Light-64px.png", false, 64, 64);
 	}
 	
 	//BUTTON STUFF
-	private function clickReset():Void
-	{
-		FlxG.resetGame();
-	}
-	
-	private function clickMyNG():Void
-	{
-		FlxG.openURL("http://ninjamuffin99.newgrounds.com/");
-	}
-	
-	private function clickSource():Void
-	{
-		FlxG.openURL("https://github.com/ninjamuffin99/Newgrounds-Sim-2017");
-	}
-	
 	private function clickClose():Void
 	{
 		close();

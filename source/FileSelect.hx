@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.ui.FlxButtonPlus;
 import flixel.addons.ui.FlxUIButton;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import source.Stats;
@@ -19,6 +20,8 @@ class FileSelect extends FlxState
 	private var _file1:FlxUIButton;
 	private var _file2:FlxUIButton;
 	private var _file3:FlxUIButton;
+	
+	private var _profileInfo = [];
 	
 	private var _delete:FlxUIButton;
 	private var _delete2:FlxUIButton;
@@ -48,6 +51,17 @@ class FileSelect extends FlxState
 		_notif._newText(0, 0, "");
 		
 		Stats._loadFade = true;
+		
+		/*
+		var files:Int = 3;
+		for (i in 0...files)
+		{
+			_profileInfo[i] = new FlxText(_file1.x - 70, _file1.y + (i * 100), 0, "test", 10);
+			_profileInfo[i].color = FlxColor.WHITE;
+			add(_profileInfo[i]);
+		}
+		
+		*/
 		
 		super.create();
 	}
